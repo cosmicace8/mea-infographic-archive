@@ -1,1 +1,38 @@
-<html><body><h1>Test</h1></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEA論文 Infographic Archive</title>
+<style>
+  body { font-family: -apple-system,'Hiragino Sans',sans-serif; max-width:1000px; margin:0 auto; padding:20px; background:#f8f9fa; }
+  h1 { color:#1a237e; border-bottom:3px solid #1a237e; padding-bottom:10px; }
+  input { width:100%; padding:10px; font-size:16px; border:1px solid #ddd; border-radius:8px; margin-bottom:20px; box-sizing:border-box; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  th { background:#1a237e; color:#fff; padding:12px 16px; text-align:left; }
+  td { padding:12px 16px; border-bottom:1px solid #eee; }
+  tr:hover { background:#f0f4ff; }
+  a { color:#1a237e; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .count { color:#666; font-size:14px; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<h1>MEA論文 Infographic Archive</h1>
+<p class="count">全 0 件</p>
+<input type="text" id="search" placeholder="キーワードで検索（例: spike sorting, HD-MEA, organoid）" oninput="filterTable()">
+<table>
+  <thead><tr><th>日付</th><th>論文タイトル</th><th>キーワード</th></tr></thead>
+  <tbody id="tableBody"></tbody>
+</table>
+<script>
+function filterTable() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.paper-row').forEach(row => {
+    const text = (row.dataset.title + ' ' + row.dataset.keywords).toLowerCase();
+    row.style.display = text.includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
