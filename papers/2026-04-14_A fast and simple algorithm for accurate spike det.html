@@ -1,0 +1,176 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 800px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .hd-mea-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .title-jp {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .title-en {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #6c757d;
+        }
+        .background { border-left: 4px solid #17a2b8; }
+        .method { border-left: 4px solid #28a745; }
+        .result { border-left: 4px solid #ffc107; }
+        .significance { border-left: 4px solid #dc3545; }
+        .keywords {
+            padding: 0 30px 20px 30px;
+        }
+        .keywords h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #495057;
+        }
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keyword {
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hd-mea-badge">HD-MEA使用</div>
+            <div class="title-jp">HD-MEA記録における正確なスパイク検出のための高速かつシンプルなアルゴリズム</div>
+            <div class="title-en">A fast and simple algorithm for accurate spike detection in HD-MEA recordings.</div>
+            <div class="meta">Zegers-Delgado J, Renegar N, Pathirage K, Horiuchi TK, Abshire P, Araneda RC. | J Neurosci Methods. 2026 Jul</div>
+        </div>
+        
+        <div class="grid">
+            <div class="card background">
+                <h3>研究背景</h3>
+                <p>高密度マルチ電極アレイ（HD-MEA）を用いた神経記録において、膨大なデータから正確にスパイクを検出することは重要な課題です。従来手法では計算量が多く、リアルタイム処理に課題がありました。</p>
+            </div>
+            
+            <div class="card method">
+                <h3>研究手法</h3>
+                <p>HD-MEAデータに特化した高速スパイク検出アルゴリズム（fast spike detection algorithm）を開発。シンプルな構造でありながら高精度な検出性能を実現する新しいアプローチを提案しました。</p>
+            </div>
+            
+            <div class="card result">
+                <h3>研究結果</h3>
+                <p>開発したアルゴリズムは従来手法と比較して処理速度が大幅に向上し、同時に高い検出精度を維持することが確認されました。HD-MEAの大容量データ処理に適した性能を示しました。</p>
+            </div>
+            
+            <div class="card significance">
+                <h3>研究意義</h3>
+                <p>本研究で開発された高速アルゴリズムにより、HD-MEAを用いた神経活動の解析効率が大幅に向上し、リアルタイム神経信号処理や大規模神経回路研究への応用が期待されます。</p>
+            </div>
+        </div>
+        
+        <div class="keywords">
+            <h3>キーワード</h3>
+            <div class="keyword-list">
+                <span class="keyword">spike detection</span>
+                <span class="keyword">HD-MEA</span>
+                <span class="keyword">algorithm</span>
+                <span class="keyword">neural recording</span>
+                <span class="keyword">signal processing</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41864567/" target="_blank">論文詳細を見る</a>
+        </div>
+    </div>
+</body>
+</html>
+```
