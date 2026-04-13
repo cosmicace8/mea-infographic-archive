@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>研究論文 Infographic</title>
+    <title>論文インフォグラフィック</title>
     <style>
-        body {
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
             font-family: -apple-system, 'Hiragino Sans', sans-serif;
             background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            line-height: 1.6;
+            padding: 20px;
         }
         .container {
             width: 800px;
-            background: white;
+            margin: 0 auto;
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         .header {
@@ -27,71 +29,66 @@
             color: white;
             padding: 30px;
             text-align: center;
-            position: relative;
-        }
-        .hd-mea-badge {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
         }
         .title-jp {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 12px;
-            line-height: 1.3;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
         .title-en {
             font-size: 16px;
             opacity: 0.9;
-            margin-bottom: 20px;
-            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
-        .meta {
+        .meta-info {
             font-size: 14px;
             opacity: 0.8;
         }
-        .content {
-            padding: 30px;
-        }
-        .cards {
+        .cards-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 30px;
+            padding: 30px;
         }
         .card {
-            padding: 25px;
-            border-radius: 10px;
+            background: white;
             border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            height: 180px;
         }
-        .card-background { background-color: #fff3cd; border-color: #ffeaa7; }
-        .card-method { background-color: #d1ecf1; border-color: #74b9ff; }
-        .card-result { background-color: #d4edda; border-color: #00b894; }
-        .card-significance { background-color: #f8d7da; border-color: #e17055; }
         .card h3 {
+            color: #495057;
             font-size: 18px;
+            margin-bottom: 12px;
             font-weight: bold;
-            margin: 0 0 15px 0;
-            color: #2d3436;
         }
         .card p {
+            color: #6c757d;
             font-size: 14px;
-            color: #636e72;
-            margin: 0;
+            line-height: 1.6;
+        }
+        .card.background {
+            border-left: 4px solid #17a2b8;
+        }
+        .card.method {
+            border-left: 4px solid #28a745;
+        }
+        .card.result {
+            border-left: 4px solid #ffc107;
+        }
+        .card.significance {
+            border-left: 4px solid #dc3545;
         }
         .keywords {
-            margin-bottom: 25px;
+            padding: 0 30px 20px 30px;
         }
         .keywords h4 {
+            color: #495057;
             font-size: 16px;
-            color: #2d3436;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .keyword-pills {
             display: flex;
@@ -99,21 +96,21 @@
             gap: 8px;
         }
         .pill {
-            background: #6c5ce7;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
         }
         .footer {
-            background: #2d3436;
-            color: white;
+            background-color: #f8f9fa;
             padding: 20px 30px;
             text-align: center;
+            border-top: 1px solid #dee2e6;
         }
         .footer a {
-            color: #74b9ff;
+            color: #007bff;
             text-decoration: none;
             font-size: 14px;
         }
@@ -125,53 +122,46 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="hd-mea-badge">HD-MEA使用</div>
-            <h1 class="title-jp">心筋細胞におけるフェロプトーシスの堅牢で信頼性の高い電気生理学的バイオセンシングを用いた定量的評価</h1>
-            <p class="title-en">Quantitative Assessment of Ferroptosis in Cardiomyocytes Using Robust and Reliable Electrophysiological Biosensing</p>
-            <div class="meta">
-                S Hua, S Tong, Y Hu, CW He, Y Bo, K Li, W Weng | ACS Sensors | 2026
+            <div class="title-jp">心筋細胞におけるフェロトーシスの堅牢で信頼性の高い電気生理学的バイオセンシングを用いた定量評価</div>
+            <div class="title-en">Quantitative Assessment of Ferroptosis in Cardiomyocytes Using Robust and Reliable Electrophysiological Biosensing.</div>
+            <div class="meta-info">Hua S, Tong S, Hu Y, He CW, Bo Y, Li K, Weng W, Chen P, Xu A, Wang L, Zhang Y, Cui T, Wang Y, Hu N, Wang Z. | ACS Sens. | 2026 Apr 6</div>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card background">
+                <h3>背景</h3>
+                <p>フェロトーシスは鉄依存性の細胞死メカニズムであり、心疾患において重要な役割を果たす。心筋細胞におけるフェロトーシスの定量的評価は、心疾患の理解と治療法開発において極めて重要である。</p>
+            </div>
+            
+            <div class="card method">
+                <h3>手法</h3>
+                <p>電気生理学的バイオセンシング技術を用いて、心筋細胞のフェロトーシス過程をリアルタイムで監視。堅牢で信頼性の高い測定システムを構築し、細胞の電気的活動の変化を通じてフェロトーシスを定量化した。</p>
+            </div>
+            
+            <div class="card result">
+                <h3>結果</h3>
+                <p>開発した電気生理学的バイオセンサーにより、心筋細胞のフェロトーシスを高精度かつ定量的に評価することが可能となった。従来の手法と比較して、より感度が高く再現性の高い測定が実現された。</p>
+            </div>
+            
+            <div class="card significance">
+                <h3>意義</h3>
+                <p>本研究で確立された手法は、心疾患におけるフェロトーシスの役割解明に貢献し、新たな治療標的の発見や薬剤評価への応用が期待される。心筋保護戦略の開発にも重要な知見を提供する。</p>
             </div>
         </div>
-
-        <div class="content">
-            <div class="cards">
-                <div class="card card-background">
-                    <h3>背景</h3>
-                    <p>心筋細胞におけるフェロプトーシス（鉄依存性細胞死）の定量的評価は、心疾患の理解と治療法開発において重要な課題となっている。従来の評価手法では、リアルタイムかつ高精度な測定が困難であった。</p>
-                </div>
-
-                <div class="card card-method">
-                    <h3>手法</h3>
-                    <p>HD-MEAを活用した電気生理学的バイオセンシングシステムを開発。心筋細胞の電気的活動をリアルタイムで高解像度測定し、フェロプトーシス進行過程における電気生理学的変化を定量化した。</p>
-                </div>
-
-                <div class="card card-result">
-                    <h3>結果</h3>
-                    <p>開発したバイオセンシングシステムにより、フェロプトーシス誘導後の心筋細胞において特徴的な電気生理学的変化パターンを検出することに成功。従来手法と比較して高い感度と再現性を示した。</p>
-                </div>
-
-                <div class="card card-significance">
-                    <h3>意義</h3>
-                    <p>本研究により確立された定量的評価手法は、心疾患における細胞死メカニズムの解明に貢献し、新たな治療標的の同定や薬剤スクリーニングへの応用が期待される。</p>
-                </div>
-            </div>
-
-            <div class="keywords">
-                <h4>キーワード</h4>
-                <div class="keyword-pills">
-                    <span class="pill">microelectrode array</span>
-                    <span class="pill">ferroptosis</span>
-                    <span class="pill">cardiomyocytes</span>
-                    <span class="pill">electrophysiological recording</span>
-                    <span class="pill">biosensing</span>
-                </div>
+        
+        <div class="keywords">
+            <h4>キーワード</h4>
+            <div class="keyword-pills">
+                <span class="pill">ferroptosis</span>
+                <span class="pill">cardiomyocytes</span>
+                <span class="pill">electrophysiological biosensing</span>
+                <span class="pill">quantitative assessment</span>
+                <span class="pill">cell death</span>
             </div>
         </div>
-
+        
         <div class="footer">
-            <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.5c04701" target="_blank">
-                論文URL: https://pubs.acs.org/doi/abs/10.1021/acssensors.5c04701
-            </a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41941288/" target="_blank">論文URL: https://pubmed.ncbi.nlm.nih.gov/41941288/</a>
         </div>
     </div>
 </body>
