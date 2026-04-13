@@ -1,0 +1,204 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 800px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hd-mea-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .title-jp {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .title-en {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+        }
+        
+        .card.background { border-left-color: #3498db; }
+        .card.method { border-left-color: #e74c3c; }
+        .card.result { border-left-color: #f39c12; }
+        .card.significance { border-left-color: #27ae60; }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .card-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #5a6c7d;
+        }
+        
+        .keywords {
+            padding: 20px 30px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .keywords-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .keyword {
+            background: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="hd-mea-badge">HD-MEA使用</div>
+            <h1 class="title-jp">小皮質パッチ内における言語階層の時間構造</h1>
+            <p class="title-en">Temporal structure of the language hierarchy within small cortical patches</p>
+            <p class="meta">J Gadonneix, M Zhang, J Rapin, L Evanson | arXiv preprint arXiv | 2026</p>
+        </header>
+        
+        <div class="grid">
+            <div class="card background">
+                <h3 class="card-title">背景</h3>
+                <p class="card-content">
+                    皮質の小さなパッチにおける言語処理の時間的階層構造の理解は、脳の言語機能の基本的メカニズムを解明する上で重要である。従来の研究では、音韻表現やニューラルエンコーディングの詳細な時間動態については十分に検討されていなかった。
+                </p>
+            </div>
+            
+            <div class="card method">
+                <h3 class="card-title">手法</h3>
+                <p class="card-content">
+                    高密度マイクロ電極アレイ（HD-MEA）を用いて皮質パッチからの神経活動を記録し、言語刺激に対する時間的応答パターンを解析した。音韻レベルから語彙レベルまでの階層的処理を定量的に評価した。
+                </p>
+            </div>
+            
+            <div class="card result">
+                <h3 class="card-title">結果</h3>
+                <p class="card-content">
+                    小皮質パッチ内で言語階層の異なるレベルが時間的に分離して処理されることを発見した。音韻情報は早期に、より抽象的な言語情報は後期に処理される明確な時間構造が観察された。
+                </p>
+            </div>
+            
+            <div class="card significance">
+                <h3 class="card-title">意義</h3>
+                <p class="card-content">
+                    本研究は皮質レベルでの言語処理の時間動態を明らかにし、言語理解の神経基盤に関する新たな知見を提供する。これらの発見は言語障害の理解や脳機能インターフェースの開発に重要な示唆を与える。
+                </p>
+            </div>
+        </div>
+        
+        <div class="keywords">
+            <h3 class="keywords-title">キーワード</h3>
+            <div class="keyword-list">
+                <span class="keyword">microelectrode array</span>
+                <span class="keyword">cortical patches</span>
+                <span class="keyword">language hierarchy</span>
+                <span class="keyword">phonetic representation</span>
+                <span class="keyword">neural encoding</span>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <a href="https://arxiv.org/pdf/2604.03021" target="_blank">論文URL: https://arxiv.org/pdf/2604.03021</a>
+        </footer>
+    </div>
+</body>
+</html>
+```
