@@ -1,0 +1,156 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Infographic</title>
+    <style>
+        body {
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .title-jp {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .title-en {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .content {
+            padding: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        .card-background { border-left-color: #28a745; }
+        .card-method { border-left-color: #007bff; }
+        .card-result { border-left-color: #fd7e14; }
+        .card-significance { border-left-color: #dc3545; }
+        .card-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        .card-content {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #6c757d;
+        }
+        .keywords {
+            margin: 25px 0;
+        }
+        .keywords-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #495057;
+        }
+        .keyword {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 3px;
+        }
+        .footer {
+            background: #495057;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-jp">オルガノイドを用いた腫瘍・免疫細胞相互作用の革新的モデル：免疫療法への応用</div>
+            <div class="title-en">Organoids as an Innovative Model for Tumor and Immune Cell Interactions: Implications for Immunotherapy</div>
+            <div class="meta">A Mostafa, SM Khalil, AA Shaheraldin, HA Alahmadi | Medicine Applications in | 2026</div>
+        </div>
+        
+        <div class="content">
+            <div class="grid">
+                <div class="card card-background">
+                    <div class="card-title">背景</div>
+                    <div class="card-content">従来の2D細胞培養や動物モデルでは腫瘍と免疫細胞の複雑な相互作用を十分に再現できない。オルガノイド技術は3次元的な組織構造を形成し、より生体に近い環境での免疫療法研究を可能にする革新的なモデルシステムとして注目されている。</div>
+                </div>
+                
+                <div class="card card-method">
+                    <div class="card-title">手法</div>
+                    <div class="card-content">腫瘍オルガノイドと免疫細胞の共培養システムを構築し、機械学習アルゴリズムを用いて細胞間相互作用を解析。オルガノイドインテリジェンス技術により、免疫応答パターンの予測モデルを開発し、免疫療法薬の効果を評価した。</div>
+                </div>
+                
+                <div class="card card-result">
+                    <div class="card-title">結果</div>
+                    <div class="card-content">オルガノイドモデルは従来のモデルと比較して、臨床データとの相関性が高く、免疫療法応答の予測精度が向上した。特にT細胞活性化と腫瘍細胞死滅のパターンを効果的に再現し、個別化医療への応用可能性を示した。</div>
+                </div>
+                
+                <div class="card card-significance">
+                    <div class="card-title">意義</div>
+                    <div class="card-content">本研究は免疫療法開発における新しいパラダイムを提示し、より効果的で副作用の少ない治療法開発に貢献する。オルガノイドベースの薬剤スクリーニングは創薬コストの削減と開発期間の短縮を実現し、個別化免疫療法の実用化を加速する。</div>
+                </div>
+            </div>
+            
+            <div class="keywords">
+                <div class="keywords-title">キーワード</div>
+                <span class="keyword">organoids</span>
+                <span class="keyword">tumor immunology</span>
+                <span class="keyword">immunotherapy</span>
+                <span class="keyword">machine learning</span>
+                <span class="keyword">organoid intelligence</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-032-12705-1_4" target="_blank">論文URL: https://link.springer.com/chapter/10.1007/978-3-032-12705-1_4</a>
+        </div>
+    </div>
+</body>
+</html>
+```
