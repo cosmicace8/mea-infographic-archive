@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        body {
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .hd-mea-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .title-jp {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .title-en {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .card {
+            padding: 30px;
+            border-right: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .card:nth-child(even) {
+            border-right: none;
+        }
+        .card:nth-child(3), .card:nth-child(4) {
+            border-bottom: none;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #495057;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        .card-content {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .keywords {
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .keywords-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        .keyword-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pill {
+            background: #667eea;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        .footer a {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hd-mea-badge">HD-MEA使用</div>
+            <div class="title-jp">マイクロ・マクロ接点を持つハイブリッドアレイによる術中記録における高周波振動</div>
+            <div class="title-en">High-frequency oscillations in intraoperative recordings from hybrid arrays with micro- and macrocontacts.</div>
+            <div class="meta">
+                Schmitz C, Barth KJ, Wang C, et al.<br>
+                J Neural Eng. 2026 Apr 10;23(2)
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">背景</div>
+                <div class="card-content">
+                    術中神経記録において、高周波振動（HFO）の検出と解析は脳機能の理解において重要である。従来の電極では空間分解能と記録範囲のトレードオフが存在していた。マイクロ電極とマクロ電極を組み合わせたハイブリッドアレイによる新しいアプローチが求められている。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">手法</div>
+                <div class="card-content">
+                    HD-MEAシステムを用いてマイクロ接点とマクロ接点を持つハイブリッドアレイを開発。術中環境での高周波振動の記録と解析を実施。異なる電極タイプから得られる信号の特性を比較解析し、空間的・時間的パターンを詳細に調査した。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">結果</div>
+                <div class="card-content">
+                    ハイブリッドアレイにより、マイクロレベルでの詳細な高周波振動とマクロレベルでの広域活動を同時記録することに成功。異なる周波数帯域での神経活動パターンを明確に分離でき、従来手法と比較して優れた空間分解能と記録範囲を実現した。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">意義</div>
+                <div class="card-content">
+                    術中神経モニタリングの精度向上に寄与し、脳機能マッピングや病態解明に新たな可能性を提供。ハイブリッドアレイ技術は今後の神経インターフェース開発における重要な基盤技術となる可能性が高く、臨床応用への道筋を示した。
+                </div>
+            </div>
+        </div>
+        
+        <div class="keywords">
+            <div class="keywords-title">キーワード</div>
+            <div class="keyword-pills">
+                <span class="pill">high-frequency oscillations</span>
+                <span class="pill">intraoperative recording</span>
+                <span class="pill">hybrid arrays</span>
+                <span class="pill">microelectrodes</span>
+                <span class="pill">neural interfaces</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41861407/" target="_blank">論文URL: https://pubmed.ncbi.nlm.nih.gov/41861407/</a>
+        </div>
+    </div>
+</body>
+</html>
