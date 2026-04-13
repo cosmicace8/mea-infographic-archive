@@ -1,23 +1,24 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文インフォグラフィック</title>
+    <title>Research Infographic</title>
     <style>
         body {
             font-family: -apple-system, 'Hiragino Sans', sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f8f9fa;
-            line-height: 1.6;
+            display: flex;
+            justify-content: center;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
+            width: 800px;
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         .header {
@@ -25,153 +26,145 @@
             color: white;
             padding: 30px;
             text-align: center;
-            position: relative;
-        }
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #28a745;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
         }
         .title-jp {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.3;
         }
         .title-en {
-            font-size: 18px;
+            font-size: 16px;
+            margin-bottom: 15px;
             opacity: 0.9;
-            margin-bottom: 20px;
             font-style: italic;
         }
         .meta {
             font-size: 14px;
             opacity: 0.8;
         }
-        .grid {
+        .content {
+            padding: 30px;
+        }
+        .cards-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
+            gap: 20px;
+            margin-bottom: 25px;
         }
         .card {
-            padding: 30px;
-            border-right: 1px solid #e9ecef;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .card:nth-child(2n) {
-            border-right: none;
-        }
-        .card:nth-child(3), .card:nth-child(4) {
-            border-bottom: none;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid;
         }
         .card h3 {
-            color: #495057;
+            margin: 0 0 12px 0;
             font-size: 18px;
-            margin: 0 0 15px 0;
             font-weight: bold;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 8px;
-            display: inline-block;
         }
         .card p {
-            color: #6c757d;
             margin: 0;
+            line-height: 1.5;
             font-size: 14px;
+            color: #555;
+        }
+        .card.background {
+            border-left-color: #e74c3c;
+        }
+        .card.method {
+            border-left-color: #3498db;
+        }
+        .card.result {
+            border-left-color: #f39c12;
+        }
+        .card.significance {
+            border-left-color: #27ae60;
         }
         .keywords {
-            padding: 30px;
-            background: #f8f9fa;
-            text-align: center;
+            margin-bottom: 25px;
         }
-        .keywords h3 {
-            color: #495057;
-            margin: 0 0 20px 0;
-            font-size: 18px;
+        .keywords h4 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            color: #333;
         }
-        .keyword-list {
+        .keyword-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+            gap: 8px;
         }
-        .keyword {
-            background: #667eea;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
+        .pill {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
         }
         .footer {
-            background: #343a40;
+            background-color: #343a40;
             color: white;
             padding: 20px;
             text-align: center;
         }
         .footer a {
-            color: #80bdff;
+            color: #adb5bd;
             text-decoration: none;
             font-size: 14px;
         }
         .footer a:hover {
-            text-decoration: underline;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="badge">HD-MEA使用</div>
-            <h1 class="title-jp">シプロフロキサシン曝露はヒト大脳皮質オルガノイドにおける神経新生とE/Iバランスを障害する</h1>
-            <h2 class="title-en">Ciprofloxacin exposure impairs neurogenesis and E/I balance in human cortical organoids.</h2>
-            <div class="meta">
-                Liu H, Jiang L, Bu Q, Sun M, Zhao Y, He Y, Zhou Y, Han S, Dai Y, Zhang D, Li H, Wang L, Xiao Y, Qin F, Chen Y, Liu C, Qin M, Wang H, Tian J, Zhao Y, Cen X.<br>
-                Neuropharmacology. 2026 Jul 1;292:110931
-            </div>
+            <div class="title-jp">シプロフロキサシンは大脳皮質オルガノイドにおいて神経新生とE/I バランスを障害する</div>
+            <div class="title-en">Ciprofloxacin exposure impairs neurogenesis and E/I balance in human cortical organoids.</div>
+            <div class="meta">Liu H, et al. | Neuropharmacology | 2026</div>
         </div>
         
-        <div class="grid">
-            <div class="card">
-                <h3>背景</h3>
-                <p>シプロフロキサシンは広く使用される抗菌薬ですが、その神経毒性への懸念が高まっています。特に発達中の神経系への影響について、ヒト大脳皮質オルガノイドを用いた詳細な検討が必要とされています。</p>
+        <div class="content">
+            <div class="cards-grid">
+                <div class="card background">
+                    <h3>背景</h3>
+                    <p>フルオロキノロン系抗生物質であるシプロフロキサシンの神経毒性について、ヒト大脳皮質オルガノイドモデルを用いて、神経発達への影響を詳細に検討した研究。</p>
+                </div>
+                
+                <div class="card method">
+                    <h3>手法</h3>
+                    <p>ヒト大脳皮質オルガノイドをシプロフロキサシンに曝露し、神経新生マーカーの発現解析、興奮性・抑制性ニューロンのバランス評価を実施。</p>
+                </div>
+                
+                <div class="card result">
+                    <h3>結果</h3>
+                    <p>シプロフロキサシン曝露により神経新生が有意に阻害され、興奮性ニューロンと抑制性ニューロンの比率バランスが破綻することが明らかになった。</p>
+                </div>
+                
+                <div class="card significance">
+                    <h3>意義</h3>
+                    <p>フルオロキノロン系抗生物質の神経発達への潜在的リスクを示し、臨床使用における注意深い評価の必要性を提起する重要な知見。</p>
+                </div>
             </div>
             
-            <div class="card">
-                <h3>手法</h3>
-                <p>ヒト大脳皮質オルガノイドにシプロフロキサシンを曝露し、HD-MEAシステムを用いて神経活動を記録・解析。神経新生マーカーの発現解析や興奮・抑制バランスの評価を実施しました。</p>
-            </div>
-            
-            <div class="card">
-                <h3>結果</h3>
-                <p>シプロフロキサシン曝露により神経新生が有意に抑制され、興奮性と抑制性のニューロンバランスが崩れることが明らかになりました。HD-MEA解析では神経ネットワーク活動の異常パターンも観察されました。</p>
-            </div>
-            
-            <div class="card">
-                <h3>意義</h3>
-                <p>本研究はシプロフロキサシンの神経毒性メカニズムを解明し、特に発達期の脳への影響を示しました。抗菌薬の安全性評価における重要な知見を提供し、臨床使用時の注意喚起に貢献します。</p>
-            </div>
-        </div>
-        
-        <div class="keywords">
-            <h3>キーワード</h3>
-            <div class="keyword-list">
-                <span class="keyword">ciprofloxacin</span>
-                <span class="keyword">neurogenesis</span>
-                <span class="keyword">excitation inhibition balance</span>
-                <span class="keyword">cortical organoids</span>
-                <span class="keyword">neurotoxicity</span>
+            <div class="keywords">
+                <h4>キーワード</h4>
+                <div class="keyword-pills">
+                    <span class="pill">ciprofloxacin</span>
+                    <span class="pill">neurogenesis</span>
+                    <span class="pill">excitatory-inhibitory balance</span>
+                    <span class="pill">cortical organoids</span>
+                    <span class="pill">neurotoxicity</span>
+                </div>
             </div>
         </div>
         
         <div class="footer">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/41895646/" target="_blank">論文URL: https://pubmed.ncbi.nlm.nih.gov/41895646/</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41895646/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41895646/</a>
         </div>
     </div>
 </body>
 </html>
+```
