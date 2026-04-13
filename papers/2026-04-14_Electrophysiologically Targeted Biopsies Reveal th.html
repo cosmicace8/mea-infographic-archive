@@ -1,0 +1,173 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .hd-mea-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .title-jp {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .title-en {
+            font-size: 18px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .content {
+            padding: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .card h3 {
+            color: #667eea;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .card p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .keywords {
+            margin-bottom: 25px;
+        }
+        .keywords h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .keyword-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pill {
+            background: #e9ecef;
+            color: #495057;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        .footer a {
+            color: #67c3f3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hd-mea-badge">HD-MEA使用</div>
+            <div class="title-jp">電気生理学的標的生検により明らかになる焦点性てんかんの転写ランドスケープ</div>
+            <div class="title-en">Electrophysiologically Targeted Biopsies Reveal the Transcriptional Landscape of Focal Epilepsy</div>
+            <div class="meta">
+                Viswanathan A, et al. | bioRxiv [Preprint] | 2026
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="grid">
+                <div class="card">
+                    <h3>背景</h3>
+                    <p>焦点性てんかんの病態メカニズムを理解するために、電気生理学的活動と遺伝子発現プロファイルの関連性を調べる必要がある。従来の研究では、組織レベルでの詳細な転写解析と神経活動の同時測定が困難であった。</p>
+                </div>
+                
+                <div class="card">
+                    <h3>手法</h3>
+                    <p>HD-MEAを用いた高解像度電気生理学的記録により、てんかん病巣部位を特定し、標的を絞った組織生検を実施。採取された組織から転写プロファイル解析を行い、神経活動パターンと遺伝子発現の関係を統合的に解析した。</p>
+                </div>
+                
+                <div class="card">
+                    <h3>結果</h3>
+                    <p>電気生理学的に活発な病巣部位では、炎症関連遺伝子の発現上昇と神経伝達に関わる遺伝子の発現変化が観察された。また、てんかん病巣の転写プロファイルは健常部位と明確に区別される特徴的なパターンを示した。</p>
+                </div>
+                
+                <div class="card">
+                    <h3>意義</h3>
+                    <p>電気生理学的活動と転写プロファイルを統合したアプローチにより、焦点性てんかんの分子メカニズムの理解が深まった。この手法は、てんかん治療の標的分子の同定や、個別化医療の発展に寄与する可能性がある。</p>
+                </div>
+            </div>
+            
+            <div class="keywords">
+                <h3>キーワード</h3>
+                <div class="keyword-pills">
+                    <span class="pill">electrophysiology</span>
+                    <span class="pill">epilepsy</span>
+                    <span class="pill">transcriptomics</span>
+                    <span class="pill">targeted biopsy</span>
+                    <span class="pill">neuronal activity</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41959178/" target="_blank">論文URL: https://pubmed.ncbi.nlm.nih.gov/41959178/</a>
+        </div>
+    </div>
+</body>
+</html>
+```
