@@ -1,0 +1,151 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .title-jp {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .title-en {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .keywords {
+            padding: 0 30px 20px;
+        }
+        .keywords-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .pill {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 2px;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #87ceeb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-jp">電気生理学的標的生検による焦点性てんかんの転写ランドスケープの解明</div>
+            <div class="title-en">Electrophysiologically Targeted Biopsies Reveal the Transcriptional Landscape of Focal Epilepsy</div>
+            <div class="meta">Viswanathan A, Murch M, Brand A, et al. | bioRxiv | 2026</div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">背景</div>
+                <div class="card-content">
+                    焦点性てんかんの病態メカニズムを理解するため、電気生理学的記録と転写解析を組み合わせた新しいアプローチが必要とされている。従来の研究では、てんかん焦点部位の分子レベルでの詳細な解析が困難であった。
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">手法</div>
+                <div class="card-content">
+                    電気生理学的記録により特定されたてんかん焦点部位から標的生検を実施し、RNA配列解析による転写プロファイリングを行った。電気生理学的活動パターンと遺伝子発現パターンの相関解析を実施した。
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">結果</div>
+                <div class="card-content">
+                    てんかん焦点部位において特異的な転写シグネチャーを同定した。電気生理学的活動と相関する遺伝子発現変化を発見し、てんかん病態に関与する分子メカニズムの新たな知見を得た。
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">意義</div>
+                <div class="card-content">
+                    電気生理学的記録に基づく標的生検により、てんかんの分子病態の理解が深まった。この手法は個別化医療やてんかん治療法の開発に重要な貢献をする可能性がある。
+                </div>
+            </div>
+        </div>
+
+        <div class="keywords">
+            <div class="keywords-title">キーワード</div>
+            <span class="pill">focal epilepsy</span>
+            <span class="pill">electrophysiology</span>
+            <span class="pill">transcriptional analysis</span>
+            <span class="pill">targeted biopsy</span>
+            <span class="pill">neural recording</span>
+        </div>
+
+        <div class="footer">
+            論文URL: <a href="https://pubmed.ncbi.nlm.nih.gov/41959178/">https://pubmed.ncbi.nlm.nih.gov/41959178/</a>
+        </div>
+    </div>
+</body>
+</html>
+```
