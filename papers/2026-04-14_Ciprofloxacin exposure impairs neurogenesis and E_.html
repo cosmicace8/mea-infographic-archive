@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック</title>
+    <style>
+        body {
+            font-family: -apple-system, 'Hiragino Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .title-jp {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .title-en {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .meta {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .card {
+            padding: 30px;
+            border-right: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .card:nth-child(2n) {
+            border-right: none;
+        }
+        .card:nth-child(3), .card:nth-child(4) {
+            border-bottom: none;
+        }
+        .card h3 {
+            color: #495057;
+            font-size: 18px;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .card p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 14px;
+        }
+        .keywords {
+            padding: 30px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        .keywords h3 {
+            color: #495057;
+            margin: 0 0 20px 0;
+            font-size: 18px;
+        }
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .keyword {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #80bdff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">HD-MEA使用</div>
+            <h1 class="title-jp">シプロフロキサシン曝露はヒト大脳皮質オルガノイドにおける神経新生とE/Iバランスを障害する</h1>
+            <h2 class="title-en">Ciprofloxacin exposure impairs neurogenesis and E/I balance in human cortical organoids.</h2>
+            <div class="meta">
+                Liu H, Jiang L, Bu Q, Sun M, Zhao Y, He Y, Zhou Y, Han S, Dai Y, Zhang D, Li H, Wang L, Xiao Y, Qin F, Chen Y, Liu C, Qin M, Wang H, Tian J, Zhao Y, Cen X.<br>
+                Neuropharmacology. 2026 Jul 1;292:110931
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>背景</h3>
+                <p>シプロフロキサシンは広く使用される抗菌薬ですが、その神経毒性への懸念が高まっています。特に発達中の神経系への影響について、ヒト大脳皮質オルガノイドを用いた詳細な検討が必要とされています。</p>
+            </div>
+            
+            <div class="card">
+                <h3>手法</h3>
+                <p>ヒト大脳皮質オルガノイドにシプロフロキサシンを曝露し、HD-MEAシステムを用いて神経活動を記録・解析。神経新生マーカーの発現解析や興奮・抑制バランスの評価を実施しました。</p>
+            </div>
+            
+            <div class="card">
+                <h3>結果</h3>
+                <p>シプロフロキサシン曝露により神経新生が有意に抑制され、興奮性と抑制性のニューロンバランスが崩れることが明らかになりました。HD-MEA解析では神経ネットワーク活動の異常パターンも観察されました。</p>
+            </div>
+            
+            <div class="card">
+                <h3>意義</h3>
+                <p>本研究はシプロフロキサシンの神経毒性メカニズムを解明し、特に発達期の脳への影響を示しました。抗菌薬の安全性評価における重要な知見を提供し、臨床使用時の注意喚起に貢献します。</p>
+            </div>
+        </div>
+        
+        <div class="keywords">
+            <h3>キーワード</h3>
+            <div class="keyword-list">
+                <span class="keyword">ciprofloxacin</span>
+                <span class="keyword">neurogenesis</span>
+                <span class="keyword">excitation inhibition balance</span>
+                <span class="keyword">cortical organoids</span>
+                <span class="keyword">neurotoxicity</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41895646/" target="_blank">論文URL: https://pubmed.ncbi.nlm.nih.gov/41895646/</a>
+        </div>
+    </div>
+</body>
+</html>
