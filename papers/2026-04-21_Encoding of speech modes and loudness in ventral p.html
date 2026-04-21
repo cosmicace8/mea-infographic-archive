@@ -1,65 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
+    <title>論文インフォグラフィック: Encoding of speech modes and loudness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .pubmed-link {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .pubmed-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pubmed-link a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9fbfb;
+            border-radius: 8px;
+            border: 1px solid #eef2f3;
+        }
+
+        h2 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.5em;
+            color: #34495e;
+            border-bottom: 2px solid #aed6f1;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .authors p {
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        .publication-info p {
+            margin-bottom: 8px;
+        }
+
+        .publication-info strong {
+            color: #34495e;
+        }
+
+        .publication-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .publication-info a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords li {
+            background-color: #e8f6f3;
+            color: #2196f3;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .features p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .features .icon.check {
+            color: #28a745; /* Green */
+        }
+
+        .features .icon.cross {
+            color: #dc3545; /* Red */
+        }
+
+        .features .icon.info {
+            color: #6c757d; /* Gray */
+        }
+
+        .japanese-summary p {
+            font-size: 1.1em;
+            color: #333;
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-left: 5px solid #5dade2;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .keywords li {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .japanese-summary p {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333333; background-color: #f0f2f5;">
-    <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <!-- Header Section -->
-        <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eeeeee; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; color: #0056b3; margin-top: 0; margin-bottom: 10px;">
-                Encoding of speech modes and loudness in ventral precentral gyrus.
-            </h1>
-            <p style="font-size: 14px; color: #555555; margin: 5px 0;">
-                <strong>著者:</strong> Srinivasan A, Wairagkar M, Iacobacci C, et al.
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>Encoding of speech modes and loudness in ventral precentral gyrus.</h1>
+            <p class="pubmed-link">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/41986329/" target="_blank" rel="noopener noreferrer">
+                    PubMedで論文を見る
+                </a>
             </p>
-            <p style="font-size: 14px; color: #555555; margin: 5px 0;">
-                <strong>掲載誌:</strong> Nat Commun. 2026 Apr 15.
+        </header>
+
+        <section class="authors">
+            <h2>著者</h2>
+            <p>Srinivasan A, Wairagkar M, Iacobacci C, Hou X, Card NS, Jacques BG, Pritchard AL, Bechefsky PH, Hochberg LR, AuYong N, Pandarinath C, Brandman DM, Stavisky SD.</p>
+        </section>
+
+        <section class="publication-info">
+            <h2>出版情報</h2>
+            <p><strong>ソース:</strong> Nat Commun. 2026 Apr 15. Online ahead of print.</p>
+            <p><strong>出版日:</strong> 2026年4月15日</p>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1038/s41467-026-71284-4" target="_blank" rel="noopener noreferrer">10.1038/s41467-026-71284-4</a></p>
+        </section>
+
+        <section class="keywords">
+            <h2>キーワード</h2>
+            <ul>
+                <li>Speech encoding</li>
+                <li>loudness</li>
+                <li>precentral gyrus</li>
+                <li>neural activity</li>
+                <li>communication</li>
+            </ul>
+        </section>
+
+        <section class="features">
+            <h2>研究の特徴</h2>
+            <p class="hd-mea">
+                <span class="icon check">✅</span> <strong>高密度MEAを使用:</strong> はい
             </p>
-            <p style="font-size: 14px; color: #555555; margin: 5px 0;">
-                <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41467-026-71284-4" style="color: #007bff; text-decoration: none;">10.1038/s41467-026-71284-4</a>
+            <p class="spike-sorting">
+                <span class="icon info">ℹ️</span> <strong>スパイクソーティング方法:</strong> 不明
             </p>
-            <p style="font-size: 14px; color: #555555; margin: 5px 0;">
-                <strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41986329/" style="color: #007bff; text-decoration: none;">41986329</a>
+        </section>
+
+        <section class="japanese-summary">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、腹側前中心回における音声モードと音量の神経符号化メカニズムを解明しています。高密度MEA（多電極アレイ）を用いた詳細な神経活動分析により、発話の様々な側面がこの脳領域でどのように表現されるかを明らかにしました。この研究は、音声コミュニケーションの神経基盤の理解を深める重要な一歩となります。
             </p>
-        </div>
-
-        <!-- Infographic Cards Section -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
-            <!-- Card 1: 背景 -->
-            <div style="flex: 1 1 calc(50% - 10px); min-width: 250px; background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <h3 style="font-size: 18px; color: #0056b3; margin-top: 0; margin-bottom: 10px;">背景</h3>
-                <p style="font-size: 14px; color: #333333;">
-                    発話の様式（例：話す、歌う、ささやく）や音量（ラウドネス）といった複雑な側面が、脳のどの領域でどのように符号化されているかは、まだ十分に解明されていません。特に、腹側前中心回 (vPCG) が音声生成に関与するとされていますが、その具体的な役割は不明確でした。
-                </p>
-            </div>
-
-            <!-- Card 2: 手法 -->
-            <div style="flex: 1 1 calc(50% - 10px); min-width: 250px; background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <h3 style="font-size: 18px; color: #0056b3; margin-top: 0; margin-bottom: 10px;">手法</h3>
-                <p style="font-size: 14px; color: #333333;">
-                    本研究では、腹側前中心回 (vPCG) の神経活動を詳細に記録・分析しました。異なる発話様式（例：通常の発話、ささやき、歌唱など）と様々な音量レベルでの神経発火パターンを比較し、これらの発話パラメータがvPCGニューロンによってどのように符号化されているかを特定しました。
-                </p>
-            </div>
-
-            <!-- Card 3: 結果 -->
-            <div style="flex: 1 1 calc(50% - 10px); min-width: 250px; background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <h3 style="font-size: 18px; color: #0056b3; margin-top: 0; margin-bottom: 10px;">結果</h3>
-                <p style="font-size: 14px; color: #333333;">
-                    vPCGニューロンが、発話の様式と音量の両方を明確に符号化していることを発見しました。特定のニューロン集団は異なる発話様式に特異的な活動を示し、また別のニューロンは音量の変化に応じて発火率を系統的に調整していました。これは、vPCGが音声の運動制御と感覚フィードバックに深く関与していることを示唆します。
-                </p>
-            </div>
-
-            <!-- Card 4: 結論 -->
-            <div style="flex: 1 1 calc(50% - 10px); min-width: 250px; background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <h3 style="font-size: 18px; color: #0056b3; margin-top: 0; margin-bottom: 10px;">結論</h3>
-                <p style="font-size: 14px; color: #333333;">
-                    本研究は、腹側前中心回 (vPCG) が発話の様式と音量の符号化において重要な役割を果たすことを初めて明らかにしました。この知見は、音声生成の神経基盤に関する理解を深め、失語症などの音声障害に対する新たな診断・治療アプローチの開発に貢献する可能性があります。
-                </p>
-            </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
