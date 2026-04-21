@@ -3,71 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* カラーパレットと基本設定 */
+        :root {
+            --primary-color: #2c3e50; /* 濃い青/グレー */
+            --secondary-color: #3498db; /* 明るい青 */
+            --accent-color: #2ecc71; /* 緑 */
+            --background-light: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* インフォグラフィック全体のコンテナ */
+        .infographic-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 25px 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 30px;
+        }
+
+        /* 各セクションの共通スタイル */
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 見出しのスタイル */
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        h3 i, h4 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .paper-title h2 {
+            color: #fff;
+            font-size: 2.2em;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* 著者セクション */
+        .paper-authors p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* 詳細情報セクション (出典、DOI、URL) */
+        .paper-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .detail-item {
+            flex: 1 1 calc(33% - 20px); /* 3列レイアウト、ギャップを考慮 */
+            min-width: 250px; /* 最小幅 */
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .detail-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            justify-content: center; /* アイコンとテキストを中央揃え */
+        }
+
+        .detail-item h4 i {
+            color: var(--accent-color);
+        }
+
+        .detail-item p {
+            margin: 0;
+            font-size: 0.95em;
+            word-break: break-all; /* 長いURLやDOIがはみ出さないように */
+        }
+
+        .detail-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            white-space: nowrap; /* タグが途中で改行されないように */
+        }
+
+        /* 日本語要約セクション */
+        .paper-summary p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* フッター */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 30px;
+            font-size: 0.9em;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                margin: 10px 0;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h2 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .paper-details {
+                flex-direction: column; /* 縦並びに変更 */
+                align-items: center;
+            }
+            .detail-item {
+                flex: 1 1 100%; /* 全幅を使用 */
+                max-width: 400px; /* 小さい画面での最大幅 */
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa;">
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-title">
+                <h2>Recent advances in nanomaterial-based brain organoid on-a-chip for drug evaluation.</h2>
+            </section>
 
-    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); overflow: hidden;">
+            <section class="paper-authors">
+                <h3><i class="fas fa-users"></i> 著者</h3>
+                <p>Shin M, Lee MJ, Lee S, Lee KB, Choi JW.</p>
+            </section>
 
-        <!-- Header Section -->
-        <div style="padding: 25px; background-color: #007bff; color: #ffffff; text-align: center; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-            <h1 style="margin: 0 0 10px 0; font-size: 24px;">Recent advances in nanomaterial-based brain organoid on-a-chip for drug evaluation.</h1>
-            <p style="margin: 0; font-size: 14px; opacity: 0.9;"><strong>著者:</strong> Shin M, Lee MJ, Lee S, Lee KB, Choi JW.</p>
-            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">
-                <strong>出典:</strong> Biosens Bioelectron. 2026 Jul 15;304:118612.
-                <br>
-                <strong>DOI:</strong> <a href="https://doi.org/10.1016/j.bios.2026.118612" style="color: #ffffff; text-decoration: underline;">10.1016/j.bios.2026.118612</a>
-                <br>
-                <strong>URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41833084/" style="color: #ffffff; text-decoration: underline;">PubMed</a>
-            </p>
-        </div>
+            <section class="paper-details">
+                <div class="detail-item">
+                    <h4><i class="fas fa-book"></i> 出典</h4>
+                    <p>Biosens Bioelectron. 2026 Jul 15;304:118612. Epub 2026 Mar 10.</p>
+                </div>
+                <div class="detail-item">
+                    <h4><i class="fas fa-fingerprint"></i> DOI</h4>
+                    <p><a href="https://doi.org/10.1016/j.bios.2026.118612" target="_blank">10.1016/j.bios.2026.118612</a></p>
+                </div>
+                <div class="detail-item">
+                    <h4><i class="fas fa-globe"></i> PubMed URL</h4>
+                    <p><a href="https://pubmed.ncbi.nlm.nih.gov/41833084/" target="_blank">PubMedで見る</a></p>
+                </div>
+            </section>
 
-        <!-- Content Cards Section -->
-        <div style="padding: 20px;">
+            <section class="paper-keywords">
+                <h3><i class="fas fa-tags"></i> キーワード</h3>
+                <div class="keyword-list">
+                    <span class="keyword-tag">Nanomaterial</span>
+                    <span class="keyword-tag">Brain organoid</span>
+                    <span class="keyword-tag">Organoid-on-a-chip</span>
+                    <span class="keyword-tag">Drug evaluation</span>
+                    <span class="keyword-tag">Biosensors</span>
+                </div>
+            </section>
 
-            <!-- 背景 (Background) Card -->
-            <div style="background-color: #f0f8ff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                <h2 style="color: #0056b3; font-size: 18px; margin-top: 0; margin-bottom: 10px;">背景</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: #333;">
-                    脳疾患の複雑性により、従来の2D細胞培養や動物モデルではヒトの生理学的反応を正確に再現することが困難でした。
-                    この課題を克服するため、ヒト脳の構造と機能の一部を模倣する3D脳オルガノイドと、微小環境を精密に制御できるオンチップ技術の融合が注目されています。
-                    特に、ナノ材料を組み込むことで、オルガノイドの成熟度や機能性を向上させ、より生理学的に関連性の高い薬剤評価プラットフォームを構築する可能性が探られています。
-                </p>
-            </div>
-
-            <!-- 手法 (Methods) Card -->
-            <div style="background-color: #f0f8ff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                <h2 style="color: #0056b3; font-size: 18px; margin-top: 0; margin-bottom: 10px;">手法</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: #333;">
-                    本レビューでは、ナノ材料ベースの脳オルガノイドオンチップシステムにおける様々なアプローチが議論されています。
-                    これには、ナノファイバーやナノ粒子を用いたオルガノイドの足場形成による微小環境の最適化、ナノセンサー（電気化学的、光学的）によるリアルタイムでの神経活動や代謝変化のモニタリング、およびナノキャリアを用いた薬剤の精密送達などが含まれます。
-                    これらの技術をマイクロ流体デバイスと組み合わせることで、栄養供給、老廃物除去、薬物投与の自動化と、多電極アレイ（MEA）などによる電気生理学的評価が可能になります。
-                </p>
-            </div>
-
-            <!-- 結果 (Results) Card -->
-            <div style="background-color: #f0f8ff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                <h2 style="color: #0056b3; font-size: 18px; margin-top: 0; margin-bottom: 10px;">結果</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: #333;">
-                    ナノ材料の統合により、脳オルガノイドの成熟度、複雑性、および機能性が顕著に向上することが示されています。
-                    これにより、ナノ材料ベースのオンチップシステムは、神経毒性スクリーニングや神経保護薬の評価において、より高感度で生理学的に関連性の高い結果を提供できるようになりました。
-                    特に、疾患特異的な脳オルガノイドモデルと組み合わせることで、アルツハイマー病やパーキンソン病などの神経疾患に対する薬剤の有効性や毒性を、より正確かつ効率的に評価できる可能性が示唆されています。
-                </p>
-            </div>
-
-            <!-- 結論 (Conclusion) Card -->
-            <div style="background-color: #f0f8ff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                <h2 style="color: #0056b3; font-size: 18px; margin-top: 0; margin-bottom: 10px;">結論</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: #333;">
-                    ナノ材料ベースの脳オルガノイドオンチップ技術は、薬剤評価の分野に革新をもたらす大きな可能性を秘めています。
-                    この技術は、ヒト脳の複雑性をより忠実に再現し、従来のモデルの限界を克服することで、神経疾患治療薬の開発を加速させることが期待されます。
-                    今後の展望としては、システムの標準化、スケーラビリティの向上、多臓器オンチップシステムへの統合、そしてAIとの組み合わせによるデータ解析の高度化が挙げられ、個別化医療への貢献も期待されます。
-                </p>
-            </div>
-
-        </div>
-
+            <section class="paper-summary">
+                <h3><i class="fas fa-language"></i> 日本語要約</h3>
+                <p>本論文は、ナノ材料を用いた脳オルガノイド・オン・ア・チップ技術の最新の進歩について概説しています。この技術は、薬剤評価のためのバイオセンサーとして利用され、脳オルガノイドの機能を模倣したチップ上で、より効率的かつ正確な薬物スクリーニングを可能にすることを目指しています。</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 論文情報インフォグラフィック</p>
+        </footer>
     </div>
-
 </body>
 </html>
