@@ -3,45 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
+    <title>論文情報インフォグラフィック</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* 薄いグレーの背景 */
+            color: #333; /* 基本テキスト色 */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 20px auto;
+            background-color: #ffffff; /* 白いカード背景 */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影 */
+            overflow: hidden;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #007bff; /* アクセントカラー（青） */
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* セクションコンテンツのパディング */
+        .section-content {
+            padding: 30px;
+        }
+
+        /* 論文タイトル */
+        .paper-info .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #0056b3; /* タイトル色 */
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* 詳細情報 */
+        .details p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .details p i {
+            color: #007bff; /* アイコン色 */
+            margin-right: 15px;
+            font-size: 1.3em;
+            width: 25px; /* アイコンの幅を固定してテキストを揃える */
+            text-align: center;
+        }
+
+        .details a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .details a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* セクション見出し */
+        h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            border-bottom: 2px solid #e9ecef; /* 下線 */
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* キーワードリスト */
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* キーワード間のスペース */
+        }
+
+        .keyword-list span {
+            background-color: #e9ecef; /* キーワードタグの背景色 */
+            color: #495057;
+            padding: 8px 15px;
+            border-radius: 20px; /* 丸い角 */
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-list span:hover {
+            background-color: #dee2e6;
+        }
+
+        /* 日本語要約 */
+        .summary p {
+            font-size: 1.1em;
+            background-color: #f8f9fa; /* 要約の背景色 */
+            border-left: 5px solid #007bff; /* 左側のアクセントボーダー */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #343a40; /* ダークグレーのフッター */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
-<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333333; line-height: 1.6;">
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
 
-    <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div class="section-content">
+            <section class="paper-info">
+                <h2 class="title">Mammary organoid-based depot for post-surgical chemotherapy and gland regeneration.</h2>
+                <div class="details">
+                    <p class="authors"><i class="fas fa-users"></i> <strong>著者:</strong> Wang S, Yang Y, Wang Y, Han J, Hu T, Zhao S, Liu F, Yu X, Liang T, Zhang Y, Hu H, Yu J, Gu Z.</p>
+                    <p class="source"><i class="fas fa-book"></i> <strong>出典:</strong> Nat Biomed Eng. 2026 Apr 17.</p>
+                    <p class="doi"><i class="fas fa-fingerprint"></i> <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41551-026-01655-1" target="_blank" rel="noopener noreferrer">10.1038/s41551-026-01655-1</a></p>
+                    <p class="url"><i class="fas fa-globe"></i> <strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41998163/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/41998163/</a></p>
+                </div>
+            </section>
 
-        <!-- ヘッダー部分 -->
-        <div style="text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eeeeee;">
-            <h1 style="font-size: 26px; color: #0056b3; margin-bottom: 10px; line-height: 1.3;">Mammary organoid-based depot for post-surgical chemotherapy and gland regeneration.</h1>
-            <p style="font-size: 15px; color: #555555; margin-bottom: 5px;"><strong>著者:</strong> Wang S, Yang Y, Wang Y, Han J, Hu T, Zhao S, Liu F, Yu X, Liang T, Zhang Y, Hu H, Yu J, Gu Z.</p>
-            <p style="font-size: 13px; color: #777777; margin-bottom: 5px;"><strong>出典:</strong> Nat Biomed Eng. 2026 Apr 17. Online ahead of print.</p>
-            <p style="font-size: 13px; color: #777777;"><strong>DOI:</strong> <a href="https://doi.org/10.1038/s41551-026-01655-1" style="color: #007bff; text-decoration: none;">10.1038/s41551-026-01655-1</a> | <a href="https://pubmed.ncbi.nlm.nih.gov/41998163/" style="color: #007bff; text-decoration: none;">PubMed</a></p>
+            <section class="keywords">
+                <h3><i class="fas fa-tags"></i> キーワード</h3>
+                <div class="keyword-list">
+                    <span>Mammary organoid</span>
+                    <span>Chemotherapy</span>
+                    <span>Gland regeneration</span>
+                    <span>Post-surgical</span>
+                    <span>Biomedical engineering</span>
+                </div>
+            </section>
+
+            <section class="summary">
+                <h3><i class="fas fa-file-alt"></i> 日本語要約</h3>
+                <p>本論文は、乳腺オルガノイドを用いた、術後化学療法のための薬剤貯蔵・放出システムと腺再生に関する研究です。乳腺の術後治療と機能回復を目指し、生体医工学の観点から新たなアプローチを提案しています。</p>
+            </section>
         </div>
 
-        <!-- 背景カード -->
-        <div style="margin-bottom: 20px; padding: 20px; background-color: #f0f8ff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <h2 style="font-size: 20px; color: #0056b3; margin-top: 0; border-bottom: 2px solid #a0d2eb; padding-bottom: 8px;">背景</h2>
-            <p style="font-size: 15px; color: #444444;">乳がん手術後の再発防止と、化学療法の全身的な副作用軽減、そして失われた乳腺組織の再生は重要な課題です。現在の全身化学療法は効果的であるものの、患者の生活の質を低下させる深刻な副作用を伴うため、局所的かつ効果的な治療法が求められています。</p>
-        </div>
-
-        <!-- 手法カード -->
-        <div style="margin-bottom: 20px; padding: 20px; background-color: #f0f8ff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <h2 style="font-size: 20px; color: #0056b3; margin-top: 0; border-bottom: 2px solid #a0d2eb; padding-bottom: 8px;">手法</h2>
-            <p style="font-size: 15px; color: #444444;">本研究では、乳腺オルガノイドを基盤としたデポシステムを開発しました。このデポは、手術部位に直接留置され、化学療法薬を局所的に持続放出することで、腫瘍細胞の再発を抑制します。同時に、デポ内の乳腺オルガノイドが周囲の組織と相互作用し、失われた乳腺組織の再生を促進するよう設計されています。</p>
-        </div>
-
-        <!-- 結果カード -->
-        <div style="margin-bottom: 20px; padding: 20px; background-color: #f0f8ff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <h2 style="font-size: 20px; color: #0056b3; margin-top: 0; border-bottom: 2px solid #a0d2eb; padding-bottom: 8px;">結果</h2>
-            <p style="font-size: 15px; color: #444444;">開発された乳腺オルガノイドデポは、術後の局所的な化学療法薬の安定した放出に成功し、腫瘍の再発を効果的に抑制しました。さらに、デポ内の乳腺オルガノイドは生着し、機能的な乳腺組織の再生を促進することが確認されました。これにより、全身化学療法に伴う副作用を大幅に軽減しつつ、治療効果と組織再生を両立できる可能性が示されました。</p>
-        </div>
-
-        <!-- 結論カード -->
-        <div style="padding: 20px; background-color: #f0f8ff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <h2 style="font-size: 20px; color: #0056b3; margin-top: 0; border-bottom: 2px solid #a0d2eb; padding-bottom: 8px;">結論</h2>
-            <p style="font-size: 15px; color: #444444;">乳腺オルガノイドを基盤としたデポシステムは、乳がん術後の局所化学療法と乳腺組織の再生を同時に実現する革新的なアプローチです。この技術は、乳がん患者の治療成績を向上させ、全身的な副作用を軽減し、生活の質を改善する新たな治療戦略となることが期待されます。</p>
-        </div>
-
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
     </div>
-
 </body>
 </html>
