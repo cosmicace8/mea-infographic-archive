@@ -1,79 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden; /* Ensures border-radius applies to pseudo-element */
+        }
+
+        /* Top accent border with gradient */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Vibrant gradient */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50; /* Darker blue-grey for title */
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f9fbfd; /* Slightly off-white for sections */
+            border-left: 5px solid #2575fc; /* Accent border on the left */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            color: #2575fc; /* Accent color for section titles */
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Bullet point for section titles */
+        .section h2::before {
+            content: '•'; /* Simple bullet point, could be an icon */
+            color: #6a11cb; /* Secondary accent color */
+            font-size: 1.2em;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Authors List */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for many authors */
+            gap: 8px 15px; /* Spacing between author tags */
+        }
+
+        .authors li {
+            background-color: #e8f0fe; /* Light blue background for author tags */
+            color: #1a56db; /* Darker blue text */
+            padding: 5px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap; /* Prevent author names from breaking */
+        }
+
+        /* Source Info & Details */
+        .source-info p, .details p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .details a {
+            color: #2575fc; /* Accent color for links */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords List */
+        .keywords ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords li {
+            background-color: #d4edda; /* Light green background for keyword tags */
+            color: #155724; /* Darker green text */
+            padding: 8px 15px;
+            border-radius: 25px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #c3e6cb; /* Subtle border */
+        }
+
+        /* Japanese Summary */
+        .summary p {
+            font-size: 1.1em;
+            color: #444;
+            text-align: justify; /* Justify text for better readability */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .infographic-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .authors li, .keywords li {
+                font-size: 0.85em;
+            }
+            .summary p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .section h2 {
+                font-size: 1.1em;
+            }
+            /* Stack authors and keywords vertically on very small screens */
+            .authors ul, .keywords ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .authors li, .keywords li {
+                width: fit-content; /* Adjust width to content */
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa;">
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%; border-collapse: collapse;">
-        <tr>
-            <td style="padding: 20px 0; text-align: center;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); overflow: hidden;">
-                    <!-- Header Section -->
-                    <tr>
-                        <td style="padding: 30px; text-align: left; border-bottom: 1px solid #eeeeee;">
-                            <h1 style="font-size: 24px; color: #333333; margin: 0 0 10px 0;">Therapeutic potential of pectin from passion fruit peel: Antimelanoma effect in murine and human pre-clinical models.</h1>
-                            <p style="font-size: 14px; color: #555555; margin: 0 0 5px 0;"><strong>著者:</strong> Dos Santos JG, Vaz da Luz KT, Cruz AF, Bellan DL, Biscaia SMP, Buzzo JLA, Abboud KY, Cordeiro LMC, Wowk PF, Trindade ES, Vilgelm AE, de Oliveira CC, Simas FF.</p>
-                            <p style="font-size: 14px; color: #555555; margin: 0 0 5px 0;"><strong>出典:</strong> Int J Biol Macromol. 2026 Apr;359:151702.</p>
-                            <p style="font-size: 14px; color: #555555; margin: 0 0 5px 0;"><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.ijbiomac.2026.151702" style="color: #007bff; text-decoration: none;">10.1016/j.ijbiomac.2026.151702</a></p>
-                            <p style="font-size: 14px; color: #555555; margin: 0;"><strong>URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41921813/" style="color: #007bff; text-decoration: none;">pubmed.ncbi.nlm.nih.gov/41921813/</a></p>
-                        </td>
-                    </tr>
-                    <!-- Infographic Cards Section -->
-                    <tr>
-                        <td style="padding: 30px;">
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%; border-collapse: collapse;">
-                                <!-- Card 1: 背景 -->
-                                <tr>
-                                    <td style="padding-bottom: 20px;">
-                                        <div style="background-color: #f0f8ff; border-left: 5px solid #007bff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                            <h3 style="font-size: 18px; color: #007bff; margin: 0 0 10px 0;">背景</h3>
-                                            <p style="font-size: 14px; color: #444444; line-height: 1.6; margin: 0;">
-                                                メラノーマ（悪性黒色腫）は、皮膚がんの中でも特に悪性度が高く、治療が困難な疾患です。既存の治療法には限界があり、より効果的で副作用の少ない新規治療薬の開発が喫緊の課題となっています。パッションフルーツの皮から抽出されるペクチン（PFP）は、抗酸化作用や抗炎症作用に加え、抗がん作用を持つ可能性が示唆されており、その治療応用に注目が集まっています。
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Card 2: 手法 -->
-                                <tr>
-                                    <td style="padding-bottom: 20px;">
-                                        <div style="background-color: #f0fff0; border-left: 5px solid #28a745; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                            <h3 style="font-size: 18px; color: #28a745; margin: 0 0 10px 0;">手法</h3>
-                                            <p style="font-size: 14px; color: #444444; line-height: 1.6; margin: 0;">
-                                                本研究では、まずパッションフルーツの皮からペクチン（PFP）を抽出し、その物理化学的特性を詳細に分析しました。次に、in vitro（試験管内）実験として、マウスおよびヒトのメラノーマ細胞株を用いて、PFPが細胞の生存率、増殖、アポトーシス（プログラム細胞死）に与える影響を評価しました。さらに、in vivo（生体内）実験として、メラノーマ細胞を移植したマウスモデルを使用し、PFPの経口投与が腫瘍の成長、サイズ、および転移に及ぼす効果を検討しました。
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Card 3: 結果 -->
-                                <tr>
-                                    <td style="padding-bottom: 20px;">
-                                        <div style="background-color: #fff8e1; border-left: 5px solid #ffc107; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                            <h3 style="font-size: 18px; color: #ffc107; margin: 0 0 10px 0;">結果</h3>
-                                            <p style="font-size: 14px; color: #444444; line-height: 1.6; margin: 0;">
-                                                in vitro実験では、PFPがメラノーマ細胞の増殖を濃度依存的に抑制し、アポトーシスを誘導することが確認されました。特に、PFPは細胞周期の特定の段階で細胞を停止させ、細胞死を促進するメカニズムが示唆されました。in vivoマウスモデルでは、PFPを投与された群において、腫瘍の成長が有意に抑制され、腫瘍サイズが著しく減少しました。また、PFPは腫瘍の血管新生を阻害し、転移能を低下させる可能性も示されました。
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Card 4: 結論 -->
-                                <tr>
-                                    <td>
-                                        <div style="background-color: #ffebee; border-left: 5px solid #dc3545; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                            <h3 style="font-size: 18px; color: #dc3545; margin: 0 0 10px 0;">結論</h3>
-                                            <p style="font-size: 14px; color: #444444; line-height: 1.6; margin: 0;">
-                                                本研究は、パッションフルーツの皮由来ペクチン（PFP）が、in vitroおよびin vivoのプレクリニカルモデルにおいて、強力な抗メラノーマ効果を持つことを初めて実証しました。PFPは、メラノーマ細胞の増殖を抑制し、アポトーシスを誘導するだけでなく、腫瘍の成長と転移を阻害する可能性を秘めています。これらの結果は、PFPがメラノーマ治療のための安全で効果的な天然由来の新規治療薬として開発される可能性を示唆しており、今後のさらなる研究と臨床応用が期待されます。
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+<body>
+    <div class="infographic-container">
+        <h1>Therapeutic potential of pectin from passion fruit peel: Antimelanoma effect in murine and human pre-clinical models.</h1>
+
+        <div class="section authors">
+            <h2>著者</h2>
+            <ul>
+                <li>Dos Santos JG</li>
+                <li>Vaz da Luz KT</li>
+                <li>Cruz AF</li>
+                <li>Bellan DL</li>
+                <li>Biscaia SMP</li>
+                <li>Buzzo JLA</li>
+                <li>Abboud KY</li>
+                <li>Cordeiro LMC</li>
+                <li>Wowk PF</li>
+                <li>Trindade ES</li>
+                <li>Vilgelm AE</li>
+                <li>de Oliveira CC</li>
+                <li>Simas FF</li>
+            </ul>
+        </div>
+
+        <div class="section source-info">
+            <h2>出典</h2>
+            <p><strong>Int J Biol Macromol.</strong> 2026 Apr;359:151702. Epub 2026 Mar 30.</p>
+        </div>
+
+        <div class="section details">
+            <h2>詳細情報</h2>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.ijbiomac.2026.151702" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2026.151702</a></p>
+            <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41921813/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/41921813/</a></p>
+        </div>
+
+        <div class="section keywords">
+            <h2>キーワード</h2>
+            <ul>
+                <li>Pectin</li>
+                <li>Passion fruit peel</li>
+                <li>Antimelanoma</li>
+                <li>Murine models</li>
+                <li>Pre-clinical models</li>
+            </ul>
+        </div>
+
+        <div class="section summary">
+            <h2>日本語要約</h2>
+            <p>本研究は、パッションフルーツの皮から抽出されるペクチンが持つ治療可能性、特にメラノーマ（悪性黒色腫）に対する効果を評価したものです。マウスおよびヒトのプレクリニカルモデルを用いた実験により、このペクチンが抗メラノーマ作用を示すことが明らかになり、新たな治療薬開発への道を開く可能性が示唆されています。</p>
+        </div>
+    </div>
 </body>
 </html>
