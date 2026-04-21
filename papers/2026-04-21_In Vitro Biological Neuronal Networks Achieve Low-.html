@@ -3,95 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
-    <!-- メールクライアントでの表示を最適化するためのメタタグ -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="x-apple-disable-message-reformatting">
-    <style type="text/css">
-        /* 一部のメールクライアントでデフォルトのスタイルをリセット */
-        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
-        a[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
+    <title>論文情報インフォグラフィック: In Vitro Biological Neuronal Networks</title>
+    <!-- Google Fonts for better typography (Roboto for English, Noto Sans JP for Japanese) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
-        /* Gmailのモバイルアプリでリンクの色が変わるのを防ぐ */
-        u + #body a {
-            color: inherit;
+
+        /* インフォグラフィック全体のコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* ヘッダー (タイトル、DOI、URL) */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5em;
+            color: #0056b3; /* 濃い青 */
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .meta-info a {
+            color: #007bff; /* 明るい青 */
             text-decoration: none;
-            font-size: inherit;
-            font-family: inherit;
-            font-weight: inherit;
-            line-height: inherit;
+        }
+
+        .meta-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 各セクションの共通スタイル */
+        section {
+            background-color: #f9f9f9;
+            border-left: 5px solid #007bff; /* 左側にアクセントライン */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #0056b3;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0; /* セクションタイトルの下線 */
+            padding-bottom: 10px;
+        }
+
+        /* 著者情報 */
+        .authors {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* 出版情報 */
+        .publication-info p {
+            margin: 5px 0;
+        }
+
+        /* キーワードリスト */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* キーワード間のスペース */
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f7fa; /* 薄い水色 */
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #b3e5fc;
+        }
+
+        /* 主要な発見と特徴 */
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* レスポンシブなグリッド */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background-color: #e8f5e9; /* 薄い緑色 */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px); /* ホバーで少し浮き上がる */
+        }
+
+        .feature-item.hd-mea {
+            background-color: #fff3e0; /* HD-MEAは薄いオレンジ色で区別 */
+        }
+
+        .feature-item h3 {
+            color: #2e7d32; /* 濃い緑 */
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .feature-item.hd-mea h3 {
+            color: #ef6c00; /* 濃いオレンジ */
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            color: #444;
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #4caf50; /* 緑のアイコン */
+        }
+
+        .feature-item.hd-mea .feature-icon {
+            color: #ff9800; /* オレンジのアイコン */
+        }
+
+        /* 日本語要約 */
+        .japanese-summary {
+            background-color: #e3f2fd; /* 薄い青 */
+            border-left-color: #2196f3; /* 濃い青のアクセントライン */
+        }
+
+        .japanese-summary h2 {
+            color: #1976d2;
+            border-bottom-color: #bbdefb;
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f8f9fa; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; text-align: center;">
-
-    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); overflow: hidden;">
-
-        <!-- ヘッダー部分 -->
-        <div style="padding: 30px 25px; background-color: #343a40; color: #ffffff; text-align: left; border-top-left-radius: 12px; border-top-right-radius: 12px; position: relative;">
-            <h1 style="font-size: 26px; margin: 0 0 10px 0; line-height: 1.3;">In Vitro Biological Neuronal Networks Achieve Low-Power Consumption and High-Speed Communication through Predictable Stimulation</h1>
-            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>著者:</strong> L Jiang, Y Wang, J Luo, Y Liu, K Zhang, X Wang…</p>
-            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>出典:</strong> ACS Sensors, 2026</p>
-            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>DOI:</strong> <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.5c03461" style="color: #87ceeb; text-decoration: none;">10.1021/acssensors.5c03461</a></p>
-            <p style="font-size: 15px; margin: 0; color: #e0e0e0;"><strong>論文URL:</strong> <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.5c03461" style="color: #87ceeb; text-decoration: none;">詳細はこちら</a></p>
-            
-            <!-- HD-MEAバッジ -->
-            <div style="position: absolute; top: 20px; right: 20px; background-color: #28a745; color: #ffffff; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; letter-spacing: 0.5px;">
-                HD-MEA使用
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>In Vitro Biological Neuronal Networks Achieve Low-Power Consumption and High-Speed Communication through Predictable Stimulation.</h1>
+            <div class="meta-info">
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1021/acssensors.5c03461" target="_blank" rel="noopener noreferrer">10.1021/acssensors.5c03461</a></p>
+                <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41983381/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/41983381/</a></p>
             </div>
-        </div>
+        </header>
 
-        <!-- 4カード構成 -->
-        <div style="padding: 25px;">
+        <section>
+            <h2>著者</h2>
+            <p class="authors">Jiang L, Wang Y, Luo J, Liu Y, Zhang K, Wang X, Wang Y, Liu Y, Sun S, Shang L, Lu C, Sha L, Wang M, Xu Q, Cai X.</p>
+        </section>
 
-            <!-- カード1: 背景 -->
-            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
-                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">背景</h3>
-                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
-                    生体内のニューラルネットワークは驚異的な効率で機能しますが、人工的なシステムでこれを模倣するには、電力消費と通信速度の課題があります。本研究は、生体外のニューラルネットワークにおいて、これらの課題を克服し、低消費電力と高速通信を実現する方法を探求します。
-                </p>
+        <section class="publication-info">
+            <h2>出版情報</h2>
+            <p><strong>ジャーナル:</strong> ACS Sens.</p>
+            <p><strong>出版日:</strong> 2026年4月15日 (オンライン先行公開)</p>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1021/acssensors.5c03461" target="_blank" rel="noopener noreferrer">10.1021/acssensors.5c03461</a></p>
+        </section>
+
+        <section>
+            <h2>主要な発見と特徴</h2>
+            <div class="key-features">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>低消費電力</h3>
+                    <p>生物学的ニューラルネットワークが低消費電力で動作。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h3>高速通信</h3>
+                    <p>効率的な情報伝達と高速な通信を実現。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3>予測可能な刺激</h3>
+                    <p>予測可能な刺激手法を用いて性能を最適化。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔬</div>
+                    <h3>In Vitro (生体外)</h3>
+                    <p>生体外環境でのニューラルネットワーク研究。</p>
+                </div>
+                <div class="feature-item hd-mea">
+                    <div class="feature-icon">📡</div>
+                    <h3>HD-MEAを使用</h3>
+                    <p>高密度多電極アレイ (HD-MEA) を利用した実験。</p>
+                </div>
             </div>
+        </section>
 
-            <!-- カード2: 手法 -->
-            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
-                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">手法</h3>
-                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
-                    高密度マイクロ電極アレイ（HD-MEA）を用いて、生体外で培養された生物学的ニューラルネットワークを構築しました。このネットワークに対し、「予測可能な刺激」という新しい刺激プロトコルを適用し、その際の電力消費と通信特性を詳細に分析しました。
-                </p>
+        <section>
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Neuronal networks</span>
+                <span class="keyword-tag">low-power</span>
+                <span class="keyword-tag">high-speed</span>
+                <span class="keyword-tag">predictable stimulation</span>
+                <span class="keyword-tag">in vitro</span>
             </div>
+        </section>
 
-            <!-- カード3: 結果 -->
-            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
-                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">結果</h3>
-                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
-                    予測可能な刺激を用いることで、生物学的ニューラルネットワークが著しく低い電力消費で動作し、同時に高速な情報通信を実現できることを示しました。これは、従来のランダムな刺激と比較して、ネットワークの効率が大幅に向上することを示唆しています。
-                </p>
-            </div>
-
-            <!-- カード4: 結論 -->
-            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
-                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">結論</h3>
-                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
-                    本研究は、予測可能な刺激が、生体外ニューラルネットワークの電力効率と通信速度を最適化するための効果的な戦略であることを実証しました。この知見は、低消費電力のニューロモルフィックデバイスや、より効率的な脳-機械インターフェースの開発に貢献する可能性があります。
-                </p>
-            </div>
-
-        </div>
-
-        <!-- フッター部分 (オプション) -->
-        <div style="padding: 20px 25px; background-color: #e9ecef; color: #6c757d; font-size: 13px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-            <p style="margin: 0;">このインフォグラフィックは論文情報に基づいて自動生成されました。</p>
-        </div>
-
+        <section class="japanese-summary">
+            <h2>日本語要約</h2>
+            <p>この研究は、生体外（in vitro）の生物学的ニューラルネットワークが、予測可能な刺激を用いることで、低消費電力と高速な情報伝達を達成できることを示しています。高密度多電極アレイ（HD-MEA）を用いた実験により、この効率的な動作が実証されました。本成果は、将来の低消費電力・高速処理デバイスや、より高度な生体模倣コンピューティングシステムの開発に貢献する可能性を秘めています。</p>
+        </section>
     </div>
-
 </body>
 </html>
