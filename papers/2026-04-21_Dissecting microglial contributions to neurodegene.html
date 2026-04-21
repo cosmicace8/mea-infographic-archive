@@ -3,103 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文要約インフォグラフィック</title>
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .infographic-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff; /* アクセントカラー */
+        }
+        .infographic-card h1 {
+            color: #007bff;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #343a40;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ced4da;
+            padding-bottom: 5px;
+        }
+        .section p, .section ul {
+            color: #495057;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .link-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+        .doi-link {
+            word-break: break-all; /* 長いDOIがはみ出さないように */
+        }
+        .japanese-summary {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .japanese-summary h2 {
+            color: #28a745;
+            border-bottom: none;
+            margin-bottom: 8px;
+        }
+        .japanese-summary p {
+            font-style: italic;
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
+<body>
+    <div class="infographic-card">
+        <h1>Dissecting microglial contributions to neurodegenerative disease pathophysiology using human pluripotent stem cells.</h1>
 
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: fixed; background-color: #f8f9fa;">
-        <tr>
-            <td align="center" style="padding: 40px 20px;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); overflow: hidden;">
-                    <!-- Header Section -->
-                    <tr>
-                        <td style="padding: 30px 40px 20px 40px; text-align: center; border-bottom: 1px solid #eeeeee;">
-                            <h1 style="margin: 0; font-size: 28px; line-height: 1.3; color: #333333;">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/41895273/" style="text-decoration: none; color: #007bff;" target="_blank">
-                                    Dissecting microglial contributions to neurodegenerative disease pathophysiology using human pluripotent stem cells.
-                                </a>
-                            </h1>
-                            <p style="margin: 15px 0 5px 0; font-size: 16px; color: #555555;">
-                                <strong>著者:</strong> Kim D, Kondo T, Inoue H.
-                            </p>
-                            <p style="margin: 0; font-size: 14px; color: #777777;">
-                                <strong>掲載誌:</strong> Stem Cell Reports. 2026 Apr 14;21(4):102866.
-                            </p>
-                            <p style="margin: 5px 0 0 0; font-size: 14px; color: #777777;">
-                                <strong>DOI:</strong> <a href="https://doi.org/10.1016/j.stemcr.2026.102866" style="text-decoration: none; color: #007bff;" target="_blank">10.1016/j.stemcr.2026.102866</a>
-                            </p>
-                            <!-- uses_hd_meaがfalseのため、HD-MEAバッジは表示しません -->
-                        </td>
-                    </tr>
+        <div class="section">
+            <h2>著者</h2>
+            <p>Kim D, Kondo T, Inoue H.</p>
+        </div>
 
-                    <!-- Infographic Cards Section -->
-                    <tr>
-                        <td style="padding: 30px 40px;">
-                            <h2 style="margin: 0 0 25px 0; font-size: 24px; color: #333333; text-align: center;">論文要約インフォグラフィック</h2>
+        <div class="section">
+            <h2>出典</h2>
+            <p>Stem Cell Reports. 2026 Apr 14;21(4):102866. Epub 2026 Mar 26.</p>
+        </div>
 
-                            <!-- Card 1: 背景 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #f0f8ff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h3 style="margin: 0 0 10px 0; font-size: 20px; color: #0056b3;">背景</h3>
-                                        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #333333;">
-                                            神経変性疾患は、世界中で深刻な健康問題となっています。脳の免疫細胞であるミクログリアは、脳の健康維持と疾患の両方において重要な役割を担っていますが、神経変性疾患の病態生理におけるその具体的な寄与は複雑で、完全には解明されていません。従来のモデルでは、ヒトの疾患メカニズムを十分に再現できないという課題がありました。
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
+        <div class="section">
+            <h2>DOI</h2>
+            <p class="doi-link"><a href="https://doi.org/10.1016/j.stemcr.2026.102866" target="_blank" class="link-button">10.1016/j.stemcr.2026.102866</a></p>
+        </div>
 
-                            <!-- Card 2: 手法 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #f0fff0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h3 style="margin: 0 0 10px 0; font-size: 20px; color: #28a745;">手法</h3>
-                                        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #333333;">
-                                            本研究では、ヒト多能性幹細胞（hPSCs）を用いて神経変性疾患のモデルを構築しました。これにより、ヒト特異的なミクログリア細胞と神経細胞をin vitroで生成することが可能となり、より生理学的に関連性の高いシステムでミクログリアの機能を詳細に解析するアプローチが採用されました。このモデルは、疾患の複雑な細胞間相互作用を解明するための強力なツールとなります。
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
+        <div class="section">
+            <h2>PubMed URL</h2>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/41895273/" target="_blank" class="link-button">PubMedで見る</a></p>
+        </div>
 
-                            <!-- Card 3: 結果 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #fffaf0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h3 style="margin: 0 0 10px 0; font-size: 20px; color: #ffc107;">結果</h3>
-                                        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #333333;">
-                                            hPSCベースのモデルは、ミクログリアとニューロンの相互作用、および神経変性疾患の進行におけるミクログリアの特定の役割を詳細に調査することを可能にします。このアプローチにより、ミクログリアの機能不全の根底にある主要な分子経路や細胞メカニズムを特定し、疾患の病態生理に対するミクログリアの寄与をより深く理解するための知見が得られることが期待されます。
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Microglial</span>
+                <span class="keyword-tag">Neurodegenerative disease</span>
+                <span class="keyword-tag">Pathophysiology</span>
+                <span class="keyword-tag">Human pluripotent stem cells</span>
+                <span class="keyword-tag">Stem cell reports</span>
+            </div>
+        </div>
 
-                            <!-- Card 4: 結論 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); border: 1px solid #e0e0e0;">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h3 style="margin: 0 0 10px 0; font-size: 20px; color: #6c757d;">結論</h3>
-                                        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #333333;">
-                                            ヒト多能性幹細胞を用いることは、神経変性疾患におけるミクログリアの複雑な寄与を解明するための強力なプラットフォームを提供します。このアプローチによって得られる深い理解は、ミクログリアの病理を標的とした新たな治療戦略の開発に不可欠であり、将来的な神経変性疾患治療の進展に大きく貢献すると考えられます。
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </td>
-                    </tr>
-
-                    <!-- Footer Section -->
-                    <tr>
-                        <td style="padding: 20px 40px 30px 40px; text-align: center; font-size: 12px; color: #999999; border-top: 1px solid #eeeeee;">
-                            <p style="margin: 0;">このインフォグラフィックは、論文タイトルに基づき生成された要約です。</p>
-                            <p style="margin: 5px 0 0 0;">&copy; 2023 [Your Name/Organization]. All rights reserved.</p>
-                        </td>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-    </table>
-
+        <div class="japanese-summary">
+            <h2>日本語要約</h2>
+            <p>本論文は、ヒト多能性幹細胞を活用し、神経変性疾患の病態生理におけるミクログリアの寄与を詳細に分析することを目的としています。ミクログリアが神経変性疾患の発症や進行にどのように関与しているかを解明するための研究です。</p>
+        </div>
+    </div>
 </body>
 </html>
