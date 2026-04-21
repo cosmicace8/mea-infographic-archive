@@ -1,84 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>論文インフォグラフィック</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* カラーパレットと基本設定 */
+        :root {
+            --primary-color: #2c3e50; /* ダークブルー */
+            --secondary-color: #3498db; /* ブライトブルー */
+            --accent-color: #e74c3c; /* レッド */
+            --background-color: #ecf0f1; /* ライトグレー */
+            --card-background: #ffffff; /* ホワイト */
+            --text-color: #34495e; /* ダークグレー */
+            --light-text-color: #7f8c8d; /* ミディアムグレー */
+            --border-radius: 8px;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* ヘッダー */
+        .header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* メインコンテンツ */
+        .content {
+            padding: 30px;
+        }
+
+        /* 各セクションの共通スタイル */
+        .section {
+            background-color: var(--card-background);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color); /* 左側のアクセントボーダー */
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section h2, .section h3, .section h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--background-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .paper-url {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            word-break: break-all; /* 長いURLの折り返し */
+        }
+
+        .paper-url a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .paper-url a:hover {
+            text-decoration: underline;
+        }
+
+        /* 日本語要約セクション */
+        .summary-section {
+            border-left-color: var(--accent-color); /* 要約セクションは異なるアクセントカラー */
+        }
+
+        .summary-section h3 {
+            color: var(--accent-color);
+        }
+
+        /* 詳細情報セクション (グリッドレイアウト) */
+        .details-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* レスポンシブなグリッド */
+            gap: 20px;
+            border-left: none; /* グリッドコンテナ自体には左ボーダーを適用しない */
+        }
+
+        /* 各詳細項目 */
+        .detail-item {
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-left: 4px solid var(--secondary-color); /* 各項目に左ボーダー */
+        }
+
+        .detail-item .icon {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .detail-item h4 {
+            color: var(--primary-color);
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-item p, .detail-item ul {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        .detail-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-item ul li::before {
+            content: '•'; /* リストアイテムのマーカー */
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* キーワードタグ */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .keywords span {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        /* フッター */
+        .footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        /* レスポンシブ調整 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .details-section {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%; table-layout: fixed; background-color: #f8f9fa;">
-        <tr>
-            <td align="center" style="padding: 30px 0;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width: 600px; max-width: 600px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.08);">
-                    <!-- Header Section -->
-                    <tr>
-                        <td style="padding: 30px; text-align: center; border-bottom: 1px solid #f0f0f0;">
-                            <h1 style="font-size: 26px; color: #333333; margin: 0 0 15px 0; line-height: 1.3;">
-                                Human-Centric Modeling in Metastatic Breast Cancer: Organoids, Organ-on-Chip Systems, and New Approach Methodologies in the Post-FDA Modernization Act 2.0 Era.
-                            </h1>
-                            <p style="font-size: 15px; color: #555555; margin: 0 0 8px 0;">
-                                <strong>著者:</strong> Alatawi H, Nair HH, Raza A, Velez E, Sharma AK, Narayan S.
-                            </p>
-                            <p style="font-size: 14px; color: #777777; margin: 0 0 8px 0;">
-                                <strong>出典:</strong> Cancers (Basel). 2026 Apr 4;18(7):1166.
-                            </p>
-                            <p style="font-size: 14px; color: #777777; margin: 0;">
-                                <strong>DOI:</strong> <a href="https://doi.org/10.3390/cancers18071166" style="color: #007bff; text-decoration: none;">10.3390/cancers18071166</a>
-                            </p>
-                            <p style="font-size: 14px; color: #007bff; margin: 15px 0 0 0;">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/41976388/" style="color: #007bff; text-decoration: none; font-weight: bold;">PubMedで論文を読む &raquo;</a>
-                            </p>
-                        </td>
-                    </tr>
+<body>
+    <div class="infographic-container">
+        <header class="header">
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main class="content">
+            <section class="section title-section">
+                <h2 class="paper-title">Human-Centric Modeling in Metastatic Breast Cancer: Organoids, Organ-on-Chip Systems, and New Approach Methodologies in the Post-FDA Modernization Act 2.0 Era.</h2>
+                <p class="paper-url">URL: <a href="https://pubmed.ncbi.nlm.nih.gov/41976388/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/41976388/</a></p>
+            </section>
 
-                    <!-- Summary Section -->
-                    <tr>
-                        <td style="padding: 30px;">
-                            <h2 style="font-size: 24px; color: #333333; text-align: center; margin: 0 0 30px 0; border-bottom: 2px solid #007bff; display: inline-block; padding-bottom: 5px;">論文要約</h2>
+            <section class="section summary-section">
+                <h3>日本語要約</h3>
+                <p class="japanese-summary">
+                    本論文は、転移性乳がんの研究において、より人間中心のアプローチを提唱しています。具体的には、オルガノイドや臓器チップシステムといった新しいモデリング技術を活用し、FDA近代化法2.0の時代における新しい研究手法の可能性を探っています。これにより、動物実験への依存を減らし、より臨床的に関連性の高い研究モデルを開発することを目指しています。
+                </p>
+            </section>
 
-                            <!-- Card 1: 背景 -->
-                            <div style="background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                                <h3 style="font-size: 20px; color: #333333; margin: 0 0 12px 0; border-left: 4px solid #007bff; padding-left: 10px;">背景</h3>
-                                <p style="font-size: 16px; color: #555555; line-height: 1.7;">
-                                    転移性乳がんは、その複雑な病態と治療抵抗性から、効果的な治療法開発が依然として大きな課題です。従来の動物モデルではヒトの疾患メカニズムを完全に再現することが難しく、創薬研究のボトルネックとなっていました。このような状況下、FDA近代化法2.0の施行により、動物実験に代わる新しいアプローチ手法（NAMs）の導入が強く推進されています。
-                                </p>
-                            </div>
-
-                            <!-- Card 2: 手法 -->
-                            <div style="background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                                <h3 style="font-size: 20px; color: #333333; margin: 0 0 12px 0; border-left: 4px solid #007bff; padding-left: 10px;">手法</h3>
-                                <p style="font-size: 16px; color: #555555; line-height: 1.7;">
-                                    本論文は、転移性乳がん研究におけるヒト中心のモデリング技術、具体的にはオルガノイド、臓器チップシステム（Organ-on-Chip）、およびその他の新しいアプローチ手法（NAMs）に焦点を当て、これらの技術の現状と将来性を包括的にレビューしています。これらのモデルが、ヒトの生理学的環境をより正確に模倣し、疾患メカニズムの解明や薬剤スクリーニングにどのように活用できるかを詳細に考察しています。
-                                </p>
-                            </div>
-
-                            <!-- Card 3: 結果 -->
-                            <div style="background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                                <h3 style="font-size: 20px; color: #333333; margin: 0 0 12px 0; border-left: 4px solid #007bff; padding-left: 10px;">結果</h3>
-                                <p style="font-size: 16px; color: #555555; line-height: 1.7;">
-                                    オルガノイドや臓器チップシステムは、転移性乳がんの微小環境、薬剤応答、および転移プロセスをin vitroで高精度に再現する能力を示しています。これらのヒト中心モデルは、従来の2D細胞培養や動物モデルと比較して、より臨床的に関連性の高いデータを提供し、個別化医療や新規治療薬の開発を加速させる可能性を秘めていることが示唆されました。これにより、動物実験の代替としての有効性も強調されています。
-                                </p>
-                            </div>
-
-                            <!-- Card 4: 結論 -->
-                            <div style="background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                                <h3 style="font-size: 20px; color: #333333; margin: 0 0 12px 0; border-left: 4px solid #007bff; padding-left: 10px;">結論</h3>
-                                <p style="font-size: 16px; color: #555555; line-height: 1.7;">
-                                    FDA近代化法2.0の時代において、オルガノイドや臓器チップなどのヒト中心モデリング技術は、転移性乳がん研究のパラダイムを大きく変革する可能性を秘めています。これらの新しいアプローチ手法は、動物実験の代替としてだけでなく、より効果的で安全な治療法の開発を促進し、最終的には患者の予後改善に貢献する不可欠なツールとなるでしょう。
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Footer Section -->
-                    <tr>
-                        <td style="padding: 20px; text-align: center; font-size: 12px; color: #aaaaaa; border-top: 1px solid #f0f0f0;">
-                            このメールは自動生成されたものです。
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+            <section class="details-section">
+                <div class="detail-item">
+                    <span class="icon">👤</span>
+                    <h4>著者</h4>
+                    <p>Alatawi H, Nair HH, Raza A, Velez E, Sharma AK, Narayan S.</p>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📚</span>
+                    <h4>出典</h4>
+                    <p>Cancers (Basel). 2026 Apr 4;18(7):1166.</p>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🔗</span>
+                    <h4>DOI</h4>
+                    <p><a href="https://doi.org/10.3390/cancers18071166" target="_blank" rel="noopener noreferrer">10.3390/cancers18071166</a></p>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🏷️</span>
+                    <h4>キーワード</h4>
+                    <div class="keywords">
+                        <span>Metastatic breast cancer</span>
+                        <span>Organoids</span>
+                        <span>Organ-on-chip</span>
+                        <span>Human-centric modeling</span>
+                        <span>FDA Modernization Act</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">💡</span>
+                    <h4>主要概念</h4>
+                    <ul class="key-concepts">
+                        <li>人間中心モデリング</li>
+                        <li>オルガノイド</li>
+                        <li>臓器チップシステム</li>
+                        <li>FDA近代化法2.0</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
 </body>
 </html>
