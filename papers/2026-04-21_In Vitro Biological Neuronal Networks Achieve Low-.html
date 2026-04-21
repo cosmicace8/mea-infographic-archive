@@ -4,81 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文要約インフォグラフィック</title>
+    <!-- メールクライアントでの表示を最適化するためのメタタグ -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <style type="text/css">
+        /* 一部のメールクライアントでデフォルトのスタイルをリセット */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+        /* Gmailのモバイルアプリでリンクの色が変わるのを防ぐ */
+        u + #body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%; border-collapse: collapse;">
-        <tr>
-            <td style="padding: 20px 0; text-align: center;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width: 600px; max-width: 100%; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); overflow: hidden;">
-                    <!-- Header Section -->
-                    <tr>
-                        <td style="padding: 30px; text-align: left; border-bottom: 1px solid #eeeeee;">
-                            <h1 style="margin: 0 0 10px 0; font-size: 24px; line-height: 1.3; color: #333333;">
-                                In Vitro Biological Neuronal Networks Achieve Low-Power Consumption and High-Speed Communication through Predictable Stimulation.
-                            </h1>
-                            <p style="margin: 0 0 5px 0; font-size: 14px; color: #555555;">
-                                <strong style="color: #333333;">著者:</strong> Jiang L, Wang Y, Luo J, Liu Y, Zhang K, Wang X, Wang Y, Liu Y, Sun S, Shang L, Lu C, Sha L, Wang M, Xu Q, Cai X.
-                            </p>
-                            <p style="margin: 0 0 5px 0; font-size: 14px; color: #555555;">
-                                <strong style="color: #333333;">出典:</strong> ACS Sens. 2026 Apr 15.
-                            </p>
-                            <p style="margin: 0 0 5px 0; font-size: 14px; color: #555555;">
-                                <strong style="color: #333333;">DOI:</strong> <a href="https://doi.org/10.1021/acssensors.5c03461" style="color: #007bff; text-decoration: none;">10.1021/acssensors.5c03461</a>
-                            </p>
-                            <p style="margin: 0; font-size: 14px; color: #555555;">
-                                <strong style="color: #333333;">URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41983381/" style="color: #007bff; text-decoration: none;">pubmed.ncbi.nlm.nih.gov/41983381/</a>
-                            </p>
-                        </td>
-                    </tr>
+<body style="margin: 0; padding: 0; background-color: #f8f9fa; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; text-align: center;">
 
-                    <!-- Summary Cards Section -->
-                    <tr>
-                        <td style="padding: 30px;">
-                            <h2 style="margin: 0 0 20px 0; font-size: 22px; color: #333333; text-align: center;">論文要約</h2>
+    <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); overflow: hidden;">
 
-                            <!-- 背景 Card -->
-                            <div style="background-color: #f9f9f9; border-left: 4px solid #007bff; padding: 20px; margin-bottom: 20px; border-radius: 6px;">
-                                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #007bff;">背景</h3>
-                                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #555555;">
-                                    生体ニューラルネットワークは、その効率的な情報処理能力から、次世代の低消費電力・高速通信技術への応用が期待されています。しかし、in vitro（生体外）でのニューラルネットワークの刺激と応答の制御は、その複雑性から課題が残されています。本研究は、予測可能な刺激を用いることで、この課題を克服し、低消費電力と高速通信を実現することを目指します。
-                                </p>
-                            </div>
+        <!-- ヘッダー部分 -->
+        <div style="padding: 30px 25px; background-color: #343a40; color: #ffffff; text-align: left; border-top-left-radius: 12px; border-top-right-radius: 12px; position: relative;">
+            <h1 style="font-size: 26px; margin: 0 0 10px 0; line-height: 1.3;">In Vitro Biological Neuronal Networks Achieve Low-Power Consumption and High-Speed Communication through Predictable Stimulation</h1>
+            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>著者:</strong> L Jiang, Y Wang, J Luo, Y Liu, K Zhang, X Wang…</p>
+            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>出典:</strong> ACS Sensors, 2026</p>
+            <p style="font-size: 15px; margin: 0 0 5px 0; color: #e0e0e0;"><strong>DOI:</strong> <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.5c03461" style="color: #87ceeb; text-decoration: none;">10.1021/acssensors.5c03461</a></p>
+            <p style="font-size: 15px; margin: 0; color: #e0e0e0;"><strong>論文URL:</strong> <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.5c03461" style="color: #87ceeb; text-decoration: none;">詳細はこちら</a></p>
+            
+            <!-- HD-MEAバッジ -->
+            <div style="position: absolute; top: 20px; right: 20px; background-color: #28a745; color: #ffffff; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; letter-spacing: 0.5px;">
+                HD-MEA使用
+            </div>
+        </div>
 
-                            <!-- 手法 Card -->
-                            <div style="background-color: #f9f9f9; border-left: 4px solid #28a745; padding: 20px; margin-bottom: 20px; border-radius: 6px;">
-                                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #28a745;">手法</h3>
-                                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #555555;">
-                                    研究チームは、in vitroで培養した生物学的ニューラルネットワークに対し、特定のパターンを持つ予測可能な電気刺激を適用しました。刺激に対するニューロンの発火パターンと通信速度を詳細に記録し、消費電力と情報伝達効率を評価しました。特に、刺激の予測可能性がネットワークの応答に与える影響を分析しました。
-                                </p>
-                            </div>
+        <!-- 4カード構成 -->
+        <div style="padding: 25px;">
 
-                            <!-- 結果 Card -->
-                            <div style="background-color: #f9f9f9; border-left: 4px solid #ffc107; padding: 20px; margin-bottom: 20px; border-radius: 6px;">
-                                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #ffc107;">結果</h3>
-                                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #555555;">
-                                    予測可能な刺激を用いることで、in vitroニューラルネットワークが著しく低い消費電力で動作し、同時に高い通信速度を維持できることが示されました。これは、ネットワークが予測可能な入力に対して効率的に応答するメカニズムを持っていることを示唆しています。従来のランダムな刺激と比較して、エネルギー効率が大幅に向上しました。
-                                </p>
-                            </div>
+            <!-- カード1: 背景 -->
+            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">背景</h3>
+                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
+                    生体内のニューラルネットワークは驚異的な効率で機能しますが、人工的なシステムでこれを模倣するには、電力消費と通信速度の課題があります。本研究は、生体外のニューラルネットワークにおいて、これらの課題を克服し、低消費電力と高速通信を実現する方法を探求します。
+                </p>
+            </div>
 
-                            <!-- 結論 Card -->
-                            <div style="background-color: #f9f9f9; border-left: 4px solid #dc3545; padding: 20px; border-radius: 6px;">
-                                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #dc3545;">結論</h3>
-                                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #555555;">
-                                    本研究は、予測可能な刺激がin vitro生物学的ニューラルネットワークの低消費電力化と高速通信化に貢献することを実証しました。この発見は、生体模倣型コンピューティングや神経インターフェースの設計において、エネルギー効率と性能を向上させる新たな道を開くものです。将来的には、より複雑な情報処理システムへの応用が期待されます。
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
+            <!-- カード2: 手法 -->
+            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">手法</h3>
+                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
+                    高密度マイクロ電極アレイ（HD-MEA）を用いて、生体外で培養された生物学的ニューラルネットワークを構築しました。このネットワークに対し、「予測可能な刺激」という新しい刺激プロトコルを適用し、その際の電力消費と通信特性を詳細に分析しました。
+                </p>
+            </div>
 
-                    <!-- Footer Section (Optional) -->
-                    <tr>
-                        <td style="padding: 20px 30px; text-align: center; font-size: 12px; color: #999999; border-top: 1px solid #eeeeee;">
-                            <p style="margin: 0;">このインフォグラフィックは論文情報に基づいて自動生成されました。</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+            <!-- カード3: 結果 -->
+            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">結果</h3>
+                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
+                    予測可能な刺激を用いることで、生物学的ニューラルネットワークが著しく低い電力消費で動作し、同時に高速な情報通信を実現できることを示しました。これは、従来のランダムな刺激と比較して、ネットワークの効率が大幅に向上することを示唆しています。
+                </p>
+            </div>
+
+            <!-- カード4: 結論 -->
+            <div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: left; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+                <h3 style="font-size: 20px; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px;">結論</h3>
+                <p style="font-size: 15px; line-height: 1.6; color: #495057; margin: 0;">
+                    本研究は、予測可能な刺激が、生体外ニューラルネットワークの電力効率と通信速度を最適化するための効果的な戦略であることを実証しました。この知見は、低消費電力のニューロモルフィックデバイスや、より効率的な脳-機械インターフェースの開発に貢献する可能性があります。
+                </p>
+            </div>
+
+        </div>
+
+        <!-- フッター部分 (オプション) -->
+        <div style="padding: 20px 25px; background-color: #e9ecef; color: #6c757d; font-size: 13px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+            <p style="margin: 0;">このインフォグラフィックは論文情報に基づいて自動生成されました。</p>
+        </div>
+
+    </div>
+
 </body>
 </html>
