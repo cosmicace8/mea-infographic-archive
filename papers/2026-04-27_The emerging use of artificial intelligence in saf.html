@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .info-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #4CAF50; /* アイコンカラー */
+            flex-shrink: 0;
+            width: 30px;
+            text-align: center;
+        }
+        .info-content {
+            flex-grow: 1;
+        }
+        .info-content strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f1; /* キーワードタグの背景色 */
+            color: #00796b; /* キーワードタグの文字色 */
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .summary-box {
+            background-color: #e8f5e9; /* 要約ボックスの背景色 */
+            border-left: 5px solid #66bb6a; /* 要約ボックスの左ボーダー */
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        .summary-box h3 {
+            color: #388e3c; /* 要約見出しの色 */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .summary-box p {
+            color: #424242;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <div class="info-item">
+                <div class="info-icon">📄</div>
+                <div class="info-content">
+                    <strong>タイトル</strong>
+                    <p>"The emerging use of artificial intelligence in safety pharmacology & toxicology"</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">✍️</div>
+                <div class="info-content">
+                    <strong>著者</strong>
+                    <p>L Miller, I Treleaven, AI El Amrani, EI Rossman…</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📚</div>
+                <div class="info-content">
+                    <strong>出典</strong>
+                    <p>Journal of Pharmacological …, 2026</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🔗</div>
+                <div class="info-content">
+                    <strong>URL</strong>
+                    <p><a href="https://www.sciencedirect.com/science/article/pii/S1056871926000171" target="_blank">https://www.sciencedirect.com/science/article/pii/S1056871926000171</a></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🏷️</div>
+                <div class="info-content">
+                    <strong>キーワード</strong>
+                    <div class="keywords-container">
+                        <span class="keyword-tag">artificial intelligence</span>
+                        <span class="keyword-tag">safety pharmacology</span>
+                        <span class="keyword-tag">toxicology</span>
+                        <span class="keyword-tag">proarrhythmic risk</span>
+                        <span class="keyword-tag">seizure liability</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🤖</div>
+                <div class="info-content">
+                    <strong>人工知能の利用</strong>
+                    <p>この論文の主要テーマであり、安全性薬理学および毒性学への応用を探求しています。</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🔬</div>
+                <div class="info-content">
+                    <strong>HD-MEA (高密度多電極アレイ) の使用</strong>
+                    <p>いいえ</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📊</div>
+                <div class="info-content">
+                    <strong>スパイクソーティング方法</strong>
+                    <p>該当なし</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🆔</div>
+                <div class="info-content">
+                    <strong>DOI</strong>
+                    <p>該当なし</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>日本語要約</h3>
+            <p>本論文「安全性薬理学および毒性学における人工知能の新たな利用」は、医薬品の安全性評価、特に不整脈リスクや発作誘発性といった毒性評価において、人工知能（AI）がどのように活用され得るかを探求しています。AI技術の導入により、より効率的かつ高精度な安全性評価手法が開発される可能性について論じています。</p>
+        </div>
+    </div>
+</body>
+</html>
