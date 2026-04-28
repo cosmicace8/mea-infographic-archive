@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3; /* Darker blue */
+            --secondary-color: #007bff; /* Blue */
+            --accent-color: #28a745; /* Green */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e9ecef;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infographic-container::before {
+            content: '📄'; /* Paper icon */
+            font-size: 80px;
+            color: var(--primary-color);
+            opacity: 0.08;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 0;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--dark-bg);
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .section.authors h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007bff"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'); }
+        .section.source h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007bff"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>'); }
+        .section.links h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007bff"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>'); }
+        .section.keywords h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007bff"><path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/></svg>'); }
+        .section.summary h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007bff"><path d="M4 15h16v-2H4v2zm0 4h16v-2H4v2zm0-8h16V9H4v2zm0-6v2h16V5H4z"/></svg>'); }
+
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+        }
+
+        ul li {
+            background-color: #fff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .journal-info p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        .links a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            padding: 10px 18px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .links a:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+        }
+
+        .summary p {
+            font-size: 1.05em;
+            color: var(--text-color);
+            line-height: 1.8;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                border-left: 5px solid var(--primary-color);
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .links a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .infographic-container::before {
+                font-size: 60px;
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .section h2 {
+                font-size: 1.1em;
+            }
+            ul li {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+            .links a {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+            .summary p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Phenotypic screening of human iPSC-derived neurons identifies thienopyridones as neuritogenic small molecules.</h1>
+
+        <div class="section authors">
+            <h2>著者</h2>
+            <ul>
+                <li>Imamura K</li>
+                <li>Yukikate H</li>
+                <li>Hioki T</li>
+                <li>Okusa A</li>
+                <li>Shibata K</li>
+                <li>Narvaiza I</li>
+                <li>Kaieda A</li>
+                <li>Saito B</li>
+                <li>Sakai N</li>
+                <li>Anh Suong DN</li>
+                <li>Niki T</li>
+                <li>Arioka Y</li>
+                <li>Ozaki N</li>
+                <li>Inoue H</li>
+            </ul>
+        </div>
+
+        <div class="section source">
+            <h2>掲載情報</h2>
+            <p><strong>ジャーナル:</strong> iScience.</p>
+            <p><strong>発行日:</strong> 2026 Mar 30;29(5):115529.</p>
+            <p><strong>DOIコレクション日:</strong> eCollection 2026 May 15.</p>
+        </div>
+
+        <div class="section links">
+            <h2>リンク</h2>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42028031/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
+            <a href="https://doi.org/10.1016/j.isci.2026.115529" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.isci.2026.115529</a>
+        </div>
+
+        <div class="section keywords">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">iPSC-derived neurons</span>
+                <span class="keyword-tag">Phenotypic screening</span>
+                <span class="keyword-tag">Neuritogenesis</span>
+                <span class="keyword-tag">Small molecules</span>
+                <span class="keyword-tag">Drug discovery</span>
+            </div>
+        </div>
+
+        <div class="section summary">
+            <h2>日本語要約</h2>
+            <p>
+                本研究は、ヒトiPSC（人工多能性幹細胞）由来ニューロンを用いた表現型スクリーニングを通じて、神経突起形成を促進する新たな低分子化合物であるチエノピリドンを同定したことを報告しています。この発見は、神経疾患の治療薬開発に向けた重要な一歩となる可能性を秘めています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
