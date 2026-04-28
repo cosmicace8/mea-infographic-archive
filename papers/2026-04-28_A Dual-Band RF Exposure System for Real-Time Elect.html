@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-top: 8px solid #007bff; /* Accent color */
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .authors, .source, .doi, .keywords, .url-link {
+            margin-bottom: 10px;
+        }
+        .authors span, .source span, .doi span, .keywords span {
+            font-weight: bold;
+            color: #555;
+        }
+        .keywords ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keywords li {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #cce0ff;
+        }
+        .highlight-box {
+            background-color: #e6ffe6; /* Light green for positive highlights */
+            border-left: 5px solid #28a745; /* Green accent */
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .highlight-box.negative {
+            background-color: #fff0f0; /* Light red for negative highlights */
+            border-left: 5px solid #dc3545; /* Red accent */
+        }
+        .highlight-box p {
+            margin: 0;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .highlight-box.negative p {
+            color: #dc3545;
+        }
+        .icon {
+            font-size: 1.8em;
+            color: #28a745;
+        }
+        .highlight-box.negative .icon {
+            color: #dc3545;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .keywords li {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <div class="section-title">タイトル</div>
+            <p style="font-size: 1.4em; font-weight: bold; color: #333;">A Dual-Band RF Exposure System for Real-Time Electrophysiological Recordings Using Microelectrode Array Device</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">著者</div>
+            <p class="authors">N Dolciotti, C Pisano, A Paffi, M Cioni, G Guerra, I Zironi…</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">日本語要約</div>
+            <p>本論文は、マイクロ電極アレイ（MEA）デバイスを用いたリアルタイム電気生理学的記録のためのデュアルバンドRF曝露システムについて記述しています。特に、神経細胞培養におけるRF曝露の影響を評価するために設計されており、デュアルバンド対応が特徴です。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">掲載情報</div>
+            <p class="source"><span>掲載誌:</span> Frontiers in Antennas and …</p>
+            <p class="doi"><span>DOI:</span> <a href="https://doi.org/10.3389/fanpr.2026.1832099" target="_blank">10.3389/fanpr.2026.1832099</a></p>
+            <p class="url-link"><span>元論文URL:</span> <a href="https://www.frontiersin.org/journals/antennas-and-propagation/articles/10.3389/fanpr.2026.1832099/full" target="_blank">論文を読む</a></p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">キーワード</div>
+            <ul class="keywords">
+                <li>RF exposure system</li>
+                <li>electrophysiological recording</li>
+                <li>microelectrode array</li>
+                <li>neuronal cultures</li>
+                <li>dual-band</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">研究手法のハイライト</div>
+            <div class="highlight-box">
+                <i class="fas fa-check-circle icon"></i>
+                <p>HD-MEA (高密度マイクロ電極アレイ) を使用しています。</p>
+            </div>
+            <div class="highlight-box negative">
+                <i class="fas fa-times-circle icon"></i>
+                <p>スパイクソーティング手法については記載がありません。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </div>
+    </div>
+</body>
+</html>
