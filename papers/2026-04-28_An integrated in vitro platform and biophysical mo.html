@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue/Grey */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #2ecc71; /* Green */
+            --background-light: #f4f7f6;
+            --background-white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #ecf0f1;
+            --border-color: #e0e0e0;
+        }
+
+        /* Basic Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for longer content */
+            min-height: 100vh;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: var(--background-white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0; /* Add vertical margin */
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            padding: 40px;
+        }
+
+        /* Title and Japanese Summary Section */
+        .title-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .title-section h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .japanese-summary {
+            font-size: 1.1em;
+            color: #555;
+            font-style: italic;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: 15px 25px;
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        /* Details Section (Authors, Publication, Keywords) */
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column for small screens */
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        /* Two columns for larger screens */
+        @media (min-width: 768px) {
+            .details-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .details-section > div {
+            background-color: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .details-section h3 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Authors List */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .authors li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .authors li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Publication Info */
+        .publication-info p {
+            margin-bottom: 10px;
+        }
+
+        .publication-info strong {
+            color: var(--primary-color);
+        }
+
+        .publication-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .publication-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords Tags */
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 40px;
+            font-size: 0.9em;
+            border-top: 5px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <section class="main-content">
+            <div class="title-section">
+                <h2>An integrated in vitro platform and biophysical modeling approach for studying synaptic transmission in isolated neuronal pairs.</h2>
+                <p class="japanese-summary">
+                    本論文は、孤立したニューロンペアにおけるシナプス伝達を研究するための、統合されたin vitroプラットフォームと生物物理学的モデリングアプローチについて詳述しています。電気生理学的手法も活用し、シナプス伝達の複雑なメカニズムを多角的に解析することを目的としています。
+                </p>
+            </div>
+            <div class="details-section">
+                <div class="authors">
+                    <h3>著者</h3>
+                    <ul>
+                        <li>Amos G</li>
+                        <li>Vasiliauskaitė V</li>
+                        <li>Duru J</li>
+                        <li>Azevedo Saramago ML</li>
+                        <li>Schmid T</li>
+                        <li>Suter A</li>
+                        <li>Torren FC</li>
+                        <li>Küchler J</li>
+                        <li>Ruff T</li>
+                        <li>Vörös J</li>
+                        <li>Vulić K</li>
+                    </ul>
+                </div>
+                <div class="publication-info">
+                    <h3>出版情報</h3>
+                    <p><strong>雑誌:</strong> iScience. 2026 Apr 1;29(5):115488.</p>
+                    <p><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.isci.2026.115488" target="_blank" rel="noopener noreferrer">10.1016/j.isci.2026.115488</a></p>
+                    <p><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42016309/" target="_blank" rel="noopener noreferrer">リンク</a></p>
+                </div>
+                <div class="keywords">
+                    <h3>キーワード</h3>
+                    <div class="keyword-tags">
+                        <span class="keyword-tag">Synaptic transmission</span>
+                        <span class="keyword-tag">Neuronal pairs</span>
+                        <span class="keyword-tag">In vitro platform</span>
+                        <span class="keyword-tag">Biophysical modeling</span>
+                        <span class="keyword-tag">Electrophysiology</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2026 論文情報</p>
+        </footer>
+    </div>
+</body>
+</html>
