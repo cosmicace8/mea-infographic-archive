@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@404&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .header a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .header a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: '•';
+            color: #3498db;
+            font-size: 1.5em;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        .section p, .section ul {
+            font-size: 1em;
+            color: #555;
+            margin: 0;
+            padding-left: 25px; /* Adjust for bullet */
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword-tag {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #dce0e1;
+        }
+
+        .doi-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+
+        .summary-japanese {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .summary-japanese h2 {
+            color: #2980b9;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        .summary-japanese p {
+            font-size: 1.05em;
+            color: #333;
+            padding-left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .section p, .section ul {
+                font-size: 0.95em;
+            }
+            .summary-japanese h2 {
+                font-size: 1.2em;
+            }
+            .summary-japanese p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .section h2 {
+                font-size: 1.1em;
+            }
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>The emerging use of artificial intelligence in safety pharmacology & toxicology.</h1>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42031077/" target="_blank" rel="noopener noreferrer">
+                PubMedで論文を見る
+            </a>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p>Miller L, Treleaven I, El Amrani AI, Rossman EI, Winters BR, Pugsley MK.</p>
+        </div>
+
+        <div class="section">
+            <h2>出典</h2>
+            <p>J Pharmacol Toxicol Methods. 2026 Apr 22:108424.</p>
+        </div>
+
+        <div class="section">
+            <h2>DOI</h2>
+            <p>
+                <a href="https://doi.org/10.1016/j.vascn.2026.108424" target="_blank" rel="noopener noreferrer" class="doi-link">
+                    10.1016/j.vascn.2026.108424
+                </a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <ul>
+                <li class="keyword-tag">Artificial intelligence</li>
+                <li class="keyword-tag">Safety pharmacology</li>
+                <li class="keyword-tag">Toxicology</li>
+                <li class="keyword-tag">Drug development</li>
+                <li class="keyword-tag">Predictive models</li>
+            </ul>
+        </div>
+
+        <div class="section summary-japanese">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、安全性薬理学および毒性学分野における人工知能（AI）の新たな利用法に焦点を当てています。AI技術が創薬プロセス、特に予測モデルの構築においてどのように活用され、安全性評価の効率化と精度向上に貢献しているかを探ります。AIの導入により、医薬品開発における潜在的なリスクを早期に特定し、より安全で効果的な薬剤の開発を加速する可能性が示唆されています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
