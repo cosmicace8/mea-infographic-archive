@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .infographic-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+        .section {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 span {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e8f4f8;
+            color: #2980b9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #d0eaf7;
+        }
+        .doi-link, .url-link {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .doi-link:hover, .url-link:hover {
+            text-decoration: underline;
+        }
+        .summary-box {
+            background-color: #f8fcfd;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: #34495e;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .summary-box p {
+            margin: 0;
+            font-style: italic;
+            color: #555;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .info-item strong {
+            min-width: 150px; /* Adjust as needed */
+            margin-right: 10px;
+            color: #555;
+        }
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status-indicator.yes {
+            background-color: #e6ffe6;
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+        .status-indicator.no {
+            background-color: #ffe6e6;
+            color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+            <p>詳細情報</p>
+        </div>
+
+        <div class="section">
+            <h2><span>📄</span>論文タイトル</h2>
+            <p><strong>Selective on-chip DNA synthesis using electric field-assisted PCR.</strong></p>
+            <div class="summary-box">
+                <h3>日本語要約</h3>
+                <p>本論文は、電気泳動補助PCR（Electric field-assisted PCR）を用いて、チップ上で選択的にDNAを合成する技術について報告しています。この研究は、DNA合成、オンチップPCR、電場、マイクロ流体、Lab-on-a-chipといったキーワードに関連しており、微細なデバイス上での効率的な生体分子合成の可能性を示唆しています。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span>👤</span>著者</h2>
+            <p>Lim D, Song Y.</p>
+        </div>
+
+        <div class="section">
+            <h2><span>📚</span>出典</h2>
+            <p>Lab Chip. 2026 Apr 22.</p>
+        </div>
+
+        <div class="section">
+            <h2><span>🔗</span>DOI & URL</h2>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1039/d5lc01200g" target="_blank" class="doi-link">10.1039/d5lc01200g</a></p>
+            <p><strong>URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42015792/" target="_blank" class="url-link">https://pubmed.ncbi.nlm.nih.gov/42015792/</a></p>
+        </div>
+
+        <div class="section">
+            <h2><span>🏷️</span>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">DNA synthesis</span>
+                <span class="keyword-tag">On-chip PCR</span>
+                <span class="keyword-tag">Electric field</span>
+                <span class="keyword-tag">Microfluidics</span>
+                <span class="keyword-tag">Lab-on-a-chip</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span>🔬</span>追加情報</h2>
+            <div class="info-item">
+                <strong>HD-MEAの使用:</strong>
+                <span class="status-indicator no">いいえ</span>
+            </div>
+            <!-- spike_sorting_method は情報が空のため表示しません -->
+        </div>
+    </div>
+</body>
+</html>
