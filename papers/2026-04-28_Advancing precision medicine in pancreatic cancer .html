@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            margin: 20px;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        h2 {
+            color: #0056b3;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p, .section ul {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .authors-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px 15px;
+        }
+        .authors-list li {
+            background-color: #eaf6ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #cce0ff;
+            font-size: 0.95em;
+            color: #004085;
+        }
+        .source-info a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .keyword-tag {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .summary-box h2 {
+            color: #ffc107;
+            border-bottom-color: #ffecb3;
+            margin-top: 0;
+        }
+        .summary-box p {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Advancing precision medicine in pancreatic cancer using novel biomarkers and clinical targets.</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>Murthy D</li>
+                <li>Seyhan AA</li>
+                <li>den Hollander P</li>
+                <li>Lu S</li>
+                <li>Kuburich NA</li>
+                <li>Gould C</li>
+                <li>Karam AA</li>
+                <li>Sun K</li>
+                <li>Schupp PG</li>
+                <li>Safran H</li>
+                <li>Kurzrock R</li>
+                <li>El-Deiry W</li>
+                <li>Mani SA</li>
+            </ul>
+        </div>
+
+        <div class="section source-info">
+            <h2>出版情報</h2>
+            <p><strong>雑誌:</strong> Mol Aspects Med.</p>
+            <p><strong>発行日:</strong> 2026年4月19日; 109:101476. (オンライン先行公開)</p>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.mam.2026.101476" target="_blank">10.1016/j.mam.2026.101476</a></p>
+            <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42008879/" target="_blank">pubmed.ncbi.nlm.nih.gov/42008879/</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <ul class="keywords-list">
+                <li class="keyword-tag">Pancreatic cancer</li>
+                <li class="keyword-tag">Precision medicine</li>
+                <li class="keyword-tag">Biomarkers</li>
+                <li class="keyword-tag">Clinical targets</li>
+                <li class="keyword-tag">Oncology</li>
+            </ul>
+        </div>
+
+        <div class="summary-box">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、膵臓がんにおける精密医療の進展に焦点を当てています。特に、新規のバイオマーカーと臨床標的を用いることで、膵臓がんの診断と治療の精度向上を目指しています。オンコロジー分野における重要な研究であり、将来的な治療法開発に貢献することが期待されます。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
