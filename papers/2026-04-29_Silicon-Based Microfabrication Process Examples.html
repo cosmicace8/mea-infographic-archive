@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2, h3 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db; /* Primary blue */
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            border-left-color: #2ecc71; /* Secondary green */
+        }
+
+        .paper-details div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .paper-details .label {
+            font-weight: 700;
+            color: #555;
+            min-width: 70px; /* ラベルの幅を揃える */
+            margin-right: 10px;
+        }
+
+        .paper-details a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .paper-details a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords .keyword-item {
+            background-color: #e8f6f3; /* Light green */
+            color: #28a745; /* Darker green */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #d1ecf1;
+            white-space: nowrap; /* キーワードが途中で改行されないように */
+        }
+
+        .summary p {
+            background-color: #f8f9fa;
+            border-left: 4px solid #f39c12; /* Orange accent */
+            padding: 15px;
+            border-radius: 5px;
+            color: #495057;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-details">
+            <h2><a href="https://link.springer.com/chapter/10.1007/978-981-95-4758-6_4" target="_blank" rel="noopener noreferrer">Silicon-Based Microfabrication Process Examples</a></h2>
+            <div class="authors">
+                <span class="label">著者:</span> J Li, C Liu, L Wang
+            </div>
+            <div class="source">
+                <span class="label">出典:</span> Micro-Nano Manufacturing and Micro-Electro …, 2026
+            </div>
+            <div class="doi">
+                <span class="label">DOI:</span> <a href="https://doi.org/10.1007/978-981-95-4758-6_4" target="_blank" rel="noopener noreferrer">10.1007/978-981-95-4758-6_4</a>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h3>主要キーワード</h3>
+            <div class="keyword-list">
+                <span class="keyword-item">Silicon microfabrication</span>
+                <span class="keyword-item">Neural microelectrode array</span>
+                <span class="keyword-item">Nerve cell activity</span>
+                <span class="keyword-item">Neural networks</span>
+                <span class="keyword-item">Brain-computer interfaces</span>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h3>日本語要約</h3>
+            <p>
+                本論文「Silicon-Based Microfabrication Process Examples」は、シリコンベースの微細加工技術に焦点を当て、その具体的なプロセス例を紹介しています。特に、神経微小電極アレイの製造に応用される技術に言及し、神経細胞活動の記録、ニューラルネットワークの研究、そしてブレイン・コンピューター・インターフェースといった最先端分野への貢献が期待されることを示唆しています。
+            </p>
+        </section>
+    </div>
+</body>
+</html>
