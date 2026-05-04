@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@404;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-left: 8px solid #4CAF50; /* Accent color */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            border-bottom: 3px solid #e0e0e0;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 6px solid #4CAF50;
+            padding-left: 12px;
+            font-weight: 700;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p {
+            margin: 8px 0;
+        }
+        .section strong {
+            color: #555;
+            display: inline-block;
+            min-width: 120px;
+            font-weight: 700;
+        }
+        .authors, .source-info {
+            font-style: italic;
+            color: #666;
+            font-size: 1.05em;
+        }
+        .url a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .url a:hover {
+            text-decoration: underline;
+        }
+        .title-link {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .title-link:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .highlight-box {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .info-box h3 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .info-box p {
+            font-size: 1.05em;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2>論文タイトル</h2>
+            <p>
+                <a href="https://www.researchsquare.com/article/rs-9528027/latest.pdf" target="_blank" class="title-link">
+                    Microscale organization and separability of upper extremity representations in the human motor homunculus
+                </a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p class="authors">I Cajigas, P Borges, Q Qureshi, P Davis, Z Wang…</p>
+        </div>
+
+        <div class="section">
+            <h2>出典</h2>
+            <p class="source-info">Research Square (Preprint), 2026</p>
+        </div>
+
+        <div class="section">
+            <h2>論文URL</h2>
+            <p class="url"><a href="https://www.researchsquare.com/article/rs-9528027/latest.pdf" target="_blank">https://www.researchsquare.com/article/rs-9528027/latest.pdf</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="tag-container">
+                <span class="tag">Motor homunculus</span>
+                <span class="tag">upper extremity</span>
+                <span class="tag">hdMEA</span>
+                <span class="tag">human motor cortex</span>
+                <span class="tag">neural representation</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>研究手法のハイライト</h2>
+            <p><strong>HD-MEA使用:</strong> <span class="highlight-box">はい</span></p>
+            <p><strong>スパイクソーティング方法:</strong> <span class="highlight-box">情報なし</span></p>
+            <p><strong>DOI:</strong> <span class="highlight-box">情報なし</span></p>
+        </div>
+
+        <div class="section info-box">
+            <h3>日本語要約</h3>
+            <p>
+                本研究は、ヒトの運動皮質に存在する「運動ホムンクルス」において、上肢（腕や手など）の神経表現が微細なスケールでどのように組織され、互いに区別できるのかを詳細に調査しています。
+                高密度微小電極アレイ（hdMEA）という先進的な技術を用いることで、上肢の各部位に対応する神経活動の空間的配置と分離可能性を明らかにすることを目指しており、ヒトの運動制御の神経基盤に関する理解を深めることが期待されます。
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
