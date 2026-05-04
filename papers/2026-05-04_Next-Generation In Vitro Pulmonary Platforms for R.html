@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: #0056b3;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .authors {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .publication-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .detail-card {
+            background-color: #e9f5ff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-card strong {
+            color: #0056b3;
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+
+        .detail-card a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .detail-card a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .keyword-tag {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .summary-text {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                border-left: 5px solid #007bff;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .publication-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Next-Generation In Vitro Pulmonary Platforms for Respiratory Disease Modelling and Therapeutic Development: Current Advances and Future Prospects</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p class="authors">F Khan, P Verma, A Singh, M Kumar, J Gupta, GK Patel…</p>
+        </div>
+
+        <div class="section">
+            <h2>出版情報</h2>
+            <div class="publication-details">
+                <div class="detail-card">
+                    <strong>📚 雑誌:</strong> <p>Medicina, 2026</p>
+                </div>
+                <div class="detail-card">
+                    <strong>🆔 DOI:</strong> <a href="https://doi.org/10.3390/medicina62050859" target="_blank">10.3390/medicina62050859</a>
+                </div>
+                <div class="detail-card">
+                    <strong>🔗 URL:</strong> <a href="https://www.mdpi.com/1648-9144/62/5/859" target="_blank">mdpi.com/1648-9144/62/5/859</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Pulmonary diseases</span>
+                <span class="keyword-tag">Respiratory disease modelling</span>
+                <span class="keyword-tag">Therapeutic development</span>
+                <span class="keyword-tag">In vitro platforms</span>
+                <span class="keyword-tag">Chronic obstructive pulmonary disease</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-text">
+                <p>本論文は、「次世代のin vitro肺プラットフォームによる呼吸器疾患モデリングと治療法開発：現在の進歩と将来の展望」と題し、呼吸器疾患のモデル化と治療法開発における最新のin vitro（生体外）肺プラットフォーム技術の進歩と、その将来的な可能性について詳細に解説しています。</p>
+                <p>特に、肺疾患、呼吸器疾患モデリング、治療法開発、in vitroプラットフォーム、慢性閉塞性肺疾患といった主要なキーワードに関連する研究動向に焦点を当て、これらの技術がどのように疾患理解を深め、新たな治療法の発見に貢献しているかを探ります。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
