@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 8px solid #007bff;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー（論文タイトル） */
+        .header h1 {
+            font-size: 2.2em;
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* 各情報セクション */
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin: 5px 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        /* 著者 */
+        .authors p {
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* ソースとDOI */
+        .source p, .doi p {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* リンク */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.1);
+        }
+
+        /* 日本語要約 */
+        .summary p {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            font-style: normal;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                border-left: 5px solid #007bff;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .section p, .summary p {
+                font-size: 1em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .section h2 {
+                font-size: 1.1em;
+            }
+            .section p, .summary p {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cisplatin resistance in oral squamous cell carcinoma: mechanisms, reversal strategies, and emerging technologies.</h1>
+        </div>
+
+        <div class="section authors">
+            <h2>著者</h2>
+            <p>Shi Y, Liao W, Bai G, Chen B.</p>
+        </div>
+
+        <div class="section source">
+            <h2>出版情報</h2>
+            <p>Front Physiol. 2026 Apr 15;17:1790855. eCollection 2026.</p>
+        </div>
+
+        <div class="section doi">
+            <h2>DOI</h2>
+            <p><a href="https://doi.org/10.3389/fphys.2026.1790855." target="_blank" rel="noopener noreferrer">10.3389/fphys.2026.1790855.</a></p>
+        </div>
+
+        <div class="section keywords">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Cisplatin resistance</span>
+                <span class="keyword-tag">Oral squamous cell carcinoma</span>
+                <span class="keyword-tag">Mechanisms</span>
+                <span class="keyword-tag">Reversal strategies</span>
+                <span class="keyword-tag">Emerging technologies</span>
+            </div>
+        </div>
+
+        <div class="section summary">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、口腔扁平上皮癌（OSCC）におけるシスプラチン耐性のメカニズム、その耐性を克服するための戦略、および新たな技術に焦点を当てています。シスプラチンはOSCCの治療に広く用いられる化学療法薬ですが、耐性の獲得が治療の大きな課題となっています。本研究では、シスプラチン耐性が生じる分子メカニズムを詳細に解析し、その耐性を逆転させるための既存および新規の治療戦略、さらには将来的な治療応用が期待される新技術について包括的にレビューしています。これにより、OSCC患者の治療成績向上に貢献することを目指しています。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>詳細情報</h2>
+            <p>PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/42064548/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42064548/</a></p>
+        </div>
+    </div>
+</body>
+</html>
