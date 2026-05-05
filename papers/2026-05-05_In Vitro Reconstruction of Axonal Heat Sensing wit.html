@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray */
+            --secondary-color: #3498db; /* Bright blue */
+            --accent-color: #e74c3c; /* Red for emphasis */
+            --background-color: #f4f7f6; /* Light gray background */
+            --card-background: #ffffff; /* White card background */
+            --text-color: #333;
+            --light-text-color: #7f8c8d;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .content-section {
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item p, .info-item a {
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color);
+            word-wrap: break-word;
+        }
+
+        .info-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 400;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: var(--primary-color);
+        }
+
+        .summary-section {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content-section {
+                padding: 20px 25px;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .summary-section p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .header {
+                padding: 20px 25px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .content-section {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="header">
+            <h1>In Vitro Reconstruction of Axonal Heat Sensing with a Photothermal Nerve-on-a-Chip.</h1>
+        </header>
+
+        <div class="content-section">
+            <h2 class="section-title">論文情報</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>著者</strong>
+                    <p>Sakai K, Tanaka Y, Takahashi R, Goto T, Mizuno Y, Otomo T, Tanaka A.</p>
+                </div>
+                <div class="info-item">
+                    <strong>出典</strong>
+                    <p>Small. 2026 Apr 30:e73577. doi: 10.1002/smll.73577. Online ahead of print.</p>
+                </div>
+                <div class="info-item">
+                    <strong>DOI</strong>
+                    <p><a href="https://doi.org/10.1002/smll.73577" target="_blank" rel="noopener noreferrer">10.1002/smll.73577</a></p>
+                </div>
+                <div class="info-item">
+                    <strong>PubMed URL</strong>
+                    <p><a href="https://pubmed.ncbi.nlm.nih.gov/42059358/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42059358/</a></p>
+                </div>
+            </div>
+
+            <h2 class="section-title">主要キーワード</h2>
+            <ul class="keywords-list">
+                <li class="keyword-tag">Axonal Heat Sensing</li>
+                <li class="keyword-tag">Photothermal</li>
+                <li class="keyword-tag">Nerve-on-a-Chip</li>
+                <li class="keyword-tag">In Vitro</li>
+                <li class="keyword-tag">Neuroscience</li>
+            </ul>
+
+            <h2 class="section-title">日本語要約</h2>
+            <div class="summary-section">
+                <p>
+                    本研究は、光熱技術を応用した「Nerve-on-a-Chip（神経チップ）」を用いて、軸索における熱感知のメカニズムを体外（in vitro）で再構築したものです。この革新的なアプローチにより、神経科学分野における熱感知の複雑なプロセスを詳細に研究するための新たな実験モデルが提供されます。特に、生体外で神経細胞の熱応答を精密に制御・観察できるため、神経疾患の理解や治療法開発に貢献することが期待されます。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
