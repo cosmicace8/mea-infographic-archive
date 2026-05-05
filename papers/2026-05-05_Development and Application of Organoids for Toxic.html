@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        section h2, section h3 {
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+
+        .title-section h2 {
+            font-size: 1.8em;
+            color: #2980b9;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            border-left: none;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .title-section .url {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .title-section .url a {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .title-section .url a:hover {
+            color: #2ecc71;
+            text-decoration: underline;
+        }
+
+        .authors-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .authors-section li {
+            background-color: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .journal-section p {
+            margin: 8px 0;
+            font-size: 1em;
+        }
+
+        .journal-section strong {
+            color: #444;
+        }
+
+        .journal-section a {
+            color: #e67e22;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .journal-section a:hover {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+
+        .keywords-section .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords-section .keyword-tags span {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .keywords-section .keyword-tags span:hover {
+            background-color: #2980b9;
+        }
+
+        .summary-section p {
+            font-size: 1.05em;
+            color: #444;
+            background-color: #e8f6f3;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 5px solid #1abc9c;
+        }
+
+        .additional-info p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .title-section h2 {
+                font-size: 1.5em;
+            }
+
+            section h2, section h3 {
+                font-size: 1.3em;
+            }
+
+            .authors-section li,
+            .keywords-section .keyword-tags span {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .title-section h2 {
+                font-size: 1.3em;
+            }
+            section h2, section h3 {
+                font-size: 1.2em;
+            }
+            .summary-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="title-section">
+            <h2>Development and Application of Organoids for Toxicology Studies.</h2>
+            <p class="url">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42056005/" target="_blank" rel="noopener noreferrer">
+                    PubMedで論文を見る
+                </a>
+            </p>
+        </section>
+
+        <section class="authors-section">
+            <h3>著者</h3>
+            <ul>
+                <li>Han P</li>
+                <li>Chen M</li>
+                <li>Zhang Q</li>
+                <li>Xie L</li>
+            </ul>
+        </section>
+
+        <section class="journal-section">
+            <h3>掲載情報</h3>
+            <p><strong>ジャーナル:</strong> J Appl Toxicol. 2026 Apr 29. Online ahead of print.</p>
+            <p><strong>DOI:</strong> 
+                <a href="https://doi.org/10.1002/jat.70221." target="_blank" rel="noopener noreferrer">
+                    10.1002/jat.70221.
+                </a>
+            </p>
+        </section>
+
+        <section class="keywords-section">
+            <h3>キーワード</h3>
+            <div class="keyword-tags">
+                <span>Organoids</span>
+                <span>Toxicology studies</span>
+                <span>Development</span>
+                <span>Application</span>
+                <span>In vitro models</span>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <h3>日本語要約</h3>
+            <p>
+                本論文は、毒性学研究におけるオルガノイド（臓器様構造）の開発と応用について詳述しています。オルガノイドは、生体内の複雑な組織構造や機能をin vitroで再現できるため、従来の動物実験に代わる、より生理学的に関連性の高い毒性評価モデルとして注目されています。本研究では、その開発プロセスと、様々な毒性物質のスクリーニングやメカニズム解明への応用可能性を探求しています。
+            </p>
+        </section>
+
+        <section class="additional-info">
+            <h3>追加情報</h3>
+            <p><strong>HD-MEA使用:</strong> いいえ</p>
+            <p><strong>スパイクソーティング手法:</strong> 指定なし</p>
+        </section>
+    </div>
+</body>
+</html>
