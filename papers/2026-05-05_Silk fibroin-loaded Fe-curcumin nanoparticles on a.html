@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック: Silk fibroin-loaded Fe-curcumin nanoparticles...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* カラーパレットと基本設定 */
+        :root {
+            --primary-color: #2c3e50; /* 濃い青/グレー */
+            --secondary-color: #3498db; /* 青 */
+            --accent-color: #e74c3c; /* 赤 */
+            --background-color: #f4f7f6; /* 明るいグレー */
+            --card-background: #ffffff;
+            --text-color: #333;
+            --light-text-color: #7f8c8d;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィック全体のコンテナ */
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            border-top: 8px solid var(--secondary-color); /* テーマカラーのトップボーダー */
+        }
+
+        /* 論文タイトル */
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        /* セクションタイトル */
+        .section-title {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "•"; /* シンプルなアイコン */
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        /* 日本語要約セクション */
+        .summary {
+            background-color: #e8f4f8; /* 明るい青の背景 */
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .summary p {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        /* 情報グリッドレイアウト */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        /* 各情報カード */
+        .info-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .info-card h3::before {
+            content: "▪"; /* 小さな四角いアイコン */
+            color: var(--accent-color);
+            margin-right: 8px;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .info-card p, .info-card ul {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+        .info-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードのスタイル */
+        .keywords span {
+            display: inline-block;
+            background-color: #e0f2f7; /* 明るい青の背景 */
+            color: var(--secondary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .summary p {
+                font-size: 1em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Silk fibroin-loaded Fe-curcumin nanoparticles on antimicrobial peptide-functionalized TiO<sub>2</sub> nanotube surfaces: Microenvironment-modulated synergy for antibacterial and osteogenic enhancement.</h1>
+
+        <div class="summary">
+            <p><strong>日本語要約:</strong> この研究は、抗菌ペプチドで機能化されたTiO<sub>2</sub>ナノチューブ表面に、シルクフィブロインと鉄-クルクミンナノ粒子を搭載した複合材料を開発しました。この材料は、微小環境を介した相乗効果により、抗菌作用と骨形成促進効果を高めることを目的としています。特に、抗菌性と骨再生の両面で優れた特性を持つ生体材料の開発に貢献すると考えられます。</p>
+        </div>
+
+        <h2 class="section-title">論文詳細情報</h2>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>著者</h3>
+                <p>Shen X, Huang S, Zhang T, Ma P, Wang Z, Han P, Xie L, Zhang X, Huang X, Huang Y, Qiao H.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>出典</h3>
+                <p>Biomater Adv. 2026 Apr 29;186:214910. Online ahead of print.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>DOI</h3>
+                <p><a href="https://doi.org/10.1016/j.bioadv.2026.214910." target="_blank" rel="noopener noreferrer">10.1016/j.bioadv.2026.214910.</a></p>
+            </div>
+
+            <div class="info-card">
+                <h3>PubMed URL</h3>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42066519/" target="_blank" rel="noopener noreferrer">PubMedで詳細を見る</a></p>
+            </div>
+
+            <div class="info-card" style="grid-column: 1 / -1;"> <!-- キーワードは全幅表示 -->
+                <h3>キーワード</h3>
+                <div class="keywords">
+                    <span>Silk fibroin</span>
+                    <span>Fe-curcumin nanoparticles</span>
+                    <span>Antimicrobial peptide</span>
+                    <span>TiO2 nanotube</span>
+                    <span>Antibacterial</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
