@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック: Current-Controlled Zinc Electrodeposition Morphology...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red for highlights */
+            --background-color: #ecf0f1; /* Light Gray */
+            --text-color: #34495e; /* Darker Gray */
+            --border-color: #bdc3c7; /* Gray */
+            --success-color: #27ae60; /* Green */
+            --fail-color: #c0392b; /* Dark Red */
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2.title {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .paper-details p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .paper-details p strong {
+            color: var(--primary-color);
+            min-width: 80px;
+            display: inline-block;
+        }
+
+        .paper-details a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-details a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        .highlights > div {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlights h4 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .keywords ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords li {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .keywords li:hover {
+            background-color: var(--primary-color);
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+        }
+
+        .features li::before {
+            content: '•'; /* Default bullet */
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .hd-mea-status {
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .hd-mea-status.true {
+            background-color: var(--success-color);
+            color: #ffffff;
+        }
+
+        .hd-mea-status.false {
+            background-color: var(--fail-color);
+            color: #ffffff;
+        }
+
+        .summary p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-details">
+            <h2 class="title">Current-Controlled Zinc Electrodeposition Morphology in Ionic Liquid Electrolytes Using Microelectrode Arrays.</h2>
+            <p class="authors"><strong>著者:</strong> Suryawanshi HR, Wu X, Melemed AM, Oh D, Sung SH, Marbella LE, Singh N, Dasgupta NP, Steingart DA, Li Y.</p>
+            <p class="source"><strong>掲載元:</strong> ACS Nano. 2026 May 1. doi: 10.1021/acsnano.5c20059. Online ahead of print.</p>
+            <p class="doi"><strong>DOI:</strong> <a href="https://doi.org/10.1021/acsnano.5c20059" target="_blank" rel="noopener noreferrer">10.1021/acsnano.5c20059</a></p>
+            <p class="url"><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42065637/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42065637/</a></p>
+        </section>
+
+        <section class="highlights">
+            <div class="keywords">
+                <h4>キーワード</h4>
+                <ul>
+                    <li>Zinc Electrodeposition</li>
+                    <li>Ionic Liquid</li>
+                    <li>Microelectrode Arrays</li>
+                    <li>Electrochemistry</li>
+                    <li>Morphology</li>
+                </ul>
+            </div>
+            <div class="features">
+                <h4>研究手法・特徴</h4>
+                <ul>
+                    <li>高密度マイクロ電極アレイ (HD-MEA) 使用: <span class="hd-mea-status true">はい</span></li>
+                    <!-- spike_sorting_method は情報が提供されていないため表示しません -->
+                </ul>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h3>日本語要約</h3>
+            <p>
+                本論文は、イオン液体電解質中における亜鉛の電着形態を、電流制御下で詳細に研究したものです。特に、マイクロ電極アレイを用いることで、電着プロセスにおける電流密度の影響と、それによって形成される亜鉛の形態変化を明らかにしています。電気化学的手法を駆使し、電着メカニズムと形態形成の間の複雑な関係性を解明することを目的としています。この研究成果は、次世代のエネルギー貯蔵デバイス、特に亜鉛ベースのバッテリーや燃料電池の性能向上に不可欠な、電極材料の設計と最適化に重要な知見を提供するものです。
+            </p>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
