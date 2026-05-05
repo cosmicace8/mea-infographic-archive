@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr; /* デフォルトは1カラム */
+            gap: 25px;
+        }
+
+        /* タイトル */
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+            grid-column: 1 / -1; /* 常に全幅 */
+        }
+
+        /* 各セクション */
+        .section {
+            background-color: #f9fbfb;
+            border-left: 5px solid #3498db; /* アクセントカラー */
+            padding: 18px 25px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* セクションタイトル */
+        .section-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* アイコン（絵文字を使用） */
+        .section-title::before {
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        .section.authors .section-title::before { content: '🧑‍🔬'; }
+        .section.source .section-title::before { content: '📚'; }
+        .section.doi .section-title::before { content: '🔗'; }
+        .section.keywords .section-title::before { content: '🏷️'; }
+        .section.url .section-title::before { content: '🌐'; }
+        .section.summary .section-title::before { content: '📝'; }
+
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+            color: #555;
+        }
+
+        /* キーワードリスト */
+        .section ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .section ul li {
+            background-color: #e8f4f8;
+            color: #2980b9;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        /* リンク */
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 要約コンテンツ */
+        .summary-content {
+            font-style: italic;
+            color: #444;
+        }
+
+        /* レスポンシブデザイン */
+        @media (min-width: 768px) {
+            .infographic-container {
+                grid-template-columns: repeat(2, 1fr); /* 2カラムレイアウト */
+            }
+            .section.summary {
+                grid-column: 1 / -1; /* 要約は全幅 */
+            }
+        }
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+            .infographic-container {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>A Simple, Robust Method for Cellular Electrical Interfacing Using Molecular Patterning.</h1>
+
+        <div class="section authors">
+            <div class="section-title">著者</div>
+            <p>Fabbri JD, Stanton JW, Zhuang RZ, Zangiabadi A, Vunjak-Novakovic G, Shepard KL.</p>
+        </div>
+
+        <div class="section source">
+            <div class="section-title">出版情報</div>
+            <p>ACS Appl Mater Interfaces. 2026 Apr 29;18(16):22745-22756.</p>
+        </div>
+
+        <div class="section doi">
+            <div class="section-title">DOI</div>
+            <p><a href="https://doi.org/10.1021/acsami.5c25911" target="_blank" rel="noopener noreferrer">10.1021/acsami.5c25911</a></p>
+        </div>
+
+        <div class="section url">
+            <div class="section-title">PubMed URL</div>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/41980258/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/41980258/</a></p>
+        </div>
+
+        <div class="section keywords">
+            <div class="section-title">キーワード</div>
+            <ul>
+                <li>Cellular electrical interfacing</li>
+                <li>Molecular patterning</li>
+                <li>Microelectrode array</li>
+                <li>Biosensors</li>
+                <li>Cardiomyocyte</li>
+            </ul>
+        </div>
+
+        <div class="section summary">
+            <div class="section-title">日本語要約</div>
+            <p class="summary-content">
+                本論文は、分子パターニングを利用して細胞と電気的に接続するための、シンプルかつ堅牢な手法を提案しています。この技術は、微小電極アレイやバイオセンサーといった分野において、心筋細胞などの生体細胞との効率的なインターフェース構築に貢献することが期待されます。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
