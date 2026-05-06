@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語と英語のフォントを読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6; /* 明るい背景色 */
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            border-radius: 12px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0; /* 区切り線 */
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50; /* 濃い青灰色 */
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* 各セクション */
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0; /* 点線で区切り */
+        }
+
+        .section:last-child {
+            border-bottom: none; /* 最後のセクションは区切り線なし */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.6em;
+            color: #34495e; /* やや濃い青灰色 */
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db; /* アクセントカラーの左ボーダー */
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .section h2 .fas {
+            margin-right: 10px;
+            color: #3498db; /* アイコンの色をアクセントカラーに */
+        }
+
+        /* 論文タイトル */
+        .paper-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-left: 20px; /* インデント */
+        }
+
+        /* 基本情報 */
+        .basic-info-section p {
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start; /* テキストの先頭にアイコンを合わせる */
+            margin-left: 20px;
+        }
+
+        .basic-info-section p .fas {
+            margin-right: 10px;
+            color: #7f8c8d; /* アイコンの色 */
+            font-size: 1.1em;
+            min-width: 20px; /* アイコンの幅を固定してテキストを揃える */
+            padding-top: 2px; /* テキストのベースラインに合わせる */
+        }
+
+        .basic-info-section a {
+            color: #2980b9; /* リンクの色 */
+            text-decoration: none;
+            word-break: break-all; /* 長いURLの折り返し */
+        }
+
+        .basic-info-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 10px; /* キーワード間のスペース */
+            margin-left: 20px;
+        }
+
+        .keyword-tag {
+            background-color: #ecf0f1; /* タグの背景色 */
+            color: #555555;
+            padding: 8px 15px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.9em;
+            white-space: nowrap; /* タグ内で改行しない */
+            transition: background-color 0.3s ease; /* ホバーエフェクト */
+        }
+
+        .keyword-tag:hover {
+            background-color: #dce0e1;
+        }
+
+        /* 研究手法・特徴 */
+        .features-section .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+        .features-section .feature-item .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            line-height: 1; /* アイコンの行の高さを調整 */
+        }
+
+        .features-section .feature-item p {
+            margin: 0;
+        }
+
+        /* 日本語要約 */
+        .summary {
+            font-style: italic;
+            background-color: #f8f9fa; /* 要約の背景色 */
+            border-left: 4px solid #95a5a6; /* 左ボーダー */
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .section h2 {
+                font-size: 1.4em;
+            }
+            .paper-title {
+                font-size: 1.2em;
+            }
+            .keywords-list {
+                gap: 8px;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.2em;
+                padding-left: 10px;
+            }
+            .section h2 .fas {
+                margin-right: 5px;
+            }
+            /* 小さい画面ではインデントを減らす */
+            .paper-title, .basic-info-section p, .keywords-list, .features-section .feature-item, .summary {
+                margin-left: 0;
+            }
+            .basic-info-section p .fas {
+                min-width: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <div class="section title-section">
+            <h2><i class="fas fa-book"></i> 論文タイトル</h2>
+            <p class="paper-title">Fabrication and Characterization of Gold Multi-Electrode Array Optimized for Spatially Resolved Electrochemical Aptamer-Based Sensing</p>
+        </div>
+
+        <div class="section basic-info-section">
+            <h2><i class="fas fa-info-circle"></i> 基本情報</h2>
+            <p class="authors"><i class="fas fa-user"></i> <strong>著者:</strong> O Chatterjee</p>
+            <p class="source"><i class="fas fa-database"></i> <strong>情報源:</strong> ProQuest</p>
+            <p class="url"><i class="fas fa-link"></i> <strong>URL:</strong> <a href="https://search.proquest.com/openview/52d87c96557fd2a66432fb15218b40c0/1.pdf?pq-origsite=gscholar&cbl=18750&diss=y" target="_blank">https://search.proquest.com/openview/52d87c96557fd2a66432fb15218b40c0/1.pdf?pq-origsite=gscholar&cbl=18750&diss=y</a></p>
+            <!-- DOIは情報が空のため表示しません -->
+        </div>
+
+        <div class="section keywords-section">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Gold Multi-Electrode Array</span>
+                <span class="keyword-tag">Electrochemical Sensing</span>
+                <span class="keyword-tag">Aptamer-Based Sensing</span>
+                <span class="keyword-tag">Microelectrode Array</span>
+                <span class="keyword-tag">Biosensors</span>
+            </div>
+        </div>
+
+        <div class="section features-section">
+            <h2><i class="fas fa-flask"></i> 研究手法・特徴</h2>
+            <div class="feature-item">
+                <span class="icon">❌</span> <!-- uses_hd_mea が false のため '❌' -->
+                <p><strong>高密度多電極アレイ (HD-MEA) の使用:</strong> なし</p>
+            </div>
+            <!-- spike_sorting_method は情報が空のため表示しません -->
+        </div>
+
+        <div class="section summary-section">
+            <h2><i class="fas fa-language"></i> 日本語要約</h2>
+            <p class="summary">
+                本論文は、空間分解能を持つ電気化学アプタマーベースセンシングに最適化された金製多電極アレイ（MEA）の作製と特性評価について述べています。この研究は、バイオセンサー技術、特に微小電極アレイを用いた電気化学的検出の進歩に貢献するものです。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
