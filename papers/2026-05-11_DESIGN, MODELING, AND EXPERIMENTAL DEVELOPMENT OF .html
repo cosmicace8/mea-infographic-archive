@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-left: 8px solid #007bff;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2.paper-title {
+            color: #0056b3;
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            border-bottom: 1px dashed #e9ecef;
+            padding-bottom: 5px;
+        }
+        .section-title::before {
+            content: '◆'; /* アイコン風の記号 */
+            color: #007bff;
+            margin-right: 8px;
+            font-size: 1em;
+        }
+        .info-item {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .info-item strong {
+            color: #007bff;
+            margin-right: 5px;
+        }
+        .authors, .source, .url, .doi {
+            font-size: 1.1em;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keywords-list li {
+            background-color: #e0f7fa;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b2ebf2;
+            white-space: nowrap;
+        }
+        .summary {
+            background-color: #f0f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary p {
+            margin: 0;
+            font-style: italic;
+            color: #444;
+        }
+        .feature-box {
+            display: flex;
+            align-items: center;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .feature-box .icon {
+            font-size: 1.8em;
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .feature-box .text {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .feature-box.negative {
+            background-color: #fff0f6;
+            border: 1px solid #ffadd2;
+        }
+        .feature-box.negative .icon {
+            color: #eb2f96;
+        }
+        .feature-box.negative .text {
+            color: #c41d7f;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <div class="section-title">論文タイトル</div>
+            <h2 class="paper-title">DESIGN, MODELING, AND EXPERIMENTAL DEVELOPMENT OF NANOSCALE CONFINEMENT STRUCTURES ON PLANAR SILICON-BASED MICROELECTRODE ARRAYS FOR SINGLE-ENTITY ELECTROCHEMICAL SENSING</h2>
+        </div>
+
+        <div class="section">
+            <div class="section-title">著者</div>
+            <p class="authors info-item">P Eskandari</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">出版年</div>
+            <p class="source info-item">2026</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">キーワード</div>
+            <ul class="keywords-list">
+                <li>nanoscale confinement</li>
+                <li>microelectrode array</li>
+                <li>electrochemical sensing</li>
+                <li>silicon-based</li>
+                <li>modeling</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">URL</div>
+            <p class="url info-item"><a href="https://digitalcommons.mtu.edu/cgi/viewcontent.cgi?article=3192&context=etdr" target="_blank" rel="noopener noreferrer">https://digitalcommons.mtu.edu/cgi/viewcontent.cgi?article=3192&context=etdr</a></p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">DOI</div>
+            <p class="doi info-item">N/A</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">主要な特徴</div>
+            <div class="info-item">
+                <div class="feature-box">
+                    <span class="icon">🔬</span>
+                    <span class="text">高密度マイクロ電極アレイ (HD-MEA) を使用: はい</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="feature-box negative">
+                    <span class="icon">❌</span>
+                    <span class="text">スパイクソーティング手法: 記載なし</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">日本語要約</div>
+            <div class="summary">
+                <p>本論文は、単一実体電気化学センシングを目的として、平面シリコンベースマイクロ電極アレイ上にナノスケール閉じ込め構造を設計、モデリング、および実験的に開発した研究について述べています。この研究は、微細なスケールでの電気化学的検出能力の向上を目指しています。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
