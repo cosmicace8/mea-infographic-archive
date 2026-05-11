@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --bg-light: #f8f9fa;
+            --bg-dark: #343a40;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--text-light);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 5px solid #0056b3;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        main {
+            padding: 30px 40px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        h2 a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        h2 a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        p strong {
+            color: var(--text-dark);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-details p {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .keywords .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords .keyword-tag {
+            background-color: #e9ecef;
+            color: var(--text-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+
+        .keywords .keyword-tag:hover {
+            background-color: #dee2e6;
+        }
+
+        .features .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .features .feature-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: var(--text-dark);
+            min-width: 150px; /* ラベルの幅を揃える */
+        }
+
+        .features .feature-value {
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .features .feature-value.yes {
+            background-color: #d4edda;
+            color: var(--accent-color);
+        }
+
+        .features .feature-value.no {
+            background-color: #f8d7da;
+            color: #dc3545;
+        }
+
+        .features .feature-value.na {
+            background-color: #e2e3e5;
+            color: var(--secondary-color);
+        }
+
+        .summary p {
+            background-color: #f1f8ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 40px;
+            font-size: 0.9em;
+            border-top: 5px solid #212529;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            header, main, footer {
+                padding: 20px 25px;
+            }
+            .features .feature-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .features .feature-label {
+                margin-bottom: 5px;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            body {
+                padding: 10px;
+            }
+            header, main, footer {
+                padding: 15px 20px;
+            }
+            .keywords .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .summary p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-details">
+                <h2><a href="https://link.springer.com/chapter/10.1007/978-981-95-6483-5_6" target="_blank" rel="noopener noreferrer">Enhancement of Sensitivity</a></h2>
+                <p class="authors"><strong>著者:</strong> H Suzuki, F Sassa</p>
+                <p class="source"><strong>出典:</strong> Microfabricated Electrochemical Sensing Devices, 2026</p>
+                <p class="doi"><strong>DOI:</strong> <a href="https://doi.org/10.1007/978-981-95-6483-5_6" target="_blank" rel="noopener noreferrer">10.1007/978-981-95-6483-5_6</a></p>
+            </section>
+
+            <section class="keywords">
+                <h3>キーワード</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">microelectrode array</span>
+                    <span class="keyword-tag">electrochemical sensing</span>
+                    <span class="keyword-tag">sensitivity enhancement</span>
+                    <span class="keyword-tag">coulometry</span>
+                    <span class="keyword-tag">silver deposition</span>
+                </div>
+            </section>
+
+            <section class="features">
+                <h3>主要な特徴</h3>
+                <div class="feature-item">
+                    <span class="feature-label">高密度MEA使用:</span>
+                    <span class="feature-value yes">はい</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-label">スパイクソーティング方法:</span>
+                    <span class="feature-value na">N/A (情報なし)</span>
+                </div>
+            </section>
+
+            <section class="summary">
+                <h3>日本語要約</h3>
+                <p>
+                    この論文「Enhancement of Sensitivity」は、電気化学センシングデバイスにおける感度向上に焦点を当てています。特に、マイクロ電極アレイを用いたシステムにおいて、クーロメトリーや銀堆積といった技術を応用することで、検出感度を大幅に高める手法について詳述しています。高密度マイクロ電極アレイ（HD-MEA）の活用が、この研究の重要な特徴の一つです。
+                </p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
