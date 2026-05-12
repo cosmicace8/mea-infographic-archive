@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #007bff;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .section strong {
+            color: #555;
+            margin-right: 8px;
+        }
+        .authors-list {
+            font-size: 0.95em;
+            color: #666;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            white-space: nowrap;
+            border: 1px solid #b2ebf2;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #007bff;
+        }
+        .summary-text {
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        .summary-text p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1><span class="icon">📖</span> Microscale organization and separability of upper extremity representations in the human motor homunculus.</h1>
+
+        <div class="section">
+            <h2><span class="icon">👤</span> 著者</h2>
+            <p class="authors-list">Cajigas I, Borges P, Qureshi Q, Davis P, Wang Z, 他</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📚</span> 出典</h2>
+            <p>Res Sq [Preprint]. 2026 Apr 29:rs.3.rs-9528027. doi: 10.21203/rs.3.rs-9528027/v1.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🔗</span> DOI</h2>
+            <p><a href="https://doi.org/10.21203/rs.3.rs-9528027/v1" target="_blank">10.21203/rs.3.rs-9528027/v1</a></p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🌐</span> PubMed URL</h2>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/42094053/" target="_blank">pubmed.ncbi.nlm.nih.gov/42094053/</a></p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏷️</span> キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Microscale organization</span>
+                <span class="keyword-tag">upper extremity</span>
+                <span class="keyword-tag">motor homunculus</span>
+                <span class="keyword-tag">human</span>
+                <span class="keyword-tag">representations</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📝</span> 日本語要約</h2>
+            <div class="summary-text">
+                <p>本論文は、人間の運動ホムンクルス（脳の運動野における身体部位の地図）における上肢（腕や手）の神経表現が、微細なスケールでどのように組織され、互いに分離可能であるかを研究しています。</p>
+                <p>この研究は、脳が上肢の様々な動きをどのように制御し、それらの神経表現がどの程度独立しているかを詳細に解き明かすことを目的としています。これにより、脳損傷後のリハビリテーションや、ブレイン・マシン・インターフェースの開発など、神経科学と臨床応用への重要な知見を提供することが期待されます。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
