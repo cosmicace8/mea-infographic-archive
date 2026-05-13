@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP for Japanese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .infographic-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 8px solid #007bff; /* ブランドカラー */
+        }
+
+        /* ヘッダー */
+        .header {
+            padding: 30px 40px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* セクション */
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.6em;
+            color: #007bff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* 情報表示 */
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item strong {
+            display: inline-block;
+            min-width: 100px;
+            color: #555;
+        }
+        .info-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .author-tag {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keyword-tag {
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+
+        /* 日本語要約 */
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745; /* 別のブランドカラー */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary-box h3 {
+            color: #28a745;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        /* フッター */
+        .footer {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            background-color: #f0f0f0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+            <p>主要な情報を視覚的に整理</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-book"></i> 論文タイトル</h2>
+            <p style="font-size: 1.4em; font-weight: bold; color: #333;">Organoid research: new concepts and new technologies.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-user-friends"></i> 著者</h2>
+            <div class="authors-list">
+                <span class="author-tag">Zhang J</span>
+                <span class="author-tag">Wu Y</span>
+                <span class="author-tag">Shen T</span>
+                <span class="author-tag">Mao Y</span>
+                <span class="author-tag">Dou H</span>
+                <span class="author-tag">Lin Y</span>
+                <span class="author-tag">Geng Z</span>
+                <span class="author-tag">Li Z</span>
+                <span class="author-tag">Su J</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-newspaper"></i> 出版情報</h2>
+            <div class="info-item">
+                <strong>雑誌:</strong> Burns Trauma
+            </div>
+            <div class="info-item">
+                <strong>発行日:</strong> 2026年2月16日
+            </div>
+            <div class="info-item">
+                <strong>巻号:</strong> 14:tkag015
+            </div>
+            <div class="info-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1093/burnst/tkag015" target="_blank">10.1093/burnst/tkag015</a>
+            </div>
+            <div class="info-item">
+                <strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42094265/" target="_blank">42094265</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Organoid research</span>
+                <span class="keyword-tag">new concepts</span>
+                <span class="keyword-tag">new technologies</span>
+                <span class="keyword-tag">burns</span>
+                <span class="keyword-tag">trauma</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-lightbulb"></i> 日本語要約</h2>
+            <div class="summary-box">
+                <h3>概要</h3>
+                <p>本論文「Organoid research: new concepts and new technologies.」は、オルガノイド研究における最新の概念と技術革新に焦点を当てています。特に、火傷（burns）や外傷（trauma）といった分野でのオルガノイドの応用可能性や、その研究がどのように進展しているかを探るものです。新しい研究手法やアプローチが、これらの複雑な病態の理解と治療にどのように貢献できるかについて議論されています。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </div>
+    </div>
+</body>
+</html>
