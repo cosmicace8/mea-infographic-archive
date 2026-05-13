@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red for links/emphasis */
+            --text-color: #ecf0f1; /* Light Gray for contrast */
+            --background-color: #f4f7f6; /* Off-white background */
+            --card-background: #ffffff; /* White for content cards */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .section-title::before {
+            content: '✨'; /* Icon for section title */
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Authors Section */
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .author-item {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .author-item::before {
+            content: '👤'; /* Author icon */
+            margin-right: 8px;
+        }
+
+        /* Journal Info Section */
+        .journal-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .journal-info p {
+            margin: 0;
+        }
+
+        .journal-info strong {
+            color: var(--accent-color);
+        }
+
+        /* Keywords Section */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keyword-tag {
+            background-color: #f39c12; /* Orange for keywords */
+            color: var(--text-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Summary Section */
+        .summary-text {
+            font-size: 1.1em;
+            text-align: justify;
+            color: #555;
+            line-height: 1.8;
+            padding: 0 10px;
+        }
+
+        /* Links Section */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-button:hover {
+            background-color: #c0392b; /* Darker Red on hover */
+            transform: translateY(-2px);
+        }
+
+        .link-button::before {
+            margin-right: 10px;
+        }
+
+        .link-button.pubmed::before {
+            content: '🔗'; /* Link icon */
+        }
+
+        .link-button.doi::before {
+            content: '🆔'; /* ID icon */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .container {
+                padding: 20px;
+            }
+            .authors-list, .keywords-list, .links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .author-item, .keyword-tag, .link-button {
+                width: auto;
+                max-width: 90%;
+            }
+            .summary-text {
+                font-size: 1em;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inflammasomes meet organoids and artificial intelligence: unraveling the complexity of gynecological inflammation.</h1>
+
+        <div class="section">
+            <div class="section-title">著者</div>
+            <ul class="authors-list">
+                <li class="author-item">Zhang L</li>
+                <li class="author-item">Zhao J</li>
+                <li class="author-item">Cheng G</li>
+                <li class="author-item">Wu J</li>
+                <li class="author-item">Liu Y</li>
+                <li class="author-item">Lei G</li>
+                <li class="author-item">Wang Q</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">ジャーナル情報</div>
+            <div class="journal-info">
+                <p><strong>Front Immunol.</strong> 2026 Apr 17;17:1753651.</p>
+                <p>eCollection 2026.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">キーワード</div>
+            <ul class="keywords-list">
+                <li class="keyword-tag">Inflammasomes</li>
+                <li class="keyword-tag">organoids</li>
+                <li class="keyword-tag">artificial intelligence</li>
+                <li class="keyword-tag">gynecological inflammation</li>
+                <li class="keyword-tag">immunology</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">日本語要約</div>
+            <p class="summary-text">
+                本論文は、インフラマソーム（炎症反応に関わるタンパク質複合体）、オルガノイド（臓器のミニチュアモデル）、そして人工知能という最先端技術を組み合わせることで、婦人科炎症の複雑なメカニズムを解明しようとする研究です。これらの革新的なアプローチを用いることで、婦人科領域における炎症性疾患の理解を深め、より効果的な診断法や治療法の開発に貢献することが期待されます。
+            </p>
+        </div>
+
+        <div class="links">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42079573/" target="_blank" class="link-button pubmed">PubMedで見る</a>
+            <a href="https://doi.org/10.3389/fimmu.2026.1753651" target="_blank" class="link-button doi">DOI: 10.3389/fimmu.2026.1753651</a>
+        </div>
+    </div>
+</body>
+</html>
