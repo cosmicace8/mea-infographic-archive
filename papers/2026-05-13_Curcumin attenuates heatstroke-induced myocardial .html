@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語対応のNoto Sans JPと英語対応のRoboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 25px;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+            grid-column: 1 / -1; /* Title spans all columns */
+        }
+        .section-title {
+            font-size: 1.2em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            color: #555;
+            margin-right: 5px;
+        }
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .authors-list li {
+            background-color: #e8f0fe;
+            color: #2a6496;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            grid-column: 1 / -1; /* Summary spans all columns */
+        }
+        .summary-box p {
+            margin: 0;
+            color: #495057;
+            font-size: 1em;
+        }
+        .tech-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1em;
+        }
+        .tech-item .icon {
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        .icon.check {
+            color: #28a745; /* Green */
+        }
+        .icon.cross {
+            color: #dc3545; /* Red */
+        }
+        .icon.info {
+            color: #6c757d; /* Gray */
+        }
+        .url-link {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .url-link:hover {
+            text-decoration: underline;
+        }
+        .doi-info {
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Responsive layout for larger screens */
+        @media (min-width: 768px) {
+            .infographic-container {
+                grid-template-columns: 2fr 1fr; /* Two columns: 2/3 width for main, 1/3 for sidebar */
+            }
+            .main-content {
+                grid-column: 1 / 2;
+            }
+            .sidebar {
+                grid-column: 2 / 3;
+                padding-left: 20px;
+                border-left: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Curcumin attenuates heatstroke-induced myocardial injury and ventricular arrhythmias by regulating the BAX/BCL-2/caspase-3 pathway</h1>
+
+        <div class="main-content">
+            <div class="info-section">
+                <h2 class="section-title">著者</h2>
+                <ul class="authors-list">
+                    <li>S Shao</li>
+                    <li>B Tang</li>
+                    <li>J Liang</li>
+                    <li>X Wang</li>
+                    <li>C Xu</li>
+                    <li>M Rejiepu…</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h2 class="section-title">出典</h2>
+                <div class="info-item">
+                    <strong>雑誌:</strong> Food & Function
+                </div>
+                <div class="info-item">
+                    <strong>発行年:</strong> 2026
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2 class="section-title">キーワード</h2>
+                <div class="keywords-container">
+                    <span class="keyword-tag">Curcumin</span>
+                    <span class="keyword-tag">Myocardial injury</span>
+                    <span class="keyword-tag">Ventricular arrhythmias</span>
+                    <span class="keyword-tag">BAX/BCL-2/caspase-3 pathway</span>
+                    <span class="keyword-tag">Microelectrode array</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="info-section">
+                <h2 class="section-title">技術情報</h2>
+                <div class="tech-info">
+                    <div class="tech-item">
+                        <span class="icon check">&#10003;</span> <!-- Checkmark icon -->
+                        <span>HD-MEA (高密度マイクロ電極アレイ) 使用</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="icon info">&#9432;</span> <!-- Info icon -->
+                        <span>スパイクソーティング方法: N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2 class="section-title">詳細情報</h2>
+                <div class="info-item">
+                    <strong>URL:</strong> <a href="https://pubs.rsc.org/en/content/articlehtml/2026/fo/d5fo04307g" target="_blank" class="url-link">pubs.rsc.org/en/content/articlehtml/2026/fo/d5fo04307g</a>
+                </div>
+                <div class="info-item">
+                    <strong>DOI:</strong> <span class="doi-info">N/A</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section summary-box">
+            <h2 class="section-title">日本語要約</h2>
+            <p>本論文は、クルクミンが熱中症によって誘発される心筋損傷および心室性不整脈を軽減する効果について報告しています。その作用機序として、BAX/BCL-2/caspase-3経路の調節が関与していることを示唆しています。研究にはマイクロ電極アレイが用いられています。</p>
+        </div>
+    </div>
+</body>
+</html>
