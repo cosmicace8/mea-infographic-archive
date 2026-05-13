@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray */
+            --secondary-color: #3498db; /* Bright blue */
+            --accent-color: #e74c3c; /* Red for warnings/highlights */
+            --background-color: #ecf0f1; /* Light gray */
+            --text-color: #34495e; /* Darker gray */
+            --card-background: #ffffff;
+            --border-color: #bdc3c7; /* Lighter gray for borders */
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        section h2, section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        section h2 i, section h3 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .paper-title h2 {
+            font-size: 1.8em;
+            line-height: 1.3;
+            color: var(--secondary-color);
+        }
+
+        .paper-title .source {
+            font-style: italic;
+            color: var(--text-color);
+            font-size: 1.1em;
+            margin-top: 10px;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .summary-japanese {
+            background-color: #e8f4f8; /* Light blue background for summary */
+            border-color: #b3e0f2;
+        }
+
+        .summary-japanese p {
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .details-grid section {
+            margin-bottom: 0; /* Remove extra margin from sections within grid */
+        }
+
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .authors li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .authors li::before {
+            content: "\f007"; /* User icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: -10px; /* Adjust as needed */
+            top: 0;
+            font-size: 0.9em;
+        }
+
+        .identifiers p {
+            margin-bottom: 10px;
+        }
+
+        .identifiers a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .identifiers a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tags span {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .features p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .features strong {
+            margin-right: 10px;
+            min-width: 150px; /* Align text */
+        }
+
+        .feature-status {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .feature-status i {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        .feature-status.uses-hd-mea {
+            background-color: #d4edda; /* Light green */
+            color: #155724; /* Dark green */
+        }
+
+        .feature-status.uses-hd-mea i {
+            color: #28a745; /* Green check */
+        }
+
+        .feature-status.no-data {
+            background-color: #fff3cd; /* Light yellow */
+            color: #856404; /* Dark yellow */
+        }
+
+        .feature-status.no-data i {
+            color: #ffc107; /* Yellow info */
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h2 {
+                font-size: 1.5em;
+            }
+            main {
+                padding: 20px;
+            }
+            section {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .paper-title h2 {
+                font-size: 1.3em;
+            }
+            .keyword-tags span {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .features strong {
+                min-width: unset;
+                margin-bottom: 5px;
+                display: block;
+            }
+            .features p {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-title">
+                <h2><i class="fas fa-book"></i> Engineering Neuronal Network Connectivity Through Precise and Scalable Electrical Modulation</h2>
+                <p class="source">Advanced Science, 2026</p>
+            </section>
+
+            <section class="summary-japanese">
+                <h3><i class="fas fa-language"></i> 日本語要約</h3>
+                <p>本論文は、高精度かつスケーラブルな電気刺激を用いて神経ネットワークの接続性を操作する技術について報告しています。マイクロ電極アレイ（MEA）と白金電極を使用し、神経ネットワークの接続性を効果的に変調させる方法を探求しています。</p>
+            </section>
+
+            <div class="details-grid">
+                <section class="authors">
+                    <h3><i class="fas fa-users"></i> 著者</h3>
+                    <ul>
+                        <li>S S. Kumar</li>
+                        <li>Y Bossard</li>
+                        <li>R Sava</li>
+                        <li>T Gänswein</li>
+                        <li>L Sadiraj…</li>
+                    </ul>
+                </section>
+
+                <section class="identifiers">
+                    <h3><i class="fas fa-link"></i> リンク & DOI</h3>
+                    <p><strong>DOI:</strong> <a href="https://doi.org/10.1002/advs.75473" target="_blank" rel="noopener noreferrer">10.1002/advs.75473</a></p>
+                    <p><strong>論文URL:</strong> <a href="https://advanced.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/advs.75473" target="_blank" rel="noopener noreferrer">Wiley Online Library (PDF Direct)</a></p>
+                </section>
+
+                <section class="keywords">
+                    <h3><i class="fas fa-tags"></i> キーワード</h3>
+                    <div class="keyword-tags">
+                        <span>Neuronal network</span>
+                        <span>Electrical modulation</span>
+                        <span>Microelectrode array</span>
+                        <span>Connectivity</span>
+                        <span>Platinum electrodes</span>
+                    </div>
+                </section>
+
+                <section class="features">
+                    <h3><i class="fas fa-flask"></i> 研究手法の特徴</h3>
+                    <p>
+                        <strong>HD-MEAの使用:</strong> 
+                        <span class="feature-status uses-hd-mea"><i class="fas fa-check-circle"></i> 使用</span>
+                    </p>
+                    <p>
+                        <strong>スパイクソーティング方法:</strong> 
+                        <span class="feature-status no-data"><i class="fas fa-info-circle"></i> 記載なし</span>
+                    </p>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
