@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better content flow */
+            min-height: 100vh;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            margin: 20px;
+            border-left: 8px solid #007bff; /* Accent color for a professional look */
+            animation: fadeIn 1s ease-out; /* Simple fade-in animation */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Headings */
+        h1 {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-align: center;
+            font-weight: 700;
+        }
+        h2 {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            color: #0056b3;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+        }
+        .section ul {
+            list-style: none;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Authors Section */
+        .authors {
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .authors span {
+            display: inline-block;
+            margin: 5px 8px;
+            padding: 5px 12px;
+            background-color: #e9f5ff;
+            border-radius: 20px;
+            color: #007bff;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+        .authors span:hover {
+            background-color: #d0e9ff;
+        }
+
+        /* Keywords Section */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background-color: #28a745; /* Green accent */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            transform: translateY(-3px);
+            background-color: #218838;
+        }
+
+        /* Links Section */
+        .link-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .link-item strong {
+            margin-right: 8px;
+            color: #555;
+        }
+        .link-item a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .link-item a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* Japanese Summary Section */
+        .summary {
+            background-color: #f8f9fa;
+            border-left: 5px solid #ffc107; /* Yellow accent */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .summary h2 {
+            color: #ffc107;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-top: 0;
+        }
+        .summary p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Icons (using simple emojis for broad compatibility) */
+        .icon::before {
+            margin-right: 8px;
+            color: #007bff; /* Icon color */
+            font-weight: bold;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+        h1.icon-title::before { content: "📄"; color: #007bff; }
+        h2.icon-authors::before { content: "👥"; color: #0056b3; }
+        h2.icon-source::before { content: "📚"; color: #0056b3; }
+        h2.icon-doi::before { content: "🔗"; color: #0056b3; }
+        h2.icon-pubmed::before { content: "🌐"; color: #0056b3; }
+        h2.icon-keywords::before { content: "🏷️"; color: #0056b3; }
+        h2.icon-summary::before { content: "📝"; color: #ffc107; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 10px;
+                border-left-width: 5px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .authors span {
+                margin: 4px;
+                padding: 4px 10px;
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .summary p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px;
+                margin: 5px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.1em;
+            }
+            .authors span {
+                font-size: 0.9em;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1 class="icon-title">Molecular intelligence and immune reconnaissance in thyroid cancer: a new paradigm for diagnosis, risk stratification, and therapeutic precision.</h1>
+
+        <div class="section authors">
+            <h2 class="icon-authors">著者</h2>
+            <p>
+                <span>Concepción-Zavaleta MJ</span>
+                <span>Fuentes-Mendoza JM</span>
+                <span>Cruz-Quintá A</span>
+                <span>Cadena-Guerrero AV</span>
+                <span>Barrón X</span>
+                <span>Concepción-Urteaga L</span>
+                <span>D Armas C</span>
+                <span>Paz-Ibarra J</span>
+                <span>Quiroz-Aldave JE</span>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="icon-source">出版情報</h2>
+            <p><strong>ジャーナル:</strong> Expert Rev Anticancer Ther.</p>
+            <p><strong>発行:</strong> 2026 May;26(5):585-597. Epub 2025 Dec 18.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="icon-keywords">キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Molecular intelligence</span>
+                <span class="keyword-tag">Immune reconnaissance</span>
+                <span class="keyword-tag">Thyroid cancer</span>
+                <span class="keyword-tag">Diagnosis</span>
+                <span class="keyword-tag">Precision therapy</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="icon-doi">リンク</h2>
+            <div class="link-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1080/14737140.2025.2604618" target="_blank" rel="noopener noreferrer">10.1080/14737140.2025.2604618</a>
+            </div>
+            <div class="link-item">
+                <strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41396170/" target="_blank" rel="noopener noreferrer">PubMedで見る</a>
+            </div>
+        </div>
+
+        <div class="section summary">
+            <h2 class="icon-summary">日本語要約</h2>
+            <p>
+                本論文は、甲状腺癌における診断、リスク層別化、および精密治療のための新しいパラダイムとして、「分子インテリジェンス」と「免疫偵察」の概念を探求しています。これらのアプローチは、甲状腺癌の理解を深め、患者個々の特性に基づいた、より効果的で個別化された治療戦略の開発に貢献することが期待されます。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
