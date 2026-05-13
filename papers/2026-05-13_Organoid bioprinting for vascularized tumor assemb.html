@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e9ecef;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-icon {
+            font-size: 1.8em;
+            color: #3498db;
+            min-width: 30px;
+            text-align: center;
+            line-height: 1;
+            padding-top: 3px; /* アイコンとテキストのベースラインを合わせる */
+        }
+
+        .section-content {
+            flex-grow: 1;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .paper-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #2980b9;
+            line-height: 1.4;
+            margin-bottom: 0;
+        }
+
+        .authors {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .source {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .keyword-tag {
+            background-color: #e8f6f3;
+            color: #20c997;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .doi-link, .url-link {
+            display: block;
+            margin-top: 5px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all; /* 長いURLがはみ出さないように */
+        }
+        .doi-link:hover, .url-link:hover {
+            text-decoration: underline;
+        }
+
+        .summary-text {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.4em;
+            }
+            .section-icon {
+                font-size: 1.5em;
+                min-width: 25px;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+            .authors, .source, .summary-text {
+                font-size: 0.9em;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .paper-title {
+                font-size: 1.2em;
+            }
+            .section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .section-icon {
+                margin-bottom: 5px;
+            }
+            .section-title {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <div class="section-icon">📄</div>
+            <div class="section-content">
+                <div class="section-title">論文タイトル</div>
+                <h2 class="paper-title">Organoid bioprinting for vascularized tumor assembloids.</h2>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">👥</div>
+            <div class="section-content">
+                <div class="section-title">著者</div>
+                <p class="authors">Zhou Z, Pang Y, Liao Z, Zhou C, Fu M, Liu C, Guo Y, Yang K, He J, Gao B, Shinohara M, Sakai Y, Sun W.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">📚</div>
+            <div class="section-content">
+                <div class="section-title">掲載情報</div>
+                <p class="source">Trends Biotechnol. 2026 May 7:S0167-7799(26)00144-7. doi: 10.1016/j.tibtech.2026.04.009. Online ahead of print.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🏷️</div>
+            <div class="section-content">
+                <div class="section-title">キーワード</div>
+                <div class="keywords-list">
+                    <span class="keyword-tag">Organoid bioprinting</span>
+                    <span class="keyword-tag">vascularized tumor</span>
+                    <span class="keyword-tag">assembloids</span>
+                    <span class="keyword-tag">biotechnology</span>
+                    <span class="keyword-tag">tissue engineering</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🔗</div>
+            <div class="section-content">
+                <div class="section-title">DOI & URL</div>
+                <a href="https://doi.org/10.1016/j.tibtech.2026.04.009" target="_blank" rel="noopener noreferrer" class="doi-link">DOI: 10.1016/j.tibtech.2026.04.009</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42103601/" target="_blank" rel="noopener noreferrer" class="url-link">PubMed URL: https://pubmed.ncbi.nlm.nih.gov/42103601/</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">📝</div>
+            <div class="section-content">
+                <div class="section-title">日本語要約</div>
+                <p class="summary-text">
+                    本論文は、オルガノイドバイオプリンティング技術を用いて、血管構造を持つ腫瘍アセンブロイド（集合体）を構築する研究について述べています。この技術は、生体内の腫瘍環境をより忠実に再現するモデルの作成を可能にし、がん研究や薬剤開発における新たなツールとして期待されます。バイオテクノロジーと組織工学の進展を示すものです。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
