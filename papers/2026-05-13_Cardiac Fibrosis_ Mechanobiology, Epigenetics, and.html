@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Google Fonts for better typography */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray */
+            --secondary-color: #3498db; /* Bright blue */
+            --accent-color: #e74c3c; /* Red for emphasis */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        section h2, section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        section h2 i, section h3 i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .paper-title h2 {
+            font-size: 1.8em;
+            line-height: 1.4;
+            color: var(--accent-color);
+        }
+
+        .authors p, .publication-details p, .japanese-summary p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links li {
+            margin-bottom: 10px;
+        }
+
+        .links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .links a:hover {
+            color: var(--primary-color);
+        }
+
+        .links a i {
+            margin-right: 8px;
+            font-size: 1em;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tags span {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tags span:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .paper-title h2 {
+                font-size: 1.5em;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            section h2, section h3 {
+                font-size: 1.3em;
+            }
+
+            .authors p, .publication-details p, .japanese-summary p {
+                font-size: 1em;
+            }
+
+            .keyword-tags span {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h2 {
+                font-size: 1.3em;
+            }
+            section h2, section h3 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-title">
+            <h2><i class="fas fa-book"></i> Cardiac Fibrosis: Mechanobiology, Epigenetics, and the Path to Precision Therapy.</h2>
+        </section>
+
+        <section class="authors">
+            <h3><i class="fas fa-users"></i> 著者</h3>
+            <p>Hamouz M, Hammouz RY, Caruana C, Micallef D, Bednarek AK, Dingli P.</p>
+        </section>
+
+        <section class="publication-details">
+            <h3><i class="fas fa-journal-whills"></i> 出版情報</h3>
+            <p>Cell Mol Bioeng. 2026 Apr 2;19(2):129-159. doi: 10.1007/s12195-026-00896-z. eCollection 2026 Apr.</p>
+        </section>
+
+        <section class="links">
+            <h3><i class="fas fa-link"></i> 関連リンク</h3>
+            <ul>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/42080143/" target="_blank"><i class="fas fa-external-link-alt"></i> PubMed</a></li>
+                <li><a href="https://doi.org/10.1007/s12195-026-00896-z" target="_blank"><i class="fas fa-fingerprint"></i> DOI: 10.1007/s12195-026-00896-z</a></li>
+            </ul>
+        </section>
+
+        <section class="keywords">
+            <h3><i class="fas fa-tags"></i> キーワード</h3>
+            <div class="keyword-tags">
+                <span>Cardiac fibrosis</span>
+                <span>mechanobiology</span>
+                <span>epigenetics</span>
+                <span>precision therapy</span>
+                <span>cardiovascular disease</span>
+            </div>
+        </section>
+
+        <section class="japanese-summary">
+            <h3><i class="fas fa-language"></i> 日本語要約</h3>
+            <p>本論文は、心臓線維症に焦点を当て、その病態生理におけるメカノバイオロジー（機械的刺激と生物学的応答の関係）とエピジェネティクス（遺伝子発現を制御する後天的な変化）の役割を深く掘り下げています。これらの知見を統合することで、心臓線維症に対するより個別化された精密医療アプローチの開発に向けた道筋を探ることを目的としています。</p>
+        </section>
+    </div>
+</body>
+</html>
