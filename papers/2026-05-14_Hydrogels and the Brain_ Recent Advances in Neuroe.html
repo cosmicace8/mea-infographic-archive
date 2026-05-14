@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* 明るい背景色 */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナのスタイル */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr; /* デフォルトは1カラム */
+            gap: 25px; /* セクション間のスペース */
+        }
+
+        /* 全体タイトル */
+        h1 {
+            color: #2c3e50; /* 濃い青 */
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 700;
+            grid-column: 1 / -1; /* 全幅に広げる */
+        }
+
+        /* 各セクションの共通スタイル */
+        .section {
+            background-color: #f9fbfb; /* セクションの背景色 */
+            border-left: 5px solid; /* 左側のボーダーでアクセント */
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .section h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            border-bottom: 2px solid #e0e0e0; /* 見出しの下線 */
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+        .section a {
+            color: #2980b9; /* リンクの色 */
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        /* 論文詳細セクション */
+        .main-info {
+            border-color: #3498db; /* 青 */
+        }
+        .main-info h2 {
+            color: #3498db;
+        }
+        .authors span {
+            display: inline-block;
+            background-color: #ecf0f1; /* 著者名の背景色 */
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* キーワードセクション */
+        .keywords-section {
+            border-color: #2ecc71; /* 緑 */
+        }
+        .keywords-section h2 {
+            color: #2ecc71;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* キーワードを折り返す */
+            gap: 8px;
+        }
+        .keywords-list li {
+            background-color: #2ecc71; /* キーワードの背景色 */
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* 技術詳細セクション */
+        .tech-section {
+            border-color: #f39c12; /* オレンジ */
+        }
+        .tech-section h2 {
+            color: #f39c12;
+        }
+        .tech-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        .tech-item .icon {
+            font-size: 1.2em;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* 丸いアイコン */
+            color: white;
+            font-weight: 700;
+        }
+        .icon.true { background-color: #27ae60; } /* 緑 */
+        .icon.false { background-color: #e74c3c; } /* 赤 */
+        .icon.info { background-color: #f39c12; } /* オレンジ */
+
+        /* 日本語要約セクション */
+        .japanese-summary {
+            border-color: #9b59b6; /* 紫 */
+        }
+        .japanese-summary h2 {
+            color: #9b59b6;
+        }
+
+        /* レスポンシブデザイン */
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 2fr 1fr; /* デスクトップでは2カラムレイアウト */
+            }
+            .main-info {
+                grid-column: 1 / 2; /* 左カラム */
+            }
+            .keywords-section {
+                grid-column: 2 / 3; /* 右カラム */
+                grid-row: 1 / 2; /* 論文詳細の横に配置 */
+            }
+            .tech-section {
+                grid-column: 2 / 3; /* 右カラム */
+                grid-row: 2 / 3; /* キーワードの下に配置 */
+            }
+            .japanese-summary {
+                grid-column: 1 / 3; /* 日本語要約は全幅 */
+            }
+        }
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section main-info">
+            <h2>論文詳細</h2>
+            <p><strong>タイトル:</strong> <span id="title"></span></p>
+            <p><strong>著者:</strong> <span class="authors" id="authors"></span></p>
+            <p><strong>ソース:</strong> <span id="source"></span></p>
+            <p><strong>URL:</strong> <a id="url" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+            <p><strong>DOI:</strong> <span id="doi"></span></p>
+        </div>
+
+        <div class="section keywords-section">
+            <h2>キーワード</h2>
+            <ul class="keywords-list" id="keywords"></ul>
+        </div>
+
+        <div class="section tech-section">
+            <h2>技術詳細</h2>
+            <div class="tech-details">
+                <div class="tech-item">
+                    <span class="icon" id="hd-mea-icon"></span>
+                    <span>高密度MEA使用: <strong id="uses_hd_mea"></strong></span>
+                </div>
+                <div class="tech-item">
+                    <span class="icon info">?</span>
+                    <span>スパイクソーティング手法: <strong id="spike_sorting_method"></strong></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section japanese-summary">
+            <h2>日本語要約</h2>
+            <p>この論文「Hydrogels and the Brain: Recent Advances in Neuroelectronic Devices」は、ハイドロゲルを脳神経デバイスに応用する最新の進展に焦点を当てています。特に、高密度マイクロ電極アレイ（MEA）やECoG（皮質脳波）といった技術が、脳インターフェースや神経科学研究においてどのように活用されているかを探求しています。ハイドロゲルは、その生体適合性や柔軟性から、脳組織との親和性が高く、長期的な安定性と信号取得能力の向上に貢献すると期待されています。本研究は、これらの先進的なデバイスが脳機能の理解や神経疾患の治療に与える影響について考察しています。</p>
+        </div>
+    </div>
+
+    <script>
+        // 提供された論文情報
+        const paperInfo = {
+            "title": "Hydrogels and the Brain: Recent Advances in Neuroelectronic Devices",
+            "url": "https://www.intechopen.com/online-first/1236992",
+            "authors": "M Heydari, E Farahani, M Shamshiri, S Nematipour",
+            "source": "IntechOpen",
+            "doi": "",
+            "keywords": "Hydrogels, Neuroelectronic Devices, Microelectrode Array, ECoG, Brain",
+            "uses_hd_mea": true,
+            "spike_sorting_method": ""
+        };
+
+        // 論文詳細の情報をHTML要素に挿入
+        document.getElementById('title').textContent = paperInfo.title;
+        document.getElementById('url').href = paperInfo.url;
+        document.getElementById('url').textContent = paperInfo.url;
+        document.getElementById('source').textContent = paperInfo.source;
+        document.getElementById('doi').textContent = paperInfo.doi || 'N/A'; // DOIが空の場合は'N/A'を表示
+
+        // 著者名を個別のスパン要素として挿入
+        const authorsContainer = document.getElementById('authors');
+        paperInfo.authors.split(', ').forEach(author => {
+            const span = document.createElement('span');
+            span.textContent = author;
+            authorsContainer.appendChild(span);
+        });
+
+        // キーワードをリストアイテムとして挿入
+        const keywordsContainer = document.getElementById('keywords');
+        paperInfo.keywords.split(', ').forEach(keyword => {
+            const li = document.createElement('li');
+            li.textContent = keyword;
+            keywordsContainer.appendChild(li);
+        });
+
+        // 高密度MEA使用の情報を表示
+        const usesHdMeaElement = document.getElementById('uses_hd_mea');
+        const hdMeaIcon = document.getElementById('hd-mea-icon');
+        if (paperInfo.uses_hd_mea) {
+            usesHdMeaElement.textContent = 'はい';
+            hdMeaIcon.textContent = '✔'; // チェックマーク
+            hdMeaIcon.classList.add('true');
+        } else {
+            usesHdMeaElement.textContent = 'いいえ';
+            hdMeaIcon.textContent = '✖'; // バツマーク
+            hdMeaIcon.classList.add('false');
+        }
+
+        // スパイクソーティング手法の情報を表示
+        const spikeSortingMethodElement = document.getElementById('spike_sorting_method');
+        spikeSortingMethodElement.textContent = paperInfo.spike_sorting_method || '記載なし'; // 空の場合は'記載なし'を表示
+    </script>
+</body>
+</html>
