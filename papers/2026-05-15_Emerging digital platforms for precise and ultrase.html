@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* セクション */
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .section ul li {
+            background-color: #e8f5e9; /* リストアイテムの背景色 */
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: #2e7d32;
+            white-space: nowrap; /* 改行を防ぐ */
+        }
+        .section ul.authors li {
+            background-color: #e3f2fd; /* 著者の背景色 */
+            color: #1976d2;
+        }
+
+        /* リンク */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* DOI & URL */
+        .doi, .url {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            word-break: break-all; /* 長いURLの折り返し */
+        }
+
+        /* キーワードタグ */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tag {
+            background-color: #e0f7fa; /* タグの背景色 */
+            color: #006064;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* ハイライトボックス */
+        .highlight-box {
+            background-color: #fffde7; /* ハイライトの背景色 */
+            border-left: 5px solid #ffeb3b;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        /* ステータスインジケータ (HD-MEA使用の有無) */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+        }
+        .status-indicator .icon {
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        .status-indicator.true {
+            color: #2e7d32;
+            background-color: #e8f5e9;
+            border-color: #a5d6a7;
+        }
+        .status-indicator.true .icon {
+            color: #4CAF50; /* 緑色 */
+        }
+        .status-indicator.false {
+            color: #c62828;
+            background-color: #ffebee;
+            border-color: #ef9a9a;
+        }
+        .status-indicator.false .icon {
+            color: #f44336; /* 赤色 */
+        }
+
+        /* 日本語要約 */
+        .summary {
+            background-color: #e0f2f7; /* 要約の背景色 */
+            border-left: 5px solid #2196f3;
+            padding: 15px 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+        .summary h3 {
+            color: #1976d2;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2>タイトル</h2>
+            <p><strong><a href="https://www.nature.com/articles/s44328-026-00102-0_reference.pdf" target="_blank" rel="noopener noreferrer">Emerging digital platforms for precise and ultrasensitive biosensing</a></strong></p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors">
+                <li>W Fan</li>
+                <li>Y Dong</li>
+                <li>J Shi</li>
+                <li>C Lei</li>
+                <li>W Ren</li>
+                <li>C Liu</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>出版元</h2>
+            <p>npj Biosensing</p>
+        </div>
+
+        <div class="section">
+            <h2>DOI</h2>
+            <p class="doi"><a href="https://doi.org/10.1038/s44328-026-00102-0" target="_blank" rel="noopener noreferrer">10.1038/s44328-026-00102-0</a></p>
+        </div>
+
+        <div class="section">
+            <h2>論文URL</h2>
+            <p class="url"><a href="https://www.nature.com/articles/s44328-026-00102-0_reference.pdf" target="_blank" rel="noopener noreferrer">https://www.nature.com/articles/s44328-026-00102-0_reference.pdf</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="tag-list">
+                <span class="tag">microelectrode array</span>
+                <span class="tag">biosensing</span>
+                <span class="tag">digital platforms</span>
+                <span class="tag">ELISA</span>
+                <span class="tag">electrochemical</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>HD-MEA (高密度マイクロ電極アレイ) の使用</h2>
+            <div class="status-indicator false">
+                <span class="icon">&#x2716;</span> <!-- バツ印 -->
+                <span>使用されていません</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>スパイクソーティング方法</h2>
+            <p>N/A (情報なし)</p>
+        </div>
+
+        <div class="summary">
+            <h3>日本語要約</h3>
+            <p>本論文「Emerging digital platforms for precise and ultrasensitive biosensing」は、高精度かつ超高感度なバイオセンシングを実現するための新たなデジタルプラットフォームに焦点を当てています。マイクロ電極アレイ、ELISA、電気化学的手法といった先進技術を活用し、次世代のバイオセンシング技術の発展に貢献する研究です。</p>
+        </div>
+    </div>
+</body>
+</html>
