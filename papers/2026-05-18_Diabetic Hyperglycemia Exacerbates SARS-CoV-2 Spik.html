@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column for mobile */
+            gap: 30px;
+        }
+
+        /* Main Title */
+        h1 {
+            color: #0056b3;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.3;
+            grid-column: 1 / -1; /* Span across all columns */
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.4em;
+            color: #0056b3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Authors */
+        .authors {
+            font-size: 1.1em;
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+            grid-column: 1 / -1; /* Span across all columns */
+        }
+
+        /* Information Items */
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            color: #555;
+            margin-right: 5px;
+        }
+
+        /* DOI and URL Group */
+        .doi-url-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .doi-url-group a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all; /* Ensure long URLs break correctly */
+        }
+        .doi-url-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords Container */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Feature Box (e.g., HD-MEA usage) */
+        .feature-box {
+            background-color: #f0f8ff;
+            border-left: 5px solid #2196f3;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .feature-box .icon {
+            font-size: 1.8em;
+            color: #2196f3;
+        }
+        .feature-box p {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Japanese Summary Section */
+        .summary-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #eee;
+            grid-column: 1 / -1; /* Span across all columns */
+        }
+        .summary-section p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .infographic-container {
+                grid-template-columns: 2fr 1fr; /* Main content and sidebar-like for keywords/features */
+            }
+            .main-content {
+                grid-column: 1 / 2;
+            }
+            .sidebar-content {
+                grid-column: 2 / 3;
+                padding-left: 20px;
+                border-left: 1px solid #eee;
+            }
+            .keywords-container {
+                flex-direction: column; /* Stack keywords in sidebar */
+            }
+            .keyword-tag {
+                width: fit-content; /* Adjust width for stacked tags */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            .feature-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Diabetic Hyperglycemia Exacerbates SARS-CoV-2 Spike Protein-Induced Cardiomyopathy and Arrhythmias</h1>
+
+        <p class="authors"><strong>著者:</strong> A Derderian, BT Nguyen, Y Zhang</p>
+
+        <div class="main-content">
+            <div class="info-group">
+                <h2 class="section-title">論文詳細</h2>
+                <div class="info-item">
+                    <strong>出典:</strong> Physiology
+                </div>
+                <div class="doi-url-group">
+                    <div class="info-item">
+                        <strong>DOI:</strong> <a href="https://doi.org/10.1152/physiol.2026.41.S1.2301250" target="_blank" rel="noopener noreferrer">10.1152/physiol.2026.41.S1.2301250</a>
+                    </div>
+                    <div class="info-item">
+                        <strong>論文URL:</strong> <a href="https://journals.physiology.org/doi/abs/10.1152/physiol.2026.41.S1.2301250" target="_blank" rel="noopener noreferrer">journals.physiology.org/doi/abs/10.1152/physiol.2026.41.S1.2301250</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="info-group">
+                <h2 class="section-title">キーワード</h2>
+                <div class="keywords-container">
+                    <span class="keyword-tag">Diabetic hyperglycemia</span>
+                    <span class="keyword-tag">SARS-CoV-2</span>
+                    <span class="keyword-tag">Cardiomyopathy</span>
+                    <span class="keyword-tag">Arrhythmias</span>
+                    <span class="keyword-tag">hiPSC-CMs</span>
+                </div>
+            </div>
+
+            <div class="info-group">
+                <h2 class="section-title">研究手法のハイライト</h2>
+                <div class="feature-box">
+                    <span class="icon">&#10003;</span> <!-- Checkmark icon -->
+                    <p>高密度MEA (HD-MEA) を使用</p>
+                </div>
+                <!-- spike_sorting_method は情報が空のため表示しません -->
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2 class="section-title">日本語要約</h2>
+            <p>本論文は、糖尿病性高血糖がSARS-CoV-2スパイクタンパク質によって誘発される心筋症や不整脈を悪化させるメカニズムについて研究しています。特に、hiPSC-CMs（ヒトiPS細胞由来心筋細胞）を用いた実験を通じて、この病態生理学的関連性を明らかにしています。この研究は、糖尿病患者におけるCOVID-19関連心臓合併症のリスクを理解する上で重要な知見を提供します。</p>
+        </div>
+    </div>
+</body>
+</html>
