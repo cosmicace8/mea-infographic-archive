@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* 論文タイトルと要約セクション */
+        .paper-title {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #e8f5e9; /* 薄い緑色 */
+            border-left: 6px solid #4CAF50;
+            border-radius: 8px;
+        }
+
+        .paper-title h2 {
+            color: #1a5220;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .paper-title h2 .fas {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .japanese-summary {
+            background-color: #f0f8f0;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px dashed #a5d6a7;
+            font-size: 0.95em;
+            color: #388e3c;
+        }
+
+        .japanese-summary .fas {
+            color: #388e3c;
+            margin-right: 8px;
+        }
+
+        /* 詳細情報のグリッドレイアウト */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-item h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-item h3 .fas {
+            color: #5DADE2; /* アイコンの色 */
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .detail-item p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ハイライト項目 (HD-MEA使用) */
+        .highlight {
+            background-color: #e3f2fd; /* 薄い青色 */
+            border-color: #90caf9;
+        }
+
+        .highlight h3 .fas {
+            color: #2196F3; /* 強めの青色 */
+        }
+
+        .status-yes {
+            color: #28a745; /* 緑色 */
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .status-no {
+            color: #dc3545; /* 赤色 */
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* アクションボタン */
+        .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn.primary {
+            background-color: #3498db;
+            color: #ffffff;
+            border: 2px solid #3498db;
+        }
+
+        .btn.primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn .fas {
+            margin-right: 8px;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h2 {
+                font-size: 1.5em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <main>
+            <section class="paper-title">
+                <h2><i class="fas fa-book-open"></i> Microelectromechanical system‐based devices for the diagnosis, treatment, and monitoring of ophthalmic diseases</h2>
+                <p class="japanese-summary">
+                    <i class="fas fa-language"></i> **日本語要約:** 本論文は、微小電気機械システム（MEMS）を基盤としたデバイスが、眼疾患の診断、治療、モニタリングにおいて果たす役割について探求しています。特に、マイクロ電極アレイ（MEA）の応用を通じて、網膜変性疾患に対する視覚回復の可能性に焦点を当てています。
+                </p>
+            </section>
+
+            <section class="details-grid">
+                <div class="detail-item">
+                    <h3><i class="fas fa-user-friends"></i> 著者</h3>
+                    <p>Y Peng, X Huang, X Zhang, Y Jiang, X Zhang, X Zeng…</p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-journal-whills"></i> 出典</h3>
+                    <p>Interdisciplinary Medicine, 2026</p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-fingerprint"></i> DOI</h3>
+                    <p><a href="https://doi.org/10.1002/inmd.70132" target="_blank">10.1002/inmd.70132</a></p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-tags"></i> キーワード</h3>
+                    <p>Microelectromechanical systems, microelectrode array, ophthalmic diseases, retinal degenerative diseases, vision restoration</p>
+                </div>
+                <div class="detail-item highlight">
+                    <h3><i class="fas fa-microchip"></i> HD-MEA 使用</h3>
+                    <p class="status-yes">はい</p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-sort-numeric-up"></i> スパイクソーティング方法</h3>
+                    <p>情報なし</p>
+                </div>
+            </section>
+
+            <section class="actions">
+                <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/inmd.70132" target="_blank" class="btn primary"><i class="fas fa-file-pdf"></i> PDFを閲覧</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
