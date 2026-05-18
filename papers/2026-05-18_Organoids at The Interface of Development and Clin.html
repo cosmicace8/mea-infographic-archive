@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #b2dfdb;
+        }
+
+        .url a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.3s ease;
+        }
+
+        .url a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .summary {
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .summary p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Icons (using emojis) */
+        .icon-title::before { content: '📄 '; margin-right: 10px; color: #4CAF50; }
+        .icon-author::before { content: '🧑‍🔬 '; margin-right: 10px; color: #4CAF50; }
+        .icon-source::before { content: '📚 '; margin-right: 10px; color: #4CAF50; }
+        .icon-keywords::before { content: '🏷️ '; margin-right: 10px; color: #4CAF50; }
+        .icon-url::before { content: '🔗 '; margin-right: 10px; color: #4CAF50; }
+        .icon-summary::before { content: '📝 '; margin-right: 10px; color: #4CAF50; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .section p, .summary p {
+                font-size: 1em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1 class="icon-title">Organoids at The Interface of Development and Clinic</h1>
+
+        <div class="section">
+            <h2 class="icon-author">著者</h2>
+            <p>SK Chakrabarti</p>
+        </div>
+
+        <div class="section">
+            <h2 class="icon-source">出典</h2>
+            <p>physiology, 2026</p>
+        </div>
+
+        <div class="section">
+            <h2 class="icon-keywords">キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Organoids</span>
+                <span class="keyword-tag">Biomedical research</span>
+                <span class="keyword-tag">Tissue engineering</span>
+                <span class="keyword-tag">Disease models</span>
+                <span class="keyword-tag">Cell culture</span>
+            </div>
+        </div>
+
+        <div class="section url">
+            <h2 class="icon-url">論文URL</h2>
+            <p><a href="https://www.researchgate.net/profile/Swarup-Chakrabarti/publication/404708886_Organoids_at_The_Interface_of_Development_and_Clinic/links/6a014a309d7cce6f5c74e6df/Organoids-at-The-Interface-of-Development-and-Clinic.pdf" target="_blank" rel="noopener noreferrer">https://www.researchgate.net/profile/Swarup-Chakrabarti/publication/404708886_Organoids_at_The_Interface_of_Development_and_Clinic/links/6a014a309d7cce6f5c74e6df/Organoids-at-The-Interface-of-Development-and-Clinic.pdf</a></p>
+        </div>
+
+        <div class="summary">
+            <h2 class="icon-summary">日本語要約</h2>
+            <p>本論文は、オルガノイド（臓器様構造体）が、発生生物学と臨床応用の境界領域において果たす役割に焦点を当てています。生物医学研究、組織工学、疾患モデルの構築、そして高度な細胞培養技術といった分野におけるオルガノイドの重要性と可能性を探求し、その応用が今後の医療や研究に与える影響について考察しています。</p>
+        </div>
+    </div>
+</body>
+</html>
