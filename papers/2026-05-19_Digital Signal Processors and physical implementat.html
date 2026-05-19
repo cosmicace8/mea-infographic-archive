@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* ヘッダー */
+        .infographic-container header {
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .infographic-container h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* メイン情報セクション */
+        .main-info {
+            background-color: #e8f5e9; /* 淡い緑 */
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #4caf50; /* 緑のアクセント */
+        }
+
+        .main-info h2 {
+            color: #1b5e20; /* 濃い緑 */
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .main-info p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #388e3c; /* 中間の緑 */
+        }
+
+        .main-info .authors {
+            font-weight: 600;
+        }
+
+        /* 詳細情報セクション */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detail-item h3 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eceff1;
+            padding-bottom: 8px;
+        }
+
+        .detail-item p, .detail-item a {
+            font-size: 1em;
+            color: #555;
+            word-break: break-word;
+        }
+
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        .detail-item .status-yes {
+            color: #28a745; /* 緑 */
+            font-weight: bold;
+        }
+
+        .detail-item .status-no {
+            color: #dc3545; /* 赤 */
+            font-weight: bold;
+        }
+
+        .detail-item .status-na {
+            color: #6c757d; /* グレー */
+            font-style: italic;
+        }
+
+        /* キーワードセクション */
+        .keywords-section {
+            background-color: #e3f2fd; /* 淡い青 */
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #2196f3; /* 青のアクセント */
+        }
+
+        .keywords-section h3 {
+            color: #1976d2; /* 濃い青 */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #90caf9; /* 中間の青 */
+            color: #1a237e; /* 非常に濃い青 */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* 日本語要約セクション */
+        .summary-section {
+            background-color: #fff3e0; /* 淡いオレンジ */
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ff9800; /* オレンジのアクセント */
+        }
+
+        .summary-section h3 {
+            color: #ef6c00; /* 濃いオレンジ */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .summary-section p {
+            font-size: 1.1em;
+            color: #5d4037; /* 茶色 */
+            line-height: 1.8;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                gap: 20px;
+            }
+            .infographic-container h1 {
+                font-size: 1.8em;
+            }
+            .main-info h2 {
+                font-size: 1.5em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            .detail-item h3, .keywords-section h3, .summary-section h3 {
+                font-size: 1.3em;
+            }
+            .main-info p, .detail-item p, .detail-item a, .summary-section p {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                font-size: 0.9em;
+                padding: 7px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="main-info">
+            <h2>Digital Signal Processors and physical implementation for large scale microelectrode array local field potential signal segmentation</h2>
+            <p class="authors">著者: GG Checa</p>
+            <p class="source">出版年: 2026</p>
+        </section>
+
+        <section class="details-grid">
+            <div class="detail-item">
+                <h3>URL</h3>
+                <p><a href="https://dialnet.unirioja.es/servlet/tesis?codigo=401252" target="_blank" rel="noopener noreferrer">dialnet.unirioja.es/servlet/tesis?codigo=401252</a></p>
+            </div>
+            <div class="detail-item">
+                <h3>DOI</h3>
+                <p class="status-na">N/A</p>
+            </div>
+            <div class="detail-item">
+                <h3>高密度MEA使用</h3>
+                <p class="status-yes">はい ✅</p>
+            </div>
+            <div class="detail-item">
+                <h3>スパイクソーティング手法</h3>
+                <p class="status-na">N/A</p>
+            </div>
+        </section>
+
+        <section class="keywords-section">
+            <h3>キーワード</h3>
+            <div class="keyword-tags">
+                <span class="keyword-tag">microelectrode array</span>
+                <span class="keyword-tag">digital signal processing</span>
+                <span class="keyword-tag">local field potential</span>
+                <span class="keyword-tag">signal segmentation</span>
+                <span class="keyword-tag">epilepsy</span>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <h3>日本語要約</h3>
+            <p>
+                本論文は、大規模マイクロ電極アレイ（MEA）から得られる局所電場電位（LFP）信号のセグメンテーション（信号分割）に焦点を当てています。特に、デジタル信号処理（DSP）技術とその物理的な実装について詳細に検討しており、高密度MEAの利用が特徴です。てんかんなどの神経科学研究における信号解析の効率化と精度向上を目指しています。
+            </p>
+        </section>
+    </div>
+</body>
+</html>
