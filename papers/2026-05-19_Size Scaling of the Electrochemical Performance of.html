@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --background-light: #f8f9fa;
+            --background-dark: #e9ecef;
+            --text-color: #343a40;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p.japanese-summary {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: var(--background-dark);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+
+        .section strong {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .title-main {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .authors {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .source, .doi {
+            font-size: 0.95em;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .url a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .url a:hover {
+            text-decoration: underline;
+        }
+
+        .url a::before {
+            content: '🔗'; /* Link icon */
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keyword-tag {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #0056b3;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .feature-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .feature-icon.negative {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p.japanese-summary {
+                font-size: 1em;
+            }
+            .section h2 {
+                font-size: 1.5em;
+            }
+            .title-main {
+                font-size: 1.5em;
+            }
+            .keywords-list {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .header p.japanese-summary {
+                font-size: 0.9em;
+            }
+            .section h2 {
+                font-size: 1.3em;
+            }
+            .title-main {
+                font-size: 1.3em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+            <p class="japanese-summary">
+                本論文は、電気生理学的記録および刺激に用いられるTi₃C₂Tₓ MXeneマイクロ電極アレイの電気化学的性能が、そのサイズによってどのように変化するか（サイズスケーリング）について研究しています。MXene材料を用いた高性能な微小電極アレイの開発と、神経科学分野への応用可能性を探るものです。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>論文タイトル</h2>
+            <p class="title-main">Size Scaling of the Electrochemical Performance of Ti<sub>3</sub>C<sub>2</sub>T<sub>x</sub> MXene Microelectrode Arrays for Electrophysiological Recording and Stimulation.</p>
+        </div>
+
+        <div class="section">
+            <h2>著者 &amp; 出典</h2>
+            <p class="authors"><strong>著者:</strong> Averbeck SR, Garg R, Dong R, Hurwitz D, Apollo NV, Beauchamp MS, Vitale F.</p>
+            <p class="source"><strong>掲載誌:</strong> Small. 2026 May 12:e14955. doi: 10.1002/smll.202514955. Online ahead of print.</p>
+            <p class="doi"><strong>DOI:</strong> <a href="https://doi.org/10.1002/smll.202514955" target="_blank">10.1002/smll.202514955</a></p>
+            <p class="url"><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih/42117272/" target="_blank">pubmed.ncbi.nlm.nih/42117272/</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <ul class="keywords-list">
+                <li class="keyword-tag">MXene</li>
+                <li class="keyword-tag">microelectrode arrays</li>
+                <li class="keyword-tag">electrophysiological recording</li>
+                <li class="keyword-tag">neural stimulation</li>
+                <li class="keyword-tag">electrochemical performance</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>研究の特徴</h2>
+            <div class="feature-item">
+                <span class="feature-icon">&#10003;</span> <!-- Checkmark icon -->
+                <span><strong>HD-MEA (高密度マイクロ電極アレイ) 使用:</strong> はい</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon negative">&#10006;</span> <!-- Cross icon -->
+                <span><strong>スパイクソーティング方法:</strong> 情報なし</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
