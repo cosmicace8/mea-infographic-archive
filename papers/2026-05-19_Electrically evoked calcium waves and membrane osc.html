@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.4em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .authors-list, .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors-list li {
+            background-color: #e9f5ee;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .keywords-list li {
+            background-color: #e0f7fa;
+            padding: 6px 12px;
+            border-radius: 5px;
+            color: #00796b;
+            font-size: 0.85em;
+            border: 1px solid #b2ebf2;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        .info-item strong {
+            min-width: 100px;
+            color: #555;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .abstract {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .abstract p {
+            margin: 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+        .icon {
+            margin-right: 10px;
+            color: #4CAF50; /* アイコンの色 */
+            font-size: 1.2em;
+        }
+        .paper-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0056b3;
+            display: block;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+        .paper-title a {
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <div class="section">
+            <h2><span class="icon">&#128218;</span> 論文タイトル</h2>
+            <span class="paper-title">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42114559/" target="_blank" rel="noopener noreferrer">
+                    Electrically evoked calcium waves and membrane oscillations reveal astrocytic excitability in the neurostimulation range.
+                </a>
+            </span>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128100;</span> 著者</h2>
+            <ul class="authors-list">
+                <li>Aroso M</li>
+                <li>Silva SC</li>
+                <li>Leite de Castro D</li>
+                <li>Aguiar P</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128214;</span> 出版情報</h2>
+            <div class="info-item">
+                <strong>ジャーナル:</strong> <span>J Neural Eng.</span>
+            </div>
+            <div class="info-item">
+                <strong>出版日:</strong> <span>2026 May 11. (Online ahead of print)</span>
+            </div>
+            <div class="info-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1088/1741-2552/ae6bf3" target="_blank" rel="noopener noreferrer">10.1088/1741-2552/ae6bf3</a>
+            </div>
+            <div class="info-item">
+                <strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42114559/" target="_blank" rel="noopener noreferrer">42114559</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128270;</span> キーワード</h2>
+            <ul class="keywords-list">
+                <li>astrocytic excitability</li>
+                <li>calcium waves</li>
+                <li>membrane oscillations</li>
+                <li>neurostimulation</li>
+                <li>neural engineering</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128220;</span> 日本語要約</h2>
+            <div class="abstract">
+                <p>本論文は、電気刺激によって誘発されるカルシウム波と膜振動が、神経刺激の範囲内でアストロサイトの興奮性を示すことを明らかにしています。これは、アストロサイトが神経活動において重要な役割を果たす可能性を示唆し、神経工学分野における新たな知見を提供します。</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
