@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) を使用 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS変数で色を定義し、管理しやすくする */
+        :root {
+            --primary-color: #2c3e50; /* ダークブルーグレー */
+            --secondary-color: #3498db; /* ブライトブルー */
+            --accent-color: #e74c3c; /* 強調用の赤 */
+            --background-light: #ecf0f1; /* ライトグレー */
+            --background-dark: #bdc3c7; /* ミディアムグレー */
+            --text-color: #34495e; /* ダークなブルーグレー */
+            --border-color: #ccc;
+            --card-bg: #ffffff; /* カードの背景色 */
+        }
+
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif; /* 日本語と英語のフォント指定 */
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* コンテナのスタイル */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        /* ヘッダーのスタイル */
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color); /* アクセントライン */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* インフォグラフィックカードのメインコンテンツスタイル */
+        .infographic-card {
+            padding: 30px;
+        }
+
+        /* 論文タイトルのスタイル */
+        .infographic-card h2.title {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.4;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* 各情報セクションのスタイル */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: var(--background-light);
+            border-left: 5px solid var(--secondary-color); /* 左側のアクセントバー */
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* セクション見出しのスタイル */
+        .section h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px; /* アイコンとテキストの間隔 */
+            font-weight: 700;
+        }
+
+        /* アイコンのスタイル */
+        .section h3 .icon {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+        }
+
+        /* テキストとリンクの基本スタイル */
+        .section p, .section a {
+            font-size: 1em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        /* リンクのスタイル */
+        .section a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease; /* ホバー時のアニメーション */
+        }
+
+        .section a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* 著者リストのスタイル */
+        .authors-list {
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        /* キーワードリストのスタイル */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        /* キーワードタグのスタイル */
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap; /* 折り返しを防ぐ */
+        }
+
+        /* 日本語要約セクションの特別なスタイル */
+        .summary {
+            border-left-color: var(--accent-color); /* アクセントカラーに変更 */
+        }
+
+        .summary h3 .icon {
+            color: var(--accent-color); /* アイコンの色も変更 */
+        }
+
+        /* レスポンシブデザインの調整 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .infographic-card h2.title {
+                font-size: 1.5em;
+            }
+            .section {
+                padding: 12px 15px;
+            }
+            .section h3 {
+                font-size: 1.1em;
+            }
+            .section p, .section a {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .infographic-card h2.title {
+                font-size: 1.3em;
+            }
+            .infographic-card {
+                padding: 20px;
+            }
+            .section {
+                padding: 10px 12px;
+            }
+            .section h3 {
+                font-size: 1em;
+            }
+            .section p, .section a {
+                font-size: 0.9em;
+            }
+            .keywords-list {
+                gap: 5px;
+            }
+            .keyword-tag {
+                padding: 4px 8px;
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main class="infographic-card">
+            <h2 class="title">Human PSC-derived sinoatrial node-cardiac plexus assembloids model innervation-associated maturation of pacemaker systems.</h2>
+
+            <div class="section authors">
+                <h3><span class="icon">👤</span> 著者</h3>
+                <p class="authors-list">Zhang T, Fan L, Yao F, Li G, Lin G, Yang Y, Qian F, Liu C, Tang Q, Wang W, Xu C, Xu X, Chang Y, Yang W, Gong J, Wang Y, Huang S, Guan R, Lin L, Jing Q, Yang Z, Pan T, Cheng X, Song L, Du M, Luo Z, Zeng A.</p>
+            </div>
+
+            <div class="section source">
+                <h3><span class="icon">📚</span> 出典</h3>
+                <p>Cell Stem Cell. 2026 May 15:S1934-5909(26)00158-X.</p>
+            </div>
+
+            <div class="section doi">
+                <h3><span class="icon">🔗</span> DOI</h3>
+                <p><a href="https://doi.org/10.1016/j.stem.2026.04.018" target="_blank" rel="noopener noreferrer">10.1016/j.stem.2026.04.018</a></p>
+            </div>
+
+            <div class="section url">
+                <h3><span class="icon">🌐</span> PubMed URL</h3>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42143017/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42143017/</a></p>
+            </div>
+
+            <div class="section keywords">
+                <h3><span class="icon">🏷️</span> キーワード</h3>
+                <div class="keywords-list">
+                    <span class="keyword-tag">PSC-derived</span>
+                    <span class="keyword-tag">cardiac assembloids</span>
+                    <span class="keyword-tag">pacemaker systems</span>
+                    <span class="keyword-tag">innervation</span>
+                    <span class="keyword-tag">maturation</span>
+                </div>
+            </div>
+
+            <div class="section summary">
+                <h3><span class="icon">📝</span> 日本語要約</h3>
+                <p>本論文は、ヒト多能性幹細胞（PSC）由来の洞房結節-心臓神経叢アセンブロイドを用いて、ペースメーカーシステムの神経支配に関連する成熟過程をモデル化した研究です。このモデルは、心臓の拍動を制御するペースメーカー細胞の機能が、神経との結合によってどのように発達するかを理解する上で重要な知見を提供します。</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
