@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            margin: 20px 0; /* 上下のマージン */
+        }
+
+        /* ヘッダー */
+        .infographic-container header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .infographic-container h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* 主要情報セクション */
+        .main-info {
+            margin-bottom: 30px;
+        }
+
+        .main-info h2 {
+            font-size: 1.8em;
+            color: #2980b9; /* アクセントカラー */
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        .main-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .main-info p strong {
+            color: #555;
+            min-width: 100px; /* ラベルの幅を揃える */
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .main-info p span {
+            flex-grow: 1;
+        }
+
+        .main-info p a {
+            color: #2980b9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .main-info p a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .main-info .url a {
+            display: inline-block;
+            background-color: #28a745; /* 緑色のボタン */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .main-info .url a:hover {
+            background-color: #218838;
+        }
+
+        /* 日本語要約セクション */
+        .summary {
+            border-top: 2px solid #e0e0e0;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .summary h3 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .summary p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            .infographic-container h1 {
+                font-size: 1.8em;
+            }
+            .main-info h2 {
+                font-size: 1.5em;
+            }
+            .main-info p strong {
+                min-width: 80px;
+            }
+            .main-info .url a {
+                padding: 10px 20px;
+            }
+            .summary h3 {
+                font-size: 1.3em;
+            }
+            .summary p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px;
+            }
+            .main-info p {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-info p strong {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <section class="main-info">
+            <h2>Neuroengineering Frontiers: A Selective Review of Neural Interfaces, Brain-Machine Interactions, and Artificial Intelligence in Neurodegenerative Diseases.</h2>
+            <p class="authors"><strong>著者:</strong> <span>Usman M, Ashebir S, Okey-Mbata C, Yun Y, Kim S.</span></p>
+            <p class="source"><strong>出典:</strong> <span>Appl Sci (Basel). 2025 Nov;15(21):11316.</span></p>
+            <p class="doi"><strong>DOI:</strong> <span><a href="https://doi.org/10.3390/app152111316" target="_blank" rel="noopener noreferrer">10.3390/app152111316</a></span></p>
+            <p class="keywords"><strong>キーワード:</strong> <span>Neuroengineering, neural interfaces, brain-machine interactions, artificial intelligence, neurodegenerative diseases</span></p>
+            <p class="url">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42112453/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
+            </p>
+        </section>
+        <section class="summary">
+            <h3>日本語要約</h3>
+            <p>この論文「神経工学の最前線：神経インターフェース、ブレイン・マシン・インターフェース、および神経変性疾患における人工知能の選択的レビュー」は、神経工学分野における最新の進展を探求しています。特に、神経インターフェース、ブレイン・マシン・インターフェース（BMI）、そして神経変性疾患の診断や治療における人工知能（AI）の応用について、厳選されたレビューを提供します。</p>
+        </section>
+    </div>
+</body>
+</html>
