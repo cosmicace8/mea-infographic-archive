@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 35px 45px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-content {
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .detail-label {
+            font-weight: 700;
+            color: #555;
+            min-width: 100px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
+            flex-grow: 1;
+            color: #333;
+        }
+
+        .detail-value a {
+            color: #2196F3;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .detail-value a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f7;
+            color: #0288d1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .summary-text {
+            background-color: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px 30px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            h2 {
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 15px;
+            }
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+            .detail-label {
+                min-width: unset;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            .summary-text {
+                padding: 15px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.2em;
+                margin-top: 25px;
+                margin-bottom: 10px;
+            }
+            .detail-item {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+            .summary-text {
+                padding: 10px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Harnessing Cancer Stem Cells and 3D Organoids in Unravelling Spatial and Cellular Heterogeneity in Cancer.</h1>
+
+        <section class="section-details">
+            <h2>論文詳細</h2>
+            <div class="section-content">
+                <div class="detail-item">
+                    <span class="detail-label">著者:</span>
+                    <span class="detail-value">Kwak E, Kim H, Kim E.</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">出典:</span>
+                    <span class="detail-value">Int J Mol Sci. 2026 Apr 24;27(9):3790.</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">DOI:</span>
+                    <span class="detail-value"><a href="https://doi.org/10.3390/ijms27093790" target="_blank" rel="noopener noreferrer">10.3390/ijms27093790</a></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">PubMed URL:</span>
+                    <span class="detail-value"><a href="https://pubmed.ncbi.nlm.nih.gov/42123374/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42123374/</a></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-keywords">
+            <h2>キーワード</h2>
+            <div class="section-content">
+                <ul class="keywords-list">
+                    <li class="keyword-tag">Cancer stem cells</li>
+                    <li class="keyword-tag">3D organoids</li>
+                    <li class="keyword-tag">cellular heterogeneity</li>
+                    <li class="keyword-tag">cancer research</li>
+                    <li class="keyword-tag">spatial biology</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-summary">
+            <h2>日本語要約</h2>
+            <div class="section-content">
+                <p class="summary-text">
+                    本論文は、がん研究において、がん幹細胞と3Dオルガノイドモデルを活用し、がんの空間的および細胞的多様性を解明するアプローチについて論じています。これらの先進的なモデルを用いることで、がんの複雑な性質をより深く理解し、新たな治療法の開発に貢献することが期待されます。特に、がんの不均一性を詳細に解析するための強力なツールとしての可能性が強調されています。
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
