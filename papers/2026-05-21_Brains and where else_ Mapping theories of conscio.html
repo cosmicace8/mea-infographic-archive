@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック: Brains and where else?</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #2c3e50; /* ダークブルー */
+            color: #ecf0f1; /* 明るいグレー */
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 5px solid #3498db; /* アクセントカラー */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 30px 40px;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #34495e; /* 少し明るいダークブルー */
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title {
+            margin-bottom: 30px;
+        }
+
+        .paper-title h2 a {
+            color: #3498db; /* アクセントカラー */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-title h2 a:hover {
+            color: #2980b9; /* ホバー時の色 */
+            text-decoration: underline;
+        }
+
+        /* 詳細情報セクション (著者、出典、DOI) */
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .details > div {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f9f9f9; /* 薄い背景色 */
+            border-left: 4px solid #95a5a6; /* 左ボーダーで区切り */
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .details > div p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .details .doi a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .details .doi a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords {
+            margin-bottom: 30px;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f7; /* 薄い水色 */
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #aed6f1;
+        }
+
+        /* 日本語要約セクション */
+        .summary {
+            margin-bottom: 30px;
+            background-color: #fdfefe; /* ほぼ白 */
+            border: 1px solid #d6eaf8; /* 薄いボーダー */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .summary p {
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        /* アクションボタンセクション */
+        .actions {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .read-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .read-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* フッター */
+        footer {
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 20px 40px;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+            header, main, footer {
+                padding: 20px 25px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            .details {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .details > div {
+                min-width: unset;
+                border-left: none; /* モバイルでは左ボーダーをなくし、上ボーダーに */
+                border-top: 4px solid #95a5a6;
+            }
+            .read-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-title">
+                <h2><a href="https://pubmed.ncbi.nlm.nih.gov/42130431/" target="_blank" rel="noopener noreferrer">Brains and where else? Mapping theories of consciousness to unconventional embodiments.</a></h2>
+            </section>
+
+            <section class="details">
+                <div class="authors">
+                    <h3>著者</h3>
+                    <p>Rouleau N, Levin M.</p>
+                </div>
+                <div class="source">
+                    <h3>出典</h3>
+                    <p>Philos Trans A Math Phys Eng Sci. 2026 May 14;384(2320):20250082.</p>
+                </div>
+                <div class="doi">
+                    <h3>DOI</h3>
+                    <p><a href="https://doi.org/10.1098/rsta.2025.0082" target="_blank" rel="noopener noreferrer">10.1098/rsta.2025.0082</a></p>
+                </div>
+            </section>
+
+            <section class="keywords">
+                <h3>キーワード</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Consciousness</span>
+                    <span class="keyword-tag">brain theories</span>
+                    <span class="keyword-tag">unconventional embodiments</span>
+                    <span class="keyword-tag">philosophy</span>
+                    <span class="keyword-tag">cognitive science</span>
+                </div>
+            </section>
+
+            <section class="summary">
+                <h3>日本語要約</h3>
+                <p>本論文は、『意識』に関する既存の理論が、脳に限定されず、非伝統的な身体（unconventional embodiments）にもどのように適用されうるかを探求しています。意識が脳のみに宿るという従来の考え方を超え、哲学および認知科学の視点から、多様な形態における意識の可能性をマッピングしようと試みています。</p>
+            </section>
+
+            <section class="actions">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42130431/" target="_blank" rel="noopener noreferrer" class="read-button">PubMedで論文を読む</a>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
