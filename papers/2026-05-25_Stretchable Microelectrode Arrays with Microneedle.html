@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語と英語のフォントを読み込み、視覚的な魅力を高めます -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体的なスタイル設定 */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif; /* フォントの優先順位 */
+            line-height: 1.6; /* 行の高さ */
+            color: #333; /* 基本の文字色 */
+            background-color: #f4f7f6; /* 背景色 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* 中央寄せ */
+            align-items: flex-start; /* 上部揃え */
+            min-height: 100vh; /* 最小の高さ */
+            box-sizing: border-box; /* パディングとボーダーを幅に含める */
+        }
+
+        /* コンテナ（インフォグラフィック全体を囲む要素）のスタイル */
+        .container {
+            background-color: #ffffff; /* 背景色 */
+            border-radius: 12px; /* 角の丸み */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影 */
+            max-width: 900px; /* 最大幅 */
+            width: 100%; /* 幅 */
+            padding: 40px; /* 内側の余白 */
+            box-sizing: border-box;
+            margin: 20px 0; /* 上下の余白 */
+        }
+
+        /* 論文タイトルのスタイル */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em; /* フォントサイズ */
+            color: #2c3e50; /* 文字色 */
+            margin-bottom: 15px;
+            text-align: center; /* 中央寄せ */
+            line-height: 1.3;
+        }
+
+        /* 各セクションの見出しのスタイル */
+        h2 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.5em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0; /* 下線 */
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* セクション内のコンテンツのインデント */
+        .section-content {
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* 著者、出典、DOI、URL、キーワード、特徴などの項目スタイル */
+        .author, .source, .doi, .url, .keyword-item, .feature-item {
+            display: flex; /* フレックスボックスでアイコンとテキストを横並び */
+            align-items: center; /* 垂直方向中央揃え */
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        /* アイコンのスタイル */
+        .icon {
+            margin-right: 10px;
+            color: #3498db; /* デフォルトのアイコン色 */
+            font-size: 1.2em;
+            width: 25px; /* アイコンの幅を固定してテキストのずれを防ぐ */
+            text-align: center;
+        }
+        /* 各アイコンの色をカスタマイズ */
+        .author .icon { color: #e67e22; } /* 著者アイコン */
+        .source .icon { color: #27ae60; } /* 出典アイコン */
+        .doi .icon { color: #9b59b6; } /* DOIアイコン */
+        .url .icon { color: #3498db; } /* URLアイコン */
+        .keyword-list li .icon { color: #f39c12; } /* キーワードアイコン */
+        .feature-list li .icon { color: #2980b9; } /* 特徴アイコン */
+
+        /* キーワードリストのスタイル */
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 10px; /* アイテム間の隙間 */
+            list-style: none; /* リストの点なし */
+            padding: 0;
+            margin: 0;
+        }
+        .keyword-list li {
+            background-color: #ecf0f1; /* 背景色 */
+            border-radius: 5px; /* 角の丸み */
+            padding: 8px 15px;
+            font-size: 0.95em;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        /* リンクのスタイル */
+        a {
+            color: #3498db;
+            text-decoration: none; /* 下線なし */
+        }
+        a:hover {
+            text-decoration: underline; /* ホバー時に下線 */
+        }
+
+        /* 日本語要約のスタイル */
+        .summary-text {
+            background-color: #e8f6f3; /* 背景色 */
+            border-left: 5px solid #1abc9c; /* 左ボーダーで強調 */
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* 主要技術・特徴リストのスタイル */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .feature-list li {
+            background-color: #eaf2f8; /* 背景色 */
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stretchable Microelectrode Arrays with Microneedles for Reliable Electrophysiological Recording of Human Heart and Brain Organoids</h1>
+            <div class="section-content author">
+                <span class="icon">👤</span> <!-- 著者アイコン -->
+                <span>E Jang, S Shin, SG Lee, K Kim, Y Kim, J Sun, IJ Cho…</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>論文詳細</h2>
+            <div class="section-content">
+                <p class="source">
+                    <span class="icon">📚</span> <!-- 出典アイコン -->
+                    <span>**出典:** Advanced Science</span>
+                </p>
+                <p class="doi">
+                    <span class="icon">🔗</span> <!-- DOIアイコン -->
+                    <span>**DOI:** <a href="https://doi.org/10.1002/advs.75778" target="_blank">10.1002/advs.75778</a></span>
+                </p>
+                <p class="url">
+                    <span class="icon">🌐</span> <!-- URLアイコン -->
+                    <span>**URL:** <a href="https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/advs.75778" target="_blank">論文PDFへ</a></span>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>キーワード</h2>
+            <div class="section-content">
+                <ul class="keyword-list">
+                    <li><span class="icon">🏷️</span>microelectrode array</li>
+                    <li><span class="icon">🏷️</span>microneedles</li>
+                    <li><span class="icon">🏷️</span>electrophysiology</li>
+                    <li><span class="icon">🏷️</span>organoids</li>
+                    <li><span class="icon">🏷️</span>stretchable</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>主要技術・特徴</h2>
+            <div class="section-content">
+                <ul class="feature-list">
+                    <li>
+                        <span class="icon">💡</span> <!-- 技術アイコン -->
+                        <span>HD-MEA (高密度マイクロ電極アレイ) を使用: **はい**</span>
+                    </li>
+                    <!-- spike_sorting_method が空のため、ここでは表示しません -->
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>日本語要約</h2>
+            <div class="section-content summary-text">
+                <p>本論文は、ヒトの心臓および脳オルガノイドから信頼性の高い電気生理学的信号を記録するための、マイクロニードル付き伸縮性マイクロ電極アレイ（MEA）の開発について報告しています。この技術は、伸縮性素材と微細なニードルを組み合わせることで、柔らかいオルガノイドとの安定した接触を可能にし、高精度な電気生理学的活動のモニタリングを実現します。これにより、オルガノイドを用いた疾患モデル研究や薬剤スクリーニングにおける、より詳細な機能評価への貢献が期待されます。</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
