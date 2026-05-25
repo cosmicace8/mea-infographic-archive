@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語と英語のフォントを読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィック全体のコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* 論文カード */
+        .paper-card {
+            padding: 0;
+        }
+
+        /* タイトルセクション */
+        .title-section {
+            background-color: #3498db; /* 青系の背景色 */
+            color: #ffffff;
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .title-section h2 {
+            font-size: 1.8em;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .title-section h2 a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .title-section h2 a:hover {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+
+        /* 詳細情報のグリッドレイアウト */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2カラム */
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        /* 各詳細項目 */
+        .detail-item {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db; /* 左側にアクセントライン */
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .detail-item h3 {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .detail-item p {
+            margin: 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        /* 全幅を使う詳細項目 */
+        .detail-item.full-width {
+            grid-column: 1 / -1; /* グリッドの全幅を使用 */
+        }
+
+        /* キーワードリスト */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        /* キーワードタグ */
+        .keyword-tag {
+            background-color: #e8f4f8; /* 薄い青の背景 */
+            color: #2980b9; /* 濃い青の文字色 */
+            padding: 6px 12px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.85em;
+            white-space: nowrap; /* 折り返しを防ぐ */
+        }
+
+        /* リンクセクション */
+        .link-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* 論文を読むボタン */
+        .read-more-button {
+            display: inline-block;
+            background-color: #2ecc71; /* 緑系のボタン色 */
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3); /* 影 */
+        }
+
+        .read-more-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px); /* ホバーで少し浮き上がる */
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .title-section h2 {
+                font-size: 1.5em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr; /* 1カラムにする */
+            }
+            .detail-item.full-width {
+                grid-column: auto; /* 1カラムに戻す */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .title-section {
+                padding: 15px 20px;
+            }
+            .title-section h2 {
+                font-size: 1.2em;
+            }
+            .detail-item {
+                padding: 15px;
+            }
+            .read-more-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <div class="paper-card">
+            <div class="title-section">
+                <h2><a href="https://ieeexplore.ieee.org/abstract/document/11518003/" target="_blank">Future of Intelligence: Emerging Roles of Organoid and Quantum Intelligence</a></h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>著者</h3>
+                    <p>A Megalingam, MA Hassan, NA Rahmat, A Abd Azi…</p>
+                </div>
+                <div class="detail-item">
+                    <h3>出典</h3>
+                    <p>2026 Third International …, 2026</p>
+                </div>
+                <div class="detail-item full-width">
+                    <h3>キーワード</h3>
+                    <div class="keywords-list">
+                        <span class="keyword-tag">Organoid Intelligence</span>
+                        <span class="keyword-tag">Quantum Intelligence</span>
+                        <span class="keyword-tag">Artificial Intelligence</span>
+                        <span class="keyword-tag">Future of Intelligence</span>
+                        <span class="keyword-tag">Emerging Roles</span>
+                    </div>
+                </div>
+                <div class="detail-item full-width">
+                    <h3>日本語要約</h3>
+                    <p>本論文は、オーガノイド知能と量子知能という新たな分野が、将来の知能、特に人工知能の進化においてどのような役割を果たすかを探求しています。これらの新興技術が知能の未来に与える影響と、その潜在的な役割に焦点を当てています。</p>
+                </div>
+            </div>
+            <div class="link-section">
+                <a href="https://ieeexplore.ieee.org/abstract/document/11518003/" target="_blank" class="read-more-button">論文を読む</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
