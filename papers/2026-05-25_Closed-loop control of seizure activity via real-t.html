@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            margin: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section ul li {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        .section ul li strong {
+            color: #2c3e50;
+            margin-right: 8px;
+        }
+        .section ul li span.icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .authors {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .summary {
+            background-color: #e8f4f8;
+            border-left: 6px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .summary h2 {
+            color: #2980b9;
+            border-bottom: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+        .summary p {
+            font-size: 1.05em;
+            color: #444;
+        }
+        .link-box {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+        .link-box a {
+            display: inline-block;
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .link-box a:hover {
+            background-color: #27ae60;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tag {
+            background-color: #d6eaf8;
+            color: #2874a6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Closed-loop control of seizure activity via real-time seizure forecasting by reservoir neuromorphic computing</h1>
+        <p class="authors">著者: M Ronchini, Y Rezaeiyan, M Zamani</p>
+
+        <div class="section">
+            <h2><span class="icon">🏷️</span> キーワード</h2>
+            <div class="tag-list">
+                <span class="tag">seizure control</span>
+                <span class="tag">closed-loop</span>
+                <span class="tag">neuromorphic computing</span>
+                <span class="tag">hippocampal spheroids</span>
+                <span class="tag">microelectrode array</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">💡</span> 研究のハイライト</h2>
+            <ul>
+                <li><span class="icon">🧠</span> <strong>主要な目的:</strong> てんかん発作活動の<span class="highlight">クローズドループ制御</span></li>
+                <li><span class="icon">⏱️</span> <strong>アプローチ:</strong> <span class="highlight">リアルタイム発作予測</span></li>
+                <li><span class="icon">💻</span> <strong>主要技術:</strong> <span class="highlight">リザーバー型ニューロモーフィックコンピューティング</span></li>
+                <li><span class="icon">🔬</span> <strong>実験モデル:</strong> <span class="highlight">海馬スフェロイド</span> (3D神経細胞培養モデル)</li>
+                <li><span class="icon">⚡</span> <strong>測定技術:</strong> <span class="highlight">高密度マイクロ電極アレイ (HD-MEA)</span> を使用</li>
+            </ul>
+        </div>
+
+        <div class="summary">
+            <h2><span class="icon">📝</span> 日本語要約</h2>
+            <p>本研究は、リザーバー型ニューロモーフィックコンピューティングを用いてリアルタイムでてんかん発作を予測し、その予測に基づいててんかん発作活動をクローズドループで制御する手法を提案しています。特に、海馬スフェロイド（3D神経細胞培養モデル）と高密度マイクロ電極アレイ（HD-MEA）を用いることで、生体に近い環境での発作活動を詳細に解析し、ニューロモーフィックコンピューティングによる効率的な予測と制御の可能性を探っています。このアプローチは、てんかん治療における新たな介入法の開発に貢献する可能性を秘めています。</p>
+        </div>
+
+        <div class="link-box">
+            <a href="https://portal.findresearcher.sdu.dk/files/307355304/Closed-loop.pdf" target="_blank">論文を読む (PDF) <span class="icon">↗️</span></a>
+        </div>
+    </div>
+</body>
+</html>
