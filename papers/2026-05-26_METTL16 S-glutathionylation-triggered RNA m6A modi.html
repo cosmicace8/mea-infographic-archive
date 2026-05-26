@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #2c3e50;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #3498db;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #3498db;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        .authors {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .keyword-tag {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #dce0e1;
+        }
+
+        .doi-link, .url-link {
+            display: inline-block;
+            margin-top: 5px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .doi-link:hover, .url-link:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .summary-text {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                margin: 15px 0;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.15em;
+            }
+            .content, .authors, .summary-text {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 1.5em;
+                padding-bottom: 10px;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+            .content, .authors, .summary-text {
+                font-size: 0.9em;
+            }
+            .keywords-list {
+                gap: 6px;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>METTL16 S-glutathionylation-triggered RNA m6A modification of IGF2BP3 inhibits CFTR expression and promotes chemoresistance in colorectal cancer.</h1>
+
+        <div class="section">
+            <div class="section-title">著者</div>
+            <div class="content authors">
+                Xu L, Ma Y, Yao W, Qiu YJ, Xu C, Xu FY, Zou ZM, Dai WM, Gong WG, Ma DN, Chen XW, Ye WK, Huang YY, Chen HT, Hong L, Mo JP, Feng JG, Yu EY, Chen W, Zhang YH, Yao QH, Li X.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">出典</div>
+            <div class="content">
+                Acta Pharmacol Sin. 2026 May 20. Online ahead of print.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">DOI</div>
+            <div class="content">
+                <a href="https://doi.org/10.1038/s41401-026-01821-w" target="_blank" rel="noopener noreferrer" class="doi-link">10.1038/s41401-026-01821-w</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">キーワード</div>
+            <div class="keywords-list">
+                <span class="keyword-tag">METTL16</span>
+                <span class="keyword-tag">RNA modification</span>
+                <span class="keyword-tag">IGF2BP3</span>
+                <span class="keyword-tag">CFTR</span>
+                <span class="keyword-tag">colorectal cancer</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">日本語要約</div>
+            <div class="content summary-text">
+                本研究は大腸がんにおける化学療法抵抗性のメカニズムを解明しています。具体的には、METTL16のS-グルタチオン化がIGF2BP3のRNA m6A修飾を誘発し、これが嚢胞性線維症膜貫通レギュレーター（CFTR）の発現を抑制することで、大腸がん細胞の化学療法抵抗性を促進することを示しています。この発見は、大腸がんの治療戦略開発に新たな標的を提供する可能性があります。
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">論文URL</div>
+            <div class="content">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42162313/" target="_blank" rel="noopener noreferrer" class="url-link">https://pubmed.ncbi.nlm.nih.gov/42162313/</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
