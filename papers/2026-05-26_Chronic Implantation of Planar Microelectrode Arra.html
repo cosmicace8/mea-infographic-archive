@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Roboto for English, Noto Sans JP for Japanese) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: #f4f7f6; /* Light background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            border-left: 8px solid #4CAF50; /* Accent color for the left border */
+            position: relative;
+            overflow: hidden; /* Ensure no overflow from rounded corners */
+        }
+
+        /* Main Title */
+        .infographic-container h1 {
+            font-size: 2.2em;
+            color: #2c3e50; /* Darker blue-grey for title */
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee; /* Subtle separator */
+        }
+        .section:last-of-type {
+            border-bottom: none; /* No border for the last section */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Section Headings */
+        .section h2 {
+            font-size: 1.3em;
+            color: #4CAF50; /* Green accent for headings */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+        .section h2::before {
+            content: '•'; /* Bullet point icon */
+            color: #4CAF50;
+            font-size: 1.5em;
+            line-height: 0;
+        }
+
+        /* Paragraphs and Lists */
+        .section p, .section ul {
+            font-size: 1em;
+            color: #555;
+            margin: 0;
+            padding: 0;
+        }
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Specific Text Styles */
+        .authors {
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+        .source-info {
+            font-size: 0.95em;
+            color: #777;
+            text-align: center;
+        }
+        .source-info a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+        .doi-link {
+            word-break: break-all; /* Ensures long DOIs wrap correctly */
+        }
+
+        /* Keywords Styling */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            justify-content: center; /* Center the tags */
+        }
+        .keyword-tag {
+            background-color: #e0f2f7; /* Light blue background */
+            color: #2196f3; /* Blue text */
+            padding: 6px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap; /* Prevent tags from breaking */
+        }
+
+        /* Highlight Box for HD-MEA */
+        .highlight-box {
+            background-color: #e8f5e9; /* Light green background */
+            border-left: 5px solid #4CAF50; /* Green border */
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .highlight-box .icon {
+            font-size: 2em;
+            color: #4CAF50;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-weight: 700;
+            color: #388e3c; /* Darker green text */
+        }
+
+        /* Japanese Summary Section */
+        .summary-japanese {
+            background-color: #f9f9f9; /* Slightly different background */
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .summary-japanese h2 {
+            color: #3f51b5; /* Blue for Japanese summary heading */
+        }
+        .summary-japanese h2::before {
+            content: '•';
+            color: #3f51b5;
+        }
+        .summary-japanese p {
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                border-left: none; /* Remove left border on smaller screens */
+                border-top: 8px solid #4CAF50; /* Add top border instead */
+            }
+            .infographic-container h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .highlight-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .highlight-box .icon {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Chronic Implantation of Planar Microelectrode Arrays as a Brain-Computer Interface: A Technical Note and Operational Workflow.</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p class="authors">Wagner A, Eisenkolb VM, Utzschmid A, Gempt J, Jacob SN, Meyer B.</p>
+        </div>
+
+        <div class="section">
+            <h2>出典情報</h2>
+            <p class="source-info">
+                Oper Neurosurg. 2026 May 21. doi: <a href="https://doi.org/10.1227/ons.0000000000002067" target="_blank" rel="noopener noreferrer" class="doi-link">10.1227/ons.0000000000002067</a>. Online ahead of print.<br>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42166618/" target="_blank" rel="noopener noreferrer">PubMedで詳細を見る</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">chronic implantation</span>
+                <span class="keyword-tag">planar microelectrode arrays</span>
+                <span class="keyword-tag">brain-computer interface</span>
+                <span class="keyword-tag">neurosurgery</span>
+                <span class="keyword-tag">workflow</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>技術的特徴</h2>
+            <div class="highlight-box">
+                <span class="icon">💡</span> <!-- Unicode character for lightbulb icon -->
+                <p>高密度平面型マイクロ電極アレイ (HD-MEA) を使用しています。</p>
+            </div>
+            <!-- spike_sorting_method は情報が提供されていないため、表示しません。 -->
+        </div>
+
+        <div class="section summary-japanese">
+            <h2>日本語要約</h2>
+            <p>本論文は、脳とコンピューターを接続するインターフェース（BCI）として、平面型マイクロ電極アレイを慢性的に埋め込むための技術的な注意点と運用ワークフローについて解説しています。神経外科の観点から、長期的な埋め込みに関する実践的なガイドラインを提供することを目的としています。</p>
+        </div>
+    </div>
+</body>
+</html>
