@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            margin: 20px;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors-list li {
+            background-color: #e8f5e9; /* 明るい緑 */
+            color: #2e7d32; /* 暗い緑 */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        .detail-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .detail-item strong {
+            color: #555;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+        .detail-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f7; /* 明るい青 */
+            color: #0277bd; /* 暗い青 */
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        .summary-text {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #555;
+        }
+        /* レスポンシブ調整 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .authors-list {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .authors-list li {
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Reversible synaptic deficits in early-stage batten disease.</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>Wani MA</li>
+                <li>Hall CM</li>
+                <li>Mittmann T</li>
+                <li>Grünewald B</li>
+                <li>von Engelhardt J.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>出版情報</h2>
+            <div class="detail-item">
+                <strong>ジャーナル:</strong> J Transl Med. 2026 May 20;24(1):695.
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1186/s12967-026-08304-w." target="_blank">10.1186/s12967-026-08304-w.</a>
+            </div>
+            <div class="detail-item">
+                <strong>URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42163273/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42163273/</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Batten disease</span>
+                <span class="keyword-tag">synaptic deficits</span>
+                <span class="keyword-tag">neurodegeneration</span>
+                <span class="keyword-tag">disease mechanisms</span>
+                <span class="keyword-tag">therapeutic targets</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <p class="summary-text">
+                本論文は、バッテン病の初期段階におけるシナプス機能不全が可逆的であることを示唆しています。この発見は、神経変性疾患のメカニズム解明と、新たな治療標的の特定に貢献する可能性を秘めています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
