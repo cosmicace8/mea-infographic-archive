@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ヘッダー装飾 */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        /* セクションタイトル */
+        h2 {
+            color: #2196F3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+        h2 svg {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        /* 論文タイトル */
+        .paper-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* 著者 */
+        .authors {
+            font-size: 1.2em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .authors span {
+            font-weight: 600;
+            color: #2196F3;
+        }
+
+        /* 出版情報 */
+        .publication-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .publication-item {
+            background-color: #e3f2fd; /* Light blue */
+            border-left: 5px solid #2196F3;
+            padding: 15px 20px;
+            border-radius: 8px;
+            flex: 1 1 calc(33% - 40px); /* Adjust for 3 items per row */
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .publication-item strong {
+            display: block;
+            color: #2196F3;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        .publication-item a {
+            color: #0d47a1;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .publication-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-section {
+            margin-bottom: 30px;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background-color: #e8f5e9; /* Light green */
+            color: #2e7d32;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #a5d6a7;
+        }
+
+        /* 日本語要約 */
+        .summary-section {
+            background-color: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .summary-section p {
+            font-size: 1.1em;
+            color: #444;
+            margin: 0;
+        }
+
+        /* アイコン */
+        .icon {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                gap: 20px;
+            }
+            .paper-title {
+                font-size: 1.8em;
+            }
+            .authors {
+                font-size: 1em;
+            }
+            .publication-item {
+                flex: 1 1 100%;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .summary-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1 class="paper-title">Smart hydrogels for overcoming cancer multidrug resistance.</h1>
+
+        <p class="authors">
+            <span><i class="fas fa-users icon"></i> 著者:</span> Wang Y, Liu B, Huang ZF, Patel H, Yu J, Hu M, Chen ZS.
+        </p>
+
+        <div class="publication-info">
+            <div class="publication-item">
+                <strong><i class="fas fa-book icon"></i> 出典</strong>
+                Mol Cancer. 2026 Apr 11;25(1):141.
+            </div>
+            <div class="publication-item">
+                <strong><i class="fas fa-link icon"></i> DOI</strong>
+                <a href="https://doi.org/10.1186/s12943-026-02660-3" target="_blank">10.1186/s12943-026-02660-3</a>
+            </div>
+            <div class="publication-item">
+                <strong><i class="fas fa-globe icon"></i> URL</strong>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/41963941/" target="_blank">pubmed.ncbi.nlm.nih.gov/41963941/</a>
+            </div>
+        </div>
+
+        <div class="keywords-section">
+            <h2><i class="fas fa-tags icon"></i> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">smart hydrogels</span>
+                <span class="keyword-tag">cancer</span>
+                <span class="keyword-tag">multidrug resistance</span>
+                <span class="keyword-tag">drug delivery</span>
+                <span class="keyword-tag">nanotechnology</span>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2><i class="fas fa-file-alt icon"></i> 日本語要約</h2>
+            <p>本論文は、スマートハイドロゲルを用いて癌の多剤耐性を克服するための研究について述べています。ナノテクノロジーを応用したこれらのハイドロゲルは、薬剤送達システムとして機能し、癌治療における重要な課題である多剤耐性に対する新たな戦略を提供することを目指しています。</p>
+        </div>
+    </div>
+</body>
+</html>
