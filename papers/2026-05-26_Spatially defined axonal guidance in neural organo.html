@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック: Spatially defined axonal guidance in neural organoids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            padding-top: 40px; /* 上部に余白 */
+            padding-bottom: 40px; /* 下部に余白 */
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            max-width: 900px;
+            width: 95%;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 30px;
+        }
+
+        /* 論文タイトルと要約 */
+        .paper-title {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .paper-title h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .japanese-summary {
+            font-size: 1.05em;
+            color: #555;
+            background-color: #f8f8f8;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        /* 詳細情報グリッド */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-card h3::before {
+            content: '•'; /* アイコンの代わり */
+            color: #3498db;
+            font-size: 1.5em;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        .detail-card p {
+            font-size: 0.95em;
+            color: #666;
+            margin: 0;
+            word-wrap: break-word; /* 長いURLやDOIの折り返し */
+        }
+
+        .detail-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .detail-card a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .keywords-section h3 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f7;
+            color: #2980b9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #2980b9;
+            color: #ffffff;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 20px 30px;
+            font-size: 0.9em;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            margin-top: 30px;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h2 {
+                font-size: 1.5em;
+            }
+            .japanese-summary {
+                font-size: 0.95em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+            main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-title">
+                <h2>Spatially defined axonal guidance in neural organoids with micropatterned microfluidic channels.</h2>
+                <p class="japanese-summary">
+                    この論文は、微細加工されたマイクロ流体チャネルを用いて、神経オルガノイドにおける軸索の空間的に定義された誘導を研究しています。これにより、神経オルガノイド内での軸索成長を精密に制御する新しい手法が提示されており、神経回路形成の理解や再生医療への応用が期待されます。
+                </p>
+            </section>
+
+            <section class="details-grid">
+                <div class="detail-card">
+                    <h3>著者</h3>
+                    <p>Cisneros A, Moarefian M, Duru J, Karinicolas K, Goodman T, Gonzalez Z, Zatserklyaniy A, McKenna S, Anderson A, Wiliams N, Kaurala G, Sanchez E, Shariati A, Teodorescu M, Sharf T.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>出典</h3>
+                    <p>bioRxiv [Preprint]. 2026 May 5:2026.04.30.721979. doi: 10.64898/2026.04.30.721979.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>DOI</h3>
+                    <p><a href="https://doi.org/10.64898/2026.04.30.721979" target="_blank" rel="noopener noreferrer">10.64898/2026.04.30.721979</a></p>
+                </div>
+                <div class="detail-card">
+                    <h3>PubMed URL</h3>
+                    <p><a href="https://pubmed.ncbi.nlm.nih.gov/42146448/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42146448/</a></p>
+                </div>
+            </section>
+
+            <section class="keywords-section">
+                <h3>キーワード</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">axonal guidance</span>
+                    <span class="keyword-tag">neural organoids</span>
+                    <span class="keyword-tag">micropatterned</span>
+                    <span class="keyword-tag">microfluidic channels</span>
+                    <span class="keyword-tag">spatial definition</span>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
