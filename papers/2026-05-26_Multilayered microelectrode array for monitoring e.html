@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
-    <!-- Google Fonts for better typography -->
+    <!-- Google Fonts: Noto Sans JP for Japanese, Roboto for English titles/data -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Noto Sans JP', 'Roboto', sans-serif;
@@ -18,173 +20,204 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
+            box-sizing: border-box;
         }
-        .infographic-container {
+        .container {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
             max-width: 900px;
-            width: 100%;
+            padding: 40px;
+            margin: 20px;
             box-sizing: border-box;
-            border-left: 8px solid #4CAF50; /* Accent color */
+            width: 100%; /* Ensure it takes full width up to max-width */
         }
         h1 {
+            font-family: 'Roboto', sans-serif;
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
             font-size: 2.2em;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            word-break: break-word; /* Break long words */
         }
         h2 {
+            font-family: 'Noto Sans JP', sans-serif;
             color: #34495e;
             font-size: 1.6em;
             margin-top: 30px;
             margin-bottom: 15px;
-            border-left: 5px solid #4CAF50;
+            border-left: 5px solid #2ecc71;
             padding-left: 10px;
+            display: flex;
+            align-items: center;
         }
-        .section {
-            margin-bottom: 25px;
+        h2 .fas {
+            margin-right: 10px;
+            color: #2ecc71;
         }
-        .section p {
-            margin: 8px 0;
-        }
-        .section strong {
-            color: #555;
-            display: inline-block;
-            min-width: 120px;
-        }
-        .title {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #1a2a3a;
-            margin-bottom: 20px;
-            line-height: 1.4;
+        p {
+            margin-bottom: 10px;
         }
         .authors {
             font-style: italic;
-            color: #666;
-            margin-bottom: 15px;
+            color: #555;
+            margin-bottom: 20px;
         }
-        .source-doi {
-            font-size: 0.95em;
-            color: #777;
-            margin-bottom: 15px;
+        .section-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
         }
-        .source-doi a {
-            color: #007bff;
+        .detail-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start; /* Align items to start for multi-line content */
+        }
+        .detail-item strong {
+            color: #34495e;
+            min-width: 120px; /* Increased width for labels */
+            display: inline-block;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .detail-item span, .detail-item a {
+            flex-grow: 1; /* Allow content to take remaining space */
+            word-break: break-all; /* Break long URLs/DOIs */
+        }
+        .detail-item a {
+            color: #3498db;
             text-decoration: none;
         }
-        .source-doi a:hover {
+        .detail-item a:hover {
             text-decoration: underline;
         }
-        .keywords-container {
+        .keyword-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
+            margin-top: 15px;
         }
         .keyword-tag {
-            background-color: #e0f2f1;
+            background-color: #e0f7fa;
             color: #00796b;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
-            font-weight: 500;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .feature-item {
+        .tech-item {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
-        .feature-item .icon {
+        .tech-item .icon {
             margin-right: 10px;
-            font-size: 1.5em;
-            width: 25px;
-            text-align: center;
+            font-size: 1.4em;
         }
-        .icon.check { color: #28a745; }
-        .icon.cross { color: #dc3545; }
-        .icon.info { color: #007bff; }
-        .summary-box {
-            background-color: #e8f5e9;
-            border-left: 5px solid #4CAF50;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+        .tech-item .icon.true {
+            color: #2ecc71; /* Green for true */
         }
-        .summary-box p {
-            margin: 0;
-            color: #388e3c;
+        .tech-item .icon.false {
+            color: #e74c3c; /* Red for false */
         }
-        .url-link {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
+        .tech-item .icon.info {
+            color: #f39c12; /* Orange for info/N/A */
         }
-        .url-link a {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-            display: inline-flex;
-            align-items: center;
+        .tech-item span {
+            font-weight: bold;
+            color: #34495e;
         }
-        .url-link a:hover {
-            background-color: #0056b3;
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .detail-item strong {
+                min-width: unset;
+                margin-bottom: 5px;
+            }
         }
-        .url-link a::before {
-            content: '🔗'; /* Link icon */
-            margin-right: 8px;
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .keyword-tag {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="infographic-container">
-        <h1>論文情報インフォグラフィック</h1>
-
-        <div class="section">
-            <p class="title">Multilayered microelectrode array for monitoring electrophysiological signals of 3d neural networks in cerebral organoid.</p>
+    <div class="container">
+        <header>
+            <h1>Multilayered microelectrode array for monitoring electrophysiological signals of 3d neural networks in cerebral organoid.</h1>
             <p class="authors"><strong>著者:</strong> Kim N, Kang M, Ji J, Kim H, Kim HN, Choi N, Lee YJ.</p>
-            <p class="source-doi">
-                <strong>掲載誌:</strong> Microsyst Nanoeng. 2026 May 22;12(1):201.<br>
-                <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41378-026-01328-8" target="_blank">10.1038/s41378-026-01328-8</a>
-            </p>
-        </div>
+        </header>
 
-        <h2>主要キーワード</h2>
-        <div class="keywords-container">
-            <span class="keyword-tag">multilayered microelectrode array</span>
-            <span class="keyword-tag">electrophysiological signals</span>
-            <span class="keyword-tag">3d neural networks</span>
-            <span class="keyword-tag">cerebral organoid</span>
-            <span class="keyword-tag">monitoring</span>
-        </div>
+        <section class="section-card">
+            <h2><i class="fas fa-lightbulb"></i> 日本語要約</h2>
+            <p>本論文は、脳オルガノイド内の3次元神経ネットワークの電気生理学的信号を監視するための多層微小電極アレイ（MEA）の開発と応用について報告しています。高密度MEA技術を用いることで、複雑な神経活動を詳細に記録し、3D組織における神経回路の機能的理解を深めることを目指しています。</p>
+        </section>
 
-        <h2>技術的特徴</h2>
-        <div class="section">
-            <div class="feature-item">
-                <span class="icon check">✔</span> <strong>多層型MEAを使用:</strong> はい
+        <section class="section-card">
+            <h2><i class="fas fa-info-circle"></i> 論文詳細</h2>
+            <div class="detail-item">
+                <strong>出典:</strong> <span>Microsyst Nanoeng. 2026 May 22;12(1):201.</span>
             </div>
-            <div class="feature-item">
-                <span class="icon info">ⓘ</span> <strong>スパイクソーティング手法:</strong> 不明
+            <div class="detail-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41378-026-01328-8." target="_blank" rel="noopener noreferrer">10.1038/s41378-026-01328-8.</a>
             </div>
-        </div>
+            <div class="detail-item">
+                <strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42168163/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42168163/</a>
+            </div>
+        </section>
 
-        <h2>日本語要約</h2>
-        <div class="summary-box">
-            <p>本論文は、多層型マイクロ電極アレイ（MEA）を用いて、脳オルガノイド内の3次元神経ネットワークから発せられる電気生理学的信号をモニタリングする技術について記述しています。この研究は、3D神経ネットワークの複雑な活動を詳細に捉え、理解を深めることを目的としています。</p>
-        </div>
+        <section class="section-card">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
+            <div class="keyword-tags">
+                <span class="keyword-tag">multilayered microelectrode array</span>
+                <span class="keyword-tag">electrophysiological signals</span>
+                <span class="keyword-tag">3D neural networks</span>
+                <span class="keyword-tag">cerebral organoid</span>
+                <span class="keyword-tag">neural recording</span>
+            </div>
+        </section>
 
-        <div class="url-link">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/42168163/" target="_blank">PubMedで論文を見る</a>
-        </div>
+        <section class="section-card">
+            <h2><i class="fas fa-cogs"></i> 技術情報</h2>
+            <div class="tech-item">
+                <i class="icon fas fa-check-circle true"></i> <span>高密度MEA (HD-MEA) 使用: はい</span>
+            </div>
+            <div class="tech-item">
+                <i class="icon fas fa-info-circle info"></i> <span>スパイクソーティング方法: 記載なし</span>
+            </div>
+        </section>
     </div>
 </body>
 </html>
