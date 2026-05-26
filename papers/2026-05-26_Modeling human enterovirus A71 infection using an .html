@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray for main text/headers */
+            --secondary-color: #3498db; /* Bright blue for accents/links */
+            --accent-color: #e74c3c; /* Red for emphasis/hover */
+            --background-color: #ecf0f1; /* Light gray background */
+            --card-background: #ffffff; /* White for the main card */
+            --text-color: #34495e; /* Darker gray for general text */
+            --light-text-color: #7f8c8d; /* Lighter gray for secondary text */
+            --border-color: #bdc3c7; /* Medium gray for borders */
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for longer content */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+            border-top: 8px solid var(--secondary-color); /* Accent border */
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Paper Title */
+        h2.paper-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9fbfb; /* Slightly off-white for sections */
+            border-left: 5px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '•'; /* Bullet point icon */
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        /* Specific Section Styles */
+        .authors, .source, .doi, .keywords, .pubmed-link {
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        .authors p {
+            margin: 0;
+        }
+
+        .source {
+            font-style: italic;
+            color: var(--light-text-color);
+        }
+
+        .doi a, .pubmed-link a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .doi a:hover, .pubmed-link a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Keywords List */
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* Space between keyword tags */
+        }
+
+        .keywords-list li {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.85em;
+            font-weight: 400;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Japanese Summary Section */
+        .summary-japanese {
+            background-color: #e8f4f8; /* Lighter blue background for summary */
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .summary-japanese .section-title {
+            color: var(--secondary-color); /* Highlight summary title */
+        }
+
+        .summary-japanese .section-title::before {
+            color: var(--primary-color); /* Contrast bullet point */
+        }
+
+        .summary-japanese p {
+            font-size: 1.05em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        /* PubMed Link Button */
+        .pubmed-link {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color); /* Separator */
+        }
+
+        .pubmed-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .pubmed-link a:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 20px 25px;
+                margin: 10px 0;
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            h2.paper-title {
+                font-size: 1.5em;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            .section {
+                padding: 10px 15px;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .keywords-list {
+                flex-direction: column; /* Stack keywords on smaller screens */
+                align-items: flex-start;
+            }
+            .keywords-list li {
+                width: auto; /* Adjust width for stacked items */
+            }
+            .summary-japanese {
+                padding: 15px;
+                margin-top: 20px;
+            }
+            .summary-japanese p {
+                font-size: 1em;
+            }
+            .pubmed-link {
+                margin-top: 20px;
+                padding-top: 15px;
+            }
+            .pubmed-link a {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <h2 class="paper-title">Modeling human enterovirus A71 infection using an intestinal microphysiological system.</h2>
+
+        <div class="section authors">
+            <div class="section-title">著者</div>
+            <p>Futatsusako H, Deguchi S, Kosugi K, Hashimoto R, Nagata N, Suzuki T, Yamamoto T, Takayama K.</p>
+        </div>
+
+        <div class="section source">
+            <div class="section-title">掲載元</div>
+            <p>J Virol. 2026 May 19;100(5):e0025026. Epub 2026 Apr 21.</p>
+        </div>
+
+        <div class="section doi">
+            <div class="section-title">DOI</div>
+            <p><a href="https://doi.org/10.1128/jvi.00250-26" target="_blank" rel="noopener noreferrer">10.1128/jvi.00250-26</a></p>
+        </div>
+
+        <div class="section keywords">
+            <div class="section-title">キーワード</div>
+            <ul class="keywords-list">
+                <li>enterovirus A71</li>
+                <li>intestinal model</li>
+                <li>microphysiological system</li>
+                <li>viral infection</li>
+                <li>organ-on-a-chip</li>
+            </ul>
+        </div>
+
+        <div class="summary-japanese">
+            <div class="section-title">日本語要約</div>
+            <p>本論文は、ヒトエンテロウイルスA71（EV-A71）感染のメカニズムを解明するため、腸管マイクロ生理学的システム（通称「organ-on-a-chip」技術）を用いた研究です。この先進的なモデルシステムを活用することで、生体内の腸管環境を模倣し、EV-A71の感染動態や病態生理を詳細に解析しています。本研究は、EV-A71感染症に対する新たな治療法や抗ウイルス薬の開発に貢献する可能性を秘めています。</p>
+        </div>
+
+        <div class="pubmed-link">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42012182/" target="_blank" rel="noopener noreferrer">PubMedで詳細を見る</a>
+        </div>
+    </div>
+</body>
+</html>
