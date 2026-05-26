@@ -7,169 +7,154 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
             background-color: #f4f7f6;
             color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            box-sizing: border-box;
         }
 
         .infographic-container {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 35px 45px;
             max-width: 900px;
             width: 100%;
-            box-sizing: border-box;
-            border-left: 8px solid #4CAF50; /* Accent color */
+            overflow: hidden;
+            margin: 20px 0;
         }
 
-        h1 {
-            font-family: 'Roboto', sans-serif;
+        .header {
+            background-color: #2c3e50; /* Dark blue */
+            color: #ecf0f1; /* Light gray */
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 5px solid #3498db; /* Bright blue accent */
+        }
+
+        .header h1 {
             font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-icon {
+            font-size: 2em;
+            color: #3498db;
+            flex-shrink: 0;
+            width: 40px;
+            text-align: center;
+        }
+
+        .section-content {
+            flex-grow: 1;
+        }
+
+        .section-title {
+            font-size: 1.3em;
             color: #2c3e50;
             margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
-        h2 {
-            font-size: 1.5em;
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-        }
-
-        p, ul {
-            font-size: 1.05em;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 5px;
+        .section-content p, .section-content ul {
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
             color: #555;
         }
 
-        .section-header {
-            font-weight: 700;
-            color: #4CAF50;
-            margin-right: 8px;
+        .section-content ul {
+            list-style: none;
         }
 
-        .authors-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+        .section-content ul li {
+            margin-bottom: 5px;
         }
 
-        .author-tag {
-            background-color: #e0f2f1;
-            color: #00796b;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        .keywords-container {
-            margin-top: 15px;
+        .keywords-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
 
         .keyword-tag {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 7px 14px;
-            border-radius: 25px;
-            font-size: 0.95em;
+            background-color: #e0f2f7; /* Light blue */
+            color: #2980b9; /* Darker blue */
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
             font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            white-space: nowrap;
         }
 
-        a {
-            color: #1a73e8;
+        .doi-link, .url-link {
+            color: #3498db;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 500;
         }
 
-        a:hover {
-            color: #0d47a1;
+        .doi-link:hover, .url-link:hover {
             text-decoration: underline;
         }
 
-        .highlight-feature {
-            background-color: #fffde7;
-            border-left: 4px solid #ffeb3b;
-            padding: 12px 18px;
-            margin-top: 20px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .highlight-feature span {
-            font-weight: 600;
-            color: #fbc02d;
-        }
-
-        .japanese-summary {
-            background-color: #f0f8ff;
-            border-left: 4px solid #2196f3;
-            padding: 18px 22px;
-            margin-top: 30px;
-            border-radius: 6px;
-        }
-
-        .japanese-summary h2 {
-            color: #1976d2;
-            border-bottom: none;
-            margin-top: 0;
-            padding-bottom: 0;
-        }
-
-        .japanese-summary p {
-            font-size: 1.05em;
+        .summary-content {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-style: italic;
             color: #444;
-        }
-
-        .icon {
-            font-size: 1.2em;
-            margin-right: 5px;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .infographic-container {
-                padding: 25px 30px;
-                border-left-width: 5px;
+                margin: 10px;
+                border-radius: 8px;
             }
-            h1 {
+            .header {
+                padding: 20px 25px;
+            }
+            .header h1 {
                 font-size: 1.8em;
             }
-            h2 {
-                font-size: 1.3em;
+            .section {
+                padding: 20px 25px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            p, ul, .author-tag, .keyword-tag {
+            .section-icon {
+                margin-bottom: 10px;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .section-content p, .section-content ul {
                 font-size: 0.95em;
+            }
+            .keywords-list {
+                justify-content: center;
             }
         }
 
@@ -177,63 +162,77 @@
             body {
                 padding: 10px;
             }
-            .infographic-container {
-                padding: 20px;
-            }
-            h1 {
+            .header h1 {
                 font-size: 1.5em;
             }
-            h2 {
-                font-size: 1.2em;
+            .section {
+                padding: 15px 20px;
             }
-            .authors-list, .keywords-container {
-                flex-direction: column;
-                gap: 5px;
+            .section-title {
+                font-size: 1.1em;
             }
-            .author-tag, .keyword-tag {
-                width: fit-content;
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 5px 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="infographic-container">
-        <h1>Universal primer mediated multiplex asymmetric PCR coupled with hybridization-based electrochemical biosensing for rapid, simultaneous and label-free detection of multiple pathogens</h1>
-
-        <p><span class="section-header">著者:</span></p>
-        <div class="authors-list">
-            <span class="author-tag">Y Li</span>
-            <span class="author-tag">J Zhang</span>
-            <span class="author-tag">Y Wang</span>
-            <span class="author-tag">X Huang</span>
-            <span class="author-tag">X Zhang</span>
-            <span class="author-tag">C Ma</span>
-            <span class="author-tag">C Shi</span>
+        <div class="header">
+            <h1>Universal primer mediated multiplex asymmetric PCR coupled with hybridization-based electrochemical biosensing for rapid, simultaneous and label-free detection of multiple pathogens.</h1>
         </div>
 
-        <h2>論文情報</h2>
-        <p><span class="section-header">ジャーナル:</span> Microchimica Acta</p>
-        <p><span class="section-header">出版年:</span> 2026</p>
-        <p><span class="section-header">DOI:</span> <a href="https://doi.org/10.1007/s00604-026-08136-x" target="_blank">10.1007/s00604-026-08136-x</a></p>
-        <p><span class="section-header">URL:</span> <a href="https://link.springer.com/article/10.1007/s00604-026-08136-x" target="_blank">Springer Link</a></p>
-
-        <h2>キーワード</h2>
-        <div class="keywords-container">
-            <span class="keyword-tag">PCR</span>
-            <span class="keyword-tag">electrochemical biosensing</span>
-            <span class="keyword-tag">pathogen detection</span>
-            <span class="keyword-tag">microelectrode array</span>
-            <span class="keyword-tag">hybridization</span>
+        <div class="section">
+            <div class="section-icon">👤</div>
+            <div class="section-content">
+                <h2 class="section-title">著者</h2>
+                <p>Li Y, Zhang J, Wang Y, Huang X, Zhang X, Ma C, Shi C.</p>
+            </div>
         </div>
 
-        <div class="highlight-feature">
-            <span class="icon">💡</span>
-            <p><span class="section-header">主要技術:</span> 高密度マイクロ電極アレイ (HD-MEA) を使用しています。</p>
+        <div class="section">
+            <div class="section-icon">📚</div>
+            <div class="section-content">
+                <h2 class="section-title">出版情報</h2>
+                <p>Mikrochim Acta. 2026 May 23;193(6):416.</p>
+            </div>
         </div>
 
-        <div class="japanese-summary">
-            <h2>日本語要約</h2>
-            <p>本論文は、複数の病原体を迅速、同時、かつラベルフリーで検出するための革新的な手法を提案しています。この手法は、ユニバーサルプライマーを介したマルチプレックス非対称PCRと、ハイブリダイゼーションに基づく電気化学バイオセンシングを組み合わせたものです。特に、高密度マイクロ電極アレイ（HD-MEA）を活用することで、効率的かつ高感度な検出を実現しています。PCR、電気化学バイオセンシング、ハイブリダイゼーションといった技術を統合することで、病原体検出の分野における新たな可能性を開くことが期待されます。</p>
+        <div class="section">
+            <div class="section-icon">🔗</div>
+            <div class="section-content">
+                <h2 class="section-title">DOI & URL</h2>
+                <p>
+                    DOI: <a href="https://doi.org/10.1007/s00604-026-08136-x" target="_blank" class="doi-link">10.1007/s00604-026-08136-x</a><br>
+                    URL: <a href="https://pubmed.ncbi.nlm.nih.gov/42176210/" target="_blank" class="url-link">PubMed Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🏷️</div>
+            <div class="section-content">
+                <h2 class="section-title">キーワード</h2>
+                <div class="keywords-list">
+                    <span class="keyword-tag">multiplex PCR</span>
+                    <span class="keyword-tag">electrochemical biosensing</span>
+                    <span class="keyword-tag">pathogen detection</span>
+                    <span class="keyword-tag">label-free detection</span>
+                    <span class="keyword-tag">hybridization</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">📝</div>
+            <div class="section-content">
+                <h2 class="section-title">日本語要約</h2>
+                <div class="summary-content">
+                    <p>この論文は、ユニバーサルプライマーを用いたマルチプレックス非対称PCRと、ハイブリダイゼーションに基づく電気化学バイオセンシングを組み合わせることで、複数の病原体を迅速、同時、かつラベルフリーで検出する新しい手法を提案しています。この技術は、病原体検出の効率と利便性を大幅に向上させる可能性を秘めています。</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
