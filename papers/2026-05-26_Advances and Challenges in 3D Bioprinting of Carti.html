@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* コンテンツを上部に寄せる */
+            min-height: 100vh; /* 画面いっぱいに広げる */
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            max-width: 900px;
+            width: 100%; /* レスポンシブ対応 */
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-left: 4px solid #007bff; /* セクションタイトルのアクセント */
+            padding-left: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-label {
+            font-weight: bold;
+            color: #555;
+            margin-right: 10px;
+            min-width: 60px; /* ラベルの幅を揃える */
+            display: inline-block;
+        }
+        .authors, .source, .doi, .url-link {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex; /* ラベルと値を横並びに */
+            align-items: baseline;
+        }
+        .value-text {
+            color: #007bff; /* 値のハイライト */
+        }
+        .title-text {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b2ebf2;
+            white-space: nowrap; /* キーワードが途中で改行されないように */
+        }
+        .url-link a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px; /* ラベルとの間隔 */
+        }
+        .url-link a:hover {
+            text-decoration: underline;
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .summary-box p {
+            margin: 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2>タイトル</h2>
+            <p class="title-text">Advances and Challenges in 3D Bioprinting of Cartilage Organoids: From Material Innovation to Functional Regeneration.</p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p class="authors"><span class="section-label">著者:</span> <span class="value-text">Han Z, Huang J, Qiu X.</span></p>
+        </div>
+
+        <div class="section">
+            <h2>出典</h2>
+            <p class="source"><span class="section-label">雑誌:</span> <span class="value-text">Int J Nanomedicine.</span></p>
+            <p class="source"><span class="section-label">発行日:</span> <span class="value-text">2026 May 15</span></p>
+            <p class="source"><span class="section-label">巻号:</span> <span class="value-text">21:518179. eCollection 2026.</span></p>
+        </div>
+
+        <div class="section">
+            <h2>DOI</h2>
+            <p class="doi"><span class="section-label">DOI:</span> <a href="https://doi.org/10.2147/IJN.S518179" target="_blank">10.2147/IJN.S518179</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">3D bioprinting</span>
+                <span class="keyword-tag">cartilage organoids</span>
+                <span class="keyword-tag">material innovation</span>
+                <span class="keyword-tag">functional regeneration</span>
+                <span class="keyword-tag">tissue engineering</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>論文URL</h2>
+            <p class="url-link"><span class="section-label">リンク:</span> <a href="https://pubmed.ncbi.nlm.nih.gov/42164816/" target="_blank">PubMedで論文を見る</a></p>
+        </div>
+
+        <div class="section summary-box">
+            <h2>日本語要約</h2>
+            <p>この論文は、軟骨オルガノイドの3Dバイオプリンティングにおける進歩と課題に焦点を当てています。特に、材料の革新から機能的な再生に至るまでのプロセスを詳細に検討し、組織工学の分野におけるその可能性と将来の展望を探求しています。</p>
+        </div>
+    </div>
+</body>
+</html>
