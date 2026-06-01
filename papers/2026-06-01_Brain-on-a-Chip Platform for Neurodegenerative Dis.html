@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック: Brain-on-a-Chip Platform for Neurodegenerative Diseases</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f0f2f5; /* 明るいグレーの背景 */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* コンテンツを上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff; /* 白い背景 */
+            border-radius: 15px; /* 角丸 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影 */
+            padding: 40px;
+            max-width: 900px; /* 最大幅 */
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 40px; /* 上部に余白 */
+        }
+
+        /* タイトル */
+        h1 {
+            color: #2c3e50; /* ダークブルー */
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        /* セクション見出し */
+        h2 {
+            color: #34495e; /* やや暗いブルー */
+            font-size: 1.5em;
+            border-bottom: 2px solid #e0e0e0; /* 下線 */
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* サブセクションタイトル */
+        .section-title {
+            color: #34495e;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db; /* 左側にアクセントライン */
+            padding-left: 10px;
+        }
+
+        /* 段落 */
+        p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* 著者情報 */
+        .authors {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        /* 日本語要約のボックス */
+        .summary-text {
+            background-color: #ecf0f1; /* 明るいグレーの背景 */
+            border-left: 5px solid #3498db; /* 左側にアクセントライン */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        /* キーワードリスト */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 10px; /* 要素間のスペース */
+            margin-bottom: 25px;
+        }
+
+        /* キーワードタグ */
+        .keyword-tag {
+            background-color: #3498db; /* ブルー */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* ホバーエフェクト */
+        }
+
+        .keyword-tag:hover {
+            background-color: #2980b9; /* ホバー時の色 */
+        }
+
+        /* 情報アイテム */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .info-item strong {
+            min-width: 150px; /* ラベルの最小幅 */
+            color: #2c3e50;
+        }
+
+        /* 情報アイコン */
+        .info-icon {
+            margin-right: 10px;
+            font-size: 1.3em;
+            color: #3498db; /* ブルー */
+        }
+
+        /* ステータスインジケーター */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator .icon {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+
+        .status-indicator .icon.true {
+            color: #27ae60; /* 緑色 */
+        }
+
+        .status-indicator .icon.false {
+            color: #e74c3c; /* 赤色 */
+        }
+
+        /* URLリンク */
+        .url-link {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all; /* 長いURLの折り返し */
+        }
+
+        .url-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Brain-on-a-Chip Platform for Neurodegenerative Diseases</h1>
+        <p class="authors">著者: PRR Babu, D Kong, N Jayakumar, MG Belur, A Sharma…</p>
+
+        <h2>日本語要約</h2>
+        <div class="summary-text">
+            <p>
+                この論文は、神経変性疾患の研究に特化した「Brain-on-a-Chip」プラットフォームについて解説しています。
+                このプラットフォームは、微小電極アレイ（Microelectrode Array, MEA）を用いて生体内のニューロンネットワークを模倣し、
+                神経変性疾患のメカニズム解明や、新たな治療法の効果を評価するための強力なツールとして期待されています。
+            </p>
+        </div>
+
+        <div class="section-title">主要キーワード</div>
+        <div class="keywords-list">
+            <span class="keyword-tag">Brain-on-a-Chip</span>
+            <span class="keyword-tag">Neurodegenerative Diseases</span>
+            <span class="keyword-tag">Microelectrode Array</span>
+            <span class="keyword-tag">Neuronal Networks</span>
+            <span class="keyword-tag">Therapeutic Efficacy</span>
+        </div>
+
+        <div class="section-title">詳細情報</div>
+        <div class="info-item">
+            <span class="info-icon">&#128279;</span> <strong>論文URL:</strong>
+            <a href="https://www.researchgate.net/profile/Mohit-Belur/publication/405242852_Brain-on-a-Chip_Platform_for_Neurodegenerative_Diseases/links/6a1482a64b954c78f5e8e546/Brain-on-a-Chip-Platform-for-Neurodegenerative-Diseases.pdf" target="_blank" class="url-link">
+                researchgate.net/.../Brain-on-a-Chip-Platform-for-Neurodegenerative-Diseases.pdf
+            </a>
+        </div>
+
+        <div class="info-item">
+            <span class="info-icon">&#128295;</span> <strong>高密度MEA使用:</strong>
+            <span class="status-indicator">
+                <span class="icon false">&#10008;</span> いいえ
+            </span>
+        </div>
+        <!-- source, doi, spike_sorting_method は情報が提供されていないため表示しません。 -->
+    </div>
+</body>
+</html>
