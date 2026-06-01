@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        .paper-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .info-item strong {
+            color: #34495e;
+            min-width: 80px; /* ラベルの幅を揃える */
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keywords-list li {
+            background-color: #e8f6fa;
+            color: #2980b9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #aed6f1;
+        }
+
+        .abstract-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #2ecc71; /* アクセントカラー */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .abstract-box p {
+            margin: 0;
+            color: #555;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .info-item strong {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="main-info">
+            <h2 class="paper-title">Biological Computing as a Translational Platform for Delirium and Adaptive Network Failure: A Perspective from Anesthesia and Critical Care Medicine</h2>
+
+            <div class="info-item">
+                <strong>著者:</strong> A Romanelli
+            </div>
+            <div class="info-item">
+                <strong>情報源:</strong> Preprints.org
+            </div>
+            <div class="info-item">
+                <strong>DOI:</strong> N/A
+            </div>
+            <div class="info-item">
+                <strong>URL:</strong> <a href="https://www.preprints.org/frontend/manuscript/839dabc2a0adc6fe98535bc26faab81e/download_pub" target="_blank" rel="noopener noreferrer">論文リンク</a>
+            </div>
+        </div>
+
+        <div class="keywords-section">
+            <h3 class="section-title">キーワード</h3>
+            <ul class="keywords-list">
+                <li>biological computing</li>
+                <li>organoid intelligence</li>
+                <li>neuronal networks</li>
+                <li>microelectrode arrays</li>
+                <li>critical care medicine</li>
+            </ul>
+        </div>
+
+        <div class="technical-details">
+            <h3 class="section-title">技術詳細</h3>
+            <div class="info-item">
+                <strong>HD-MEA使用:</strong> いいえ
+            </div>
+            <!-- spike_sorting_method は情報が空のため表示しません -->
+        </div>
+
+        <div class="japanese-abstract-section">
+            <h3 class="section-title">日本語要約</h3>
+            <div class="abstract-box">
+                <p>この論文は、生物学的コンピューティング（特にオルガノイド知能や神経ネットワーク）が、せん妄や適応ネットワーク不全といった複雑な病態を理解し、新たな治療法を開発するための翻訳プラットフォームとしてどのように活用できるかを探求しています。麻酔科および集中治療医学の視点から、微小電極アレイを用いた研究の可能性にも言及し、これらの技術が臨床応用へ繋がる道筋を示唆しています。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
