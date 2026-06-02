@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            padding: 40px;
+            margin: 20px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .section-content {
+            margin-left: 20px;
+        }
+        .author, .source, .doi-info {
+            margin-bottom: 15px;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keywords-list li {
+            background-color: #e8f5e9; /* キーワードの背景色 */
+            color: #2e7d32; /* キーワードの文字色 */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0d47a1;
+            text-decoration: underline;
+        }
+        .summary-box {
+            background-color: #f9f9f9;
+            border-left: 5px solid #2196F3; /* 要約のアクセントカラー */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .summary-box p {
+            font-style: italic;
+            color: #555;
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #e0e0e0;
+        }
+        .footer-links a {
+            margin: 0 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2>論文タイトル</h2>
+            <div class="section-content">
+                <p><strong><a href="https://pubmed.ncbi.nlm.nih.gov/42206982/" target="_blank" rel="noopener noreferrer">Biocomputing: Beyond the Hype.</a></strong></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <div class="section-content author">
+                <p>Spichak S.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>出版情報</h2>
+            <div class="section-content source">
+                <p>J Med Internet Res. 2026 May 28;28:e100949.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>DOI</h2>
+            <div class="section-content doi-info">
+                <p><a href="https://doi.org/10.2196/100949" target="_blank" rel="noopener noreferrer">10.2196/100949</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="section-content">
+                <ul class="keywords-list">
+                    <li>Biocomputing</li>
+                    <li>computational biology</li>
+                    <li>bioinformatics</li>
+                    <li>medical research</li>
+                    <li>digital health</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-box">
+                <p>本論文「Biocomputing: Beyond the Hype.」は、バイオコンピューティングの分野を探求し、その誇大広告の背後にある真の可能性と課題に焦点を当てています。計算生物学、バイオインフォマティクス、医療研究、デジタルヘルスといった関連分野との連携を通じて、バイオコンピューティングが将来の医療や技術にもたらす影響について考察しています。</p>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42206982/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
+            <a href="https://doi.org/10.2196/100949" target="_blank" rel="noopener noreferrer">DOIで論文を見る</a>
+        </div>
+    </div>
+</body>
+</html>
