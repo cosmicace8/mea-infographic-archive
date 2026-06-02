@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 読みやすい日本語フォントと英語フォントを組み合わせる -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons: 視覚的な情報を追加 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* カラーパレットの定義 */
+        :root {
+            --primary-color: #2c3e50; /* 濃い青/グレー */
+            --secondary-color: #3498db; /* 明るい青 */
+            --accent-color: #e74c3c; /* 赤 */
+            --background-color: #ecf0f1; /* 薄いグレー */
+            --text-color: #34495e; /* 濃いグレー */
+            --card-background: #ffffff; /* カードの背景色 */
+            --border-color: #bdc3c7; /* ボーダーの色 */
+        }
+
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* コンテンツを上部に揃える */
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        /* ヘッダー */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* 各セクションの共通スタイル */
+        section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+        }
+
+        section h2, section h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* アイコンとテキストの間隔 */
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+        }
+
+        /* 論文詳細セクション */
+        .paper-details .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .paper-details .authors {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .paper-details .source {
+            font-size: 0.95em;
+            color: #7f8c8d; /* やや薄いグレー */
+            margin-bottom: 20px;
+        }
+
+        /* メタ情報（DOI, URL） */
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color); /* 点線ボーダー */
+        }
+
+        .meta-info p {
+            margin: 0;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .meta-info p a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .meta-info p a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 7px 15px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.9em;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 日本語要約セクション */
+        .summary-section {
+            background-color: #f8f9fa; /* 要約用に少し明るい背景色 */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        .summary-section h3 {
+            color: var(--accent-color); /* アクセントカラー */
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .summary-section p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-details .title {
+                font-size: 1.5em;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            section h3 {
+                font-size: 1.2em;
+            }
+            .meta-info {
+                flex-direction: column; /* 小画面では縦並び */
+                gap: 10px;
+            }
+            .meta-info p {
+                width: 100%;
+                box-sizing: border-box; /* パディングを含めて幅を計算 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-details">
+            <h2 class="title">The Organoid Decade: Leveraging 3D Patient-Derived Organoids to Bridge the Translational Gap in Triple-Negative Breast Cancer: A Systematic Review.</h2>
+            <p class="authors"><i class="fas fa-user-friends"></i> Sani J, Yi B, Xi Y.</p>
+            <p class="source"><i class="fas fa-book"></i> Cells. 2026 May 18;15(10):922. doi: 10.3390/cells15100922.</p>
+
+            <div class="meta-info">
+                <p class="doi"><i class="fas fa-fingerprint"></i> DOI: <a href="https://doi.org/10.3390/cells15100922" target="_blank" rel="noopener noreferrer">10.3390/cells15100922</a></p>
+                <p class="url"><i class="fas fa-link"></i> PubMed URL: <a href="https://pubmed.ncbi.nlm.nih.gov/42193932/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42193932/</a></p>
+            </div>
+        </section>
+
+        <section class="keywords-section">
+            <h3><i class="fas fa-tags"></i> キーワード</h3>
+            <div class="keywords-list">
+                <span class="keyword-tag">Organoids</span>
+                <span class="keyword-tag">3D models</span>
+                <span class="keyword-tag">breast cancer</span>
+                <span class="keyword-tag">translational research</span>
+                <span class="keyword-tag">systematic review</span>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <h3><i class="fas fa-file-alt"></i> 日本語要約</h3>
+            <p class="summary-text">
+                この論文は、トリプルネガティブ乳がん（TNBC）における橋渡し研究のギャップを埋めるために、3D患者由来オルガノイドの活用に焦点を当てたシステマティックレビューです。オルガノイド技術の進展が、この難治性乳がんの治療法開発にどのように貢献できるかを包括的に評価しています。
+            </p>
+        </section>
+    </div>
+</body>
+</html>
