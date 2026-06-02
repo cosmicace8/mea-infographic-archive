@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) & Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        h1 .icon {
+            font-size: 1.2em;
+            margin-right: 15px;
+            color: #4CAF50;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .icon {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+        }
+        .label {
+            font-weight: 700;
+            color: #555;
+            display: inline-block;
+            min-width: 120px; /* ラベルの幅を揃える */
+        }
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .author-tag {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            border: 1px solid #b2dfdb;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #c8e6c9;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .summary {
+            background-color: #f0f8ff;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .summary h2 {
+            color: #2196F3;
+            margin-top: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .summary p {
+            font-size: 1.1em;
+            color: #444;
+        }
+        .info-item {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-chart-pie icon"></i> 論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2><i class="fas fa-book-open icon"></i> 論文タイトル</h2>
+            <p style="font-size: 1.4em; font-weight: 700; color: #2c3e50;">AI-driven text mining of the female reproductive system: enabling multiscale biomedical modeling and personalized medicine.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-user-friends icon"></i> 著者</h2>
+            <div class="authors-list">
+                <span class="author-tag">Lee G</span>
+                <span class="author-tag">Jeon J</span>
+                <span class="author-tag">Ham SJ</span>
+                <span class="author-tag">Shin S</span>
+                <span class="author-tag">Kim SY</span>
+                <span class="author-tag">Kim H</span>
+                <span class="author-tag">Lee JY</span>
+                <span class="author-tag">Woo H</span>
+                <span class="author-tag">Ahn J</span>
+                <span class="author-tag">Lee J</span>
+                <span class="author-tag">Bang S</span>
+                <span class="author-tag">Yoon S</span>
+                <span class="author-tag">Ahn J</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-newspaper icon"></i> 出典</h2>
+            <p class="info-item"><span class="label">ジャーナル:</span> Nano Converg. 2026 May 30;13(1):24.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-link icon"></i> リンク</h2>
+            <p class="info-item"><span class="label">DOI:</span> <a href="https://doi.org/10.1186/s40580-026-00554-0" target="_blank">10.1186/s40580-026-00554-0</a></p>
+            <p class="info-item"><span class="label">PubMed URL:</span> <a href="https://pubmed.ncbi.nlm.nih.gov/42217140/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42217140/</a></p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tags icon"></i> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">AI</span>
+                <span class="keyword-tag">text mining</span>
+                <span class="keyword-tag">female reproductive system</span>
+                <span class="keyword-tag">biomedical modeling</span>
+                <span class="keyword-tag">personalized medicine</span>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2><i class="fas fa-language icon"></i> 日本語要約</h2>
+            <p>本論文は、AIを活用したテキストマイニング技術を用いて女性生殖器系の情報を分析し、多スケール生体医工学モデリングと個別化医療の実現を目指す研究です。AIによるデータ解析が、複雑な生物学的システムの理解と、個々の患者に合わせた医療の発展に貢献することを示唆しています。</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-info-circle icon"></i> その他の情報</h2>
+            <p class="info-item"><span class="label">HD-MEA使用:</span> いいえ</p>
+            <p class="info-item"><span class="label">スパイクソーティング手法:</span> N/A</p>
+        </div>
+    </div>
+</body>
+</html>
