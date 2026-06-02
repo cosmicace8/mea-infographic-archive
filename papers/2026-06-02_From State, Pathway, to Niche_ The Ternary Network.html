@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-light: #f4f7f6; /* Light Gray */
+            --text-dark: #333;
+            --text-light: #ecf0f1; /* Light Gray */
+            --border-color: #ddd;
+            --card-background: #ffffff;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 25px 30px;
+            margin: -30px -30px 30px -30px; /* Adjust to fill container width */
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* Paper Title */
+        .paper-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* Paper Details Grid */
+        .paper-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Individual Detail Item */
+        .detail-item {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .detail-item p, .detail-item ul {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .detail-item ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .detail-item ul li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .detail-item ul li::before {
+            content: '•'; /* Bullet point */
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .detail-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            word-break: break-all; /* Break long URLs */
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Japanese Summary Section */
+        .japanese-summary {
+            background-color: #fff3e0; /* Light Orange/Yellow for emphasis */
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .japanese-summary h2 {
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .japanese-summary p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            header {
+                margin: -20px -20px 20px -20px;
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.8em;
+            }
+            .paper-details {
+                grid-template-columns: 1fr; /* Stack items vertically */
+            }
+            .japanese-summary h2 {
+                font-size: 1.5em;
+            }
+            .japanese-summary p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            header {
+                margin: -15px -15px 15px -15px;
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .detail-item {
+                padding: 15px;
+            }
+            .detail-item h3 {
+                font-size: 1.1em;
+            }
+            .japanese-summary {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <h2 class="paper-title">From State, Pathway, to Niche: The Ternary Network of Breast Cancer Stem-like Cells Driving Tumor Progression and Combination Therapy Prospects.</h2>
+
+        <section class="paper-details">
+            <div class="detail-item authors">
+                <h3>著者</h3>
+                <p>Man S, Zhang L, Chen B.</p>
+            </div>
+            <div class="detail-item source">
+                <h3>出版情報</h3>
+                <p>Biomolecules. 2026 Apr 26;16(5):645. doi: 10.3390/biom16050645.</p>
+            </div>
+            <div class="detail-item doi">
+                <h3>DOI</h3>
+                <p><a href="https://doi.org/10.3390/biom16050645" target="_blank" rel="noopener noreferrer">10.3390/biom16050645</a></p>
+            </div>
+            <div class="detail-item keywords">
+                <h3>キーワード</h3>
+                <ul>
+                    <li>Breast cancer</li>
+                    <li>stem-like cells</li>
+                    <li>tumor progression</li>
+                    <li>combination therapy</li>
+                    <li>ternary network</li>
+                </ul>
+            </div>
+            <div class="detail-item url">
+                <h3>PubMed URL</h3>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42193996/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42193996/</a></p>
+            </div>
+        </section>
+
+        <section class="japanese-summary">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、乳がんの進行と複合療法の可能性を駆動する乳がん幹細胞様細胞の三元ネットワーク（状態、経路、ニッチ）に焦点を当てています。乳がん幹細胞様細胞が腫瘍の進展に果たす役割と、それらを標的とした複合療法の展望について深く掘り下げています。
+            </p>
+        </section>
+    </div>
+</body>
+</html>
