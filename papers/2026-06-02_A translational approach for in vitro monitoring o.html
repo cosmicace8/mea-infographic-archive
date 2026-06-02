@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Roboto for English, Noto Sans JP for Japanese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            z-index: 0;
+        }
+        .infographic-content {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        h2 svg {
+            margin-right: 10px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .section-title svg {
+            margin-right: 8px;
+            color: #4CAF50;
+        }
+        .authors span {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #388e3c;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .source-doi p {
+            margin: 5px 0;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keyword-tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            background-color: #bbdefb;
+        }
+        .summary {
+            background-color: #f9fbe7;
+            border-left: 5px solid #cddc39;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary p {
+            margin: 0;
+            color: #555;
+        }
+        .url-link {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+        }
+        .url-link:hover {
+            background-color: #1976D2;
+            transform: translateY(-2px);
+        }
+        .feature-box {
+            display: flex;
+            align-items: center;
+            background-color: #fffde7;
+            border: 1px solid #ffeb3b;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+        .feature-box svg {
+            margin-right: 10px;
+            color: #ffeb3b;
+            font-size: 1.5em;
+        }
+        .feature-box.positive {
+            background-color: #e8f5e9;
+            border-color: #4CAF50;
+        }
+        .feature-box.positive svg {
+            color: #4CAF50;
+        }
+        .feature-box.negative {
+            background-color: #ffebee;
+            border-color: #f44336;
+        }
+        .feature-box.negative svg {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header-decoration"></div>
+        <div class="infographic-content">
+            <h1>A translational approach for in vitro monitoring of patient-derived tumor organoid responses to anti-cancer treatments.</h1>
+
+            <div class="section">
+                <div class="section-title"><i class="fas fa-user-friends"></i> 著者</div>
+                <div class="authors">
+                    <span>T Petreus</span>
+                    <span>AC Toma</span>
+                    <span>CÃ Brunin</span>
+                    <span>N Aznar</span>
+                    <span>L Gerossier</span>
+                    <span>...他</span>
+                </div>
+            </div>
+
+            <div class="section source-doi">
+                <div class="section-title"><i class="fas fa-book"></i> 出版情報</div>
+                <p><strong>出版元:</strong> Journal of Clinical Oncology</p>
+                <p><strong>出版年:</strong> 2026</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1200/JCO.2026.44.16_suppl.e15610" target="_blank">10.1200/JCO.2026.44.16_suppl.e15610</a></p>
+            </div>
+
+            <div class="section">
+                <div class="section-title"><i class="fas fa-tags"></i> キーワード</div>
+                <div class="keywords-container">
+                    <span class="keyword-tag">tumor organoid</span>
+                    <span class="keyword-tag">anti-cancer treatments</span>
+                    <span class="keyword-tag">in vitro monitoring</span>
+                    <span class="keyword-tag">microfluidic device</span>
+                    <span class="keyword-tag">microelectrode array</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title"><i class="fas fa-info-circle"></i> 特徴</div>
+                <div class="feature-box negative">
+                    <i class="fas fa-times-circle"></i>
+                    HD-MEA (高密度マイクロ電極アレイ) は使用されていません。
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-file-alt"></i> 日本語要約</h2>
+                <div class="summary">
+                    <p>この論文は、患者由来の腫瘍オルガノイドに対する抗がん治療の効果をin vitroでモニタリングするためのトランスレーショナルなアプローチについて述べています。特に、マイクロ流体デバイスとマイクロ電極アレイを用いたモニタリング手法に焦点を当てています。</p>
+                </div>
+            </div>
+
+            <a href="https://ascopubs.org/doi/abs/10.1200/JCO.2026.44.16_suppl.e15610" target="_blank" class="url-link">
+                <i class="fas fa-external-link-alt"></i> 論文を読む
+            </a>
+        </div>
+    </div>
+</body>
+</html>
