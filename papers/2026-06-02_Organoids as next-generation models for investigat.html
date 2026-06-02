@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        /* ヘッダー */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* 各セクションの共通スタイル */
+        section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* セクションタイトル */
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-left: 4px solid #3498db; /* アクセントカラー */
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .paper-title h2 {
+            font-size: 2.2em;
+            color: #2980b9; /* 論文タイトルに強調色 */
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .pubmed-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pubmed-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* 著者セクション */
+        .authors p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* 出版情報セクション */
+        .publication-details .detail-item {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .publication-details .detail-item strong {
+            min-width: 80px;
+            color: #444;
+            margin-right: 10px;
+        }
+
+        .publication-details .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .publication-details .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #eaf4fb;
+            color: #2980b9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #d0e7f8;
+        }
+
+        /* 日本語要約セクション */
+        .summary p {
+            font-size: 1.1em;
+            background-color: #f8fcfd;
+            border-left: 5px solid #2ecc71; /* 要約にアクセントカラー */
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #444;
+        }
+
+        /* 技術的詳細セクション */
+        .technical-details .detail-item {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .technical-details .detail-item strong {
+            min-width: 120px;
+            color: #444;
+            margin-right: 10px;
+        }
+
+        .technical-details .detail-item span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-title">
+            <h2>Organoids as next-generation models for investigating intracranial tumours.</h2>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42218467/" target="_blank" class="pubmed-link">PubMedで詳細を見る</a>
+        </section>
+
+        <section class="authors">
+            <h3>著者</h3>
+            <p>Roy S, Zahin F, Nkrumah-Boateng PA, Chaudhry S, Nassor M, Kwarteng MFA, Owusu-Boampong AB, Wireko AA.</p>
+        </section>
+
+        <section class="publication-details">
+            <h3>出版情報</h3>
+            <div class="detail-item">
+                <strong>ジャーナル:</strong> <span>Mol Brain.</span>
+            </div>
+            <div class="detail-item">
+                <strong>出版日:</strong> <span>2026年5月30日 (オンライン先行公開)</span>
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1186/s13041-026-01317-y" target="_blank">10.1186/s13041-026-01317-y</a>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h3>キーワード</h3>
+            <div class="keyword-tags">
+                <span class="keyword-tag">Organoids</span>
+                <span class="keyword-tag">intracranial tumours</span>
+                <span class="keyword-tag">brain models</span>
+                <span class="keyword-tag">cancer research</span>
+                <span class="keyword-tag">next-generation models</span>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h3>日本語要約</h3>
+            <p>本論文は、オルガノイド（ミニ臓器）が頭蓋内腫瘍の研究における次世代モデルとしてどのように有用であるかを探求しています。オルガノイドは、従来のモデルでは再現が困難であった脳腫瘍の複雑な生物学的特性や薬剤応答をより正確に評価するための有望なツールとして注目されており、がん研究の進展に貢献することが期待されます。</p>
+        </section>
+
+        <section class="technical-details">
+            <h3>技術的詳細</h3>
+            <div class="detail-item">
+                <strong>HD-MEA使用:</strong> <span>いいえ</span>
+            </div>
+            <!-- spike_sorting_methodは情報がないため表示しません -->
+        </section>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
