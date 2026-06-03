@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-grey */
+            --secondary-color: #3498db; /* Bright blue */
+            --accent-color: #e74c3c; /* Red for emphasis */
+            --background-color: #ecf0f1; /* Light grey background */
+            --card-background: #ffffff; /* White card background */
+            --text-color: #34495e; /* Darker blue-grey text */
+            --light-text-color: #7f8c8d; /* Grey for secondary text */
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Main container for the infographic */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Header section */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--background-color);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .paper-title {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .japanese-summary {
+            font-style: italic;
+            color: var(--light-text-color);
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Info cards grid layout */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Individual card styling */
+        .card {
+            background-color: var(--card-background);
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        .card h3 .icon {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+        }
+
+        .card p, .card ul {
+            font-size: 1em;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .card ul {
+            list-style: none; /* Remove default list bullets */
+        }
+
+        .card li {
+            margin-bottom: 5px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .card li::before {
+            content: '•'; /* Custom bullet point */
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            word-break: break-all; /* Prevent long URLs from overflowing */
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Specific styling for methodology card */
+        .methodology-card p {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .japanese-summary {
+                font-size: 1em;
+            }
+            .info-cards {
+                grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+            }
+            .card h3 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+            <h2 class="paper-title">Endothelin-1 modulates hippocampal and hypothalamic neuronal network activity in mouse primary dissociated cultures and brain slices.</h2>
+            <p class="japanese-summary">
+                この論文は、エンドセリン-1がマウスの初代培養細胞および脳スライスにおいて、海馬と視床下部の神経ネットワーク活動をどのように調節するかを研究しています。
+            </p>
+        </header>
+
+        <section class="info-cards">
+            <div class="card author-card">
+                <h3><span class="icon">👨‍🔬</span> 著者</h3>
+                <ul>
+                    <li>Wegmann L</li>
+                    <li>Haid M</li>
+                    <li>Thomassen D</li>
+                    <li>Sergeeva OA</li>
+                </ul>
+            </div>
+            <div class="card publication-card">
+                <h3><span class="icon">📚</span> 出版情報</h3>
+                <p>Peptides. 2026 May 27;198:171495. doi: 10.1016/j.peptides.2026.171495. Online ahead of print.</p>
+            </div>
+            <div class="card doi-card">
+                <h3><span class="icon">🔗</span> DOI</h3>
+                <p><a href="https://doi.org/10.1016/j.peptides.2026.171495" target="_blank" rel="noopener noreferrer">10.1016/j.peptides.2026.171495</a></p>
+            </div>
+            <div class="card url-card">
+                <h3><span class="icon">🌐</span> PubMed URL</h3>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42208768/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42208768/</a></p>
+            </div>
+            <div class="card keywords-card">
+                <h3><span class="icon">🏷️</span> キーワード</h3>
+                <ul>
+                    <li>Endothelin-1</li>
+                    <li>Hippocampal</li>
+                    <li>Hypothalamic</li>
+                    <li>Neuronal network</li>
+                    <li>Brain slices</li>
+                </ul>
+            </div>
+            <div class="card methodology-card">
+                <h3><span class="icon">🔬</span> 研究手法</h3>
+                <p>HD-MEA (高密度MEA) は使用されていません。</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
