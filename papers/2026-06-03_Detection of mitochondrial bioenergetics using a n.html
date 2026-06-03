@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .infographic-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        .section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .section a:hover {
+            text-decoration: underline;
+        }
+        .authors {
+            font-style: italic;
+            color: #555;
+        }
+        .source {
+            font-size: 0.95em;
+            color: #666;
+        }
+        .doi, .url {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b2ebf2;
+        }
+        .summary-box {
+            background-color: #f9f9f9;
+            border-left: 5px solid #2196F3; /* 青のアクセント */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary-box p {
+            margin: 0;
+            color: #444;
+        }
+        .additional-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+        .info-item {
+            background-color: #f0f4f8;
+            padding: 10px 15px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .info-item strong {
+            color: #3f51b5;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .info-item span {
+            color: #555;
+        }
+        .info-item .true {
+            color: #28a745; /* 緑色 */
+            font-weight: bold;
+        }
+        .info-item .false {
+            color: #dc3545; /* 赤色 */
+            font-weight: bold;
+        }
+        .info-item .na {
+            color: #6c757d; /* 灰色 */
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Detection of mitochondrial bioenergetics using a novel bimodal 3D microelectrode array (MEA)-based biosensor.</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <p class="authors">James RK, Hostios TC, Chang J, Patel A, Kashem FB, Johnson I, Manrique Castro J, Hickman J, Rajaraman S.</p>
+        </div>
+
+        <div class="section">
+            <h2>出典</h2>
+            <p class="source">Microsyst Nanoeng. 2026 May 28;12(1):208.</p>
+            <p>DOI: <span class="doi">10.1038/s41378-026-01275-4</span></p>
+            <p>URL: <a href="https://pubmed.ncbi.nlm.nih.gov/42209464/" target="_blank" class="url">pubmed.ncbi.nlm.nih.gov/42209464/</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Mitochondrial bioenergetics</span>
+                <span class="keyword-tag">3D microelectrode array</span>
+                <span class="keyword-tag">Biosensor</span>
+                <span class="keyword-tag">MEA</span>
+                <span class="keyword-tag">Detection</span>
+            </div>
+        </div>
+
+        <div class="section summary-box">
+            <h2>日本語要約</h2>
+            <p>本論文は、新しいバイモーダル3Dマイクロ電極アレイ（MEA）ベースのバイオセンサーを用いて、ミトコンドリアの生体エネルギーを検出する手法について報告しています。この技術は、生体エネルギー研究における新たなツールとなる可能性を秘めています。</p>
+        </div>
+
+        <div class="additional-info">
+            <div class="info-item">
+                <strong>HD MEAの使用</strong>
+                <span class="false">いいえ</span>
+            </div>
+            <div class="info-item">
+                <strong>スパイクソーティング手法</strong>
+                <span class="na">N/A (情報なし)</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
