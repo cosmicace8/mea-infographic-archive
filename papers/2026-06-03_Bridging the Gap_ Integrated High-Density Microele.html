@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 読みやすい日本語フォントと英語フォントを組み合わせる -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS変数で色を管理し、テーマの一貫性を保つ */
+        :root {
+            --primary-color: #2c3e50; /* 濃い青灰色 */
+            --secondary-color: #3498db; /* 明るい青 */
+            --accent-color: #e74c3c; /* 強調用の赤 */
+            --success-color: #2ecc71; /* 成功を示す緑 */
+            --background-light: #f4f7f6; /* 明るい背景色 */
+            --background-dark: #ecf0f1; /* 少し濃い背景色 */
+            --text-color: #34495e; /* 標準テキスト色 */
+            --border-color: #bdc3c7; /* 枠線色 */
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif; /* フォント設定 */
+            line-height: 1.6; /* 行の高さ */
+            color: var(--text-color); /* テキスト色 */
+            background-color: var(--background-light); /* 背景色 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に揃える */
+            min-height: 100vh; /* 最小の高さ */
+            box-sizing: border-box; /* パディングとボーダーを幅に含める */
+        }
+
+        .infographic-container {
+            background-color: #ffffff; /* コンテナの背景色 */
+            border-radius: 12px; /* 角の丸み */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 影 */
+            max-width: 900px; /* 最大幅 */
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color); /* 枠線 */
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--secondary-color); /* 下線 */
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color); /* 左側の強調線 */
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start; /* 上部に揃える */
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--background-dark); /* 左側の装飾線 */
+        }
+
+        .label {
+            font-weight: 700; /* 太字 */
+            color: var(--primary-color);
+            min-width: 120px; /* 最小幅 */
+            margin-right: 15px;
+            flex-shrink: 0; /* 縮まない */
+            font-size: 1.05em;
+        }
+
+        .value {
+            flex-grow: 1; /* 残りのスペースを埋める */
+            font-size: 1.05em;
+        }
+
+        .value a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            word-break: break-all; /* 長いURLがはみ出さないように改行 */
+        }
+
+        .value a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-section .value {
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 8px; /* タグ間のスペース */
+        }
+
+        .keyword-tag {
+            background-color: var(--background-dark);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px; /* 角を丸く */
+            font-size: 0.9em;
+            white-space: nowrap; /* 改行しない */
+            border: 1px solid var(--border-color);
+        }
+
+        .hd-mea-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background-color: var(--background-dark);
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .status-icon {
+            font-size: 1.5em;
+            color: var(--success-color); /* 成功を示す緑 */
+        }
+
+        .status-icon.false {
+            color: var(--accent-color); /* 失敗を示す赤 */
+        }
+
+        .status-text {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .summary-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed var(--border-color); /* 点線の上線 */
+        }
+
+        .summary-section p {
+            background-color: var(--background-dark);
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.8;
+            font-size: 1.1em;
+            border: 1px solid var(--border-color);
+        }
+
+        /* レスポンシブデザインの調整 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .info-item {
+                flex-direction: column; /* 縦並びにする */
+                align-items: flex-start;
+                padding-left: 0;
+                border-left: none;
+            }
+            .label {
+                min-width: unset; /* 最小幅をリセット */
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            .value {
+                padding-left: 10px; /* 値をインデント */
+                border-left: 3px solid var(--background-dark); /* インデントに装飾線 */
+            }
+            .summary-section p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2><i class="fas fa-book-open"></i> 論文詳細</h2>
+            <div class="info-item">
+                <span class="label">タイトル:</span>
+                <span class="value">Bridging the Gap: Integrated High-Density Microelectrode Arrays for Cellular, Organoid, and Clinical Electrophysiology.</span>
+            </div>
+            <div class="info-item">
+                <span class="label">著者:</span>
+                <span class="value">Wu Q, Gong Y, Liu X.</span>
+            </div>
+            <div class="info-item">
+                <span class="label">出典:</span>
+                <span class="value">Micromachines (Basel). 2026 May 15;17(5):611.</span>
+            </div>
+            <div class="info-item">
+                <span class="label">DOI:</span>
+                <span class="value"><a href="https://doi.org/10.3390/mi17050611" target="_blank" rel="noopener noreferrer">10.3390/mi17050611</a></span>
+            </div>
+            <div class="info-item">
+                <span class="label">URL:</span>
+                <span class="value"><a href="https://pubmed.ncbi.nlm.nih.gov/42195527/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42195527/</a></span>
+            </div>
+            <div class="info-item keywords-section">
+                <span class="label">キーワード:</span>
+                <span class="value">
+                    <span class="keyword-tag">High-density MEA</span>
+                    <span class="keyword-tag">Cellular electrophysiology</span>
+                    <span class="keyword-tag">Organoid electrophysiology</span>
+                    <span class="keyword-tag">Clinical electrophysiology</span>
+                    <span class="keyword-tag">Integrated arrays</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-microchip"></i> 技術的特徴</h2>
+            <div class="hd-mea-status">
+                <!-- uses_hd_meaがtrueなのでチェックマークアイコンを表示 -->
+                <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+                <span class="status-text">高密度マイクロ電極アレイ (HD-MEA) を使用しています。</span>
+            </div>
+            <!-- spike_sorting_methodが空欄のため、この項目は表示しない -->
+        </div>
+
+        <div class="summary-section">
+            <h2><i class="fas fa-language"></i> 日本語要約</h2>
+            <p>
+                この論文「Bridging the Gap: Integrated High-Density Microelectrode Arrays for Cellular, Organoid, and Clinical Electrophysiology.」は、細胞、オルガノイド、そして臨床応用における電気生理学研究のギャップを埋めることを目的とした、統合型高密度マイクロ電極アレイ（HD-MEA）に関するものです。高密度MEA技術を活用し、細胞レベルからオルガノイド、さらには臨床現場での電気生理学的測定を可能にする統合型アレイの重要性と応用について論じています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
