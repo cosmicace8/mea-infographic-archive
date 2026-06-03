@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-color: #ecf0f1; /* Light Gray */
+            --card-background: #ffffff; /* White */
+            --text-color: #34495e; /* Dark Gray */
+            --light-text-color: #7f8c8d; /* Medium Gray */
+            --border-color: #bdc3c7; /* Gray Border */
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .section {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '◆'; /* Simple icon */
+            color: var(--accent-color);
+            font-size: 0.8em;
+        }
+
+        .paper-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .authors, .source-info, .doi-info, .url-info {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .authors strong, .source-info strong, .doi-info strong, .url-info strong {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .doi-info a, .url-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .doi-info a:hover, .url-info a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .additional-info p {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .additional-info strong {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .japanese-summary {
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .japanese-summary p {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .section {
+                padding: 20px;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .paper-title {
+                font-size: 1.3em;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .section {
+                padding: 15px;
+            }
+            .keywords-list {
+                gap: 8px;
+            }
+            .keyword-tag {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">論文概要</h2>
+            <h3 class="paper-title">Facile and Scalable Nanoneedle Array Fabrication for Enhanced Neural Signal Sensing on Microelectrode Arrays.</h3>
+            <p class="authors"><strong>著者:</strong> Yu G, Ma Y, Wang Y, Zhang Q, Wang J.</p>
+            <p class="source-info"><strong>出典:</strong> ACS Appl Mater Interfaces. 2026 May 29. doi: 10.1021/acsami.6c05392. Online ahead of print.</p>
+            <p class="doi-info"><strong>DOI:</strong> <a href="https://doi.org/10.1021/acsami.6c05392" target="_blank">10.1021/acsami.6c05392</a></p>
+            <p class="url-info"><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42210750/" target="_blank">pubmed.ncbi.nlm.nih.gov/42210750/</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Nanoneedle array</span>
+                <span class="keyword-tag">Neural signal sensing</span>
+                <span class="keyword-tag">Microelectrode arrays</span>
+                <span class="keyword-tag">Fabrication</span>
+                <span class="keyword-tag">Scalable</span>
+            </div>
+        </div>
+
+        <div class="section additional-info">
+            <h2 class="section-title">追加情報</h2>
+            <p><strong>HD-MEA使用:</strong> いいえ</p>
+            <p><strong>スパイクソーティング手法:</strong> N/A</p>
+        </div>
+
+        <div class="section japanese-summary">
+            <h2 class="section-title">日本語要約</h2>
+            <p>
+                本論文は、微小電極アレイ（MEA）上での神経信号検出能力を向上させるための、簡便かつスケーラブルなナノニードルアレイの作製手法について報告しています。この新しい作製技術により、神経活動のより高感度なセンシングが可能となり、神経科学研究や医療応用への貢献が期待されます。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
