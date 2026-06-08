@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        header {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        header .authors {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 0;
+        }
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: #4CAF50; /* アクセントカラー */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2::before {
+            content: '•'; /* アイコンの代わりに丸 */
+            color: #4CAF50;
+            margin-right: 10px;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item strong {
+            display: inline-block;
+            min-width: 120px;
+            color: #2c3e50;
+        }
+        .info-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        .status-indicator.yes {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status-indicator.no {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .status-indicator::before {
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        .status-indicator.yes::before {
+            content: '✔';
+        }
+        .status-indicator.no::before {
+            content: '✖';
+        }
+        .summary-text {
+            background-color: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #555;
+        }
+        .empty-field {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Small-World Organization as a Representation-Dependent Signature of Nonlinear Dynamics in Biological Time Series</h1>
+            <p class="authors">C Alves, C Bellone, J Hölter, C Thielemann, L Sallum</p>
+        </header>
+
+        <div class="section">
+            <h2>論文詳細</h2>
+            <div class="info-item">
+                <strong>出典:</strong> Research Square
+            </div>
+            <div class="info-item">
+                <strong>URL:</strong> <a href="https://www.researchsquare.com/article/rs-9534233/latest.pdf" target="_blank">https://www.researchsquare.com/article/rs-9534233/latest.pdf</a>
+            </div>
+            <div class="info-item">
+                <strong>DOI:</strong> <span class="empty-field">N/A</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">microelectrode array</span>
+                <span class="keyword-tag">MEA</span>
+                <span class="keyword-tag">simulation</span>
+                <span class="keyword-tag">nonlinear dynamics</span>
+                <span class="keyword-tag">small-world organization</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>研究手法</h2>
+            <div class="info-item">
+                <strong>HD-MEA使用:</strong> <span class="status-indicator no">いいえ</span>
+            </div>
+            <div class="info-item">
+                <strong>スパイクソーティング方法:</strong> <span class="empty-field">N/A</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-text">
+                本論文は、生物学的時系列データにおける非線形ダイナミクスの特徴として、スモールワールド組織がどのように現れるかを研究しています。特に、このスモールワールド組織がデータの表現方法に依存する署名である可能性を探求しています。マイクロ電極アレイ（MEA）を用いた実験やシミュレーションを通じて、非線形システムの複雑な挙動を理解しようとしています。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
