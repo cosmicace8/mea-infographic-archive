@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Roboto for English, Noto Sans JP for Japanese -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray for main text and titles */
+            --secondary-color: #3498db; /* Bright blue for accents and links */
+            --accent-color: #e74c3c; /* Red for potential emphasis (not used extensively here) */
+            --background-light: #f4f7f6; /* Light gray background for the page */
+            --card-background: #ffffff; /* White background for the main infographic card */
+            --text-color: #333333; /* General text color */
+            --light-text-color: #7f8c8d; /* Lighter text for secondary info */
+            --border-color: #ecf0f1; /* Light border color */
+        }
+
+        /* Basic Reset & Body Styling */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better scroll experience */
+            min-height: 100vh;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            border-top: 8px solid var(--secondary-color); /* Accent border at the top */
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .header .pubmed-link {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .header .pubmed-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* General Section Styling */
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fdfdfd; /* Slightly off-white for sections */
+            border-left: 5px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .section:hover {
+            border-left-color: var(--secondary-color); /* Highlight border on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .section-title .icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+            color: var(--secondary-color);
+        }
+
+        .section-content {
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        /* Authors List Specifics */
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow authors to wrap to the next line */
+            gap: 8px; /* Space between author names */
+        }
+
+        .authors-list li {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent author names from breaking */
+        }
+
+        /* Keywords List Specifics */
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords-list li {
+            background-color: #e0f2f7; /* Light blue for keyword tags */
+            color: var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill-shaped tags */
+            font-size: 0.9em;
+            border: 1px solid var(--secondary-color);
+        }
+
+        /* Link Styling */
+        .doi-link, .url-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .doi-link:hover, .url-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Japanese Summary Specifics */
+        .summary-content {
+            background-color: #f0f8ff; /* Lighter blue background for summary */
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--secondary-color); /* Dashed border for distinction */
+            font-style: italic;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .section-title .icon {
+                font-size: 1.2em;
+            }
+            .authors-list li, .keywords-list li {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+            .section-title .icon {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>📜 Differentiation of arterioles and capillaries in human blood vessel organoids with decellularized splenic matrix.</h1>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42232747/" target="_blank" rel="noopener noreferrer" class="pubmed-link">🌐 PubMedで詳細を見る</a>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><span class="icon">👥</span> 著者</h2>
+            <div class="section-content">
+                <ul class="authors-list">
+                    <li>Zheng F</li>
+                    <li>Chen Y</li>
+                    <li>Xue G</li>
+                    <li>Xu J</li>
+                    <li>Wang Z</li>
+                    <li>Yang G</li>
+                    <li>Liu G</li>
+                    <li>Lei M</li>
+                    <li>Cheng P</li>
+                    <li>Hao Y</li>
+                    <li>Zhou J</li>
+                    <li>Cao H</li>
+                    <li>Qin Z</li>
+                    <li>Xu Y</li>
+                    <li>Yu Z</li>
+                    <li>Li G</li>
+                    <li>Tan J</li>
+                    <li>Gong L</li>
+                    <li>Sun D</li>
+                    <li>Zhu C</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><span class="icon">📚</span> 出典</h2>
+            <div class="section-content">
+                Bioact Mater. 2026 May 22;64:731-743.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><span class="icon">🔗</span> DOI</h2>
+            <div class="section-content">
+                <a href="https://doi.org/10.1016/j.bioactmat.2026.05.021" target="_blank" rel="noopener noreferrer" class="doi-link">10.1016/j.bioactmat.2026.05.021</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><span class="icon">🏷️</span> キーワード</h2>
+            <div class="section-content">
+                <ul class="keywords-list">
+                    <li>Organoids</li>
+                    <li>Blood vessels</li>
+                    <li>Differentiation</li>
+                    <li>Splenic matrix</li>
+                    <li>Bioactive materials</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><span class="icon">📝</span> 日本語要約</h2>
+            <div class="section-content summary-content">
+                本研究は、脱細胞化された脾臓マトリックスを用いて作製されたヒト血管オルガノイドにおける細動脈および毛細血管の分化について調査したものです。この研究は、血管形成のメカニズム解明や、再生医療における血管組織工学への応用が期待される生体材料の可能性を示唆しています。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
