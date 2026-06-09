@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            border-top: 8px solid #007bff; /* Accent color */
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #007bff;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        .authors {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .section-title {
+            font-size: 1.3em;
+            color: #007bff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .abstract-jp {
+            background-color: #eaf6ff; /* Light blue background for abstract */
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+            font-size: 1.05em;
+            color: #333;
+            border-radius: 5px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .detail-item {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .detail-item strong {
+            color: #007bff;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .keyword-tag {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b3d9ff;
+            transition: background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            background-color: #d0e9ff;
+        }
+        .url-link {
+            display: block;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .url-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .url-link::before {
+            content: "🔗 ";
+            margin-right: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                margin: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .authors {
+                font-size: 1em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            .abstract-jp {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Construction of liver organoid models by hepatobiliary differentiation from human induced pluripotent stem cells: state of the art, challenges and improving strategies.</h1>
+        <p class="authors">Wu YH, Wang Y, Zhang WJ, Yuan LL, Chen Y.</p>
+
+        <h2 class="section-title">日本語要約</h2>
+        <div class="abstract-jp">
+            <p>本論文は、ヒトiPS細胞からの肝胆道分化を利用した肝オルガノイドモデルの構築に関する包括的なレビューです。最新の技術動向、研究における主要な課題、そしてこれらのモデルの有効性を向上させるための戦略について詳細に解説しています。</p>
+        </div>
+
+        <h2 class="section-title">論文詳細</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <strong>Source</strong>
+                <p>Stem Cell Res Ther. 2026 Jun 1.</p>
+            </div>
+            <div class="detail-item">
+                <strong>DOI</strong>
+                <p><a href="https://doi.org/10.1186/s13287-026-05080-8" target="_blank" rel="noopener noreferrer">10.1186/s13287-026-05080-8</a></p>
+            </div>
+        </div>
+
+        <h2 class="section-title">キーワード</h2>
+        <ul class="keywords-list">
+            <li class="keyword-tag">Liver organoids</li>
+            <li class="keyword-tag">iPSCs</li>
+            <li class="keyword-tag">Hepatobiliary differentiation</li>
+            <li class="keyword-tag">Stem cell models</li>
+            <li class="keyword-tag">Review</li>
+        </ul>
+
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42226068/" target="_blank" rel="noopener noreferrer" class="url-link">
+            PubMedで論文を見る
+        </a>
+    </div>
+</body>
+</html>
