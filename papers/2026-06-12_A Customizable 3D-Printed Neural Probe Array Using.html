@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語 (Noto Sans JP) と英語 (Roboto) のフォントを読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* セクションタイトル */
+        .section-title {
+            font-size: 1.8em;
+            color: #4CAF50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        /* 論文情報 */
+        .paper-info {
+            margin-bottom: 30px;
+        }
+
+        .paper-info div {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .paper-info strong {
+            color: #2c3e50;
+            display: inline-block;
+            min-width: 120px; /* ラベルの幅を揃える */
+            font-weight: 700;
+            flex-shrink: 0; /* 縮まないようにする */
+        }
+
+        .paper-info span, .paper-info a {
+            flex-grow: 1; /* 残りのスペースを埋める */
+        }
+
+        .paper-info a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all; /* 長いURLがはみ出さないように */
+        }
+
+        .paper-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #b2dfdb;
+        }
+
+        /* 日本語要約 */
+        .summary-content {
+            background-color: #f9f9f9;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+            <p>主要な論文情報を視覚的に整理</p>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-book"></i> 論文詳細</h2>
+        <div class="paper-info">
+            <div>
+                <strong>タイトル:</strong> <span id="paper-title"></span>
+            </div>
+            <div>
+                <strong>著者:</strong> <span id="paper-authors"></span>
+            </div>
+            <div>
+                <strong>出典:</strong> <span id="paper-source"></span>
+            </div>
+            <div>
+                <strong>DOI:</strong> <a id="paper-doi" href="#" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+            <div>
+                <strong>URL:</strong> <a id="paper-url" href="#" target="_blank" rel="noopener noreferrer">論文ページへ</a>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-tags"></i> キーワード</h2>
+        <div class="keywords-container" id="paper-keywords">
+            <!-- Keywords will be inserted here by JavaScript -->
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-file-alt"></i> 日本語要約</h2>
+        <div class="summary-content">
+            <p id="japanese-summary"></p>
+        </div>
+    </div>
+
+    <script>
+        const paperData = {
+            "title": "A Customizable 3D-Printed Neural Probe Array Using Two-Photon Polymerization with Millimeter-Scaled Conductive Polymer as an Electrode Material",
+            "url": "https://pubs.acs.org/doi/full/10.1021/acsami.6c07028",
+            "authors": "S Won, S Binder, AM Boyadzhiev, Q Zhou, A Vafaei…",
+            "source": "ACS Applied Materials & …",
+            "doi": "10.1021/acsami.6c07028",
+            "keywords": "3D printing, neural probe, microelectrode array, two-photon polymerization, conductive polymer",
+            "uses_hd_mea": false,
+            "spike_sorting_method": ""
+        };
+
+        // 論文詳細情報の挿入
+        document.getElementById('paper-title').textContent = paperData.title;
+        document.getElementById('paper-authors').textContent = paperData.authors;
+        document.getElementById('paper-source').textContent = paperData.source;
+
+        const doiLink = document.getElementById('paper-doi');
+        doiLink.textContent = paperData.doi;
+        doiLink.href = `https://doi.org/${paperData.doi}`;
+
+        const urlLink = document.getElementById('paper-url');
+        urlLink.href = paperData.url;
+
+        // キーワードの挿入
+        const keywordsContainer = document.getElementById('paper-keywords');
+        paperData.keywords.split(', ').forEach(keyword => {
+            const span = document.createElement('span');
+            span.className = 'keyword-tag';
+            span.textContent = keyword;
+            keywordsContainer.appendChild(span);
+        });
+
+        // 日本語要約の生成と挿入
+        const japaneseSummary = `
+            本論文は、二光子重合を用いた3Dプリンティング技術により、カスタマイズ可能な神経プローブアレイを開発した研究です。
+            電極材料としてミリメートルスケールの導電性ポリマーを使用しており、これにより微小電極アレイの作製と神経活動の記録への応用が期待されます。
+            この技術は、神経科学研究における高精度な神経信号記録デバイスの設計と製造に新たな可能性を開くものです。
+        `;
+        document.getElementById('japanese-summary').textContent = japaneseSummary.trim();
+    </script>
+</body>
+</html>
