@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 30px; /* 上部に少しスペース */
+        }
+
+        /* タイトル */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        /* セクション共通スタイル */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9fbfd;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.2em;
+            color: #3498db;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: '▶'; /* アイコンの代わり */
+            margin-right: 8px;
+            color: #3498db;
+            font-size: 0.9em;
+        }
+
+        /* 著者 */
+        .authors p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* 掲載誌 */
+        .source p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* URL */
+        .url a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 700;
+            word-break: break-all; /* 長いURLの折り返し */
+        }
+
+        .url a:hover {
+            text-decoration: underline;
+            color: #1a5276;
+        }
+
+        /* キーワード */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e7f3ff;
+            color: #2980b9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap; /* キーワードが途中で改行されないように */
+        }
+
+        /* 日本語要約 */
+        .summary {
+            background-color: #e8f6f3; /* 緑がかった背景 */
+            border-left-color: #27ae60; /* 緑のボーダー */
+        }
+
+        .summary .section-title {
+            color: #27ae60;
+        }
+
+        .summary .section-title::before {
+            content: '★'; /* アイコンの代わり */
+            color: #27ae60;
+        }
+
+        .summary p {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.05em;
+            color: #444;
+            margin: 0;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                margin-top: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+            .section {
+                padding: 12px 15px;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .authors p, .source p, .summary p {
+                font-size: 1em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+                margin-top: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+            .authors p, .source p, .summary p {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Brain-wide arousal signals are segregated from movement planning in the superior colliculus of the macaque</h1>
+
+        <div class="section">
+            <h2 class="section-title">著者</h2>
+            <p>R Johnston, MA Smith</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">掲載誌</h2>
+            <p>eLife</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">論文URL</h2>
+            <p><a href="https://elifesciences.org/articles/99278" target="_blank" rel="noopener noreferrer">https://elifesciences.org/articles/99278</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">superior colliculus</span>
+                <span class="keyword-tag">macaque</span>
+                <span class="keyword-tag">arousal signals</span>
+                <span class="keyword-tag">movement planning</span>
+                <span class="keyword-tag">microelectrode array</span>
+            </div>
+        </div>
+
+        <div class="section summary">
+            <h2 class="section-title">日本語要約</h2>
+            <p>本研究は、マカクザルの上丘において、脳全体の覚醒状態を示すシグナルが、具体的な運動を計画するシグナルとは独立して処理されていることを明らかにしました。この発見は、上丘が単なる運動制御の中枢ではなく、動物の内部状態（覚醒度など）と運動準備を統合的に調整する複雑な役割を担っている可能性を示唆しています。研究では、マイクロ電極アレイを用いて神経活動を詳細に分析し、これらの異なるシグナルが上丘内でどのように分離され、機能しているかを解明しました。</p>
+        </div>
+    </div>
+</body>
+</html>
