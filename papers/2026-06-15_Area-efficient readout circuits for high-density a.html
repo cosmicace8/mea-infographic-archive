@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* 各セクションの共通スタイル */
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .section h3 .icon {
+            margin-right: 10px;
+            color: #3498db; /* アイコンの色 */
+            font-size: 1.2em;
+        }
+
+        /* 主要情報セクション */
+        .main-info .title {
+            font-size: 1.8em;
+            color: #2980b9;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .main-info p {
+            margin: 8px 0;
+            font-size: 1.05em;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-info p .icon {
+            margin-right: 8px;
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .main-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .main-info a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #dcdcdc;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #dbe4e7;
+        }
+
+        /* 特徴セクション */
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        .feature-item .icon {
+            margin-right: 10px;
+            color: #27ae60; /* 特徴アイコンの色 */
+            font-size: 1.2em;
+        }
+
+        .feature-value {
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        .feature-value.uses-hd-mea {
+            color: #27ae60; /* 緑色 */
+        }
+
+        /* 日本語要約セクション */
+        .summary-section .summary {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-style: italic;
+            color: #444;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 600px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .main-info .title {
+                font-size: 1.5em;
+            }
+            .section h3 {
+                font-size: 1.1em;
+            }
+            .main-info p, .feature-item, .summary-section .summary {
+                font-size: 0.95em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>論文情報インフォグラフィック</h1>
+        </div>
+
+        <div class="section main-info">
+            <h2 class="title">Area-efficient readout circuits for high-density array-type applications</h2>
+            <p class="author"><span class="icon">👤</span> 著者: D Kim</p>
+            <p class="source"><span class="icon">📚</span> 出典: KAIST Dissertation</p>
+            <p class="url"><span class="icon">🔗</span> <a href="https://koasas.kaist.ac.kr/handle/10203/343118" target="_blank" rel="noopener noreferrer">論文URL</a></p>
+            <!-- DOIは情報が空のため表示しません -->
+        </div>
+
+        <div class="section keywords-section">
+            <h3><span class="icon">🏷️</span> キーワード</h3>
+            <div class="keywords-list">
+                <span class="keyword-tag">area-efficient readout circuits</span>
+                <span class="keyword-tag">high-density array</span>
+                <span class="keyword-tag">neural recording</span>
+                <span class="keyword-tag">microelectrode array</span>
+                <span class="keyword-tag">sense amplifier</span>
+            </div>
+        </div>
+
+        <div class="section features-section">
+            <h3><span class="icon">✨</span> 主要な特徴</h3>
+            <div class="feature-item">
+                <span class="icon">🔬</span> 高密度マイクロ電極アレイ (HD-MEA) 使用:
+                <span class="feature-value uses-hd-mea">✔ はい</span>
+            </div>
+            <!-- スパイクソーティング方法は情報が空のため表示しません -->
+        </div>
+
+        <div class="section summary-section">
+            <h3><span class="icon">📝</span> 日本語要約</h3>
+            <p class="summary">
+                本論文は、高密度アレイ型アプリケーション、特に神経記録やマイクロ電極アレイ（MEA）におけるデータ読み出し回路の面積効率化に焦点を当てています。高密度なデータ取得を可能にするため、効率的な読み出し回路、特にセンスアンプなどの技術を駆使し、回路の小型化と性能向上を目指した研究です。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
