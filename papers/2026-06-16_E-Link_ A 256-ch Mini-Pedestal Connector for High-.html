@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック: E-Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 10px solid #007bff; /* ブランドカラーのアクセント */
+            box-sizing: border-box;
+        }
+
+        /* タイトル */
+        h1 {
+            color: #007bff;
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* セクション見出し */
+        h2 {
+            color: #0056b3;
+            font-size: 1.6em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #cce0ff;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        /* セクション共通スタイル */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        /* 著者リスト */
+        .authors-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors-list li {
+            background-color: #e9f5ff;
+            color: #0056b3;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid #cce0ff;
+        }
+
+        /* 主要な特徴グリッド */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item strong {
+            display: block;
+            font-size: 1.8em;
+            color: #007bff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .feature-item span {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* キーワードタグ */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tag {
+            background-color: #28a745; /* 緑色 */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 出版情報ボックス */
+        .info-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .info-box p {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .info-box strong {
+            color: #0056b3;
+            margin-right: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* 日本語要約 */
+        .japanese-summary {
+            background-color: #fff3cd; /* 薄い黄色 */
+            border-left: 8px solid #ffc107; /* 黄色のアクセント */
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .japanese-summary h2 {
+            color: #856404;
+            border-bottom: none;
+            margin-top: 0;
+            padding-bottom: 0;
+            font-size: 1.8em;
+        }
+        .japanese-summary p {
+            color: #856404;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>E-Link: A 256-ch Mini-Pedestal Connector for High-Density Soft Neural Interfaces.</h1>
+
+        <div class="japanese-summary">
+            <h2>日本語要約</h2>
+            <p>本論文は、高密度な柔軟性を持つ神経インターフェース向けの256チャンネルミニペデスタルコネクタ「E-Link」について紹介しています。このコネクタは、多数のチャンネルを持つ神経信号の取得と接続を可能にし、高密度な神経活動の記録や刺激に貢献することが期待されます。</p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>Bai T</li>
+                <li>Li G</li>
+                <li>Qi Y</li>
+                <li>Fang H</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>主要な特徴</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>256-ch</strong>
+                    <span>チャンネル数</span>
+                </div>
+                <div class="feature-item">
+                    <strong>高密度</strong>
+                    <span>神経インターフェース</span>
+                </div>
+                <div class="feature-item">
+                    <strong>ミニペデスタル</strong>
+                    <span>コネクタタイプ</span>
+                </div>
+                <div class="feature-item">
+                    <strong>HD-MEA使用</strong>
+                    <span>高密度MEAの利用</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="tag-list">
+                <span class="tag">E-Link</span>
+                <span class="tag">256-channel</span>
+                <span class="tag">high-density</span>
+                <span class="tag">neural interfaces</span>
+                <span class="tag">connector</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>出版情報</h2>
+            <div class="info-box">
+                <p><strong>ソース:</strong> IEEE J Flex Electron. 2026 May 11:10.1109/jflex.2026.3692102.</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/jflex.2026.3692102" target="_blank" rel="noopener noreferrer">10.1109/jflex.2026.3692102</a></p>
+                <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42273377/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42273377/</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
