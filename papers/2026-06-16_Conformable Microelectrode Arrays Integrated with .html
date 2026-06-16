@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語対応のNoto Sans JPと英語に合うRoboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS変数の定義 */
+        :root {
+            --primary-color: #2c3e50; /* 濃い青灰色 */
+            --secondary-color: #3498db; /* 明るい青 */
+            --accent-color: #2ecc71; /* 肯定的なステータス用の緑 */
+            --background-color: #f4f7f6; /* 薄い灰色の背景 */
+            --card-background: #ffffff; /* 白いカード背景 */
+            --text-color: #333333;
+            --light-text-color: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* 見出しスタイル */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        /* 各セクションの共通スタイル */
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+
+        /* 論文タイトル */
+        .paper-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .paper-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .paper-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* 著者リスト */
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 8px 15px; /* アイテム間のスペース */
+        }
+        .author-item {
+            background-color: #e9f5ff; /* 薄い青の背景 */
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap; /* 改行させない */
+        }
+
+        /* 掲載情報 (ジャーナル、DOI) */
+        .source-info p {
+            margin: 5px 0;
+            color: var(--light-text-color);
+        }
+        .source-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* HD-MEA 使用状況 */
+        .hd-mea-status {
+            display: flex;
+            align-items: center;
+            background-color: var(--accent-color); /* 緑色 */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .hd-mea-status.no { /* HD-MEAを使用していない場合 */
+            background-color: #e74c3c; /* 赤色 */
+        }
+        .status-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        /* 日本語要約 */
+        .summary-box {
+            background-color: #f0f8ff; /* 薄い青の背景 */
+            border-left: 5px solid var(--secondary-color); /* 左側に青いボーダー */
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+        .summary-box p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <!-- 論文タイトル -->
+        <div class="section">
+            <h1 class="paper-title">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/41910120/" target="_blank" rel="noopener noreferrer">
+                    Conformable Microelectrode Arrays Integrated with a Scoop-Shaped Slide-Well for Dynamic Electrophysiological Profiling of Patient-Derived Cardiac Organoids.
+                </a>
+            </h1>
+        </div>
+
+        <!-- 著者 -->
+        <div class="section">
+            <h2 class="section-header">著者</h2>
+            <ul class="authors-list">
+                <li class="author-item">Kim YS</li>
+                <li class="author-item">Jeong J</li>
+                <li class="author-item">Heo G</li>
+                <li class="author-item">Kwon YW</li>
+                <li class="author-item">Lee J</li>
+                <li class="author-item">Jeong YJ</li>
+                <li class="author-item">Park GT</li>
+                <li class="author-item">Jeong S</li>
+                <li class="author-item">Hwang KW</li>
+                <li class="author-item">Choi M</li>
+                <li class="author-item">Shin J</li>
+                <li class="author-item">Hong SW</li>
+                <li class="author-item">Kim JH</li>
+            </ul>
+        </div>
+
+        <!-- 掲載情報 -->
+        <div class="section source-info">
+            <h2 class="section-header">掲載情報</h2>
+            <p><strong>ジャーナル:</strong> Adv Sci (Weinh). 2026 Jun;13(31):e14365. Epub 2026 Mar 30.</p>
+            <p><strong>DOI:</strong> <a href="https://doi.org/10.1002/advs.202514365" target="_blank" rel="noopener noreferrer">10.1002/advs.202514365</a></p>
+        </div>
+
+        <!-- キーワード -->
+        <div class="section">
+            <h2 class="section-header">キーワード</h2>
+            <ul class="keywords-list">
+                <li class="keyword-tag">Microelectrode arrays</li>
+                <li class="keyword-tag">Cardiac organoids</li>
+                <li class="keyword-tag">Electrophysiology</li>
+                <li class="keyword-tag">Biosensors</li>
+                <li class="keyword-tag">Drug screening</li>
+            </ul>
+        </div>
+
+        <!-- HD-MEA 使用状況 -->
+        <div class="section">
+            <h2 class="section-header">HD-MEA 使用状況</h2>
+            <div class="hd-mea-status">
+                <span class="status-icon">&#10003;</span> <!-- チェックマークアイコン -->
+                <span>HD-MEA (高密度マイクロ電極アレイ) を使用しています</span>
+            </div>
+        </div>
+
+        <!-- 日本語要約 -->
+        <div class="section summary-box">
+            <h2 class="section-header">日本語要約</h2>
+            <p>本論文は、患者由来の心臓オルガノイドの動的な電気生理学的プロファイリングを可能にする、適合性マイクロ電極アレイ（MEA）とスクープ型スライドウェルを統合した新しいシステムについて報告しています。この技術は、バイオセンサーとしての応用や、薬剤スクリーニングにおける心臓オルガノイドの電気生理学的応答の評価に貢献することが期待されます。</p>
+        </div>
+    </div>
+</body>
+</html>
