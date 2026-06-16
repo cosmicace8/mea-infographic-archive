@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6; /* 明るい背景色 */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 柔らかな影 */
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        header h1 {
+            font-size: 2.2em;
+            color: #2c3e50; /* ダークブルー */
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0; /* 区切り線 */
+            padding-bottom: 15px;
+        }
+
+        /* 論文カード */
+        .paper-card {
+            padding: 0;
+        }
+
+        /* 論文タイトル */
+        .paper-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #0056b3; /* リンクブルー */
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* 各情報セクションのボックス */
+        .section-box {
+            background-color: #f9fbfd; /* わずかに異なる背景色 */
+            border: 1px solid #e3e8ed;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-box h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        /* 日本語要約 */
+        .abstract p {
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        /* 著者リスト */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* 折り返し */
+            gap: 10px 20px; /* アイテム間のスペース */
+        }
+
+        .authors li {
+            background-color: #e9f5ff; /* 明るいブルーの背景 */
+            border: 1px solid #cce7ff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.95em;
+            color: #004085; /* ダークブルーのテキスト */
+        }
+
+        /* 出典、DOI、URL */
+        .source p, .doi p, .url p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .doi a, .url a {
+            color: #007bff; /* 標準的なリンク色 */
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .doi a:hover, .url a:hover {
+            text-decoration: underline;
+            color: #0056b3; /* ホバー時の色 */
+        }
+
+        /* キーワードタグ */
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* タグ間のスペース */
+        }
+
+        .keyword-tag {
+            background-color: #d4edda; /* 明るいグリーンの背景 */
+            color: #155724; /* ダークグリーンのテキスト */
+            padding: 8px 15px;
+            border-radius: 20px; /* 丸い角 */
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .section-box h3 {
+                font-size: 1.1em;
+            }
+            .authors ul {
+                flex-direction: column; /* 著者リストを縦並びに */
+                gap: 8px;
+            }
+            .keyword-tags {
+                gap: 8px;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .paper-title {
+                font-size: 1.3em;
+            }
+            .section-box h3 {
+                font-size: 1em;
+            }
+            .abstract p, .source p, .doi p, .url p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <section class="paper-card">
+            <h2 class="paper-title">Transcriptomic and metabolomic analyses reveal cobalt-induced mitochondrial metabolic alterations in human cortical organoids.</h2>
+
+            <div class="section-box abstract">
+                <h3>日本語要約</h3>
+                <p>本論文は、ヒト皮質オルガノイドを用いて、コバルトがミトコンドリアの代謝に与える影響を、トランスクリプトーム解析とメタボローム解析によって明らかにした研究です。コバルト毒性による細胞レベルでの代謝変化、特にミトコンドリア機能への影響を詳細に分析しています。</p>
+            </div>
+
+            <div class="section-box authors">
+                <h3>著者</h3>
+                <ul>
+                    <li>Guo X</li>
+                    <li>Li H</li>
+                    <li>Huang Y</li>
+                    <li>Zhao L</li>
+                    <li>Wang Z</li>
+                    <li>Zhu X</li>
+                    <li>Zeng P</li>
+                    <li>Huang Y</li>
+                    <li>Gao H</li>
+                    <li>Cen X</li>
+                    <li>Bu Q</li>
+                </ul>
+            </div>
+
+            <div class="section-box source">
+                <h3>出典</h3>
+                <p>Toxicology. 2026 Sep;525:154482. Epub 2026 May 2.</p>
+            </div>
+
+            <div class="section-box doi">
+                <h3>DOI</h3>
+                <p><a href="https://doi.org/10.1016/j.tox.2026.154482" target="_blank" rel="noopener noreferrer">10.1016/j.tox.2026.154482</a></p>
+            </div>
+
+            <div class="section-box keywords">
+                <h3>キーワード</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Transcriptomics</span>
+                    <span class="keyword-tag">Metabolomics</span>
+                    <span class="keyword-tag">Cobalt toxicity</span>
+                    <span class="keyword-tag">Mitochondrial metabolism</span>
+                    <span class="keyword-tag">Cortical organoids</span>
+                </div>
+            </div>
+
+            <div class="section-box url">
+                <h3>論文URL</h3>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42082092/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42082092/</a></p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
