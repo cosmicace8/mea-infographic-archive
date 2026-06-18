@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .section h2 .icon {
+            font-size: 1.2em;
+            color: #2980b9;
+        }
+
+        .summary-jp {
+            background-color: #e8f6f3;
+            border-left: 5px solid #1abc9c;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .author-tag {
+            background-color: #ecf0f1;
+            color: #34495e;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .publication-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .detail-item {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .detail-item .icon {
+            font-size: 1.5em;
+            color: #3498db;
+            flex-shrink: 0;
+        }
+
+        .detail-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .detail-item a {
+            color: #2980b9;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #d6eaf8;
+            color: #21618c;
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.3em;
+            }
+            .publication-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .section h2 {
+                font-size: 1.1em;
+            }
+            .author-tag, .keyword-tag {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>🔬 In silico design of CLDN4-directed peptide-loaded nanobubbles for ultrasound-assisted delivery, photothermal therapy, immune activation, and multimodal imaging in ovarian cancer.</h1>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📝</span> 日本語要約</h2>
+            <p class="summary-jp">
+                本研究は、卵巣がん治療を目的として、CLDN4を標的とするペプチドを搭載したナノバブルのin silico（コンピュータシミュレーション）設計について報告しています。このナノバブルは、超音波補助送達、光熱療法、免疫活性化、および多機能イメージングといった複数の治療・診断機能を統合することを目指しています。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🧑‍🔬</span> 著者</h2>
+            <div class="authors-list">
+                <span class="author-tag">Xu Y</span>
+                <span class="author-tag">Hua Y</span>
+                <span class="author-tag">Zhang C</span>
+                <span class="author-tag">Zhang Y</span>
+                <span class="author-tag">Wan J</span>
+                <span class="author-tag">Feng C</span>
+                <span class="author-tag">Qiao E</span>
+                <span class="author-tag">Guo W</span>
+                <span class="author-tag">Ou L</span>
+                <span class="author-tag">Yang F</span>
+                <span class="author-tag">Shen Y</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📚</span> 出版情報</h2>
+            <div class="publication-details">
+                <div class="detail-item">
+                    <span class="icon">📖</span>
+                    <div>
+                        <strong>雑誌</strong>
+                        <span>J Nanobiotechnology.</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <div>
+                        <strong>出版日</strong>
+                        <span>2026 Jun 11. (Online ahead of print)</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🔗</span>
+                    <div>
+                        <strong>DOI</strong>
+                        <a href="https://doi.org/10.1186/s12951-026-04675-w" target="_blank">10.1186/s12951-026-04675-w</a>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🌐</span>
+                    <div>
+                        <strong>PubMed URL</strong>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42277848/" target="_blank">pubmed.ncbi.nlm.nih.gov/42277848/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏷️</span> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">🫧 nanobubbles</span>
+                <span class="keyword-tag">🔊 ultrasound</span>
+                <span class="keyword-tag">🔥 photothermal therapy</span>
+                <span class="keyword-tag">🛡️ immune activation</span>
+                <span class="keyword-tag">🎗️ ovarian cancer</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
