@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* Accent color */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            line-height: 1.3;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        /* SVGアイコンをData URIとして埋め込み */
+        .section-authors h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2334495e"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'); }
+        .section-publication h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2334495e"><path d="M19 4H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12H9V8h2v8zm4 0h-2V8h2v8z"/></svg>'); }
+        .section-keywords h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2334495e"><path d="M20 10V8h-4V4h-2v4h-4V4H8v4H4v2h4v4H4v2h4v4h2v-4h4v4h2v-4h4v-2h-4v-4h4zm-6 4h-4v-4h4v4z"/></svg>'); }
+        .section-summary h2::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2334495e"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>'); }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .authors-list li {
+            background-color: #e8f5e9; /* Light green */
+            color: #2e7d32; /* Darker green */
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+        .publication-details p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .publication-details p strong {
+            min-width: 80px;
+            display: inline-block;
+            color: #555;
+            font-weight: 700;
+        }
+        .publication-details a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .publication-details a:hover {
+            color: #115293;
+            text-decoration: underline;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keywords-list li {
+            background-color: #e3f2fd; /* Light blue */
+            color: #1565c0; /* Darker blue */
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #bbdefb;
+        }
+        .japanese-summary {
+            background-color: #f9f9f9;
+            border-left: 5px solid #ff9800; /* Orange accent */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .japanese-summary p {
+            font-size: 1.1em;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Convergence and innovative applications of cutting-edge biomedical technologies in brain organoid research.</h1>
+
+        <div class="section-authors">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>Zhang Z</li>
+                <li>Wang Y</li>
+                <li>Chen L</li>
+                <li>Ming D</li>
+            </ul>
+        </div>
+
+        <div class="section-publication">
+            <h2>出版情報</h2>
+            <div class="publication-details">
+                <p><strong>ジャーナル:</strong> Exp Neurol.</p>
+                <p><strong>出版日:</strong> 2026 Jun 12</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.expneurol.2026.115877" target="_blank" rel="noopener noreferrer">10.1016/j.expneurol.2026.115877</a></p>
+                <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42285251/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42285251/</a></p>
+            </div>
+        </div>
+
+        <div class="section-keywords">
+            <h2>キーワード</h2>
+            <ul class="keywords-list">
+                <li>brain organoid</li>
+                <li>biomedical technologies</li>
+                <li>neuroscience</li>
+                <li>research</li>
+                <li>innovation</li>
+            </ul>
+        </div>
+
+        <div class="section-summary">
+            <h2>日本語要約</h2>
+            <div class="japanese-summary">
+                <p>本論文は、脳オルガノイド研究における最先端の生物医学技術の融合と革新的な応用について探求しています。脳オルガノイドは、脳の発達や疾患メカニズムの理解、薬剤スクリーニングなどに貢献する重要な3Dモデルであり、本研究では、これらの技術がどのように脳オルガノイド研究を推進し、神経科学分野における新たな発見や治療法の開発に繋がる可能性を秘めているかを考察しています。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
