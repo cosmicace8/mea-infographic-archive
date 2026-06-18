@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック: BrAIn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-color: #ecf0f1; /* Light Gray */
+            --text-color: #34495e; /* Dark Gray */
+            --card-background: #ffffff; /* White */
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section p {
+            margin-bottom: 8px;
+        }
+
+        .section strong {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .authors {
+            font-style: italic;
+            color: #555;
+        }
+
+        .source-info {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .link-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .link-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .link-item span {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: var(--primary-color);
+        }
+
+        .summary-text {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: var(--text-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .infographic-container {
+                padding: 20px;
+                margin: 10px 0;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .summary-text {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>BrAIn: A comprehensive artificial intelligence-based morphology analysis system for brain organoids and neuroscience.</h1>
+
+        <div class="section">
+            <h2>論文情報</h2>
+            <p class="authors"><strong>著者:</strong> Kahveci B, Polatli E, Evranos AE, Güner H, Karakülah G, Bastanlar Y, Güven S.</p>
+            <p class="source-info"><strong>出典:</strong> Bioeng Transl Med. 2026 Mar 12;11(3):e70123. doi: 10.1002/btm2.70123. eCollection 2026 May.</p>
+            <div class="link-item">
+                <span>🌐</span> <a href="https://pubmed.ncbi.nlm.nih.gov/42272957/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
+            </div>
+            <div class="link-item">
+                <span>🔗</span> <a href="https://doi.org/10.1002/btm2.70123" target="_blank" rel="noopener noreferrer">DOI: 10.1002/btm2.70123</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">artificial intelligence</span>
+                <span class="keyword-tag">morphology analysis</span>
+                <span class="keyword-tag">brain organoids</span>
+                <span class="keyword-tag">neuroscience</span>
+                <span class="keyword-tag">BrAIn</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-text">
+                <p>本論文「BrAIn」は、脳オルガノイドおよび神経科学分野における形態学的解析のための、包括的な人工知能（AI）ベースのシステムについて記述しています。このシステムは、AI技術を活用して脳オルガノイドの複雑な形態を詳細に分析することを目的としており、神経科学研究における新たな知見の獲得に貢献することが期待されます。特に、形態解析の自動化と高精度化を通じて、研究者がより効率的かつ客観的にデータを評価できるよう支援します。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
