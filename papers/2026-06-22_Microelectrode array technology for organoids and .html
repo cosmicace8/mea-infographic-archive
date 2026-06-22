@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Roboto for English, Noto Sans JP for Japanese) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better scroll behavior */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top border */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Green to Blue gradient */
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* Section Styling (for Authors, Source, URL, Keywords) */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9fbfb;
+            border-left: 5px solid #e0e0e0;
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start; /* Align icon and text at the top */
+        }
+
+        .section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Icons for sections (simple text-based icons) */
+        .section-icon {
+            font-size: 1.5em;
+            color: #607d8b;
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            padding-top: 2px; /* Adjust for better vertical alignment with text */
+        }
+
+        .section-content {
+            flex-grow: 1; /* Allow content to take available space */
+        }
+
+        /* Labels for each piece of information */
+        .label {
+            font-weight: 700;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        /* Values for each piece of information */
+        .value {
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        /* URL Link Styling */
+        .value a {
+            color: #2196F3; /* Blue link color */
+            text-decoration: none;
+            word-break: break-all; /* Break long URLs */
+        }
+
+        .value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords List Styling */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* Space between tags */
+            margin-top: 5px;
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f7; /* Light blue background */
+            color: #01579b; /* Darker blue text */
+            padding: 6px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent tags from breaking */
+        }
+
+        /* Highlight Box for HD-MEA */
+        .highlight-box {
+            background-color: #e8f5e9; /* Light green background */
+            border-left-color: #4CAF50; /* Green border */
+            color: #2e7d32; /* Dark green text */
+            font-weight: 700;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight-box .section-icon {
+            color: #4CAF50; /* Green icon */
+        }
+
+        /* Japanese Summary Section */
+        .summary-section {
+            background-color: #f0f4f8; /* Light blue-gray background */
+            border-left-color: #2196F3; /* Blue border */
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+        }
+
+        .summary-section .label {
+            color: #1976d2; /* Darker blue label */
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .summary-section .value {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                flex-direction: column; /* Stack icon and content vertically */
+                align-items: flex-start;
+            }
+            .section-icon {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            .label {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .section {
+                padding: 10px 15px;
+            }
+            .keyword-tag {
+                padding: 4px 8px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Microelectrode array technology for organoids and microphysiological systems</h1>
+
+        <div class="section">
+            <span class="section-icon">👤</span> <!-- Icon for Authors -->
+            <div class="section-content">
+                <span class="label">著者</span>
+                <span class="value">AT Toymus, T Karim, JP Frimat, FMS de Vrij…</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <span class="section-icon">📚</span> <!-- Icon for Source -->
+            <div class="section-content">
+                <span class="label">出版元</span>
+                <span class="value">Trends in Biotechnology, 2026</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <span class="section-icon">🔗</span> <!-- Icon for URL -->
+            <div class="section-content">
+                <span class="label">URL</span>
+                <span class="value"><a href="https://www.cell.com/trends/biotechnology/fulltext/S0167-7799(26)00240-4" target="_blank" rel="noopener noreferrer">https://www.cell.com/trends/biotechnology/fulltext/S0167-7799(26)00240-4</a></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <span class="section-icon">🏷️</span> <!-- Icon for Keywords -->
+            <div class="section-content">
+                <span class="label">キーワード</span>
+                <div class="keywords-list">
+                    <span class="keyword-tag">Microelectrode array</span>
+                    <span class="keyword-tag">organoids</span>
+                    <span class="keyword-tag">microphysiological systems</span>
+                    <span class="keyword-tag">biotechnology</span>
+                    <span class="keyword-tag">electrophysiology</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <span class="section-icon">✨</span> <!-- Highlight icon -->
+            <div class="section-content">
+                <span class="label">高密度マイクロ電極アレイ (HD-MEA) の使用</span>
+                <span class="value">はい、この研究では高密度MEAが使用されています。</span>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <span class="label">日本語要約</span>
+            <p class="value">
+                本論文「Microelectrode array technology for organoids and microphysiological systems」は、オルガノイドやマイクロ生理システム（MPS）におけるマイクロ電極アレイ（MEA）技術の応用について深く掘り下げています。特に、高密度MEA（HD-MEA）の利用は、これらの複雑な生体システムにおける電気生理学的活動を、より高い空間的・時間的解像度で詳細にモニタリングすることを可能にします。この技術は、バイオテクノロジーと電気生理学の分野において、オルガノイドやMPSの機能、発達、疾患モデルとしての可能性を理解するための重要なツールであり、創薬スクリーニングや個別化医療への応用が期待されます。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
