@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff; /* アクセントカラー */
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            color: #007bff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .section-title::before {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+
+        p {
+            margin: 0 0 8px 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b3d9ff;
+        }
+
+        .summary-box {
+            background-color: #f0f8ff;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .summary-box p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Icons using Unicode characters */
+        .icon-title::before { content: "📄 "; }
+        .icon-authors::before { content: "👥 "; }
+        .icon-source::before { content: "📚 "; }
+        .icon-doi::before { content: "🔗 "; }
+        .icon-keywords::before { content: "🏷️ "; }
+        .icon-summary::before { content: "📝 "; }
+        .icon-url::before { content: "🌐 "; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+                border-left: 5px solid #007bff;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .tag {
+                font-size: 0.85em;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2 class="section-title icon-title">タイトル</h2>
+            <p><strong>Advances in Biomaterial-Based Cardiac Organoids Engineering for Modeling Development and Congenital Heart Defects</strong></p>
+            <p><span class="icon-url"></span><a href="https://pubs.acs.org/doi/full/10.1021/acsabm.6c00364" target="_blank">論文URLへ移動</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-authors">著者</h2>
+            <p>Y Song, Y Li, NY Mai, H Liu, A Hong, E Jain, H Yang…</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-source">出典</h2>
+            <p>ACS Applied Bio Materials</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-doi">DOI</h2>
+            <p><a href="https://doi.org/10.1021/acsabm.6c00364" target="_blank">10.1021/acsabm.6c00364</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-keywords">キーワード</h2>
+            <div class="tag-list">
+                <span class="tag">Biomaterials</span>
+                <span class="tag">Cardiac Organoids</span>
+                <span class="tag">Tissue Engineering</span>
+                <span class="tag">Heart Defects</span>
+                <span class="tag">Developmental Biology</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-summary">日本語要約</h2>
+            <div class="summary-box">
+                <p>本論文は、生体材料を基盤とした心臓オルガノイド（ミニ心臓）の工学技術における最新の進歩に焦点を当てています。これらのオルガノイドは、心臓の発生過程や先天性心臓欠陥のメカニズムを研究するための優れたモデルとして機能します。組織工学と発生生物学の知見を組み合わせることで、心臓疾患の理解と治療法開発に貢献する可能性を探ります。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
