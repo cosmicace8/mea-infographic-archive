@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        h1 {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            line-height: 1.3;
+        }
+        h2 {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .section-card {
+            background-color: #f9fbfb;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .info-item {
+            background-color: #e8f5e9; /* Light green for info */
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #2e7d32;
+            font-size: 0.9em;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f7; /* Light blue for tags */
+            color: #0277ad;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        .hd-mea-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .hd-mea-status.used {
+            background-color: #d4edda; /* Green for used */
+            color: #155724;
+            border: 1px solid #28a745;
+        }
+        .hd-mea-status.not-used {
+            background-color: #f8d7da; /* Red for not used */
+            color: #721c24;
+            border: 1px solid #dc3545;
+        }
+        .hd-mea-status span {
+            font-size: 1.2em;
+        }
+        .summary-box {
+            background-color: #f0f4f8; /* Light blue-grey for summary */
+            border-left: 5px solid #607d8b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .summary-box p {
+            margin: 0;
+            color: #455a64;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            font-size: 1.5em;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section-card">
+            <h2>論文タイトル</h2>
+            <p style="font-size: 1.4em; font-weight: bold; color: #2c3e50;">Effect of amyloid β on neuronal function investigated with high-density microelectrode array</p>
+        </div>
+
+        <div class="section-card">
+            <h2>基本情報</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>著者</strong>
+                    <p>V Partonen</p>
+                </div>
+                <div class="info-item">
+                    <strong>出典</strong>
+                    <p>University of Eastern Finland Repository</p>
+                </div>
+                <div class="info-item">
+                    <strong>DOI</strong>
+                    <p>N/A</p>
+                </div>
+                <div class="info-item">
+                    <strong>論文URL</strong>
+                    <p><a href="https://erepo.uef.fi/bitstreams/b1bb82c1-0ccc-47d2-a2aa-01227dd7977b/download" target="_blank">ダウンロードリンク</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>主要概念 & 手法</h2>
+            <div>
+                <strong>キーワード</strong>
+                <div class="keywords-container">
+                    <span class="keyword-tag">amyloid β</span>
+                    <span class="keyword-tag">neuronal function</span>
+                    <span class="keyword-tag">high-density microelectrode array</span>
+                    <span class="keyword-tag">HD-MEA</span>
+                    <span class="keyword-tag">immunohistochemical assays</span>
+                </div>
+            </div>
+
+            <div class="hd-mea-status used">
+                <span class="icon">🔬</span>
+                <span>高密度マイクロ電極アレイ (HD-MEA) 使用: はい</span>
+            </div>
+
+            <div class="info-item" style="margin-top: 20px;">
+                <strong>スパイクソーティング方法</strong>
+                <p>N/A</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>日本語要約</h2>
+            <div class="summary-box">
+                <p>本論文は、高密度マイクロ電極アレイ（HD-MEA）を用いて、アミロイドβが神経機能に与える影響を調査した研究です。アミロイドβはアルツハイマー病などの神経変性疾患に関連するタンパク質であり、その神経機能への影響を詳細に解析するために、HD-MEAによる電気生理学的測定と免疫組織化学的アッセイが併用されています。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
