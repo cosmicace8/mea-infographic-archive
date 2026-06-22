@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文インフォグラフィック: Cells on IC Chip</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Main Container for the Infographic */
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        /* Common Section Styles */
+        .section {
+            background-color: #fdfdfd;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        .section h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 i {
+            margin-right: 10px;
+            color: #3498db; /* Icon color */
+        }
+
+        /* Authors Section */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors li {
+            background-color: #e8f6f3;
+            color: #2ecc71;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Publication Info Section */
+        .publication-info p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        .publication-info p strong {
+            min-width: 80px;
+            color: #555;
+            margin-right: 10px;
+        }
+        .publication-info p i {
+            margin-right: 8px;
+            color: #9b59b6; /* Icon color */
+        }
+        .publication-info a {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all; /* Ensures long URLs break correctly */
+        }
+        .publication-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords Section (Tag Cloud) */
+        .keywords .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keywords .tag {
+            background-color: #f0f8ff;
+            color: #3498db;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #aed6f1;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .keywords .tag:hover {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        /* Japanese Summary Section */
+        .summary p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 5px solid #f39c12; /* Accent color for summary */
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .section h2 {
+                font-size: 1.5em;
+            }
+            .authors ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cells on IC Chip</h1>
+            <p class="subtitle">論文情報インフォグラフィック</p>
+        </header>
+
+        <section class="section summary">
+            <h2><i class="fas fa-lightbulb"></i> 日本語要約</h2>
+            <p>
+                本論文「Cells on IC Chip」は、集積回路（IC）チップ上に細胞を培養し、その挙動を研究する革新的なアプローチを探求しています。
+                特に、バイオセンサーとマイクロ流体技術を統合することで、細胞培養環境を精密に制御し、細胞の生理学的応答をリアルタイムで高感度に検出することを目指しています。
+                この技術は、創薬スクリーニング、疾患モデル研究、再生医療など、多岐にわたる生命科学分野への応用が期待されます。
+            </p>
+        </section>
+
+        <section class="section authors">
+            <h2><i class="fas fa-users"></i> 著者</h2>
+            <ul>
+                <li>W Hui</li>
+                <li>Y Wang</li>
+                <li>M Wei</li>
+                <li>S Yu</li>
+                <li>Y Zhou</li>
+                <li>L Ka-Meng</li>
+            </ul>
+        </section>
+
+        <section class="section publication-info">
+            <h2><i class="fas fa-book"></i> 出版情報</h2>
+            <p><strong><i class="fas fa-journal-whills"></i> 雑誌:</strong> ACS Sensors</p>
+            <p><strong><i class="fas fa-calendar-alt"></i> 年:</strong> 2026</p>
+            <p><strong><i class="fas fa-fingerprint"></i> DOI:</strong> <a href="https://doi.org/10.1021/acssensors.6c00959" target="_blank" rel="noopener noreferrer">10.1021/acssensors.6c00959</a></p>
+            <p><strong><i class="fas fa-link"></i> URL:</strong> <a href="https://pubs.acs.org/doi/abs/10.1021/acssensors.6c00959" target="_blank" rel="noopener noreferrer">https://pubs.acs.org/doi/abs/10.1021/acssensors.6c00959</a></p>
+        </section>
+
+        <section class="section keywords">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
+            <div class="tag-cloud">
+                <span class="tag">Cells on Chip</span>
+                <span class="tag">IC Chip</span>
+                <span class="tag">biosensors</span>
+                <span class="tag">microfluidics</span>
+                <span class="tag">cell culture</span>
+            </div>
+        </section>
+
+        <!-- uses_hd_mea が false、spike_sorting_method が空のため、これらの情報は表示しません。 -->
+
+    </div>
+</body>
+</html>
