@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-light: #ecf0f1; /* Light Gray */
+            --background-white: #ffffff;
+            --text-dark: #34495e; /* Darker Blue */
+            --text-light: #ecf0f1;
+            --border-color: #bdc3c7; /* Gray */
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 20px;
+            background-color: var(--background-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-light);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .paper-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .paper-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-title a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: var(--background-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 2px 8px var(--shadow-light);
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        .keywords-section .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tags span {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        .additional-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .additional-info li {
+            background-color: var(--background-light);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .additional-info li strong {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .japanese-summary p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .paper-title {
+                font-size: 1.4em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            main {
+                padding: 20px;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-details">
+                <h2>論文詳細</h2>
+                <p class="paper-title">
+                    <a href="https://ieeexplore.ieee.org/iel8/11561899/11561804/11562398.pdf" target="_blank" rel="noopener noreferrer">
+                        A 64-Pixel CMOS-MEA with 8 Piezoelectric Sensor Readout Channels for Simultaneous Electrophysiology and Mechanobiology Cell Studies
+                    </a>
+                </p>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>著者</h3>
+                        <p>S Sorrenti, V Valente</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>出典</h3>
+                        <p>2026 IEEE International Symposium on Circuits and …, 2026</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>DOI</h3>
+                        <p>N/A</p>
+                    </div>
+                </div>
+
+                <div class="keywords-section">
+                    <h3>キーワード</h3>
+                    <div class="keyword-tags">
+                        <span>CMOS-MEA</span>
+                        <span>piezoelectric sensors</span>
+                        <span>electrophysiology</span>
+                        <span>mechanobiology</span>
+                        <span>cell studies</span>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <h3>追加情報</h3>
+                    <ul>
+                        <li><strong>HD-MEAの使用:</strong> いいえ</li>
+                        <li><strong>スパイクソーティング手法:</strong> 記載なし</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="japanese-summary">
+                <h2>日本語要約</h2>
+                <p>
+                    この論文は、電気生理学とメカノバイオロジーの細胞研究を同時に行うための、革新的な64ピクセルCMOS-MEA（微小電極アレイ）システムについて記述しています。このシステムは、8つの圧電センサー読み出しチャネルを統合しており、細胞の電気的活動と機械的応答を同時に高精度で観察することを可能にします。これにより、細胞の複雑な挙動をより包括的に理解するための新たな道を開き、神経科学や再生医療などの分野における細胞研究の進展に貢献することが期待されます。
+                </p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
