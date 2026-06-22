@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .paper-card section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        .paper-card section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #495057;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .source {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.95em;
+            margin-top: -5px;
+        }
+
+        .authors-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+        }
+
+        .authors-section li {
+            background-color: #e9f5ff;
+            color: #0056b3;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .details-section p {
+            margin: 8px 0;
+        }
+
+        .details-section strong {
+            color: #343a40;
+        }
+
+        .details-section a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all; /* 長いURLがはみ出さないように */
+        }
+
+        .details-section a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keywords-list span {
+            background-color: #f0f2f5;
+            color: #555;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            border: 1px solid #dee2e6;
+        }
+
+        .methodology-section .hd-mea {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .methodology-section .hd-mea .icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .summary-section p {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #343a40;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main class="paper-card">
+            <section class="title-section">
+                <h2>A mosaic of whole-body representations on the human precentral gyrus</h2>
+                <p class="source">Nature, 2026</p>
+            </section>
+
+            <section class="authors-section">
+                <h3>著者</h3>
+                <ul>
+                    <li>DR Deo</li>
+                    <li>EV Okorokova</li>
+                    <li>AL Pritchard</li>
+                    <li>NV Hahn</li>
+                </ul>
+            </section>
+
+            <section class="details-section">
+                <h3>詳細情報</h3>
+                <p><strong>DOI:</strong> <a href="https://doi.org/s41586-026-10653-x" target="_blank" rel="noopener noreferrer">s41586-026-10653-x</a></p>
+                <p><strong>URL:</strong> <a href="https://www.nature.com/articles/s41586-026-10653-x" target="_blank" rel="noopener noreferrer">https://www.nature.com/articles/s41586-026-10653-x</a></p>
+            </section>
+
+            <section class="keywords-section">
+                <h3>キーワード</h3>
+                <div class="keywords-list">
+                    <span>human motor cortex</span>
+                    <span>single-neuron resolution</span>
+                    <span>microelectrode array</span>
+                    <span>spinal cord injury</span>
+                    <span>amyotrophic lateral sclerosis</span>
+                </div>
+            </section>
+
+            <section class="methodology-section">
+                <h3>主要な手法</h3>
+                <p class="hd-mea">
+                    <span class="icon">✅</span> 高密度微小電極アレイ (HD-MEA) を使用
+                </p>
+                <!-- spike_sorting_method は空なので表示しません -->
+            </section>
+
+            <section class="summary-section">
+                <h3>日本語要約</h3>
+                <p>本論文は、ヒトの前中心回（運動野）における全身の運動表現がどのように組織されているかを、高密度微小電極アレイを用いて単一ニューロン解像度で詳細に解析した研究です。この研究は、脊髄損傷や筋萎縮性側索硬化症（ALS）といった神経疾患の治療法開発に貢献する可能性を秘めています。</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
