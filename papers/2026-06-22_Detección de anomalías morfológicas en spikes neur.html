@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .authors {
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: '◆'; /* アイコンの代わり */
+            color: #3498db;
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+
+        .summary-box {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .summary-box p {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+        .detail-item strong {
+            color: #34495e;
+        }
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+        .detail-item .icon {
+            font-size: 1.2em;
+            color: #3498db;
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .keyword-tag {
+            background-color: #d6eaf8;
+            color: #2874a6;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            background-color: #aed6f1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: #f0f8f7;
+            border: 1px solid #d1e7e5;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .feature-card .feature-icon {
+            font-size: 2em;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+        .feature-card h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .feature-card p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .details-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Detección de anomalías morfológicas en spikes neuronales mediante autoencoders</h1>
+        <p class="authors">著者: C Fernández Martínez</p>
+
+        <div class="summary-box">
+            <h2 class="section-title">日本語要約</h2>
+            <p>
+                この論文は、ニューロンの活動電位（スパイク）に現れる形態学的異常を、機械学習手法であるオートエンコーダーを用いて検出する研究です。特に、複数のニューロンからの信号を分離する「スパイクソーティング」の文脈において、スパイクの形態変化はニューロンの健康状態や機能異常を示す重要な指標となり得ます。本研究では、オートエンコーダーがスパイクデータの正常なパターンを学習し、そこから逸脱する異常な形態を効率的に識別する能力を探求しています。キーワードには「スパイクソーティング」「ニューラルスパイク」「オートエンコーダー」「形態学的異常」「マイクロ電極アレイ」が含まれており、神経科学とデータサイエンスの融合領域における貢献を目指しています。
+            </p>
+        </div>
+
+        <h2 class="section-title">論文詳細</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <span class="icon">🔗</span>
+                <strong>URL:</strong> <a href="https://digibuo.uniovi.es/dspace/bitstream/handle/10651/84513/TFG_CarlosFern%25C3%25A9ndezMart%25C3%25ADnez.pdf?sequence=5" target="_blank" rel="noopener noreferrer">論文リンク</a>
+            </div>
+            <div class="detail-item">
+                <span class="icon">📅</span>
+                <strong>出版年:</strong> 2026
+            </div>
+            <div class="detail-item">
+                <span class="icon">🆔</span>
+                <strong>DOI:</strong> なし
+            </div>
+        </div>
+
+        <h2 class="section-title">キーワード</h2>
+        <div class="keywords-container">
+            <span class="keyword-tag">spike sorting</span>
+            <span class="keyword-tag">neural spikes</span>
+            <span class="keyword-tag">autoencoders</span>
+            <span class="keyword-tag">morphological anomalies</span>
+            <span class="keyword-tag">microelectrode array</span>
+        </div>
+
+        <h2 class="section-title">主要な特徴</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>スパイクソーティング手法</h3>
+                <p><strong>オートエンコーダー</strong></p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔬</span>
+                <h3>高密度マイクロ電極アレイ (HD-MEA) 使用</h3>
+                <p><strong>いいえ</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
