@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Decorative top border */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #4CAF50, #8BC34A); /* Green gradient */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .section-title {
+            font-weight: 700;
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title svg {
+            margin-right: 8px;
+            color: #4CAF50; /* Icon color */
+        }
+        p {
+            line-height: 1.6;
+            margin: 0 0 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Japanese Summary specific styling */
+        .summary-jp {
+            background-color: #e8f5e9; /* Light green background */
+            border-left: 5px solid #4CAF50; /* Green left border */
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            font-size: 1.05em;
+            color: #388e3c;
+        }
+        /* Author tags styling */
+        .authors .author-tag {
+            display: inline-block;
+            background-color: #f0f8ff; /* Light blue background */
+            border: 1px solid #d0e0f0;
+            padding: 5px 10px;
+            margin: 0 5px 5px 0;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #336699;
+        }
+        /* Keyword tags styling */
+        .keywords .keyword-tag {
+            display: inline-block;
+            background-color: #fff3e0; /* Light orange background */
+            border: 1px solid #ffe0b2;
+            padding: 5px 10px;
+            margin: 0 5px 5px 0;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #ff9800;
+        }
+        .source-info, .doi-info {
+            font-style: italic;
+            color: #666;
+        }
+        /* Link button styling */
+        .link-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Pancreatic organoids and organoid-on-a-chip platforms: from disease modeling to precision therapy.</h1>
+
+        <div class="section summary-jp">
+            <div class="section-title"><i class="fas fa-language"></i> 日本語要約</div>
+            <p>この論文は、膵臓オルガノイドとオルガノイド・オン・ア・チップ技術に焦点を当て、これらが膵臓がんなどの疾患モデリングや精密治療にどのように応用されているか、または応用されうるかについて解説しています。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><i class="fas fa-user-friends"></i> 著者</div>
+            <div class="authors">
+                <span class="author-tag">Lin M</span>
+                <span class="author-tag">Ma W</span>
+                <span class="author-tag">Ma T</span>
+                <span class="author-tag">He Y</span>
+                <span class="author-tag">Shi H</span>
+                <span class="author-tag">Ge N</span>
+                <span class="author-tag">Guo J</span>
+                <span class="author-tag">Xie Y</span>
+                <span class="author-tag">Sun S</span>
+                <span class="author-tag">Yang F</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><i class="fas fa-book"></i> 出典</div>
+            <p class="source-info">J Transl Med. 2026 Jun 19. doi: 10.1186/s12967-026-08489-0. Online ahead of print.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><i class="fas fa-fingerprint"></i> DOI</div>
+            <p class="doi-info"><a href="https://doi.org/10.1186/s12967-026-08489-0" target="_blank" rel="noopener noreferrer">10.1186/s12967-026-08489-0</a></p>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><i class="fas fa-tags"></i> キーワード</div>
+            <div class="keywords">
+                <span class="keyword-tag">Pancreatic organoids</span>
+                <span class="keyword-tag">Organoid-on-a-chip</span>
+                <span class="keyword-tag">Disease modeling</span>
+                <span class="keyword-tag">Precision therapy</span>
+                <span class="keyword-tag">Pancreatic cancer</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><i class="fas fa-link"></i> 詳細情報</div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42321786/" target="_blank" rel="noopener noreferrer" class="link-button">PubMedで論文を見る <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+</body>
+</html>
