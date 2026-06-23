@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography and Japanese support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 8px solid #007bff; /* Accent color */
+        }
+        header {
+            background-color: #007bff; /* Primary color */
+            color: #ffffff;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.4em;
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        /* Icon styling for section headers */
+        .section h2::before {
+            content: ''; /* Placeholder for specific icons */
+            color: #007bff;
+            margin-right: 10px;
+            font-size: 1.2em;
+            line-height: 1;
+            font-weight: normal;
+        }
+        .section h2.authors-icon::before { content: '👥'; }
+        .section h2.source-icon::before { content: '📚'; }
+        .section h2.doi-icon::before { content: '🔗'; }
+        .section h2.keywords-icon::before { content: '🏷️'; }
+        .section h2.summary-icon::before { content: '📝'; }
+        .section h2.details-icon::before { content: '🔬'; }
+
+        .section p, .section ul {
+            margin: 0 0 10px 0;
+            padding-left: 0;
+        }
+        .section ul {
+            list-style: none;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .section ul li::before {
+            content: '›'; /* Arrow or checkmark */
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .authors {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .source-info {
+            font-style: italic;
+            color: #666;
+        }
+        .doi-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+        .keywords span {
+            display: inline-block;
+            background-color: #e9f5ff; /* Light blue background for tags */
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 0 8px 8px 0;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .summary-japanese {
+            background-color: #f0f8ff; /* Very light blue for summary */
+            border-left: 5px solid #007bff;
+            padding: 20px 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .summary-japanese p {
+            font-size: 1.05em;
+            color: #333;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #e0e0e0;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                margin: 15px;
+                border-radius: 8px;
+            }
+            header {
+                padding: 20px 25px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 20px 25px;
+            }
+            .section h2 {
+                font-size: 1.2em;
+            }
+            .summary-japanese {
+                padding: 15px 20px;
+                margin: 15px 0;
+            }
+            .keywords span {
+                margin: 0 5px 5px 0;
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+            footer {
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>A mosaic of whole-body representations on the human precentral gyrus.</h1>
+        </header>
+
+        <div class="section">
+            <h2 class="authors-icon">著者</h2>
+            <p class="authors">Deo DR, Okorokova EV, Pritchard AL, Hahn NV, Card NS, Nason-Tomaszewski SR, Jude J, Hosman T, Choi EY, Qiu D, Meng Y, Wairagkar M, Nicolas C, Kamdar FB, Iacobacci C, Acosta A, Hochberg LR, Cash SS, Williams ZM, Rubin DB, Brandman DM, Stavisky SD, AuYong N, Pandarinath C, Downey JE, Bensmaia SJ, Henderson JM, Willett FR.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="source-icon">出典</h2>
+            <p class="source-info">Nature. 2026 Jun 17. Online ahead of print.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="doi-icon">DOI</h2>
+            <p><a href="https://doi.org/10.1038/s41586-026-10653-x" target="_blank" class="doi-link">10.1038/s41586-026-10653-x</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="keywords-icon">キーワード</h2>
+            <div class="keywords">
+                <span>Whole-body representations</span>
+                <span>precentral gyrus</span>
+                <span>human brain</span>
+                <span>neuroscience</span>
+                <span>motor cortex</span>
+            </div>
+        </div>
+
+        <div class="section summary-japanese">
+            <h2 class="summary-icon">日本語要約</h2>
+            <p>本論文は、ヒトの前中心回（運動皮質の一部）における全身の運動表現がどのように組織化されているかを詳細に調査しています。研究は、前中心回に全身の様々な部位がモザイク状に表現されていることを示唆しており、ヒトの脳における運動制御の複雑なメカニズムの理解を深めるものです。</p>
+        </div>
+
+        <div class="section">
+            <h2 class="details-icon">追加情報</h2>
+            <ul>
+                <li>HD-MEA使用: <span style="font-weight: bold;">いいえ</span></li>
+                <li>スパイクソーティング手法: <span style="font-style: italic;">指定なし</span></li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>詳細情報: <a href="https://pubmed.ncbi.nlm.nih.gov/42310450/" target="_blank">PubMedリンク</a></p>
+        </footer>
+    </div>
+</body>
+</html>
