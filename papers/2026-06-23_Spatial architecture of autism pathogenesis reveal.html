@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* 明るい背景色 */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            overflow: hidden;
+            border-left: 8px solid #007bff; /* アクセントカラーのボーダー */
+        }
+
+        /* ヘッダー（論文タイトル） */
+        header {
+            background-color: #007bff; /* メインのアクセントカラー */
+            color: #ffffff;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 4px solid #0056b3; /* 少し濃い色のボーダー */
+        }
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* 各情報セクション */
+        .content-section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee; /* セクション間の区切り線 */
+        }
+        .content-section:last-child {
+            border-bottom: none; /* 最後のセクションには区切り線なし */
+        }
+
+        h2 {
+            color: #007bff; /* セクションタイトルもアクセントカラー */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef; /* セクションタイトルの下線 */
+            padding-bottom: 8px;
+        }
+
+        /* 詳細情報のグリッドレイアウト */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* レスポンシブなグリッド */
+            gap: 20px; /* グリッドアイテム間のスペース */
+        }
+        .detail-item {
+            background-color: #f8f9fa; /* アイテムの背景色 */
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e6ea;
+        }
+        .detail-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .detail-item a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all; /* 長いURLがはみ出さないように */
+        }
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードのタグ表示 */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap; /* キーワードが複数行になっても対応 */
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa; /* タグの背景色 */
+            color: #007bff; /* タグの文字色 */
+            padding: 8px 15px;
+            border-radius: 20px; /* 角丸でタグらしく */
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #b2ebf2;
+        }
+
+        /* 日本語要約セクション */
+        .summary-section p {
+            font-size: 1.1em;
+            color: #444;
+            background-color: #f0f8ff; /* 要約の背景色 */
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #007bff; /* アクセントボーダー */
+        }
+
+        /* フッター */
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #777;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>Spatial architecture of autism pathogenesis reveals mosaic structural disarray during early development.</h1>
+        </header>
+
+        <div class="content-section">
+            <h2>論文詳細情報</h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <strong>著者</strong>
+                    <p>Lin L, Saw TY, Chou N, Goh JLJ, Kwa JE, Chock WK, Singhal V, Li Z, Huang MJ, Ng HH, Khor CC, Kuan HL, Chen KH, Prabhakar S, Liu J.</p>
+                </div>
+                <div class="detail-item">
+                    <strong>出典</strong>
+                    <p>Nat Commun. 2026 Jun 13. doi: 10.1038/s41467-026-74320-5. Online ahead of print.</p>
+                </div>
+                <div class="detail-item">
+                    <strong>DOI</strong>
+                    <p><a href="https://doi.org/10.1038/s41467-026-74320-5" target="_blank" rel="noopener noreferrer">10.1038/s41467-026-74320-5</a></p>
+                </div>
+                <div class="detail-item">
+                    <strong>PubMed URL</strong>
+                    <p><a href="https://pubmed.ncbi.nlm.nih.gov/42288509/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42288509/</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Autism</span>
+                <span class="keyword-tag">Pathogenesis</span>
+                <span class="keyword-tag">Spatial architecture</span>
+                <span class="keyword-tag">Early development</span>
+                <span class="keyword-tag">Structural disarray</span>
+            </div>
+        </div>
+
+        <div class="content-section summary-section">
+            <h2>日本語要約</h2>
+            <p>
+                この論文は、自閉症の病態形成における空間的な構造に着目し、初期発達段階においてモザイク状の構造的乱れが存在することを明らかにしています。具体的には、自閉症の発症メカニズムを理解する上で、脳の微細な構造変化とその空間的配置が重要であることを示唆しており、今後の研究や治療法開発に新たな視点を提供するものです。
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
