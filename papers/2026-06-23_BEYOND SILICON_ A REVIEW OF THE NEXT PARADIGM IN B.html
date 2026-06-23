@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック: BEYOND SILICON</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1; /* Ensure content is above pseudo-elements */
+        }
+        /* Decorative background elements */
+        .infographic-container::before,
+        .infographic-container::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(50px); /* Soften the edges */
+        }
+        .infographic-container::before {
+            top: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(144, 238, 144, 0.4) 0%, transparent 70%); /* Light green */
+        }
+        .infographic-container::after {
+            bottom: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(173, 216, 230, 0.4) 0%, transparent 70%); /* Light blue */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-top: 0; /* Reset default margin */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .section-card {
+            background-color: #f9fbfd;
+            border-left: 5px solid #4CAF50; /* Green accent */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1; /* Ensure card content is above pseudo-elements */
+        }
+        .section-card.blue {
+            border-left-color: #2196F3; /* Blue accent */
+        }
+        .section-card.purple {
+            border-left-color: #9C27B0; /* Purple accent */
+        }
+        .section-card.orange {
+            border-left-color: #FF9800; /* Orange accent */
+        }
+        p {
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa; /* Light cyan */
+            color: #00796b; /* Dark cyan */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .keyword-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+        .keyword-tag::before {
+            content: '🧬'; /* DNA icon */
+            font-size: 1.1em;
+        }
+        .summary-text {
+            font-size: 1.1em;
+            color: #555;
+            background-color: #e8f5e9; /* Light green background for summary */
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+        }
+        .icon {
+            margin-right: 10px;
+            font-size: 1.4em;
+            color: #4CAF50; /* Default icon color */
+        }
+        .icon.blue { color: #2196F3; }
+        .icon.purple { color: #9C27B0; }
+        .icon.orange { color: #FF9800; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .section-card {
+                padding: 15px;
+            }
+            .summary-text {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section-card purple">
+            <h2><span class="icon purple">📄</span> 論文タイトル</h2>
+            <p><strong>BEYOND SILICON: A REVIEW OF THE NEXT PARADIGM IN BIOLOGICAL COMPUTING AND NEUROMORPHIC SYSTEMS</strong></p>
+        </div>
+
+        <div class="section-card blue">
+            <h2><span class="icon blue">✍️</span> 著者</h2>
+            <p>E Oladejo, S Saminu, I Muniru, S Yahaya, TM Ajibola…</p>
+        </div>
+
+        <div class="section-card orange">
+            <h2><span class="icon orange">📚</span> 出典</h2>
+            <p>Faculty of Engineering and …</p>
+        </div>
+
+        <div class="section-card">
+            <h2><span class="icon">🔗</span> 論文URL</h2>
+            <p><a href="https://proceedings.feticon.com.ng/index.php/feticon/article/download/302/208" target="_blank" rel="noopener noreferrer">論文をダウンロード</a></p>
+            <p>DOI: (情報なし)</p>
+        </div>
+
+        <div class="section-card blue">
+            <h2><span class="icon blue">🏷️</span> キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Organoid Intelligence</span>
+                <span class="keyword-tag">Biological Computing</span>
+                <span class="keyword-tag">Neuromorphic Systems</span>
+                <span class="keyword-tag">DNA storage</span>
+                <span class="keyword-tag">DNA transistors</span>
+            </div>
+        </div>
+
+        <div class="section-card purple">
+            <h2><span class="icon purple">📝</span> 日本語要約</h2>
+            <p class="summary-text">
+                本論文「BEYOND SILICON: A REVIEW OF THE NEXT PARADIGM IN BIOLOGICAL COMPUTING AND NEUROMORPHIC SYSTEMS」は、従来のシリコンベースのコンピューティングの限界を超え、次世代のコンピューティングパラダイムを探求するレビュー論文です。
+                特に、生物学的コンピューティングとニューロモルフィックシステムに焦点を当て、オルガノイド知能、DNAストレージ、DNAトランジスタといった革新的な技術の可能性と現状について詳細に論じています。
+                この研究は、脳型コンピューティングや生体分子を用いた情報処理の未来を展望し、新たな計算モデルの発展に貢献することを目指しています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
