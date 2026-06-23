@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+        }
+
+        /* Main Container for the Infographic */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px auto;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            overflow: hidden;
+            border-top: 8px solid #4CAF50; /* Accent color for the top border */
+        }
+
+        /* Header Section (Title) */
+        header {
+            background-color: #4CAF50; /* Green header background */
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Individual Information Sections */
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee; /* Separator line */
+            display: flex;
+            align-items: flex-start; /* Align content to the top */
+            gap: 20px; /* Space between icon and content */
+        }
+        .section:last-of-type {
+            border-bottom: none; /* No border for the last section */
+        }
+
+        /* Icon for each section */
+        .section-icon {
+            font-size: 2.5em; /* Large icon size */
+            color: #4CAF50; /* Accent color for icons */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            width: 40px; /* Fixed width for consistent alignment */
+            text-align: center;
+        }
+
+        /* Content area for each section */
+        .section-content {
+            flex-grow: 1; /* Allow content to take available space */
+        }
+        .section h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            color: #2c3e50; /* Darker title color */
+            font-weight: 700;
+        }
+        .section p, .section ul {
+            margin: 0;
+            font-size: 1em;
+            color: #555;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+        }
+        .section a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for Keywords */
+        .keywords span {
+            display: inline-block;
+            background-color: #e0f2f1; /* Light teal background */
+            color: #00796b; /* Dark teal text */
+            padding: 6px 12px;
+            border-radius: 20px; /* Pill shape */
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Highlight for key technologies */
+        .highlight {
+            background-color: #d4edda; /* Light green background */
+            color: #155724; /* Dark green text */
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Japanese Summary Section */
+        .summary-jp {
+            background-color: #e8f5e9; /* Very light green background */
+            padding: 30px 40px;
+            border-top: 1px solid #d0e0d0;
+            color: #388e3c; /* Green text */
+        }
+        .summary-jp h2 {
+            color: #2e7d32; /* Darker green title */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .summary-jp p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #4CAF50; /* Accent green for summary text */
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cells on IC Chip.</h1>
+        </header>
+
+        <div class="section">
+            <div class="section-icon">✍️</div>
+            <div class="section-content">
+                <h2>著者</h2>
+                <p>Hui W, Wang Y, Wei M, Yu S, Zhou Y, Ka-Meng L, Yang N, Zhu Z.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">📚</div>
+            <div class="section-content">
+                <h2>出版情報</h2>
+                <p><strong>ジャーナル:</strong> ACS Sens.</p>
+                <p><strong>発行日:</strong> 2026 Jun 17. (Online ahead of print)</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1021/acssensors.6c00959" target="_blank" rel="noopener noreferrer">10.1021/acssensors.6c00959</a></p>
+                <p><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42308156/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42308156/</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🏷️</div>
+            <div class="section-content">
+                <h2>キーワード</h2>
+                <div class="keywords">
+                    <span>Cells</span>
+                    <span>IC chip</span>
+                    <span>biosensors</span>
+                    <span>microfabrication</span>
+                    <span>bioelectronics</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🔬</div>
+            <div class="section-content">
+                <h2>主要技術・手法</h2>
+                <p>この研究では、以下の主要な技術が使用されています。</p>
+                <div class="highlight">
+                    高密度多電極アレイ (HD-MEA) を使用
+                </div>
+                <!-- spike_sorting_method は情報が空のため表示しません -->
+            </div>
+        </div>
+
+        <div class="summary-jp">
+            <h2>日本語要約</h2>
+            <p>本論文「Cells on IC Chip.」は、ICチップ上に細胞を配置する革新的な技術に焦点を当てています。バイオセンサーやバイオエレクトロニクス分野への応用を目指し、マイクロファブリケーション技術を用いて細胞とICチップの統合を探求しています。特に、高密度多電極アレイ（HD-MEA）技術が使用されており、細胞活動の精密な計測と解析に貢献していると考えられます。この研究は、生体と電子デバイスのインターフェースにおける新たな可能性を開くものです。</p>
+        </div>
+
+        <footer>
+            <p>生成された論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
