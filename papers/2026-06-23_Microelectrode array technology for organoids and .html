@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* 柔らかい背景色 */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            overflow: hidden; /* 角丸に合わせたコンテンツのクリッピング */
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #2c3e50; /* ダークなヘッダー背景 */
+            color: #ecf0f1; /* 明るいテキスト色 */
+            padding: 25px 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 30px;
+        }
+
+        /* 論文カード */
+        .paper-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            background-color: #fdfdfd;
+        }
+
+        .paper-title {
+            font-size: 1.8em;
+            color: #2980b9; /* 目を引く青色 */
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* 各セクション */
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0; /* 点線で区切り */
+        }
+
+        .section:last-of-type {
+            border-bottom: none; /* 最後のセクションは区切り線なし */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h3 {
+            font-size: 1.2em;
+            color: #34495e; /* セクション見出しの色 */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db; /* 左ボーダーで強調 */
+            padding-left: 10px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .section ul li strong {
+            min-width: 120px; /* ラベルの幅を揃える */
+            color: #555;
+        }
+
+        .section ul li a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードタグ */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* タグ間のスペース */
+        }
+
+        .tag {
+            background-color: #e7f3f9; /* タグの背景色 */
+            color: #2980b9; /* タグのテキスト色 */
+            padding: 6px 12px;
+            border-radius: 20px; /* 角丸でタグらしく */
+            font-size: 0.9em;
+            white-space: nowrap; /* タグが途中で改行されないように */
+        }
+
+        /* 日本語要約 */
+        .summary p {
+            background-color: #f9f9f9;
+            border-left: 5px solid #2ecc71; /* 緑色の左ボーダーで強調 */
+            padding: 15px;
+            margin: 0;
+            border-radius: 4px;
+            color: #444;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-card">
+                <h2 class="paper-title">Microelectrode array technology for organoids and microphysiological systems.</h2>
+
+                <div class="section authors">
+                    <h3>著者</h3>
+                    <ul>
+                        <li>Toymus AT, Karim T, Frimat JP, de Vrij FMS, Mastrangeli M.</li>
+                    </ul>
+                </div>
+
+                <div class="section publication-info">
+                    <h3>出版情報</h3>
+                    <ul>
+                        <li><strong>雑誌:</strong> <span>Trends Biotechnol.</span></li>
+                        <li><strong>発行日:</strong> <span>2026 Jun 19</span></li>
+                        <li><strong>DOI:</strong> <a href="https://doi.org/10.1016/j.tibtech.2026.05.027" target="_blank" rel="noopener noreferrer">10.1016/j.tibtech.2026.05.027</a></li>
+                        <li><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42321076/" target="_blank" rel="noopener noreferrer">PubMed</a></li>
+                    </ul>
+                </div>
+
+                <div class="section keywords">
+                    <h3>キーワード</h3>
+                    <div class="tag-container">
+                        <span class="tag">Microelectrode array</span>
+                        <span class="tag">organoids</span>
+                        <span class="tag">microphysiological systems</span>
+                        <span class="tag">biotechnology</span>
+                        <span class="tag">review</span>
+                    </div>
+                </div>
+
+                <div class="section additional-info">
+                    <h3>追加情報</h3>
+                    <ul>
+                        <li><strong>高密度MEAの使用:</strong> <span class="hd-mea-status">いいえ</span></li>
+                        <li><strong>スパイクソーティング手法:</strong> <span class="spike-sorting-method">記載なし</span></li>
+                    </ul>
+                </div>
+
+                <div class="section summary">
+                    <h3>日本語要約</h3>
+                    <p>
+                        本論文は、オルガノイド（臓器様構造）やマイクロ生理学的システム（MPS）といった先進的なin vitroモデルにおけるマイクロ電極アレイ（MEA）技術の応用について、包括的にレビューしています。バイオテクノロジーの観点から、これらのシステムにおけるMEAの利用可能性、課題、そして将来の展望を探求しています。なお、本レビューでは高密度MEAの使用は報告されておらず、特定のスパイクソーティング手法についても言及されていません。
+                    </p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報ジェネレーター</p>
+        </footer>
+    </div>
+</body>
+</html>
