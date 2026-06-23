@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: 日本語 (Noto Sans JP) と英語 (Roboto) のフォントを読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー */
+        .infographic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .infographic-header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* 日本語要約 */
+        .japanese-summary {
+            background-color: #e8f5e9; /* 薄い緑の背景 */
+            border-left: 5px solid #4caf50; /* 緑の左ボーダー */
+            padding: 15px 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            font-size: 1.1em;
+            color: #388e3c; /* 濃い緑のテキスト */
+            text-align: left;
+        }
+
+        .japanese-summary strong {
+            color: #2e7d32;
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .paper-title {
+            font-size: 2.2em;
+            color: #34495e;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* 詳細情報のグリッドレイアウト */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* 各詳細項目 */
+        .detail-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-item .icon {
+            font-size: 2.5em;
+            color: #3498db; /* 青色のアイコン */
+            margin-bottom: 15px;
+        }
+
+        .detail-item h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .detail-item p {
+            font-size: 1em;
+            color: #555;
+            margin: 0;
+        }
+
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードセクション */
+        .keywords-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .keywords-section h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #ecf0f1; /* 薄いグレーの背景 */
+            color: #34495e; /* 濃いテキスト */
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            border: 1px solid #dcdcdc;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .tag:hover {
+            background-color: #dce0e1;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            .infographic-header h1 {
+                font-size: 2em;
+            }
+            .paper-title {
+                font-size: 1.8em;
+            }
+            .details-grid {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            .infographic-header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .japanese-summary {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+            .detail-item h3 {
+                font-size: 1.2em;
+            }
+            .detail-item .icon {
+                font-size: 2em;
+            }
+            .keywords-section h3 {
+                font-size: 1.3em;
+            }
+            .tag {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1>論文情報インフォグラフィック</h1>
+            <p class="japanese-summary">
+                <strong>日本語要約:</strong> この論文は、多項目動的光コヒーレンストモグラフィー（OCT）を用いて、外部ストレスにさらされたヒト心臓オルガノイドを評価する研究です。心臓オルガノイドの機能や構造変化を非侵襲的に詳細に解析する新しい手法を提案しています。
+            </p>
+        </header>
+
+        <main class="infographic-content">
+            <section class="paper-title-section">
+                <h2 class="paper-title">Multiparametric dynamic optical coherence tomography for evaluation of human cardiac organoids subjected to external stress.</h2>
+            </section>
+
+            <section class="details-grid">
+                <div class="detail-item">
+                    <i class="icon fas fa-user-friends"></i>
+                    <h3>著者</h3>
+                    <p>Shitiri NC, Le TD, Yoo SJ, Cho M, Kim YS, Ahn Y, Lee C.</p>
+                </div>
+                <div class="detail-item">
+                    <i class="icon fas fa-journal-whills"></i>
+                    <h3>掲載誌</h3>
+                    <p>Biomed Opt Express. 2026 May 7;17(6):2832-2851. eCollection 2026 Jun 1.</p>
+                </div>
+                <div class="detail-item">
+                    <i class="icon fas fa-link"></i>
+                    <h3>DOI</h3>
+                    <p><a href="https://doi.org/10.1364/BOE.586959" target="_blank" rel="noopener noreferrer">10.1364/BOE.586959</a></p>
+                </div>
+                <div class="detail-item">
+                    <i class="icon fas fa-globe"></i>
+                    <h3>PubMed URL</h3>
+                    <p><a href="https://pubmed.ncbi.nlm.nih.gov/42311306/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42311306/</a></p>
+                </div>
+            </section>
+
+            <section class="keywords-section">
+                <h3>キーワード</h3>
+                <div class="keyword-tags">
+                    <span class="tag">Cardiac organoids</span>
+                    <span class="tag">Optical coherence tomography</span>
+                    <span class="tag">External stress</span>
+                    <span class="tag">Human organoids</span>
+                    <span class="tag">Biomedical optics</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
