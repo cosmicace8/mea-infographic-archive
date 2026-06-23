@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            border-left: 8px solid #007bff; /* アクセントカラー */
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .section p {
+            margin: 5px 0;
+        }
+
+        .authors-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .authors-container span {
+            display: inline-block;
+            background-color: #e9f5ff;
+            color: #0056b3;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            border: 1px solid #cce5ff;
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid #c3e6cb;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .summary-box {
+            background-color: #e6f7ff;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .summary-box p {
+            font-size: 1.1em;
+            color: #004085;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .info-item .icon-label {
+            font-weight: bold;
+            color: #007bff;
+            margin-right: 10px;
+            min-width: 80px; /* ラベルの幅を固定 */
+        }
+        .info-item .content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="summary-box">
+            <h2>日本語要約</h2>
+            <p>本論文は、肺がんの基礎研究および橋渡し研究におけるオルガノイドモデルの応用について包括的にレビューした総説です。オルガノイドモデルが、肺がんの病態解明、薬剤スクリーニング、個別化医療への応用など、多岐にわたる研究分野でどのように活用されているかを解説しています。</p>
+        </div>
+
+        <div class="section">
+            <h2>論文タイトル</h2>
+            <p style="font-size: 1.3em; font-weight: bold; color: #333;">Application of organoid models in basic and translational research of lung cancer: a narrative review.</p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <div class="authors-container">
+                <span>Jin Y</span>
+                <span>Li H</span>
+                <span>Tang C</span>
+                <span>Lan S</span>
+                <span>Liu H</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>詳細情報</h2>
+            <div class="info-item">
+                <div class="icon-label">出典:</div>
+                <div class="content">Transl Lung Cancer Res. 2026 May 31;15(5):149. doi: 10.21037/tlcr-2026-1-0063. Epub 2026 Apr 29.</div>
+            </div>
+            <div class="info-item">
+                <div class="icon-label">DOI:</div>
+                <div class="content"><a href="https://doi.org/10.21037/tlcr-2026-1-0063" target="_blank">10.21037/tlcr-2026-1-0063</a></div>
+            </div>
+            <div class="info-item">
+                <div class="icon-label">PubMed:</div>
+                <div class="content"><a href="https://pubmed.ncbi.nlm.nih.gov/42291349/" target="_blank">pubmed.ncbi.nlm.nih.gov/42291349/</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Organoid models</span>
+                <span class="keyword-tag">Lung cancer</span>
+                <span class="keyword-tag">Translational research</span>
+                <span class="keyword-tag">Basic research</span>
+                <span class="keyword-tag">Narrative review</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
