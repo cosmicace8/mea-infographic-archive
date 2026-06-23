@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2, h3 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .paper-details .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            border-left: none; /* Override h2 style */
+            padding-left: 0; /* Override h2 style */
+        }
+
+        .paper-details p {
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+
+        .paper-details strong {
+            color: #555;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .links p {
+            margin: 0;
+        }
+
+        .links a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .key-features h3 {
+            margin-top: 30px;
+        }
+
+        .keywords h4, .methodology h4 {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .keywords ul, .methodology ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords li, .methodology li {
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            padding: 8px 15px;
+            font-size: 0.95em;
+            color: #34495e;
+            display: flex;
+            align-items: center;
+        }
+
+        .methodology .status {
+            font-weight: 600;
+            margin-left: 8px;
+            color: #27ae60; /* Green for 'Yes' */
+        }
+
+        .methodology .status::before {
+            content: '✅'; /* Checkmark icon */
+            margin-right: 5px;
+        }
+
+        .japanese-summary p {
+            background-color: #f8f9fa;
+            border-left: 4px solid #9b59b6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-details .title {
+                font-size: 1.5em;
+            }
+            h2, h3 {
+                font-size: 1.3em;
+            }
+            .links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .paper-details .title {
+                font-size: 1.3em;
+            }
+            h2, h3 {
+                font-size: 1.2em;
+            }
+            .keywords li, .methodology li {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-details">
+            <h2 class="title">Investigating the mechanisms underlying saccade generation in the frontal eye fields using multi-site microstimulation.</h2>
+            <p class="authors"><strong>著者:</strong> Johnston R, Konecky RO, Katnani HA, Gandhi NJ, Smith MA.</p>
+            <p class="source"><strong>掲載誌:</strong> J Neurophysiol. 2026 Jun 18. doi: 10.1152/jn.00634.2025. Online ahead of print.</p>
+            <div class="links">
+                <p class="doi"><strong>DOI:</strong> <a href="https://doi.org/10.1152/jn.00634.2025" target="_blank" rel="noopener noreferrer">10.1152/jn.00634.2025</a></p>
+                <p class="pubmed-url"><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42312913/" target="_blank" rel="noopener noreferrer">PubMedリンク</a></p>
+            </div>
+        </section>
+
+        <section class="key-features">
+            <h3>主要な特徴</h3>
+            <div class="keywords">
+                <h4>キーワード:</h4>
+                <ul>
+                    <li>Saccade generation</li>
+                    <li>frontal eye fields</li>
+                    <li>microstimulation</li>
+                    <li>neurophysiology</li>
+                    <li>mechanisms</li>
+                </ul>
+            </div>
+            <div class="methodology">
+                <h4>手法・技術:</h4>
+                <ul>
+                    <li class="hd-mea">高密度MEA使用: <span class="status">はい</span></li>
+                    <!-- spike_sorting_method は空のため表示しません -->
+                </ul>
+            </div>
+        </section>
+
+        <section class="japanese-summary">
+            <h3>日本語要約</h3>
+            <p>
+                本研究は、前頭眼野（FEF）におけるサッカード（急速眼球運動）生成の根底にあるメカニズムを解明することを目的としています。多点微小刺激という先進的な手法を用いることで、FEFがどのようにサッカード運動を制御しているか、その神経生理学的基盤を詳細に調査し、新たな知見を提供します。
+            </p>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
