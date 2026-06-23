@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red for emphasis */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --card-bg-1: #ecf0f1; /* Light Grey */
+            --card-bg-2: #dbe4e6; /* Slightly darker grey */
+            --card-bg-3: #c0d6e4; /* Light blue-grey */
+            --card-bg-4: #a7bed3; /* Medium blue-grey */
+            --card-bg-5: #89a8c0; /* Darker blue-grey for summary */
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        /* Header Section */
+        .infographic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .infographic-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Paper Title Section */
+        .paper-title-section {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .paper-title-section h2 {
+            font-size: 1.8em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .paper-title-section h2 a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-title-section h2 a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--card-bg-1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+        }
+
+        .card p, .card ul {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '•'; /* Bullet point for list items */
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Specific card background colors */
+        .author-card { background-color: var(--card-bg-1); }
+        .source-card { background-color: var(--card-bg-2); }
+        .doi-card { background-color: var(--card-bg-3); }
+        .keywords-card { background-color: var(--card-bg-4); }
+        .summary-card {
+            background-color: var(--card-bg-5);
+            grid-column: 1 / -1; /* Span full width for summary */
+        }
+        .summary-card h3 {
+            border-bottom-color: var(--accent-color); /* Different border color for summary */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            .infographic-header h1 {
+                font-size: 2em;
+            }
+            .paper-title-section h2 {
+                font-size: 1.5em;
+            }
+            .main-content {
+                grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+            }
+            .summary-card {
+                grid-column: auto; /* Reset span for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px;
+            }
+            .infographic-header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title-section h2 {
+                font-size: 1.3em;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h3 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-title-section">
+            <h2><a href="https://pubmed.ncbi.nlm.nih.gov/42306776/" target="_blank" rel="noopener noreferrer">Integrated protocol for concurrent generation of microglial and neuronal cells in human cerebral organoids.</a></h2>
+        </section>
+
+        <div class="main-content">
+            <div class="card author-card">
+                <h3>著者</h3>
+                <p>Lee Y, Roffman JL, Karmacharya R.</p>
+            </div>
+
+            <div class="card source-card">
+                <h3>出典</h3>
+                <p>BMC Methods. 2026;3:9.</p>
+            </div>
+
+            <div class="card doi-card">
+                <h3>DOI</h3>
+                <p><a href="https://doi.org/10.1186/s44330-026-00062-x" target="_blank" rel="noopener noreferrer">10.1186/s44330-026-00062-x</a></p>
+            </div>
+
+            <div class="card keywords-card">
+                <h3>キーワード</h3>
+                <ul>
+                    <li>Microglial cells</li>
+                    <li>neuronal cells</li>
+                    <li>cerebral organoids</li>
+                    <li>human</li>
+                    <li>protocol</li>
+                </ul>
+            </div>
+
+            <div class="card summary-card">
+                <h3>日本語要約</h3>
+                <p>本論文は、ヒト脳オルガノイドにおいて、ミクログリア細胞と神経細胞を同時に生成するための統合プロトコルについて記述しています。このプロトコルは、ヒトの脳発生や疾患モデル研究において、これらの重要な細胞タイプを共培養する新しい手法を提供します。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
