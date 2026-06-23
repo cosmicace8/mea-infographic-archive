@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --border-color: #ecf0f1;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+            border-top: 8px solid var(--secondary-color);
+        }
+
+        .infographic-container::before {
+            content: '📄'; /* Paper icon */
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 0;
+            transform: rotate(15deg);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        .section-header .icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+            color: var(--accent-color);
+        }
+
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .authors-list li {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .authors-list li::before {
+            content: '👤'; /* User icon */
+            margin-right: 5px;
+            font-size: 1.1em;
+        }
+
+        .journal-info {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .journal-info .icon {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-right: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .links a:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .links a .icon {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: #2980b9;
+        }
+
+        .summary-section {
+            background-color: var(--card-bg);
+            border-left: 5px solid var(--accent-color);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .summary-section h2 .icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .summary-section p {
+            font-size: 1.05em;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+                gap: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 15px;
+            }
+            .links a {
+                margin-bottom: 10px;
+                margin-right: 0;
+                width: 100%;
+                justify-content: center;
+            }
+            .authors-list {
+                flex-direction: column;
+            }
+            .authors-list li {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">✨</span>
+                <h3>タイトル</h3>
+            </div>
+            <p style="font-size: 1.3em; font-weight: 700; color: var(--primary-color);">
+                Advances in Biomaterial-Based Cardiac Organoids Engineering for Modeling Development and Congenital Heart Defects.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">✍️</span>
+                <h3>著者</h3>
+            </div>
+            <ul class="authors-list">
+                <li>Song Y</li>
+                <li>Li Y</li>
+                <li>Mai NY</li>
+                <li>Liu H</li>
+                <li>Hong A</li>
+                <li>Jain E</li>
+                <li>Yang H</li>
+                <li>Wang X</li>
+                <li>Ma Z</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📚</span>
+                <h3>掲載情報</h3>
+            </div>
+            <p class="journal-info">
+                <span class="icon">Journal:</span> ACS Appl Bio Mater. 2026 Jun 17. Online ahead of print.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🔗</span>
+                <h3>リンク</h3>
+            </div>
+            <div class="links">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42306928/" target="_blank">
+                    <span class="icon">🌐</span> PubMed URL
+                </a>
+                <a href="https://doi.org/10.1021/acsabm.6c00364" target="_blank">
+                    <span class="icon">🆔</span> DOI: 10.1021/acsabm.6c00364
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🏷️</span>
+                <h3>キーワード</h3>
+            </div>
+            <div class="keywords-list">
+                <span class="keyword-tag">Cardiac organoids</span>
+                <span class="keyword-tag">Biomaterials</span>
+                <span class="keyword-tag">Heart defects</span>
+                <span class="keyword-tag">Developmental modeling</span>
+                <span class="keyword-tag">Tissue engineering</span>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2><span class="icon">📝</span> 日本語要約</h2>
+            <p>
+                本論文は、生体材料を用いた心臓オルガノイド工学の最新の進歩に焦点を当てています。特に、心臓の発生過程のモデリングや、先天性心疾患のメカニズムを解明するための応用について深く掘り下げています。組織工学の技術を活用することで、心臓オルガノイドがこれらの複雑な生物学的プロセスを研究し、新たな治療法開発に貢献する強力なツールとなる可能性を示唆しています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
