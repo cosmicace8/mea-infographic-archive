@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better Japanese and English readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            overflow: hidden; /* Ensures rounded corners are respected */
+        }
+        header {
+            background-color: #2c3e50; /* Dark blue header */
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+        .section {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee; /* Light separator */
+        }
+        .section:last-child {
+            border-bottom: none; /* No border for the last section */
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        h2 {
+            color: #2c3e50; /* Dark blue for section titles */
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db; /* Blue underline */
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .icon {
+            margin-right: 10px;
+            color: #3498db; /* Icon color */
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            color: #555;
+            display: inline-block;
+            min-width: 100px; /* Align labels */
+        }
+        .info-item a {
+            color: #3498db; /* Link color */
+            text-decoration: none;
+            word-break: break-all; /* Prevent long URLs from overflowing */
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap; /* Allow keywords to wrap */
+            gap: 8px; /* Space between tags */
+            margin-top: 15px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f7; /* Light blue background for tags */
+            color: #2980b9; /* Darker blue text for tags */
+            padding: 6px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #a7d9ed; /* Border for tags */
+        }
+        .tech-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa; /* Light background for tech items */
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .tech-item .status-icon {
+            font-size: 1.5em;
+            margin-right: 12px;
+        }
+        .tech-item .status-icon.yes {
+            color: #27ae60; /* Green for 'yes' */
+        }
+        .tech-item .status-icon.no {
+            color: #e74c3c; /* Red for 'no' */
+        }
+        .tech-item .status-icon.info {
+            color: #f39c12; /* Orange for 'info' */
+        }
+        .tech-item span {
+            font-weight: 600;
+            color: #444;
+        }
+        .summary-content {
+            background-color: #f0f8ff; /* Very light blue for summary */
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #d0e0f0;
+            font-size: 1.05em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <div class="section">
+            <h2><span class="icon">📄</span>論文タイトル</h2>
+            <p style="font-size: 1.4em; font-weight: 700; color: #2c3e50; margin-bottom: 15px;">Brain-on-a-Chip and Blood-Brain Barrier–on-a-Chip Modeling for Neurodegenerative Disorders: Recent Progress</p>
+            <div class="info-item">
+                <strong>著者:</strong> D Kempuraj, H Shi, TD Truong, D Kong, A Sharma…
+            </div>
+            <div class="info-item">
+                <strong>出典:</strong> The Neuroscientist, 2026
+            </div>
+            <div class="info-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1177/10738584261453915" target="_blank">10.1177/10738584261453915</a>
+            </div>
+            <div class="info-item">
+                <strong>URL:</strong> <a href="https://journals.sagepub.com/doi/abs/10.1177/10738584261453915" target="_blank">https://journals.sagepub.com/doi/abs/10.1177/10738584261453915</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏷️</span>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Brain-on-a-Chip</span>
+                <span class="keyword-tag">Blood-Brain Barrier</span>
+                <span class="keyword-tag">Neurodegenerative disorders</span>
+                <span class="keyword-tag">Modeling</span>
+                <span class="keyword-tag">Recent progress</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🔬</span>技術情報</h2>
+            <div class="tech-info">
+                <div class="tech-item">
+                    <span class="status-icon no">✖</span>
+                    <span>HD-MEA (高密度多点電極アレイ) の使用: いいえ</span>
+                </div>
+                <div class="tech-item">
+                    <span class="status-icon info">ℹ️</span>
+                    <span>スパイクソーティング手法: なし</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📝</span>日本語要約</h2>
+            <div class="summary-content">
+                <p>この論文は、「Brain-on-a-Chip（脳チップ）」および「Blood-Brain Barrier–on-a-Chip（血液脳関門チップ）」技術を用いて、神経変性疾患のモデリングにおける最新の進捗について解説しています。これらの先進的なin vitroモデルが、神経変性疾患の研究と治療法開発にどのように貢献しているかを探るものです。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
