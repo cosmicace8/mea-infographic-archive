@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 8px solid #4CAF50; /* Accent color */
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        h2::before {
+            content: '•'; /* Simple icon for section headers */
+            color: #4CAF50;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        .label {
+            font-weight: 700;
+            color: #555;
+            margin-right: 8px;
+        }
+        .authors, .source, .doi {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keyword-tag {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2196F3;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+        .summary p {
+            margin: 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .detail-item .value {
+            font-weight: 500;
+        }
+        .link-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        .status-true {
+            background-color: #e8f5e9; /* Light green */
+            color: #2e7d32; /* Dark green */
+        }
+        .status-false {
+            background-color: #ffebee; /* Light red */
+            color: #c62828; /* Dark red */
+        }
+        .status-na {
+            background-color: #eceff1; /* Light grey */
+            color: #455a64; /* Dark grey */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Neural Interfaces: Bridging Cognitive Neuroscience and Artificial Intelligence</h1>
+
+        <div class="section authors">
+            <span class="label">著者:</span> A Singh
+        </div>
+
+        <div class="section source">
+            <span class="label">情報源:</span> Book
+            <span class="label" style="margin-left: 20px;">DOI:</span> N/A
+        </div>
+
+        <h2>キーワード</h2>
+        <ul class="keywords-list">
+            <li class="keyword-tag">neural interfaces</li>
+            <li class="keyword-tag">brain-computer interfaces</li>
+            <li class="keyword-tag">cognitive neuroscience</li>
+            <li class="keyword-tag">artificial intelligence</li>
+            <li class="keyword-tag">microelectrode array</li>
+        </ul>
+
+        <h2>日本語要約</h2>
+        <div class="summary">
+            <p>この書籍（または章）は、「ニューラルインターフェース」が認知神経科学と人工知能の間の架け橋となる可能性を探求しています。脳とコンピュータのインターフェース（BCI）技術やマイクロ電極アレイなどの概念を通じて、脳の機能理解とAIの発展におけるニューラルインターフェースの重要性を論じています。</p>
+        </div>
+
+        <h2>研究詳細</h2>
+        <div class="section">
+            <div class="detail-item">
+                <span class="label">高密度MEAの使用:</span>
+                <span class="value">いいえ</span>
+                <span class="status-indicator status-false">不使用</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">スパイクソーティング手法:</span>
+                <span class="value">N/A</span>
+                <span class="status-indicator status-na">不明/該当なし</span>
+            </div>
+        </div>
+
+        <a href="https://books.google.com/books?hl=ja&lr=lang_ja|lang_en&id=PJXsEQAAQBAJ&oi=fnd&pg=PR17&dq=%22microelectrode+array%22&ots=BEWujSsFpA&sig=GPwHUQm4IAWfosJ9pX2uG6M1FRI" target="_blank" rel="noopener noreferrer" class="link-button">
+            元の論文（書籍）を見る
+        </a>
+    </div>
+</body>
+</html>
