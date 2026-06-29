@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            border-left: 8px solid #007bff; /* メインアクセントカラー */
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        h1 .main-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        h2 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .section-icon {
+            font-size: 1.1em;
+            margin-right: 8px;
+        }
+        .info-section {
+            margin-bottom: 25px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .info-item .label {
+            min-width: 120px;
+            color: #555;
+            font-weight: 600;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .info-item .label .item-icon {
+            margin-right: 5px;
+            color: #007bff;
+        }
+        .info-item span, .info-item a {
+            flex-grow: 1;
+            color: #333;
+            text-decoration: none;
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b3d9ff;
+            white-space: nowrap; /* キーワードが途中で改行されないように */
+        }
+        .feature-highlight {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            border: 1px solid #c3e6cb;
+        }
+        .feature-highlight .highlight-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #28a745; /* 緑色のアイコン */
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745; /* 要約のアクセントカラー */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .summary-box h2 {
+            color: #28a745;
+            margin-top: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .summary-box h2 .section-icon {
+            color: #28a745;
+        }
+        .summary-box p {
+            margin: 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="main-icon">✨</span>論文情報インフォグラフィック</h1>
+
+        <div class="info-section">
+            <div class="info-item">
+                <div class="label"><span class="item-icon">📄</span>タイトル:</div>
+                <span><a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(26)00313-9" target="_blank" rel="noopener noreferrer">Microelectrodes enable dynamic biointerfaces for closed-loop organs-on-chips</a></span>
+            </div>
+            <div class="info-item">
+                <div class="label"><span class="item-icon">✍️</span>著者:</div>
+                <span>H Luo, L Zhou, F Jin, S Bian, C Jiang, Y Chen, C Li…</span>
+            </div>
+            <div class="info-item">
+                <div class="label"><span class="item-icon">📚</span>出版元:</div>
+                <span>Cell Reports Physical …, 2026</span>
+            </div>
+            <div class="info-item">
+                <div class="label"><span class="item-icon">🔗</span>DOI:</div>
+                <span><a href="https://doi.org/10.1016/S2666-3864(26)00313-9" target="_blank" rel="noopener noreferrer">10.1016/S2666-3864(26)00313-9</a></span>
+            </div>
+            <div class="info-item">
+                <div class="label"><span class="item-icon">🌐</span>URL:</div>
+                <span><a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(26)00313-9" target="_blank" rel="noopener noreferrer">cell.com/cell-reports-physical-science/...</a></span>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2><span class="section-icon">🏷️</span>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Microelectrodes</span>
+                <span class="keyword-tag">Biointerfaces</span>
+                <span class="keyword-tag">Organs-on-chips</span>
+                <span class="keyword-tag">Closed-loop</span>
+                <span class="keyword-tag">Bioelectronic detection</span>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2><span class="section-icon">💡</span>主要な特徴</h2>
+            <div class="feature-highlight">
+                <span class="highlight-icon">✅</span>
+                <span>高密度マイクロ電極アレイ (HD-MEA) を使用</span>
+            </div>
+            <!-- spike_sorting_method は情報が提供されていないため表示しません -->
+        </div>
+
+        <div class="summary-box">
+            <h2><span class="section-icon">📝</span>日本語要約</h2>
+            <p>本論文は、マイクロ電極を用いて、クローズドループの臓器チップ（Organs-on-chips）における動的な生体インターフェースを実現する研究について報告しています。これにより、生体電気信号の検出と制御が可能となり、より高度な生体模倣システムや薬剤スクリーニングへの応用が期待されます。</p>
+        </div>
+    </div>
+</body>
+</html>
