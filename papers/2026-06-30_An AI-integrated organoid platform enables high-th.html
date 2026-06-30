@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) & Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* ヘッダー (タイトルとPubMedリンク) */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header .pubmed-link {
+            font-size: 0.9em;
+            color: #007bff;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
+        .header .pubmed-link:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* 各情報セクション */
+        .section {
+            background-color: #f9fbfb;
+            border-left: 5px solid #4CAF50; /* メインカラー */
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 svg {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        .section p, .section ul {
+            font-size: 1em;
+            color: #555;
+            margin: 0;
+            padding: 0;
+        }
+        .section ul {
+            list-style: none;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+        }
+
+        /* 著者リスト */
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .authors-list li {
+            background-color: #e0f2f1; /* 著者タグの背景色 */
+            color: #00796b; /* 著者タグの文字色 */
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        /* キーワードリスト */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .keywords-list li {
+            background-color: #e3f2fd; /* キーワードタグの背景色 */
+            color: #1976d2; /* キーワードタグの文字色 */
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* DOIリンク */
+        .doi-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .doi-link:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* 日本語要約セクション */
+        .japanese-summary {
+            background-color: #e8f5e9; /* 要約の背景色 */
+            border-left: 5px solid #28a745; /* 要約の強調色 */
+        }
+        .japanese-summary h2 {
+            color: #28a745;
+        }
+        .japanese-summary p {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #333;
+            padding: 5px 0;
+        }
+
+        /* レスポンシブ対応 (簡易的) */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section h2 {
+                font-size: 1.3em;
+            }
+            .section p, .section ul li {
+                font-size: 0.95em;
+            }
+            .authors-list li, .keywords-list li {
+                font-size: 0.85em;
+                padding: 6px 10px;
+            }
+            .japanese-summary p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>An AI-integrated organoid platform enables high-throughput functional evaluation of bioactive metal ions.</h1>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42327494/" target="_blank" class="pubmed-link">
+                <i class="fas fa-external-link-alt"></i> PubMedで見る
+            </a>
+        </div>
+
+        <div class="section japanese-summary">
+            <h2><i class="fas fa-language"></i> 日本語要約</h2>
+            <p>この研究は、AIを統合したオルガノイドプラットフォームを開発し、生体活性金属イオンの機能評価をハイスループットで行うことを可能にしました。これにより、金属イオンの生物学的影響を効率的かつ詳細に解析できます。</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-user-friends"></i> 著者</h2>
+            <ul class="authors-list">
+                <li>Shao Y</li>
+                <li>Wang Y</li>
+                <li>Wang Y</li>
+                <li>Xu J</li>
+                <li>Li P</li>
+                <li>Zhao J</li>
+                <li>Du X</li>
+                <li>Liu X</li>
+                <li>Xu S</li>
+                <li>Wang L</li>
+                <li>Fan Z</li>
+                <li>Yang Y</li>
+                <li>Guo Y</li>
+                <li>Chen K</li>
+                <li>Wang C</li>
+                <li>Zhang Y</li>
+                <li>Xue F</li>
+                <li>Ge J</li>
+                <li>Chu C</li>
+                <li>Chen Z</li>
+                <li>Gu Z</li>
+                <li>Bai J</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-book"></i> 出典</h2>
+            <p>Bioact Mater. 2026 Jun 13;65:556-572.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-fingerprint"></i> DOI</h2>
+            <p><a href="https://doi.org/10.1016/j.bioactmat.2026.06.003" target="_blank" class="doi-link">10.1016/j.bioactmat.2026.06.003</a></p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
+            <ul class="keywords-list">
+                <li>AI-integrated organoid</li>
+                <li>high-throughput</li>
+                <li>bioactive metal ions</li>
+                <li>functional evaluation</li>
+                <li>organoid platform</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
