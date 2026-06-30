@@ -4,216 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Roboto for English, Noto Sans JP for Japanese -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* 基本スタイル */
         body {
-            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif; /* 英語と日本語のフォント指定 */
             line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
-            box-sizing: border-box;
         }
+
         .infographic-container {
             background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 900px;
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
         }
-        h1 {
+
+        /* ヘッダー/タイトル */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
             font-size: 2.2em;
             color: #2c3e50;
-            margin-bottom: 15px;
-            text-align: center;
-            line-height: 1.3;
-            font-weight: 700;
-        }
-        .section-title {
-            font-size: 1.3em;
-            color: #3498db;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .detail-item {
             margin-bottom: 10px;
+            line-height: 1.3;
         }
-        .detail-item strong {
+
+        .header .authors {
+            font-size: 1.1em;
             color: #555;
-            margin-right: 5px;
-            font-weight: 700;
+            margin-bottom: 20px;
         }
-        .authors {
-            font-style: italic;
-            color: #666;
+
+        /* セクション */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
         }
-        .source, .doi {
+
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2 .icon {
+            margin-right: 10px;
+            color: #3498db; /* アイコンの色 */
+        }
+
+        /* 詳細情報 */
+        .detail-item {
+            display: flex;
+            margin-bottom: 8px;
             font-size: 0.95em;
         }
-        .keywords-container {
+
+        .detail-item strong {
+            min-width: 100px; /* ラベルの幅を調整 */
+            color: #444;
+        }
+
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワード */
+        .keywords-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 10px;
         }
+
         .keyword-tag {
             background-color: #e0f2f7;
             color: #2980b9;
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
+            font-size: 0.85em;
+            font-weight: bold;
         }
-        .keyword-tag:hover {
-            background-color: #cce7f0;
-        }
-        .feature-box {
-            background-color: #f8fcfd;
-            border: 1px solid #d0e9f7;
-            border-left: 5px solid #3498db;
+
+        /* 日本語要約 */
+        .summary-content {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
             padding: 15px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .feature-box .icon {
-            font-size: 2em;
-            color: #27ae60; /* Green for true */
-        }
-        .feature-box .icon.false {
-            color: #e74c3c; /* Red for false */
-        }
-        .feature-box p {
-            margin: 0;
-            font-weight: 600;
+            border-radius: 4px;
+            font-size: 1em;
             color: #444;
         }
-        .summary-box {
-            background-color: #fdf6e3;
-            border: 1px solid #f7e6c3;
-            border-left: 5px solid #f39c12;
-            padding: 20px;
+
+        /* 特徴（uses_hd_mea） */
+        .feature-box {
+            display: flex;
+            align-items: center;
+            background-color: #ecf0f1;
+            padding: 15px 20px;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 10px;
+            font-size: 1em;
+            color: #34495e;
         }
-        .summary-box .section-title {
-            color: #f39c12;
-            border-bottom-color: #f7e6c3;
+
+        .feature-box .icon {
+            margin-right: 15px;
+            color: #27ae60; /* チェックマークの色 */
+            font-size: 1.8em;
         }
-        .url-link {
-            display: block;
+
+        .feature-box.negative .icon {
+            color: #e74c3c; /* バツマークの色 */
+        }
+
+        /* フッター */
+        .footer {
             text-align: center;
-            margin-top: 25px;
-            font-size: 1.1em;
-        }
-        .url-link a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-        .url-link a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .infographic-container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .section-title {
-                font-size: 1.1em;
-            }
-            .feature-box {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            .infographic-container {
-                padding: 15px;
-            }
-            .section-title {
-                font-size: 1em;
-            }
-            .keyword-tag {
-                font-size: 0.8em;
-                padding: 5px 10px;
-            }
+            margin-top: 40px;
+            font-size: 0.85em;
+            color: #777;
         }
     </style>
 </head>
 <body>
     <div class="infographic-container">
-        <h1>Non-Invasive electrophysiological monitoring of cardiac organoids using 3D-Net-assisted microelectrodes array platform.</h1>
+        <div class="header">
+            <h1>Non-Invasive electrophysiological monitoring of cardiac organoids using 3D-Net-assisted microelectrodes array platform.</h1>
+            <p class="authors">Park S, Cho SJ, Kim CY, Chung HM, Lee SG.</p>
+        </div>
 
-        <div class="detail-section">
-            <h2 class="section-title">論文詳細</h2>
+        <div class="section">
+            <h2><i class="fas fa-book icon"></i> 論文情報</h2>
             <div class="detail-item">
-                <strong>著者:</strong> <span class="authors">Park S, Cho SJ, Kim CY, Chung HM, Lee SG.</span>
+                <strong>ジャーナル:</strong> <span>Sci Rep.</span>
             </div>
             <div class="detail-item">
-                <strong>出典:</strong> <span class="source">Sci Rep. 2026 Jan 24;16(1):4428.</span>
+                <strong>出版日:</strong> <span>2026 Jan 24</span>
             </div>
             <div class="detail-item">
-                <strong>DOI:</strong> <span class="doi"><a href="https://doi.org/10.1038/s41598-025-34504-3" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-34504-3</a></span>
+                <strong>巻(号):</strong> <span>16(1)</span>
             </div>
             <div class="detail-item">
-                <strong>キーワード:</strong>
-                <div class="keywords-container">
-                    <span class="keyword-tag">Cardiac organoids</span>
-                    <span class="keyword-tag">Electrophysiological monitoring</span>
-                    <span class="keyword-tag">Microelectrode array</span>
-                    <span class="keyword-tag">3D-Net</span>
-                    <span class="keyword-tag">Non-invasive</span>
-                </div>
+                <strong>ページ:</strong> <span>4428</span>
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41598-025-34504-3" target="_blank">10.1038/s41598-025-34504-3</a>
+            </div>
+            <div class="detail-item">
+                <strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/41580440/" target="_blank">pubmed.ncbi.nlm.nih.gov/41580440/</a>
             </div>
         </div>
 
-        <div class="feature-section">
-            <h2 class="section-title">主要技術・手法</h2>
+        <div class="section">
+            <h2><i class="fas fa-tags icon"></i> キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Electrophysiological monitoring</span>
+                <span class="keyword-tag">Cardiac organoids</span>
+                <span class="keyword-tag">3D-Net</span>
+                <span class="keyword-tag">Microelectrodes array</span>
+                <span class="keyword-tag">Non-invasive</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-language icon"></i> 日本語要約</h2>
+            <div class="summary-content">
+                この論文は、3D-Net技術を応用したマイクロ電極アレイプラットフォームを用いて、心臓オルガノイドの非侵襲的な電気生理学的モニタリングを行う新しい手法について報告しています。このシステムは、高密度マイクロ電極アレイ（HD-MEA）を活用し、心臓オルガノイドの活動を詳細かつ非侵襲的に記録することを可能にします。
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-microchip icon"></i> 研究手法の特徴</h2>
             <div class="feature-box">
-                <span class="icon">&#10003;</span> <!-- Checkmark for true -->
-                <p>高密度マイクロ電極アレイ (HD-MEA) を使用</p>
+                <i class="fas fa-check-circle icon"></i>
+                <span>高密度マイクロ電極アレイ (HD-MEA) を使用しています。</span>
             </div>
-            <!-- spike_sorting_method は空なので、ここでは表示を省略します。 -->
-            <!-- <div class="feature-box">
-                <span class="icon false">&#10007;</span>
-                <p>スパイクソーティング手法: 未記載</p>
-            </div> -->
         </div>
 
-        <div class="summary-box">
-            <h2 class="section-title">日本語要約</h2>
-            <p>本論文は、3D-Net技術を応用したマイクロ電極アレイプラットフォームを用いて、心臓オルガノイドの非侵襲的な電気生理学的モニタリングを行う手法について報告しています。この技術は、心臓オルガノイドの機能評価や薬剤スクリーニングなど、様々な研究分野での応用が期待されます。</p>
-        </div>
-
-        <div class="url-link">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/41580440/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
+        <div class="footer">
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
         </div>
     </div>
 </body>
