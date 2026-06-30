@@ -3,207 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文インフォグラフィック: Microelectrode Arrays Technology for Brain-on-a-Chip Applications.</title>
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP for Japanese, Roboto for English -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2c3e50; /* Dark Blue */
-            --secondary-color: #3498db; /* Bright Blue */
-            --accent-color: #2ecc71; /* Green */
-            --background-color: #ecf0f1; /* Light Gray */
-            --card-background: #ffffff; /* White */
-            --text-color: #34495e; /* Dark Gray */
-            --border-color: #bdc3c7; /* Gray */
-        }
-
         body {
             font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-            background-color: var(--background-color);
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            color: var(--text-color);
-            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* コンテンツが少ない場合でも上部に配置 */
+            min-height: 100vh;
+            box-sizing: border-box;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: var(--card-background);
+        .infographic-container {
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
             padding: 30px;
-            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
         }
-
-        h1 {
-            color: var(--primary-color);
+        .header {
             text-align: center;
             margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .header h1 {
             font-size: 2.2em;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 15px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.6em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 10px;
+        .header .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
         }
-
         .section {
             margin-bottom: 25px;
-            padding: 15px;
-            background-color: #f9fbfb;
-            border-radius: 8px;
-            border: 1px solid #e0e6e8;
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
         }
-
-        .info-item {
-            margin-bottom: 10px;
+        .section:last-of-type { /* 最後のセクションのボーダーを削除 */
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin-bottom: 15px;
             display: flex;
-            align-items: baseline;
+            align-items: center;
         }
-
-        .info-item strong {
-            color: var(--primary-color);
-            min-width: 100px;
-            display: inline-block;
+        .section h2 i {
             margin-right: 10px;
+            color: #3498db; /* アイコンの色 */
+            font-size: 1.2em;
         }
-
-        .info-item a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            word-break: break-all;
+        .section p, .section ul {
+            font-size: 1em;
+            color: #555;
+            margin-left: 30px; /* コンテンツのインデント */
         }
-
-        .info-item a:hover {
-            text-decoration: underline;
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
         }
-
+        .section ul li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .section ul li::before {
+            content: '•';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
         .keywords-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             margin-top: 10px;
+            margin-left: 30px;
         }
-
         .keyword-tag {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 8px 15px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .link {
+            color: #3498db;
+            text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease;
         }
-
-        .keyword-tag:hover {
-            background-color: #2980b9;
+        .link:hover {
+            text-decoration: underline;
         }
-
-        .tech-highlight {
+        .highlight-box {
+            background-color: #e8f6f3; /* Light green for positive */
+            border-left: 5px solid #2ecc71;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-            font-size: 1.1em;
+            margin-left: 30px;
         }
-
-        .tech-highlight .icon {
-            font-size: 1.5em;
-            color: var(--accent-color);
+        .highlight-box.negative {
+            background-color: #fdeded; /* Light red for negative */
+            border-left: 5px solid #e74c3c;
         }
-
-        .tech-highlight .status {
+        .highlight-box i {
+            font-size: 1.8em;
+            margin-right: 15px;
+            color: #2ecc71;
+        }
+        .highlight-box.negative i {
+            color: #e74c3c;
+        }
+        .highlight-box p {
+            margin: 0;
             font-weight: bold;
-            color: var(--accent-color);
+            color: #2c3e50;
         }
-
-        .summary-content {
-            background-color: #e8f4f8;
+        .japanese-summary {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
             padding: 20px;
             border-radius: 8px;
-            border-left: 5px solid var(--accent-color);
-            font-size: 1.1em;
-            line-height: 1.8;
+            margin-top: 30px;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px auto;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
-            }
-            .info-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .info-item strong {
-                min-width: unset;
-                margin-bottom: 5px;
-            }
+        .japanese-summary h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .japanese-summary h2 i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+        .japanese-summary p {
+            font-size: 1.05em;
+            color: #444;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Microelectrode Arrays Technology for Brain-on-a-Chip Applications.</h1>
-
-        <div class="section">
-            <h2>基本情報</h2>
-            <div class="info-item">
-                <strong>著者:</strong>
-                <span>Zhao M, Zhang Y, Wang Y, Liu H, Li M, Zhao Y, Zhang L, Huang C.</span>
-            </div>
-            <div class="info-item">
-                <strong>出典:</strong>
-                <span>Biosensors (Basel). 2026 May 23;16(6):305.</span>
-            </div>
-            <div class="info-item">
-                <strong>DOI:</strong>
-                <a href="https://doi.org/10.3390/bios16060305" target="_blank">10.3390/bios16060305</a>
-            </div>
-            <div class="info-item">
-                <strong>URL:</strong>
-                <a href="https://pubmed.ncbi.nlm.nih.gov/42345861/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42345861/</a>
-            </div>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>Microelectrode Arrays Technology for Brain-on-a-Chip Applications.</h1>
+            <p class="subtitle">論文情報インフォグラフィック</p>
         </div>
 
         <div class="section">
-            <h2>主要キーワード</h2>
+            <h2><i class="fas fa-user-friends"></i> 著者</h2>
+            <p>Zhao M, Zhang Y, Wang Y, Liu H, Li M, Zhao Y, Zhang L, Huang C.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-book"></i> 出典</h2>
+            <p>Biosensors (Basel). 2026 May 23;16(6):305.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-link"></i> リンク</h2>
+            <ul>
+                <li><strong>DOI:</strong> <a href="https://doi.org/10.3390/bios16060305" target="_blank" class="link">10.3390/bios16060305</a></li>
+                <li><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42345861/" target="_blank" class="link">pubmed.ncbi.nlm.nih.gov/42345861/</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tags"></i> キーワード</h2>
             <div class="keywords-container">
-                <span class="keyword-tag">Microelectrode Arrays</span>
-                <span class="keyword-tag">Brain-on-a-Chip</span>
-                <span class="keyword-tag">MEA technology</span>
-                <span class="keyword-tag">neural networks</span>
-                <span class="keyword-tag">biosensors</span>
+                <span class="keyword-tag">Microelectrode arrays</span>
+                <span class="keyword-tag">Brain-on-a-chip</span>
+                <span class="keyword-tag">Biosensors</span>
+                <span class="keyword-tag">Neural interfaces</span>
+                <span class="keyword-tag">In vitro models</span>
             </div>
         </div>
 
         <div class="section">
-            <h2>技術的ハイライト</h2>
-            <div class="tech-highlight">
-                <span class="icon">🔬</span>
-                <strong>高密度MEA使用:</strong>
-                <span class="status">はい</span>
+            <h2><i class="fas fa-microchip"></i> MEA情報</h2>
+            <div class="highlight-box">
+                <i class="fas fa-check-circle"></i>
+                <p>高密度MEA (HD-MEA) を使用しています。</p>
             </div>
-            <!-- スパイクソーティング手法は情報が空欄のため表示しない -->
+            <div class="highlight-box negative">
+                <i class="fas fa-times-circle"></i>
+                <p>スパイクソーティング手法は記載されていません。</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>日本語要約</h2>
-            <div class="summary-content">
-                <p>本論文は、Brain-on-a-Chip（脳チップ）応用における微小電極アレイ（MEA）技術の活用に焦点を当てています。特に、高密度MEA技術を用いて神経ネットワークの活動を詳細に解析し、バイオセンサーとしての可能性を探る研究です。</p>
-            </div>
+        <div class="japanese-summary">
+            <h2><i class="fas fa-language"></i> 日本語要約</h2>
+            <p>
+                本論文「Microelectrode Arrays Technology for Brain-on-a-Chip Applications.」は、Brain-on-a-chip（脳チップ）技術におけるマイクロ電極アレイ（MEA）の応用について探求しています。MEAは、生体センサーや神経インターフェースとして、in vitroモデルにおける神経活動のモニタリングと操作に不可欠なツールです。この研究は、Brain-on-a-chipシステムにおけるMEAの役割、特に高密度MEAの利用を通じて、より高度な神経回路モデルの構築と機能解析に貢献することを目指しています。
+            </p>
         </div>
     </div>
 </body>
