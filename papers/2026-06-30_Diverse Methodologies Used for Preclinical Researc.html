@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-color: #ecf0f1; /* Light Gray */
+            --card-background: #ffffff; /* White */
+            --text-color: #34495e; /* Dark Gray */
+            --light-text-color: #7f8c8d; /* Medium Gray */
+            --border-color: #bdc3c7; /* Gray Border */
+            --tag-background: #e0f2f7; /* Light Blue for tags */
+            --tag-text: #2980b9; /* Darker Blue for tag text */
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 15px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .section.summary {
+            border-left-color: var(--accent-color);
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            line-height: 0;
+        }
+        .section.summary .section-title::before {
+            color: var(--accent-color);
+        }
+
+        .content-item {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .content-item strong {
+            color: var(--primary-color);
+        }
+
+        .authors {
+            font-style: italic;
+            color: var(--light-text-color);
+        }
+
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .keyword-tag {
+            background-color: var(--tag-background);
+            color: var(--tag-text);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--background-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            word-break: break-all;
+        }
+
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+        }
+
+        /* Icons (using simple characters for demonstration) */
+        .icon-title::before { content: "📄"; }
+        .icon-authors::before { content: "🧑‍🔬"; }
+        .icon-source::before { content: "📚"; }
+        .icon-keywords::before { content: "🏷️"; }
+        .icon-summary::before { content: "📝"; }
+        .icon-doi::before { content: "🔗"; }
+        .icon-pubmed::before { content: "🌐"; }
+
+        @media (max-width: 768px) {
+            .infographic-card {
+                padding: 20px;
+                gap: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .content-item, .keyword-tag {
+                font-size: 0.9em;
+            }
+            .links-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-card">
+        <div class="header">
+            <h1 class="icon-title">論文情報インフォグラフィック</h1>
+            <p style="color: var(--light-text-color); font-size: 0.9em;">Preclinical Research into Prenatal Cannabis Exposure</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-title">タイトル</h2>
+            <p class="content-item"><strong>Diverse Methodologies Used for Preclinical Research into Prenatal Cannabis Exposure.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-authors">著者</h2>
+            <p class="content-item authors">Davies S, Dominguez ZM, Maxwell JR.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-source">掲載情報</h2>
+            <p class="content-item"><strong>ジャーナル:</strong> J Vis Exp.</p>
+            <p class="content-item"><strong>発行日:</strong> 2026 Jun 5</p>
+            <p class="content-item"><strong>巻号:</strong> (232).</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title icon-keywords">キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">prenatal cannabis exposure</span>
+                <span class="keyword-tag">preclinical research</span>
+                <span class="keyword-tag">methodologies</span>
+                <span class="keyword-tag">cannabis</span>
+                <span class="keyword-tag">developmental biology</span>
+            </div>
+        </div>
+
+        <div class="section summary">
+            <h2 class="section-title icon-summary">日本語要約</h2>
+            <p class="content-item">
+                本論文は、「出生前大麻曝露」に関する「前臨床研究」で用いられている「多様な研究手法」について概説しています。
+                この分野における様々なアプローチを理解することは、将来の研究デザインや結果の解釈において重要となります。
+                特に、視覚的な実験手法に焦点を当てたジャーナルに掲載されていることから、実験プロトコルや視覚的データ表現に関する知見が期待されます。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">関連リンク</h2>
+            <div class="links-container">
+                <div class="link-item">
+                    <span class="icon icon-doi"></span>
+                    <a href="https://doi.org/10.3791/69557" target="_blank" rel="noopener noreferrer">
+                        DOI: 10.3791/69557
+                    </a>
+                </div>
+                <div class="link-item">
+                    <span class="icon icon-pubmed"></span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/42330002/" target="_blank" rel="noopener noreferrer">
+                        PubMed: 42330002
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
