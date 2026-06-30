@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English/headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6; /* Light background for contrast */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* Accent color on the left */
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Separator */
+        }
+
+        h1.title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50; /* Darker color for main title */
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .japanese-summary {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 15px;
+            padding: 15px 20px;
+            background-color: #e8f5e9; /* Light green background for summary */
+            border-left: 4px solid #4CAF50; /* Accent border */
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .japanese-summary strong {
+            color: #388e3c;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            color: #34495e;
+            border-bottom: 2px solid #4CAF50; /* Accent border for section titles */
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '•'; /* Bullet point icon */
+            color: #4CAF50;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        /* Detail Items (Author, Source, DOI, URL) */
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start; /* Align text to top if content wraps */
+        }
+
+        .detail-item strong {
+            min-width: 120px; /* Fixed width for labels */
+            color: #4CAF50; /* Accent color for labels */
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent label from shrinking */
+        }
+
+        .detail-item span, .detail-item a {
+            flex-grow: 1;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .detail-item a {
+            color: #007bff; /* Link color */
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+            color: #0056b3; /* Darker link color on hover */
+        }
+
+        /* Keywords Section */
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap; /* Allow keywords to wrap to next line */
+            gap: 10px; /* Space between tags */
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f1; /* Light turquoise background */
+            color: #00796b; /* Darker turquoise text */
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .keyword-tag:hover {
+            background-color: #b2dfdb;
+        }
+
+        /* Additional Info Section */
+        .additional-info p {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #ccc; /* Subtle border for info items */
+        }
+
+        .additional-info strong {
+            color: #4CAF50; /* Accent color for labels */
+        }
+
+        /* Icons for better visual appeal (using unicode characters for simplicity) */
+        .icon::before {
+            margin-right: 8px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        .icon-author::before { content: '👤'; } /* Person icon */
+        .icon-source::before { content: '📚'; } /* Books icon */
+        .icon-doi::before { content: '🔗'; } /* Link icon */
+        .icon-url::before { content: '🌐'; } /* Globe icon */
+        .icon-keywords::before { content: '🏷️'; } /* Tag icon */
+        .icon-info::before { content: '💡'; } /* Lightbulb icon */
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1 class="title">Advances in 3D cell culture models for alzheimer's disease drug discovery.</h1>
+            <p class="japanese-summary">
+                <strong>日本語要約:</strong> 本論文は、アルツハイマー病の創薬研究における3D細胞培養モデルの最新の進展に焦点を当てています。従来の2D培養モデルでは再現が難しかった病態生理学的特徴を、より生体内に近い環境で再現できる3D細胞モデルの活用により、効果的な薬剤候補の発見と開発が期待されます。
+            </p>
+        </header>
+
+        <section class="details">
+            <h2><span class="icon icon-info"></span>論文詳細</h2>
+            <div class="detail-item">
+                <strong class="icon icon-author">著者:</strong>
+                <span>Valdivia-Aviña K, Ochoa-Hugo SE, Hernández-Sapiéns MA, Canales-Aguirre AA.</span>
+            </div>
+            <div class="detail-item">
+                <strong class="icon icon-source">出典:</strong>
+                <span>Expert Opin Drug Discov. 2026 Jun 27:1-17.</span>
+            </div>
+            <div class="detail-item">
+                <strong class="icon icon-doi">DOI:</strong>
+                <a href="https://doi.org/10.1080/17460441.2026.2691833" target="_blank" rel="noopener noreferrer">10.1080/17460441.2026.2691833</a>
+            </div>
+            <div class="detail-item">
+                <strong class="icon icon-url">URL:</strong>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42363707/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42363707/</a>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h2><span class="icon icon-keywords"></span>キーワード</h2>
+            <div class="keyword-list">
+                <span class="keyword-tag">3D cell culture</span>
+                <span class="keyword-tag">Alzheimer's disease</span>
+                <span class="keyword-tag">drug discovery</span>
+                <span class="keyword-tag">cell models</span>
+                <span class="keyword-tag">in vitro</span>
+            </div>
+        </section>
+
+        <section class="additional-info">
+            <h2><span class="icon icon-info"></span>追加情報</h2>
+            <p><strong>HD-MEA (高密度多点電極アレイ) 使用:</strong> いいえ</p>
+            <p><strong>スパイクソーティング手法:</strong> N/A</p>
+        </section>
+    </div>
+</body>
+</html>
