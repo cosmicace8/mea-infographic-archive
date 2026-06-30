@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+            box-sizing: border-box;
+        }
+
+        /* タイトル */
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        /* セクション見出し */
+        h2 {
+            color: #4CAF50;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+
+        /* セクション */
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p, .section ul {
+            margin-bottom: 10px;
+        }
+
+        /* 著者リスト */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors li {
+            background-color: #e8f5e9; /* 薄い緑 */
+            color: #2e7d32; /* 濃い緑 */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        /* キーワード */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e3f2fd; /* 薄い青 */
+            color: #1976d2; /* 濃い青 */
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* リンクボタン */
+        .link-button {
+            display: inline-block;
+            background-color: #2196F3; /* 青 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .link-button:hover {
+            background-color: #1976D2;
+        }
+
+        /* DOIリンク */
+        .doi-link {
+            font-weight: bold;
+            color: #2196F3;
+            text-decoration: none;
+        }
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 日本語要約セクション */
+        .abstract {
+            background-color: #f9f9f9;
+            border-left: 5px solid #FFC107; /* アンバー */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .abstract h3 {
+            color: #FFC107;
+            margin-top: 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        .abstract h3 .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #FFC107;
+        }
+
+        /* 情報アイテム */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            min-width: 120px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tumor organoid platform design for drug response modeling: culture architecture, microenvironmental complexity, and AI-assisted readouts.</h1>
+
+        <div class="section authors">
+            <h2><span class="icon">&#128100;</span> 著者</h2>
+            <ul>
+                <li>Shin EA</li>
+                <li>Jeong WC</li>
+                <li>Kim YW</li>
+                <li>Kim JW</li>
+                <li>Park M</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128218;</span> 出典情報</h2>
+            <div class="info-item">
+                <strong>ジャーナル:</strong> Arch Pharm Res.
+            </div>
+            <div class="info-item">
+                <strong>出版日:</strong> 2026 Jun 25.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128279;</span> リンク</h2>
+            <div class="info-item">
+                <strong>DOI:</strong> <a href="https://doi.org/10.1007/s12272-026-01626-9" target="_blank" rel="noopener noreferrer" class="doi-link">10.1007/s12272-026-01626-9</a>
+            </div>
+            <div class="info-item">
+                <strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42347891/" target="_blank" rel="noopener noreferrer" class="link-button">PubMedで見る</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">&#128278;</span> キーワード</h2>
+            <div class="keywords">
+                <span class="keyword-tag">tumor organoid</span>
+                <span class="keyword-tag">drug response</span>
+                <span class="keyword-tag">AI-assisted readouts</span>
+                <span class="keyword-tag">culture architecture</span>
+                <span class="keyword-tag">microenvironment</span>
+            </div>
+        </div>
+
+        <div class="section abstract">
+            <h3><span class="icon">&#128220;</span> 日本語要約</h3>
+            <p>この論文は、薬剤応答モデリングのための腫瘍オルガノイドプラットフォームの設計に焦点を当てています。具体的には、培養構造、微小環境の複雑さ、そしてAIを活用した読み出し技術が、薬剤スクリーニングや個別化医療における腫瘍オルガノイドの有効性を高める上でどのように重要であるかを論じています。</p>
+        </div>
+
+    </div>
+</body>
+</html>
