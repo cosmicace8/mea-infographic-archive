@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9fbfb;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #3498db;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '◆'; /* Simple icon */
+            color: #3498db;
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+
+        .section-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keywords-list li {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .keywords-list li:hover {
+            background-color: #dce4e6;
+        }
+
+        .summary-text {
+            text-align: justify;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .section-content, .keywords-list li, .footer a {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .section-title::before {
+                font-size: 0.7em;
+            }
+            .keywords-list li {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>Advancement in Electrochemical Generation-Collection: Snapshot Redox Cycling Voltammetry for Rapid Analysis at Chip-Based, Individually Addressable Microband Electrode Arrays</h1>
+            <p><strong>著者:</strong> BA Sterling - 2026</p>
+            <p><strong>出版元:</strong> ProQuest, 2026</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">論文キーワード</h2>
+            <ul class="keywords-list">
+                <li>electrochemical generation-collection</li>
+                <li>redox cycling voltammetry</li>
+                <li>microband electrode arrays</li>
+                <li>chip-based analysis</li>
+                <li>spatial potential distribution</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">日本語要約</h2>
+            <p class="summary-text">
+                本論文は、チップベースの個別にアドレス可能なマイクロバンド電極アレイを用いた迅速な分析のための電気化学的生成-収集技術の進歩に焦点を当てています。特に、スナップショットレドックスサイクリングボルタンメトリーという革新的な手法を導入し、高速かつ高分解能な電気化学測定を実現します。この技術は、微小な電極アレイ上で物質の生成と収集を効率的に行い、空間的な電位分布の解析を可能にすることで、化学分析の分野における新たな可能性を開くものです。これにより、生体分子検出、環境モニタリング、材料科学など、多岐にわたる応用が期待されます。
+            </p>
+        </div>
+
+        <div class="footer">
+            <p><strong>論文リンク:</strong> <a href="https://search.proquest.com/openview/29ad653214302af496c8a1c70ec4cbe2/1?pq-origsite=gscholar&cbl=18750&diss=y" target="_blank" rel="noopener noreferrer">論文を読む</a></p>
+        </div>
+    </div>
+</body>
+</html>
