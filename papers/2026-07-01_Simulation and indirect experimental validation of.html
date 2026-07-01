@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff; /* アクセントカラー */
+        }
+
+        /* ヘッダー */
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0056b3;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #664d03;
+            margin-top: 0;
+            font-size: 1.2em;
+            border-bottom: 1px dashed #ffeeba;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* セクション */
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* 著者 */
+        .authors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .authors span {
+            display: inline-block;
+            background-color: #e9f5ff;
+            color: #0056b3;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        /* キーワード */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* URL */
+        .url-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .url-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* 特徴 */
+        .feature-box {
+            background-color: #f0f8ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .feature-box strong {
+            color: #0056b3;
+            font-size: 1.1em;
+        }
+        .feature-icon {
+            font-size: 1.8em;
+        }
+        .feature-icon .green {
+            color: #28a745; /* 肯定的な色 */
+        }
+        .feature-icon .red {
+            color: #dc3545; /* 否定的な色 */
+        }
+
+        /* 日本語要約 */
+        .summary-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 25px;
+            color: #664d03;
+        }
+        .summary-box p {
+            margin-top: 0;
+        }
+
+        /* アイコン */
+        .icon {
+            margin-right: 8px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2><i class="fas fa-book icon"></i> 論文タイトル</h2>
+            <p style="font-size: 1.6em; font-weight: bold; color: #333;">
+                Simulation and indirect experimental validation of proton diffusion confinement on addressable microelectrode array chips
+            </p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-users icon"></i> 著者</h2>
+            <div class="authors">
+                <span>B Liang</span><span>X Tang</span><span>M Yu</span><span>Y Tian</span><span>Z Deng</span><span>Z Li</span><span>X Xue…</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-journal-whills icon"></i> 出典</h2>
+            <p><span style="font-weight: bold;">雑誌名:</span> Journal of Electroanalytical …</p>
+            <p><span style="font-weight: bold;">発行年:</span> 2026</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tags icon"></i> キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">proton diffusion</span>
+                <span class="keyword-tag">microelectrode array</span>
+                <span class="keyword-tag">electrochemical simulation</span>
+                <span class="keyword-tag">finite-element model</span>
+                <span class="keyword-tag">Nernst-Planck equations</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-link icon"></i> 論文URL</h2>
+            <a href="https://www.sciencedirect.com/science/article/pii/S1572665726005904" target="_blank" class="url-link">
+                https://www.sciencedirect.com/science/article/pii/S1572665726005904 <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-flask icon"></i> 主要な特徴</h2>
+            <div class="feature-box">
+                <span class="feature-icon">
+                    <i class="fas fa-check-circle green"></i>
+                </span>
+                <strong>高密度マイクロ電極アレイ (HD-MEA) の使用:</strong>
+                <span>はい、使用されています。</span>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3><i class="fas fa-language icon"></i> 日本語要約</h3>
+            <p>
+                本論文は、アドレス指定可能なマイクロ電極アレイ（MEA）チップ上におけるプロトン拡散の閉じ込め現象について、シミュレーションと間接的な実験検証を行った研究です。電気化学シミュレーション、有限要素モデル、Nernst-Planck方程式を用いて、プロトン拡散の挙動を詳細に解析しています。特に、高密度MEAの利用が示唆されており、微小環境におけるイオン挙動の理解に貢献します。
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
