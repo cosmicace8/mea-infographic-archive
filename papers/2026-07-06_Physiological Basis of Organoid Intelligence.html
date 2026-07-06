@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 8px solid #3498db; /* アクセントカラー */
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin: 0;
+            font-weight: 600;
+        }
+        .section-title {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .section-title.paper-details::before { content: '📄'; } /* Document icon */
+        .section-title.summary-title::before { content: '📝'; } /* Memo icon */
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            margin-right: 15px;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+        }
+        .info-label::before {
+            margin-right: 8px;
+            font-size: 1.1em;
+            color: #3498db;
+        }
+        /* 各情報項目に対応するアイコン */
+        .info-label.title::before { content: '✨'; } /* Sparkles */
+        .info-label.authors::before { content: '👤'; } /* Person */
+        .info-label.source::before { content: '📚'; } /* Books */
+        .info-label.doi::before { content: '🔗'; } /* Link */
+        .info-label.keywords::before { content: '🏷️'; } /* Tag */
+        .info-label.hd-mea::before { content: '🔬'; } /* Microscope */
+        .info-label.spike-sorting::before { content: '📊'; } /* Bar chart */
+        .info-label.url::before { content: '🌐'; } /* Globe */
+
+        .info-content {
+            flex-grow: 1;
+        }
+        .paper-title {
+            font-size: 1.6em;
+            color: #34495e;
+            font-weight: 600;
+        }
+        .authors-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .authors-list li {
+            display: inline-block;
+            margin-right: 10px;
+            background-color: #e8f6fd;
+            padding: 4px 10px;
+            border-radius: 5px;
+            color: #2196f3;
+            font-size: 0.95em;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            border: 1px solid #b2ebf2;
+        }
+        .feature-tag {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            border: 1px solid #c3e6cb;
+        }
+        .no-info {
+            color: #888;
+            font-style: italic;
+        }
+        .summary-content {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745; /* 要約のアクセントカラー */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #444;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+
+        <section class="paper-details">
+            <h2 class="section-title paper-details">論文詳細</h2>
+            
+            <div class="info-item">
+                <span class="info-label title">タイトル:</span>
+                <div class="info-content paper-title">Physiological Basis of Organoid Intelligence</div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label authors">著者:</span>
+                <div class="info-content">
+                    <ul class="authors-list">
+                        <li>R Hewage</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label source">出典:</span>
+                <div class="info-content">The SAAP</div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label doi">DOI:</span>
+                <div class="info-content">
+                    <span class="no-info">言及なし</span>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label keywords">キーワード:</span>
+                <div class="info-content keywords-list">
+                    <span class="keyword-tag">Organoid Intelligence</span>
+                    <span class="keyword-tag">biological computers</span>
+                    <span class="keyword-tag">neuropharmacology</span>
+                    <span class="keyword-tag">cortical neurons</span>
+                    <span class="keyword-tag">high-density MEA</span>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label hd-mea">HD-MEA使用:</span>
+                <div class="info-content">
+                    <span class="feature-tag">はい (高密度多電極アレイを使用)</span>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label spike-sorting">スパイクソーティング方法:</span>
+                <div class="info-content">
+                    <span class="no-info">言及なし</span>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label url">URL:</span>
+                <div class="info-content">
+                    <a href="https://www.thesaap.org/downloads/thesaap_sjip_01027_physiological_basis_organoid.pdf" target="_blank" rel="noopener noreferrer">論文PDFへのリンク</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h2 class="section-title summary-title">日本語要約</h2>
+            <div class="summary-content">
+                <p>本論文『オルガノイド知能の生理学的基盤』は、オルガノイド知能（生物学的コンピューター）の生理学的側面について探求しています。特に、皮質ニューロンを用いた研究に焦点を当て、高密度MEA（多電極アレイ）技術を活用している点が特徴です。神経薬理学的なアプローチも含まれており、オルガノイドの機能と応用に関する理解を深めることを目的としています。</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィックジェネレーター</p>
+        </footer>
+    </div>
+</body>
+</html>
