@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 35px 45px;
+            border-left: 10px solid #4CAF50; /* アクセントカラー */
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.4em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.6em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section p {
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+        .label {
+            font-weight: 700;
+            color: #555;
+            display: inline-block;
+            width: 120px; /* ラベルの幅を揃える */
+            vertical-align: top;
+        }
+        .content {
+            display: inline-block;
+            width: calc(100% - 130px); /* ラベルの幅を考慮 */
+            vertical-align: top;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .keyword-tag {
+            background-color: #e8f5e9; /* キーワードの背景色 */
+            color: #2e7d32; /* キーワードの文字色 */
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            border: 1px solid #c8e6c9;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            background-color: #dcedc8;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .summary {
+            background-color: #e3f2fd; /* 要約の背景色 */
+            border-left: 6px solid #2196f3;
+            padding: 20px 25px;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+        .summary p {
+            margin: 0;
+            font-size: 1.15em;
+            color: #1976d2;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Organoid-AI platforms need integrated governance in drug discovery.</h1>
+
+        <div class="section summary">
+            <h2>日本語要約</h2>
+            <p>本論文は、創薬研究におけるオルガノイドとAIを組み合わせたプラットフォームの活用が進む中で、統合的なガバナンスの必要性を提唱しています。これらの先進技術を効果的かつ倫理的に利用し、その潜在能力を最大限に引き出すためには、適切な規制、標準、およびガイドラインの確立が不可欠であると論じています。</p>
+        </div>
+
+        <div class="section">
+            <h2>論文詳細</h2>
+            <p><span class="label">著者:</span> <span class="content">Sakr J.</span></p>
+            <p><span class="label">出典:</span> <span class="content">Drug Discov Today. 2026 Jul 4:104732. doi: 10.1016/j.drudis.2026.104732. Online ahead of print.</span></p>
+            <p><span class="label">DOI:</span> <span class="content"><a href="https://doi.org/10.1016/j.drudis.2026.104732" target="_blank" rel="noopener noreferrer">10.1016/j.drudis.2026.104732</a></span></p>
+            <p><span class="label">PubMed URL:</span> <span class="content"><a href="https://pubmed.ncbi.nlm.nih.gov/42401253/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42401253/</a></span></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Organoid</span>
+                <span class="keyword-tag">AI</span>
+                <span class="keyword-tag">Drug discovery</span>
+                <span class="keyword-tag">Governance</span>
+                <span class="keyword-tag">Platforms</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
