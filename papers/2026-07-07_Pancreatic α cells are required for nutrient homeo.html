@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top border */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Green to Blue gradient */
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 1.4em;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Generic Section Styling */
+        .section {
+            margin-bottom: 25px;
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        .section strong {
+            color: #555;
+            margin-right: 5px;
+        }
+
+        /* Authors List */
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .authors-list li {
+            background-color: #e8f5e9; /* Light green */
+            color: #2e7d32; /* Darker green */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent author names from breaking */
+        }
+
+        /* Keywords List (Tags) */
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .keywords-list li {
+            background-color: #e3f2fd; /* Light blue */
+            color: #1976d2; /* Darker blue */
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .keywords-list li:hover {
+            background-color: #bbdefb; /* Lighter blue on hover */
+        }
+
+        /* Link Items (PubMed, DOI) */
+        .link-item {
+            display: block;
+            margin-bottom: 10px;
+            color: #2196F3; /* Blue */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .link-item:hover {
+            color: #1976d2; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+
+        /* Japanese Summary Box */
+        .summary-box {
+            background-color: #f0f4f8; /* Light grey-blue */
+            border-left: 5px solid #4CAF50; /* Green border */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary-box p {
+            margin: 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        /* Information Grid for Publication Info and Links */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-grid .grid-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .info-grid .grid-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Pancreatic α cells are required for nutrient homeostasis by regulating dynamic β cell networks in islets.</h1>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>Lallouet M</li>
+                <li>Jaffredo M</li>
+                <li>Pirog A</li>
+                <li>Leal-Fischer K</li>
+                <li>Gaitan J</li>
+                <li>Meier DT</li>
+                <li>Renaud S</li>
+                <li>Raoux M</li>
+                <li>Lang J</li>
+            </ul>
+        </div>
+
+        <div class="info-grid">
+            <div class="grid-item">
+                <h2>出版情報</h2>
+                <p><strong>ジャーナル:</strong> Sci Adv.</p>
+                <p><strong>発行日:</strong> 2026年7月3日</p>
+                <p><strong>巻(号):</strong> 12(27)</p>
+                <p><strong>記事番号:</strong> eaea9045</p>
+            </div>
+            <div class="grid-item">
+                <h2>リンク</h2>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42397925/" target="_blank" rel="noopener noreferrer" class="link-item">PubMedで見る</a>
+                <a href="https://doi.org/10.1126/sciadv.aea9045" target="_blank" rel="noopener noreferrer" class="link-item">DOI: 10.1126/sciadv.aea9045</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <ul class="keywords-list">
+                <li>pancreatic α cells</li>
+                <li>nutrient homeostasis</li>
+                <li>β cell networks</li>
+                <li>islets</li>
+                <li>cell biology</li>
+            </ul>
+        </div>
+
+        <div class="section summary-box">
+            <h2>日本語要約</h2>
+            <p>本研究は、膵臓のα細胞が、膵島内のβ細胞ネットワークの動的な調節を通じて、生体内の栄養恒常性を維持するために不可欠な役割を果たすことを明らかにしています。α細胞とβ細胞間の相互作用が、血糖値などの栄養バランスの制御において重要であることを示唆しています。</p>
+        </div>
+    </div>
+</body>
+</html>
