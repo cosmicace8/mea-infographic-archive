@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #007bff, #28a745);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 2.2em;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        h2 {
+            color: #007bff;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .section-content {
+            margin-left: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #e9ecef;
+        }
+        .authors {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .source {
+            font-style: italic;
+            color: #666;
+        }
+        .doi a, .url a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .doi a:hover, .url a:hover {
+            text-decoration: underline;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #007bff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid #b2ebf2;
+        }
+        .summary-japanese {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 15px 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+            color: #333;
+        }
+        .summary-japanese p {
+            margin: 0;
+            font-size: 1em;
+        }
+        .summary-japanese h2 {
+            color: #28a745;
+            margin-top: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Hypoxia-driven T cell-macrophage-stromal cross-talk sustains fibrosis in preclinical models of cutaneous chronic graft-versus-host disease.</h1>
+
+        <div class="summary-japanese">
+            <h2>日本語要約</h2>
+            <p>本研究は、皮膚慢性移植片対宿主病（cGVHD）の前臨床モデルにおいて、低酸素状態がT細胞、マクロファージ、間質細胞間の相互作用を促進し、線維化を維持するメカニズムを解明しています。この知見は、cGVHDにおける線維化の新たな治療標的を示唆しています。</p>
+        </div>
+
+        <h2>著者</h2>
+        <div class="section-content authors">
+            <p>Song Q, Xu Y, Wang X, Wang W, Feng Y, Hu Z, Tian F, Wang S, Jankowski S, Chaudagar K, Yao H, Chen T, Wang R, Xu Q, Zhou Y, Xie X, He Y, Wang Q, Yang G, Huang S, Liu Y, Yang S, Gao L, Waller EK, Zhang X.</p>
+        </div>
+
+        <h2>出典</h2>
+        <div class="section-content source">
+            <p>Sci Transl Med. 2026 Jul;18(856):eadx7264. doi: 10.1126/scitranslmed.adx7264. Epub 2026 Jul 1.</p>
+        </div>
+
+        <h2>DOI</h2>
+        <div class="section-content doi">
+            <p><a href="https://doi.org/10.1126/scitranslmed.adx7264" target="_blank">10.1126/scitranslmed.adx7264</a></p>
+        </div>
+
+        <h2>キーワード</h2>
+        <div class="section-content keywords-container">
+            <span class="keyword-tag">Hypoxia</span>
+            <span class="keyword-tag">T cell</span>
+            <span class="keyword-tag">Macrophage</span>
+            <span class="keyword-tag">Fibrosis</span>
+            <span class="keyword-tag">Graft-versus-host disease</span>
+        </div>
+
+        <h2>詳細情報</h2>
+        <div class="section-content url">
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/42384772/" target="_blank">PubMedで詳細を見る</a></p>
+        </div>
+    </div>
+</body>
+</html>
