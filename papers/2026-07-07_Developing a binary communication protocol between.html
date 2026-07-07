@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* Google Fontsのインポート */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section {
+            background-color: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .title-section h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+            justify-content: center;
+        }
+
+        .authors li {
+            background-color: #ecf0f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: #2c3e50;
+            white-space: nowrap;
+        }
+
+        .meta-info p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+        }
+
+        .meta-info p strong {
+            color: #34495e;
+            min-width: 100px; /* ラベルの幅を揃える */
+            display: inline-block;
+        }
+
+        .meta-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .meta-info a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keywords-list li {
+            background-color: #d6eaf8;
+            color: #21618c;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            border: 1px solid #aed6f1;
+        }
+
+        .tech-details p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .tech-details p strong {
+            color: #34495e;
+        }
+
+        .summary-section p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* アイコン（絵文字を使用） */
+        .icon::before {
+            margin-right: 8px;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+        .icon-author::before { content: "👤"; }
+        .icon-journal::before { content: "📚"; }
+        .icon-doi::before { content: "🔗"; }
+        .icon-url::before { content: "🌐"; }
+        .icon-keywords::before { content: "🏷️"; }
+        .icon-mea::before { content: "🔬"; }
+        .icon-spike::before { content: "⚡"; }
+        .icon-summary::before { content: "📝"; }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .authors ul {
+                justify-content: flex-start;
+            }
+            .meta-info p {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .meta-info p strong {
+                margin-bottom: 3px;
+                min-width: unset; /* モバイルでは幅の固定を解除 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section title-section">
+            <h2>Developing a binary communication protocol between biological neural networks using virtual white matter.</h2>
+            <p class="icon icon-author"><strong>著者:</strong></p>
+            <ul class="authors">
+                <li>Khantan M</li>
+                <li>Lim J</li>
+                <li>Bernhardt AR</li>
+                <li>Napoli A</li>
+                <li>Obeid I</li>
+                <li>Serruya MD</li>
+            </ul>
+        </div>
+
+        <div class="section meta-info">
+            <h2>論文詳細</h2>
+            <p class="icon icon-journal"><strong>ソース:</strong> J Neural Eng. 2026 Jun 29</p>
+            <p class="icon icon-doi"><strong>DOI:</strong> <a href="https://doi.org/10.1088/1741-2552/ae840f" target="_blank">10.1088/1741-2552/ae840f</a></p>
+            <p class="icon icon-url"><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42372793/" target="_blank">pubmed.ncbi.nlm.nih.gov/42372793/</a></p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon icon-keywords">キーワード</span></h2>
+            <ul class="keywords-list">
+                <li>binary communication</li>
+                <li>neural networks</li>
+                <li>virtual white matter</li>
+                <li>neural engineering</li>
+                <li>brain-computer interface</li>
+            </ul>
+        </div>
+
+        <div class="section tech-details">
+            <h2>技術的詳細</h2>
+            <p class="icon icon-mea"><strong>高密度MEA使用:</strong> いいえ</p>
+            <p class="icon icon-spike"><strong>スパイクソーティング手法:</strong> 特定なし</p>
+        </div>
+
+        <div class="section summary-section">
+            <h2><span class="icon icon-summary">日本語要約</span></h2>
+            <p>
+                本論文は、生物学的ニューラルネットワーク間でバイナリ通信プロトコルを開発する研究について述べています。
+                特に、仮想白質（virtual white matter）を用いることで、神経ネットワーク間の情報伝達を可能にする新しい手法を提案しています。
+                この研究は、ニューラルエンジニアリングやブレイン・コンピューター・インターフェースの分野において、神経活動に基づいた通信システムの構築に貢献するものです。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
