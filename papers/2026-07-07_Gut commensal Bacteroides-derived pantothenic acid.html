@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography, including Japanese support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-gray for headings */
+            --secondary-color: #3498db; /* Bright blue for accents and links */
+            --accent-color: #e74c3c; /* Red for emphasis/hover */
+            --background-light: #ecf0f1; /* Light gray background */
+            --background-dark: #ffffff; /* White content background */
+            --text-color: #34495e; /* Darker gray for body text */
+            --border-color: #bdc3c7; /* Medium gray for borders */
+            --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for longer content */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Main container for the infographic */
+        .container {
+            background-color: var(--background-dark);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header section */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* Section headings */
+        h2 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        /* Links */
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Detail items (Author, Source, DOI, URL) */
+        .detail-item {
+            margin-bottom: 15px;
+        }
+
+        .detail-item strong {
+            color: var(--primary-color);
+            display: block; /* Makes the label appear above the content */
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .authors-list {
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        /* Keywords section */
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows tags to wrap to the next line */
+            gap: 10px; /* Space between tags */
+            margin-top: 15px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill-shaped tags */
+            font-size: 0.9em;
+            font-weight: 700;
+            white-space: nowrap; /* Prevents tags from breaking */
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Japanese summary section */
+        .summary-content {
+            background-color: var(--background-light);
+            border-left: 5px solid var(--secondary-color); /* Accent border */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .summary-content p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .summary-content p {
+                font-size: 1em;
+            }
+            .keyword-tag {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.1em;
+            }
+            .detail-item strong {
+                font-size: 1em;
+            }
+            .authors-list {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gut commensal Bacteroides-derived pantothenic acid alleviates metabolic syndrome.</h1>
+        </header>
+
+        <section class="details">
+            <h2>論文詳細</h2>
+            <div class="detail-item">
+                <strong>著者:</strong>
+                <p class="authors-list">Luo Z, Xiao Z, Yuan T, Wang X, Shi C, Xu W, Chong Y, Hou X, Wu P, Li M, He X, Zhou Y, Zhang T, Ji X, Su K, Chen T, Wang X, Xie T, Di L, Li H, Xu B, Cheng H, Shan J.</p>
+            </div>
+            <div class="detail-item">
+                <strong>出典:</strong>
+                <p>Cell Host Microbe. 2026 Jul 1:S1931-3128(26)00265-9. doi: 10.1016/j.chom.2026.06.005. Online ahead of print.</p>
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong>
+                <p><a href="https://doi.org/10.1016/j.chom.2026.06.005" target="_blank" rel="noopener noreferrer">10.1016/j.chom.2026.06.005</a></p>
+            </div>
+            <div class="detail-item">
+                <strong>PubMed URL:</strong>
+                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42385714/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42385714/</a></p>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h2>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Gut microbiome</span>
+                <span class="keyword-tag">Bacteroides</span>
+                <span class="keyword-tag">Pantothenic acid</span>
+                <span class="keyword-tag">Metabolic syndrome</span>
+                <span class="keyword-tag">Host-microbe interaction</span>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h2>日本語要約</h2>
+            <div class="summary-content">
+                <p>本論文は、腸内共生細菌であるバクテロイデス属が産生するパントテン酸が、メタボリックシンドロームを軽減する可能性を示唆しています。この研究は、腸内細菌叢と宿主の相互作用がメタボリックシンドロームの発症や進行に重要な役割を果たすことを明らかにし、将来的に腸内細菌叢を標的とした新たな治療戦略の開発に貢献する可能性があります。</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
