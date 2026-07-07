@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Roboto for English, Noto Sans JP for Japanese) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for longer content */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db; /* Primary accent color */
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start; /* Align icon and content to top */
+            gap: 15px;
+        }
+
+        /* Section Icon */
+        .section-icon {
+            font-size: 1.8em;
+            color: #3498db; /* Primary accent color */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            line-height: 1;
+            margin-top: 2px; /* Fine-tune vertical alignment */
+        }
+
+        /* Section Content */
+        .section-content {
+            flex-grow: 1; /* Allow content to take available space */
+        }
+
+        /* Section Title (e.g., "著者", "出典") */
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Paragraphs and Lists within sections */
+        p, ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Links */
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keywords Styling (as tags) */
+        .keywords span {
+            display: inline-block;
+            background-color: #ecf0f1;
+            color: #555;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            border: 1px solid #dcdcdc;
+        }
+
+        /* Special styling for the Japanese Summary section */
+        .summary-section {
+            border-left-color: #27ae60; /* Green accent for summary */
+        }
+        .summary-section .section-icon {
+            color: #27ae60; /* Green icon for summary */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px 25px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                flex-direction: column; /* Stack icon and content vertically */
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .section-icon {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .infographic-container {
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1em;
+            }
+            .keywords span {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <!-- Title Section -->
+        <div class="section">
+            <div class="section-icon">📄</div>
+            <div class="section-content">
+                <div class="section-title">論文タイトル</div>
+                <p><strong><a href="https://pubmed.ncbi.nlm.nih.gov/42398842/" target="_blank" rel="noopener noreferrer">Face/off: phase-specific modeling of lineage plasticity using near-patient models in genitourinary cancers.</a></strong></p>
+            </div>
+        </div>
+
+        <!-- Authors Section -->
+        <div class="section">
+            <div class="section-icon">✍️</div>
+            <div class="section-content">
+                <div class="section-title">著者</div>
+                <p>Fu Z, Li L, Perry CJ, Ghali F, Tan WS, Kim IY, Mu P.</p>
+            </div>
+        </div>
+
+        <!-- Source Section -->
+        <div class="section">
+            <div class="section-icon">📚</div>
+            <div class="section-content">
+                <div class="section-title">出典</div>
+                <p>Gene. 2026 Jul 4;1009:150293. doi: 10.1016/j.gene.2026.150293. Online ahead of print.</p>
+            </div>
+        </div>
+
+        <!-- DOI Section -->
+        <div class="section">
+            <div class="section-icon">🔗</div>
+            <div class="section-content">
+                <div class="section-title">DOI</div>
+                <p><a href="https://doi.org/10.1016/j.gene.2026.150293" target="_blank" rel="noopener noreferrer">10.1016/j.gene.2026.150293</a></p>
+            </div>
+        </div>
+
+        <!-- Keywords Section -->
+        <div class="section">
+            <div class="section-icon">🏷️</div>
+            <div class="section-content">
+                <div class="section-title">キーワード</div>
+                <div class="keywords">
+                    <span>Lineage plasticity</span>
+                    <span>Genitourinary cancers</span>
+                    <span>Patient models</span>
+                    <span>Cancer research</span>
+                    <span>Modeling</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Japanese Summary Section -->
+        <div class="section summary-section">
+            <div class="section-icon">📝</div>
+            <div class="section-content">
+                <div class="section-title">日本語要約</div>
+                <p>本論文は、泌尿生殖器がんにおける細胞系統の可塑性に着目し、患者近傍モデル（near-patient models）を用いてその段階特異的なモデリングを行う研究です。がんの進行における細胞の多様性や変化のメカニズムを解明し、より効果的な治療戦略の開発に貢献することを目指しています。</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
