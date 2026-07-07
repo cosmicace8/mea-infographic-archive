@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: #2e7d32; /* ヘッダーより少し濃い緑 */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2::before {
+            content: '◆'; /* アイコンの代わり */
+            color: #4CAF50;
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+        .detail-item {
+            margin-bottom: 10px;
+        }
+        .detail-item strong {
+            color: #555;
+            display: inline-block;
+            min-width: 100px;
+        }
+        .detail-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keyword-tag {
+            background-color: #e8f5e9; /* 薄い緑 */
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        .technical-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tech-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .tech-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #4CAF50;
+        }
+        .tech-item .status-yes {
+            color: #28a745; /* 緑 */
+            font-weight: 700;
+        }
+        .tech-item .status-no {
+            color: #dc3545; /* 赤 */
+            font-weight: 700;
+        }
+        .summary-content {
+            background-color: #f0fdf0; /* 非常に薄い緑 */
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            color: #444;
+        }
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #777;
+            background-color: #f0f0f0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Three-Dimensional Helical Integration of High-Density Linear Microelectrode Arrays and Their Cross-Tissue Applications</h1>
+        </header>
+
+        <div class="section">
+            <h2>論文詳細</h2>
+            <div class="detail-item">
+                <strong>著者:</strong> M Wang, S Shang, Y Xu, C Zhou, X You, H Jiang…
+            </div>
+            <div class="detail-item">
+                <strong>出典:</strong> Biosensors and …, 2026
+            </div>
+            <div class="detail-item">
+                <strong>URL:</strong> <a href="https://www.sciencedirect.com/science/article/pii/S0956566326006196" target="_blank">https://www.sciencedirect.com/science/article/pii/S0956566326006196</a>
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong> N/A
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">3D helical integration</span>
+                <span class="keyword-tag">High-density MEA</span>
+                <span class="keyword-tag">Linear microelectrode arrays</span>
+                <span class="keyword-tag">Cross-tissue applications</span>
+                <span class="keyword-tag">Biosensors</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>技術的特徴</h2>
+            <div class="technical-info">
+                <div class="tech-item">
+                    <strong>高密度MEA使用:</strong> 
+                    <span class="status-yes">はい</span>
+                </div>
+                <div class="tech-item">
+                    <strong>スパイクソーティング手法:</strong> 
+                    <span>N/A</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-content">
+                本論文は、高密度リニアマイクロ電極アレイ（MEA）の三次元らせん状統合技術に焦点を当てています。この革新的な統合技術は、生体組織を横断する幅広い応用（cross-tissue applications）を可能にし、バイオセンサー分野における新たな可能性を切り開くものです。特に、高密度MEAの利用が強調されており、より詳細かつ広範囲な生体信号の計測に貢献することが期待されます。
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
