@@ -4,254 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
-    <!-- Google Fonts: 日本語と英語のフォントを読み込み -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2c3e50; /* Dark Blue-Grey */
-            --secondary-color: #3498db; /* Bright Blue */
-            --accent-color: #e74c3c; /* Red for emphasis, though not used much here */
-            --background-light: #f4f7f6; /* Light Grey-Green */
-            --text-dark: #34495e; /* Darker Blue-Grey */
-            --card-background: #ffffff; /* White */
-            --border-radius: 10px;
-            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
         body {
-            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1000px;
-            width: 95%;
+        .infographic-container {
+            max-width: 900px;
             margin: 30px auto;
-            padding: 25px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
         header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--background-light);
-            margin-bottom: 30px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         header h1 {
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header .subtitle {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 1.1em;
-        }
-
-        section {
-            background-color: var(--card-background);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            color: var(--primary-color);
+            margin: 0;
             font-size: 1.8em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        h2 .fas {
-            color: var(--secondary-color);
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
-
-        h3 {
-            color: var(--text-dark);
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            font-weight: 400;
-        }
-
-        p {
-            margin-bottom: 10px;
-        }
-
-        .paper-title-section {
-            background-color: #ecf0f1; /* Light Grey */
-            border-left: 5px solid var(--secondary-color);
+        main {
             padding: 30px;
         }
 
-        .paper-title-section h3 {
+        .paper-details {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .paper-details h2.title {
             font-size: 1.8em;
-            color: var(--primary-color);
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4;
             font-weight: 700;
         }
 
-        .url-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .url-link:hover {
-            color: var(--primary-color);
-        }
-
-        .url-link .fas {
-            margin-right: 8px;
-        }
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .card {
-            background-color: var(--card-background);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        .authors {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
         }
 
-        .card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .authors i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.1em;
         }
 
-        .card li {
-            background-color: #ecf0f1;
-            padding: 8px 12px;
-            border-radius: 5px;
+        .section-title {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0f2f7;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start; /* アイコンとテキストの先頭を揃える */
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .info-item i {
+            color: #3498db;
+            margin-right: 12px;
+            font-size: 1.1em;
+            flex-shrink: 0; /* アイコンが縮まないようにする */
+            padding-top: 2px; /* テキストのベースラインに合わせる微調整 */
+        }
+
+        .info-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            background-color: #e0f2f7;
+            color: #2980b9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .features-list {
+            margin-top: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
             margin-bottom: 8px;
             font-size: 0.95em;
-            color: var(--text-dark);
-            display: inline-block; /* For keyword tags */
-            margin-right: 8px;
+            color: #444;
+        }
+
+        .feature-item i {
+            color: #27ae60; /* Green for true features */
+            margin-right: 10px;
+            font-size: 1.1em;
         }
 
         .summary-section {
-            border-top: 2px dashed var(--background-light);
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 20px;
             margin-top: 30px;
-            padding-top: 30px;
+            border-radius: 5px;
         }
 
-        .summary-section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--text-dark);
+        .summary-section h3 {
+            font-size: 1.4em;
+            color: #3498db;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .summary-section h3 i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .japanese-summary {
+            font-size: 1em;
+            color: #444;
+            line-height: 1.7;
         }
 
         footer {
+            background-color: #34495e;
+            color: #ecf0f1;
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--background-light);
-            color: #7f8c8d;
-            font-size: 0.9em;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .paper-title-section h3 {
-                font-size: 1.5em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                margin: 20px auto;
-                padding: 15px;
-            }
-            section {
-                padding: 20px;
-            }
+            padding: 15px;
+            font-size: 0.85em;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="infographic-container">
         <header>
             <h1>論文情報インフォグラフィック</h1>
-            <p class="subtitle">研究の概要を視覚的に理解</p>
         </header>
+        <main>
+            <section class="paper-details">
+                <h2 class="title">A Taste Bud Organoid-Based Biosensor with a 3-Dimensional Microelectrode Array for Evaluating Caffeine's Impacts on Taste Sensing.</h2>
+                <div class="authors"><i class="fas fa-users"></i> Liu S, Chen Y, Wang Z, Wang M, Chen Y, Tian Y, Liu X, Li J, Li J, Du L, Li X, Wu C.</div>
 
-        <section class="paper-title-section">
-            <h2><i class="fas fa-book-open"></i> 論文タイトル</h2>
-            <h3>A Taste Bud Organoid-Based Biosensor with a 3-Dimensional Microelectrode Array for Evaluating Caffeine's Impacts on Taste Sensing</h3>
-            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13323712/" target="_blank" rel="noopener noreferrer" class="url-link">
-                <i class="fas fa-external-link-alt"></i> 論文リンク
-            </a>
-        </section>
+                <h3 class="section-title"><i class="fas fa-book-open"></i> 出版情報</h3>
+                <div class="publication-info">
+                    <div class="info-item"><i class="fas fa-journal-whills"></i> BME Front. 2026 Jul 2;7:0286. eCollection 2026.</div>
+                    <div class="info-item"><i class="fas fa-fingerprint"></i> DOI: <a href="https://doi.org/10.34133/bmef.0286" target="_blank">10.34133/bmef.0286</a></div>
+                    <div class="info-item"><i class="fas fa-link"></i> PubMed URL: <a href="https://pubmed.ncbi.nlm.nih.gov/42396195/" target="_blank">pubmed.ncbi.nlm.nih.gov/42396195/</a></div>
+                </div>
 
-        <div class="main-grid">
-            <section class="card authors">
-                <h2><i class="fas fa-users"></i> 著者</h2>
-                <p>S Liu, Y Chen, Z Wang, M Wang, Y Chen, Y Tian, X Liu…</p>
+                <h3 class="section-title"><i class="fas fa-tags"></i> キーワード</h3>
+                <div class="keywords-list">
+                    <span class="keyword-tag">Taste bud organoid</span>
+                    <span class="keyword-tag">Biosensor</span>
+                    <span class="keyword-tag">3D microelectrode array</span>
+                    <span class="keyword-tag">Caffeine</span>
+                    <span class="keyword-tag">Taste sensing</span>
+                </div>
+
+                <h3 class="section-title"><i class="fas fa-flask"></i> 研究の特徴</h3>
+                <div class="features-list">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> 3次元マイクロ電極アレイ (3D MEA) を使用</div>
+                    <!-- spike_sorting_method は空のため表示しません -->
+                </div>
             </section>
 
-            <section class="card publication">
-                <h2><i class="fas fa-calendar-alt"></i> 出版情報</h2>
-                <p>BME frontiers, 2026</p>
+            <section class="summary-section">
+                <h3><i class="fas fa-language"></i> 日本語要約</h3>
+                <p class="japanese-summary">
+                    この論文は、味蕾オルガノイドを基盤としたバイオセンサーを開発し、3次元マイクロ電極アレイを用いてカフェインが味覚に与える影響を評価する研究です。この新しいアプローチは、味覚センシングにおけるカフェインの作用機序を詳細に解明するための新しいツールとなることが期待されます。
+                </p>
             </section>
-
-            <section class="card keywords">
-                <h2><i class="fas fa-tags"></i> キーワード</h2>
-                <ul>
-                    <li>Taste bud organoid</li>
-                    <li>Biosensor</li>
-                    <li>3D microelectrode array</li>
-                    <li>Caffeine</li>
-                    <li>Taste sensing</li>
-                </ul>
-            </section>
-        </div>
-
-        <section class="summary-section">
-            <h2><i class="fas fa-lightbulb"></i> 日本語要約</h2>
-            <p>この論文は、味蕾オルガノイドを基盤とし、3次元マイクロ電極アレイを搭載したバイオセンサーの開発について報告しています。この新しいセンサーは、カフェインが味覚に与える影響を評価することを目的としています。味蕾オルガノイドを用いることで、生体に近い環境で味覚細胞の応答を観察し、3次元マイクロ電極アレイによってその電気的活動を詳細に記録することが可能になります。</p>
-            <p>これにより、カフェインが味覚受容体にどのように作用し、味覚認識にどのような変化をもたらすかを高精度で解析できると期待されます。本研究は、味覚科学や食品開発における新たな評価ツールを提供し、味覚メカニズムの理解を深めることに貢献するでしょう。</p>
-        </section>
-
+        </main>
         <footer>
-            <p>&copy; 2023 論文情報インフォグラフィック</p>
+            <p>&copy; 2023 論文情報ジェネレーター</p>
         </footer>
     </div>
 </body>
