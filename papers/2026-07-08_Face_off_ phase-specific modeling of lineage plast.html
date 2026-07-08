@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
     <style>
-        /* 基本的なスタイル */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -17,172 +16,146 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
+            box-sizing: border-box;
         }
-
-        /* インフォグラフィックコンテナ */
         .infographic-container {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             max-width: 900px;
             width: 100%;
-            padding: 40px;
+            padding: 30px 40px;
             box-sizing: border-box;
-            border-left: 8px solid #4CAF50; /* アクセントカラー */
+            border-left: 8px solid #4CAF50; /* Accent color */
         }
-
-        /* タイトル */
         h1 {
             color: #2c3e50;
             font-size: 2.2em;
             margin-bottom: 20px;
+            text-align: center;
             border-bottom: 2px solid #eee;
             padding-bottom: 15px;
             line-height: 1.3;
         }
-
-        /* セクション見出し */
         h2 {
-            color: #4CAF50;
+            color: #4CAF50; /* Accent color */
             font-size: 1.4em;
             margin-top: 30px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
         }
-
-        /* セクション見出しのアイコン */
-        h2::before {
-            content: '•'; /* シンプルな箇条書きアイコン */
-            color: #4CAF50;
-            font-size: 1.5em;
-            margin-right: 10px;
-            line-height: 1;
+        .section-content {
+            margin-left: 25px;
+            padding-left: 15px;
+            border-left: 3px solid #e0e0e0;
         }
-
-        /* 各情報セクション */
-        .section {
-            margin-bottom: 25px;
-            padding: 15px 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
+        .section-content p, .section-content ul {
+            margin: 8px 0;
         }
-
-        .section p, .section ul {
-            margin: 0;
+        .section-content ul {
+            list-style-type: none;
             padding: 0;
         }
-
-        .section ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .section ul li {
-            margin-bottom: 5px;
-        }
-
-        /* 情報ラベルのスタイル */
-        .authors span, .source-info span, .keywords span, .doi span {
+        .section-content ul li::before {
+            content: "• ";
+            color: #4CAF50;
             font-weight: bold;
-            color: #555;
-            margin-right: 8px;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
-
-        /* キーワードのタグスタイル */
-        .keywords ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .keywords ul li {
-            background-color: #e8f5e9; /* キーワード用の薄い緑 */
-            color: #2e7d32;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        /* 日本語要約のセクション */
-        .summary {
-            background-color: #e3f2fd; /* 要約用の薄い青 */
-            border-left: 5px solid #2196f3;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .summary h2 {
-            color: #2196f3;
-        }
-
-        .summary h2::before {
-            color: #2196f3;
-        }
-
-        /* 外部リンク */
-        .url-link {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px dashed #ccc;
-        }
-
-        .url-link a {
+        a {
             color: #007bff;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
         }
-
-        .url-link a:hover {
-            color: #0056b3;
+        a:hover {
             text-decoration: underline;
+        }
+        .doi-link, .pubmed-link {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .summary-box {
+            background-color: #e8f5e9; /* Light green background for summary */
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary-box p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #388e3c;
+        }
+        .icon {
+            font-size: 1.2em;
+            color: #4CAF50;
         }
     </style>
 </head>
 <body>
     <div class="infographic-container">
-        <h1>Face/off: phase-specific modeling of lineage plasticity using near-patient models in genitourinary cancers.</h1>
+        <h1>🏆 論文情報インフォグラフィック</h1>
 
-        <div class="section">
-            <h2>著者</h2>
-            <p class="authors">Fu Z, Li L, Perry CJ, Ghali F, Tan WS, Kim IY, Mu P.</p>
-        </div>
+        <section>
+            <h2><span class="icon">📄</span> 論文タイトル</h2>
+            <div class="section-content">
+                <p><strong>Face/off: phase-specific modeling of lineage plasticity using near-patient models in genitourinary cancers.</strong></p>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>出版情報</h2>
-            <p class="source-info">
-                <span>雑誌:</span> Gene.<br>
-                <span>発行日:</span> 2026 Jul 4;<br>
-                <span>巻号:</span> 1009:150293.<br>
-                <span>DOI:</span> <a href="https://doi.org/10.1016/j.gene.2026.150293" target="_blank" rel="noopener noreferrer">10.1016/j.gene.2026.150293</a> (Online ahead of print.)
-            </p>
-        </div>
+        <section>
+            <h2><span class="icon">👨‍🔬</span> 著者</h2>
+            <div class="section-content">
+                <p>Fu Z, Li L, Perry CJ, Ghali F, Tan WS, Kim IY, Mu P.</p>
+            </div>
+        </section>
 
-        <div class="section keywords">
-            <h2>キーワード</h2>
-            <ul>
-                <li>Lineage plasticity</li>
-                <li>Genitourinary cancers</li>
-                <li>Patient models</li>
-                <li>Cancer modeling</li>
-                <li>Oncology</li>
-            </ul>
-        </div>
+        <section>
+            <h2><span class="icon">📚</span> 掲載誌情報</h2>
+            <div class="section-content">
+                <p>Gene. 2026 Jul 4;1009:150293. doi: 10.1016/j.gene.2026.150293. Online ahead of print.</p>
+            </div>
+        </section>
 
-        <div class="summary">
-            <h2>日本語要約</h2>
-            <p>本論文は、泌尿生殖器がんにおける細胞系統の可塑性（lineage plasticity）を、患者に近いモデル（near-patient models）を用いて段階特異的に（phase-specific）解析する研究です。がんの発生・進行における細胞の性質変化を深く理解し、新たな治療戦略の開発に貢献することを目指しています。</p>
-        </div>
+        <section>
+            <h2><span class="icon">🔗</span> DOI</h2>
+            <div class="section-content">
+                <a href="https://doi.org/10.1016/j.gene.2026.150293" target="_blank" class="doi-link">10.1016/j.gene.2026.150293</a>
+            </div>
+        </section>
 
-        <div class="url-link">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/42398842/" target="_blank" rel="noopener noreferrer">PubMedで論文を見る</a>
-        </div>
+        <section>
+            <h2><span class="icon">🌐</span> PubMed URL</h2>
+            <div class="section-content">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42398842/" target="_blank" class="pubmed-link">https://pubmed.ncbi.nlm.nih.gov/42398842/</a>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">🏷️</span> キーワード</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Lineage plasticity</li>
+                    <li>Genitourinary cancers</li>
+                    <li>Patient models</li>
+                    <li>Cancer modeling</li>
+                    <li>Gene</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">📝</span> 日本語要約</h2>
+            <div class="summary-box">
+                <p>本論文は、泌尿生殖器がんにおける系統可塑性（細胞が異なる細胞系統に変化する能力）を、患者由来モデルを用いて段階特異的に解析する研究です。がんの進行や治療抵抗性に関わる系統可塑性のメカニズムを詳細にモデル化することで、新たな治療戦略の開発に貢献することを目指しています。</p>
+            </div>
+        </section>
     </div>
 </body>
 </html>
