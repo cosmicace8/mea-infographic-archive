@@ -4,177 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
             margin: 0;
             padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
-            box-sizing: border-box;
         }
-        .infographic-container {
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto;
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             padding: 40px;
-            max-width: 900px;
-            width: 100%;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
             box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-        }
-        .infographic-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(to right, #4CAF50, #2196F3);
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
         }
         h1 {
-            font-size: 2.2em;
+            font-family: 'Noto Sans JP', sans-serif;
             color: #2c3e50;
-            margin-top: 20px;
-            margin-bottom: 25px;
-            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 15px;
             line-height: 1.3;
-            font-weight: 700;
+            text-align: center;
         }
-        .section-title {
-            font-size: 1.4em;
+        h2 {
+            font-family: 'Noto Sans JP', sans-serif;
             color: #34495e;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
+            font-size: 1.5em;
             margin-top: 30px;
             margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
             display: flex;
             align-items: center;
+        }
+        h2 .fas {
+            margin-right: 10px;
+            color: #2196F3; /* 要約セクションのアイコンカラー */
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
             font-weight: 700;
-        }
-        .section-title::before {
-            content: '•';
-            color: #4CAF50;
-            font-size: 1.5em;
-            margin-right: 10px;
-            line-height: 0;
-        }
-        .meta-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start; /* Align items to the start for better multi-line display */
-        }
-        .meta-item strong {
             color: #555;
-            min-width: 90px; /* Adjust for better alignment */
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .section-title .fas {
             margin-right: 10px;
-            font-weight: 400;
+            color: #4CAF50; /* セクションアイコンのカラー */
+            font-size: 1.2em;
         }
-        .meta-item a {
-            color: #2196F3;
+        .authors {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .source-info {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .doi, .url {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .doi a, .url a {
+            color: #007bff;
             text-decoration: none;
-            transition: color 0.3s ease;
-            word-break: break-all; /* Allow long URLs to break */
+            word-break: break-all;
         }
-        .meta-item a:hover {
-            color: #1976D2;
+        .doi a:hover, .url a:hover {
             text-decoration: underline;
         }
-        .keywords-list {
+        .keywords-container {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
-        .keyword-tag {
-            background-color: #e0f2f7;
-            color: #0288d1;
+        .keyword {
+            background-color: #e0f2f1; /* ライトティール */
+            color: #00796b; /* ダークティール */
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.9em;
-            white-space: nowrap;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-weight: 400;
+            font-weight: 500;
+            white-space: nowrap; /* キーワードが途中で改行されないように */
         }
-        .keyword-tag:hover {
-            background-color: #0288d1;
-            color: #ffffff;
-        }
-        .summary-content {
-            background-color: #f9f9f9;
-            border-left: 5px solid #4CAF50;
+        .summary {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2196F3; /* ブルーアクセント */
             padding: 20px;
             border-radius: 8px;
-            margin-top: 15px;
-            font-size: 1.05em;
+            margin-top: 20px;
+        }
+        .summary p {
+            margin: 0;
             color: #444;
         }
+
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .infographic-container {
+            .container {
+                margin: 20px;
                 padding: 25px;
-                margin: 10px;
             }
             h1 {
                 font-size: 1.8em;
             }
+            h2 {
+                font-size: 1.3em;
+            }
             .section-title {
+                font-size: 1em;
+            }
+            .authors, .source-info, .doi, .url {
+                font-size: 0.95em;
+            }
+            .keyword {
+                font-size: 0.85em;
+                padding: 5px 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-left-width: 5px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
                 font-size: 1.2em;
             }
-            .meta-item {
-                flex-direction: column;
-                align-items: flex-start;
+            .section-title {
+                font-size: 0.95em;
             }
-            .meta-item strong {
-                margin-bottom: 5px;
-                min-width: unset;
+            .authors, .source-info, .doi, .url {
+                font-size: 0.9em;
             }
-            .summary-content {
-                padding: 15px;
+            .keyword {
+                font-size: 0.8em;
+                padding: 4px 8px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="infographic-container">
-        <h1>Computing inspired by the brain: a journey from algorithms to organoids</h1>
+    <div class="container">
+        <h1>Computing inspired by the brain: a journey from algorithms to organoids.</h1>
 
-        <div class="section-title">論文情報</div>
-        <div class="meta-info">
-            <div class="meta-item">
-                <strong>著者:</strong> P Brown, S Varghese
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-user-friends"></i> 著者
             </div>
-            <div class="meta-item">
-                <strong>出版元:</strong> Nature Computational Science, 2026
+            <p class="authors">Brown P, Varghese S.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-book"></i> 出典
             </div>
-            <div class="meta-item">
-                <strong>DOI:</strong> <a href="https://doi.org/10.1038/s43588-026-01012-x" target="_blank" rel="noopener noreferrer">10.1038/s43588-026-01012-x</a>
+            <p class="source-info">Nat Comput Sci. 2026 Jul 3. doi: 10.1038/s43588-026-01012-x. Online ahead of print.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-link"></i> リンク
             </div>
-            <div class="meta-item">
-                <strong>URL:</strong> <a href="https://www.nature.com/articles/s43588-026-01012-x" target="_blank" rel="noopener noreferrer">nature.com/articles/s43588-026-01012-x</a>
+            <p class="doi">DOI: <a href="https://doi.org/10.1038/s43588-026-01012-x" target="_blank" rel="noopener noreferrer">10.1038/s43588-026-01012-x</a></p>
+            <p class="url">PubMed URL: <a href="https://pubmed.ncbi.nlm.nih.gov/42399712/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/42399712/</a></p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-tags"></i> キーワード
+            </div>
+            <div class="keywords-container">
+                <span class="keyword">Brain-inspired computing</span>
+                <span class="keyword">Algorithms</span>
+                <span class="keyword">Organoids</span>
+                <span class="keyword">Neuroscience</span>
+                <span class="keyword">AI</span>
             </div>
         </div>
 
-        <div class="section-title">キーワード</div>
-        <div class="keywords-list">
-            <span class="keyword-tag">organoid intelligence</span>
-            <span class="keyword-tag">brain-inspired computing</span>
-            <span class="keyword-tag">neural organoids</span>
-            <span class="keyword-tag">electrical activity</span>
-            <span class="keyword-tag">learning</span>
-        </div>
-
-        <div class="section-title">日本語要約</div>
-        <div class="summary-content">
-            <p>本論文は、脳に触発された計算の進化を、初期のアルゴリズムから、近年注目されるオルガノイド（脳のミニチュアモデル）を用いた研究まで辿る旅を描いています。特に、オルガノイド知能や神経オルガノイドにおける電気活動と学習の可能性に焦点を当て、この分野の進展と将来の展望を探ります。</p>
+        <div class="section summary">
+            <h2><i class="fas fa-info-circle"></i> 日本語要約</h2>
+            <p>この論文は、脳に触発されたコンピューティングの進化について探求しています。アルゴリズムの初期段階から、より複雑な生物学的モデルであるオルガノイドに至るまでの道のりを概説しています。神経科学と人工知能の交差点に焦点を当て、脳の機能からインスピレーションを得た新しい計算パラダイムの可能性と課題を議論しています。</p>
         </div>
     </div>
 </body>
