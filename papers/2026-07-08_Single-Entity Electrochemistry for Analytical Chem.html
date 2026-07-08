@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に寄せる */
+            min-height: 100vh;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* コンテナ上部のアクセントライン */
+        .infographic-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #007bff, #00c6ff); /* 青系のグラデーション */
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        /* 論文タイトル */
+        h1 {
+            font-size: 2.2em;
+            color: #007bff; /* ブランドカラーの青 */
+            margin-top: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.3;
+            padding: 0 10px; /* 左右に少しパディング */
+        }
+
+        /* 各情報セクション */
+        .section {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f9fbfb; /* 薄い背景色 */
+            border-left: 5px solid #e0e0e0; /* 左側のボーダー */
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start; /* アイコンとテキストの先頭を揃える */
+        }
+        .section:last-child {
+            margin-bottom: 0; /* 最後のセクションの下マージンをなくす */
+        }
+
+        /* セクションアイコン */
+        .section-icon {
+            font-size: 1.5em;
+            color: #007bff; /* アイコンの色 */
+            margin-right: 15px;
+            flex-shrink: 0; /* アイコンが縮まないようにする */
+            width: 30px; /* アイコンの幅を固定 */
+            text-align: center;
+            padding-top: 3px; /* アイコンの垂直位置調整 */
+        }
+
+        /* セクションコンテンツ */
+        .section-content {
+            flex-grow: 1; /* 残りのスペースを埋める */
+        }
+
+        /* セクション見出し */
+        .section h2 {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* セクション内のテキスト、リスト */
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+            font-size: 0.95em;
+            color: #444;
+        }
+        .section ul {
+            list-style: none; /* リストのデフォルトスタイルを削除 */
+            display: flex;
+            flex-wrap: wrap; /* キーワードを折り返す */
+            gap: 8px; /* キーワード間のスペース */
+        }
+        .section ul li {
+            background-color: #e0f7fa; /* キーワードタグの背景色 */
+            color: #007bff; /* キーワードタグの文字色 */
+            padding: 6px 12px;
+            border-radius: 20px; /* 角丸 */
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        /* リンク */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 日本語要約セクションの特別なスタイル */
+        .summary-section {
+            background-color: #e8f5e9; /* 薄い緑色の背景 */
+            border-left-color: #4caf50; /* 緑色のボーダー */
+        }
+        .summary-section .section-icon {
+            color: #4caf50; /* 緑色のアイコン */
+        }
+        .summary-section h2 {
+            color: #388e3c; /* 緑色の見出し */
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Single-Entity Electrochemistry for Analytical Chemistry: Moving Towards the Limits of Detecting Single Molecules and Single Cells</h1>
+
+        <div class="section">
+            <div class="section-icon">👤</div> <!-- 著者アイコン -->
+            <div class="section-content">
+                <h2>著者</h2>
+                <p>L Fu, F Chen, Y Lv, S Zhao, CT Lin</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">📚</div> <!-- 出版元アイコン -->
+            <div class="section-content">
+                <h2>出版元</h2>
+                <p>Chemosensors, 2026</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🔗</div> <!-- URLアイコン -->
+            <div class="section-content">
+                <h2>論文URL</h2>
+                <p><a href="https://www.mdpi.com/2227-9040/14/7/153" target="_blank" rel="noopener noreferrer">https://www.mdpi.com/2227-9040/14/7/153</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon">🏷️</div> <!-- キーワードアイコン -->
+            <div class="section-content">
+                <h2>キーワード</h2>
+                <ul>
+                    <li>single-entity electrochemistry</li>
+                    <li>analytical chemistry</li>
+                    <li>single molecules</li>
+                    <li>single cells</li>
+                    <li>detection limits</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section summary-section">
+            <div class="section-icon">📝</div> <!-- 要約アイコン -->
+            <div class="section-content">
+                <h2>日本語要約</h2>
+                <p>本論文は、分析化学における単一実体電気化学の応用について論じています。特に、単一分子や単一細胞といった極めて微小な実体を検出する際の限界に挑戦し、その検出能力を向上させるための進展に焦点を当てています。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
