@@ -4,369 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>論文情報インフォグラフィック</title>
-    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2c3e50; /* Dark Blue/Grey */
-            --secondary-color: #3498db; /* Bright Blue */
-            --accent-color: #e74c3c; /* Red for emphasis */
-            --background-light: #ecf0f1; /* Light Grey */
-            --text-dark: #34495e; /* Darker Grey */
-            --text-light: #ffffff;
-            --card-background: #ffffff;
-            --border-color: #bdc3c7; /* Medium Grey */
-            --tag-background: #95a5a6; /* Grey for tags */
-        }
-
         body {
-            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-            background-color: var(--background-light);
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #eef2f7; /* 全体の背景色 */
+            color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to top */
+            align-items: flex-start;
             min-height: 100vh;
-            color: var(--text-dark);
-            line-height: 1.6;
         }
-
         .infographic-container {
-            width: 100%;
-            max-width: 900px;
-            background-color: var(--card-background);
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 40px; /* Space at the bottom */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin: 20px 0;
         }
-
-        .infographic-header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 30px 20px;
-            text-align: center;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .infographic-header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .paper-card {
-            padding: 30px;
-        }
-
-        .paper-title {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-top: 0;
+        h1 {
+            color: #2c3e50; /* メインタイトルの色 */
+            font-size: 2.4em;
             margin-bottom: 25px;
             text-align: center;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .section {
+            border-bottom: 2px solid #e0e0e0; /* 下線 */
+            padding-bottom: 18px;
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            padding-left: 15px;
-            border-left: 4px solid var(--secondary-color);
+            align-items: center;
+            justify-content: center;
         }
-
-        .section:last-child {
-            margin-bottom: 0;
+        h1 .icon {
+            font-size: 1.3em;
+            margin-right: 12px;
+            color: #3498db; /* メインアイコンの色 */
         }
-
-        .section .icon {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-right: 15px;
-            flex-shrink: 0; /* Prevent icon from shrinking */
-            padding-top: 5px; /* Align icon with text */
+        h2 {
+            color: #34495e; /* セクションタイトルの色 */
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
-
-        .section h3 {
-            margin: 0 0 10px 0;
+        h2 .icon {
+            margin-right: 10px;
             font-size: 1.2em;
-            color: var(--primary-color);
-            font-weight: 700;
-            flex-shrink: 0;
-            min-width: 80px; /* Ensure consistent alignment */
+            color: #3498db; /* セクションアイコンの色 */
         }
-
-        .section p, .section ul {
-            margin: 0;
-            flex-grow: 1;
-            padding-left: 10px; /* Space between h3 and content */
+        p, ul {
+            margin-bottom: 15px;
         }
-
-        .section p {
-            font-size: 1em;
-            color: var(--text-dark);
-        }
-
-        .section a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .section a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-
-        .source-doi {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 20px;
-        }
-
-        .source-info, .doi-info {
-            flex: 1;
-            min-width: 280px; /* Ensure they don't get too small */
-            display: flex;
-            align-items: flex-start;
-            padding-left: 15px;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .source-info .icon, .doi-info .icon {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-right: 15px;
-            flex-shrink: 0;
-            padding-top: 5px;
-        }
-
-        .source-info div, .doi-info div {
-            flex-grow: 1;
-        }
-
-        .source-info h3, .doi-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2em;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .keyword-list {
+        ul {
             list-style: none;
             padding: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #2980b9; /* リンクの色 */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section-content {
+            background-color: #fcfdff; /* コンテンツブロックの背景色 */
+            border-left: 5px solid #3498db; /* 左側のボーダーで強調 */
+            padding: 18px 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+        }
+        .keywords-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-left: 10px; /* Align with other content */
+            gap: 10px;
+            margin-top: 10px;
         }
-
-        .keyword-list li {
-            background-color: var(--tag-background);
-            color: var(--text-light);
+        .keyword-tag {
+            background-color: #e9f5f9; /* キーワードタグの背景色 */
+            color: #4a698c; /* キーワードタグの文字色 */
             padding: 8px 15px;
-            border-radius: 20px;
+            border-radius: 20px; /* 角を丸くする */
             font-size: 0.9em;
-            font-weight: 400;
-            white-space: nowrap; /* Prevent tags from breaking */
+            white-space: nowrap;
+            border: 1px solid #d0e4ed;
         }
-
-        .japanese-summary {
-            background-color: var(--background-light);
-            padding: 20px;
-            border-radius: 8px;
+        .summary-box {
+            background-color: #eef7fc; /* 要約ボックスの背景色 */
+            border-left: 6px solid #2980b9; /* 要約ボックスの左ボーダー */
+            padding: 25px;
+            border-radius: 0 10px 10px 0;
             margin-top: 30px;
-            border-left: 4px solid var(--accent-color); /* Different border for summary */
-            display: flex;
-            align-items: flex-start;
         }
-
-        .japanese-summary .icon {
-            color: var(--accent-color);
-        }
-
-        .japanese-summary h3 {
-            color: var(--accent-color);
-            min-width: 80px;
-        }
-
-        .japanese-summary p {
-            font-size: 1.05em;
+        .summary-box p {
+            font-size: 1.15em;
+            color: #2c3e50;
             line-height: 1.7;
-            color: var(--text-dark);
-            padding-left: 10px;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .infographic-container {
-                margin: 20px;
-                padding: 0;
-            }
-
-            .infographic-header h1 {
-                font-size: 1.8em;
-            }
-
-            .paper-card {
-                padding: 20px;
-            }
-
-            .paper-title {
-                font-size: 1.5em;
-                margin-bottom: 20px;
-            }
-
-            .section {
-                flex-direction: column;
-                align-items: flex-start;
-                padding-left: 0;
-                border-left: none;
-                margin-bottom: 20px;
-            }
-
-            .section .icon {
-                margin-right: 10px;
-                margin-bottom: 5px;
-                font-size: 1.5em;
-            }
-
-            .section h3 {
-                font-size: 1.1em;
-                margin-bottom: 5px;
-                min-width: auto;
-                display: flex;
-                align-items: center;
-            }
-
-            .section h3::before { /* Add icon next to h3 for smaller screens */
-                content: attr(data-icon);
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                margin-right: 10px;
-                color: var(--secondary-color);
-            }
-
-            .section p, .section ul {
-                padding-left: 0;
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .section .icon {
-                display: none; /* Hide original icon when h3 has it */
-            }
-
-            .source-doi {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .source-info, .doi-info {
-                flex-direction: column;
-                padding-left: 0;
-                border-left: none;
-            }
-
-            .source-info h3::before { content: "\f02d"; } /* Book icon */
-            .doi-info h3::before { content: "\f574"; } /* Fingerprint icon */
-            .authors h3::before { content: "\f0c0"; } /* Users icon */
-            .url h3::before { content: "\f0c1"; } /* Link icon */
-            .keywords h3::before { content: "\f02b"; } /* Tags icon */
-            .japanese-summary h3::before { content: "\f0eb"; color: var(--accent-color); } /* Lightbulb icon */
-
-            .japanese-summary {
-                flex-direction: column;
-                padding: 15px;
-                margin-top: 20px;
-            }
-            .japanese-summary .icon {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .infographic-header h1 {
-                font-size: 1.5em;
-            }
-            .paper-title {
-                font-size: 1.2em;
-            }
-            .keyword-list li {
-                padding: 6px 10px;
-                font-size: 0.85em;
-            }
-            .japanese-summary p {
-                font-size: 0.95em;
-            }
+        strong {
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
     <div class="infographic-container">
-        <header class="infographic-header">
-            <h1>論文情報インフォグラフィック</h1>
-        </header>
+        <h1><span class="icon">📊</span>論文情報インフォグラフィック</h1>
 
-        <div class="paper-card">
-            <h2 class="paper-title">Gut commensal Bacteroides-derived pantothenic acid alleviates metabolic syndrome.</h2>
+        <div class="section-content">
+            <h2><span class="icon">📄</span>タイトル</h2>
+            <p><strong>Gut commensal Bacteroides-derived pantothenic acid alleviates metabolic syndrome.</strong></p>
+        </div>
 
-            <div class="section authors">
-                <i class="icon fas fa-users"></i>
-                <h3 data-icon="\f0c0">著者</h3>
-                <p>Luo Z, Xiao Z, Yuan T, Wang X, Shi C, Xu W, Chong Y, Hou X, Wu P, Li M, He X, Zhou Y, Zhang T, Ji X, Su K, Chen T, Wang X, Xie T, Di L, Li H, Xu B, Cheng H, Shan J.</p>
+        <div class="section-content">
+            <h2><span class="icon">🧑‍🔬</span>著者</h2>
+            <p>Luo Z, Xiao Z, Yuan T, ...他</p>
+        </div>
+
+        <div class="section-content">
+            <h2><span class="icon">📰</span>掲載元</h2>
+            <p>Cell Host Microbe. 2026 Jul 1:S1931-3128(26)00265-9. Online ahead of print.</p>
+        </div>
+
+        <div class="section-content">
+            <h2><span class="icon">🔗</span>DOI</h2>
+            <p><a href="https://doi.org/10.1016/j.chom.2026.06.005" target="_blank">10.1016/j.chom.2026.06.005</a></p>
+        </div>
+
+        <div class="section-content">
+            <h2><span class="icon">🌐</span>PubMed URL</h2>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/42385714/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42385714/</a></p>
+        </div>
+
+        <div class="section-content">
+            <h2><span class="icon">🏷️</span>キーワード</h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">Gut microbiota</span>
+                <span class="keyword-tag">Bacteroides</span>
+                <span class="keyword-tag">Pantothenic acid</span>
+                <span class="keyword-tag">Metabolic syndrome</span>
+                <span class="keyword-tag">Commensal</span>
             </div>
+        </div>
 
-            <div class="source-doi">
-                <div class="source-info">
-                    <i class="icon fas fa-book"></i>
-                    <h3 data-icon="\f02d">出典</h3>
-                    <div>
-                        <p>Cell Host Microbe. 2026 Jul 1:S1931-3128(26)00265-9. Online ahead of print.</p>
-                    </div>
-                </div>
-                <div class="doi-info">
-                    <i class="icon fas fa-fingerprint"></i>
-                    <h3 data-icon="\f574">DOI</h3>
-                    <div>
-                        <p><a href="https://doi.org/10.1016/j.chom.2026.06.005" target="_blank">10.1016/j.chom.2026.06.005</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section url">
-                <i class="icon fas fa-link"></i>
-                <h3 data-icon="\f0c1">URL</h3>
-                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42385714/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42385714/</a></p>
-            </div>
-
-            <div class="section keywords">
-                <i class="icon fas fa-tags"></i>
-                <h3 data-icon="\f02b">キーワード</h3>
-                <ul class="keyword-list">
-                    <li>Gut microbiome</li>
-                    <li>Bacteroides</li>
-                    <li>Pantothenic acid</li>
-                    <li>Metabolic syndrome</li>
-                    <li>Probiotics</li>
-                </ul>
-            </div>
-
-            <div class="japanese-summary">
-                <i class="icon fas fa-lightbulb"></i>
-                <h3 data-icon="\f0eb">日本語要約</h3>
-                <p>この研究は、腸内共生細菌であるバクテロイデス属が産生するパントテン酸（ビタミンB5）が、メタボリックシンドロームを軽減する可能性を示唆しています。腸内マイクロバイオームと宿主の代謝疾患との関連性を明らかにし、将来的にバクテロイデスやパントテン酸を標的としたプロバイオティクスによるメタボリックシンドロームの治療法開発に繋がる知見を提供します。</p>
-            </div>
+        <div class="summary-box">
+            <h2><span class="icon">📝</span>日本語要約</h2>
+            <p>この研究は、腸内共生細菌であるバクテロイデス属が生成するパントテン酸が、メタボリックシンドロームを軽減する可能性を示唆しています。これは、腸内細菌叢と宿主の代謝疾患との関連性に関する新たな知見を提供します。</p>
         </div>
     </div>
 </body>
