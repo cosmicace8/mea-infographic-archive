@@ -1,1 +1,289 @@
-+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h5+h
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts: Noto Sans JP (日本語) と Roboto (英語) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* カラーパレットと基本設定 */
+        :root {
+            --primary-color: #2c3e50; /* ダークブルー/グレー */
+            --secondary-color: #3498db; /* ブライトブルー */
+            --accent-color: #e74c3c; /* ハイライト用レッド */
+            --background-light: #ecf0f1; /* ライトグレー */
+            --text-dark: #333;
+            --text-light: #fdfdfd;
+            --border-radius: 8px;
+            --spacing-medium: 20px;
+            --spacing-large: 30px;
+        }
+
+        /* 全体設定 */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: var(--spacing-large);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 上部に揃える */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* インフォグラフィックコンテナ */
+        .infographic-container {
+            background-color: var(--text-light);
+            max-width: 900px;
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: var(--spacing-large);
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-medium) var(--spacing-large);
+            text-align: center;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: var(--spacing-large);
+        }
+
+        /* 各セクションの共通スタイル */
+        section {
+            margin-bottom: var(--spacing-large);
+            padding: var(--spacing-medium);
+            background-color: #fdfdfd;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        section h2 {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        section h2 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* 論文タイトルセクション */
+        .paper-title {
+            background-color: #e8f4f8; /* 明るいブルーの背景 */
+            border-left: 5px solid var(--secondary-color);
+            padding: var(--spacing-medium) var(--spacing-large);
+        }
+
+        .paper-title h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        /* 日本語要約セクション */
+        .summary {
+            background-color: #f8f8e8; /* 明るいイエローの背景 */
+            border-left: 5px solid #f39c12; /* オレンジのアクセント */
+        }
+
+        .summary p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* グリッドレイアウト */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2列 */
+            gap: var(--spacing-medium);
+        }
+
+        .grid-item {
+            background-color: #fdfdfd;
+            padding: var(--spacing-medium);
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        .grid-item h2 {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .grid-item h2 i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        /* 著者リスト */
+        .authors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .authors li {
+            margin-bottom: 5px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .authors li::before {
+            content: "\2022"; /* 箇条書きの点 */
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* 出典・リンク情報 */
+        .publication-info p, .doi-url p {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+        }
+
+        .doi-url a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .doi-url a:hover {
+            text-decoration: underline;
+        }
+
+        /* キーワードタグ */
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword-tags span {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        /* フッター */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: var(--spacing-medium);
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            font-size: 0.9em;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1列にする */
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .paper-title h3 {
+                font-size: 1.5em;
+            }
+            body {
+                padding: var(--spacing-medium);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <header>
+            <h1>論文情報インフォグラフィック</h1>
+        </header>
+        <main>
+            <section class="paper-title">
+                <h2><i class="fas fa-book"></i> 論文タイトル</h2>
+                <h3>A historical journey of metabolite-protein interaction discovery: from data harmonization to AI-driven prediction.</h3>
+            </section>
+
+            <section class="summary">
+                <h2><i class="fas fa-lightbulb"></i> 日本語要約</h2>
+                <p>本論文は、代謝物とタンパク質の相互作用（MPI）の発見における歴史的な進展を概観しています。データ調和の重要性から、人工知能（AI）を活用したMPI予測の最新技術に至るまで、この分野の進化を包括的に解説しています。バイオインフォマティクス分野におけるMPI研究の過去、現在、未来を探る一助となるでしょう。</p>
+            </section>
+
+            <div class="grid-container">
+                <div class="grid-item authors">
+                    <h2><i class="fas fa-users"></i> 著者</h2>
+                    <ul>
+                        <li>Lawrence T</li>
+                        <li>Mocsonokyova E</li>
+                        <li>Barde AM</li>
+                        <li>Modos D</li>
+                        <li>Dumas ME</li>
+                        <li>Korcsmaros T</li>
+                        <li>Gul L</li>
+                    </ul>
+                </div>
+
+                <div class="grid-item publication-info">
+                    <h2><i class="fas fa-journal-whills"></i> 出典</h2>
+                    <p>Brief Bioinform. 2026 Jul 3;27(4):bbag355. doi: 10.1093/bib/bbag355.</p>
+                </div>
+
+                <div class="grid-item doi-url">
+                    <h2><i class="fas fa-link"></i> リンク</h2>
+                    <p><strong>DOI:</strong> <a href="https://doi.org/10.1093/bib/bbag355" target="_blank" rel="noopener noreferrer">10.1093/bib/bbag355</a></p>
+                    <p><strong>PubMed:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42398072/" target="_blank" rel="noopener noreferrer">PubMedで見る</a></p>
+                </div>
+
+                <div class="grid-item keywords">
+                    <h2><i class="fas fa-tags"></i> キーワード</h2>
+                    <div class="keyword-tags">
+                        <span>Metabolite-protein interaction</span>
+                        <span>Data harmonization</span>
+                        <span>AI prediction</span>
+                        <span>Bioinformatics</span>
+                        <span>Historical review</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
