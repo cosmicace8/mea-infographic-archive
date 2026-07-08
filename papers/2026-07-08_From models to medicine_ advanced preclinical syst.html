@@ -3,253 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文情報インフォグラフィック: From models to medicine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography (Noto Sans JP for Japanese, Roboto for English/numbers) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #2c3e50; /* Dark Blue */
-            --secondary-color: #3498db; /* Bright Blue */
-            --accent-color: #e74c3c; /* Red */
-            --background-color: #ecf0f1; /* Light Gray */
-            --card-background: #ffffff; /* White */
-            --text-color: #34495e; /* Dark Gray */
-            --light-text-color: #7f8c8d; /* Medium Gray */
-            --border-color: #bdc3c7; /* Gray */
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
+        /* General Body Styles */
         body {
             font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
             box-sizing: border-box;
         }
 
+        /* Infographic Container */
         .infographic-container {
-            background-color: var(--card-background);
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 8px 20px var(--shadow-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
             max-width: 900px;
-            width: 100%;
-            padding: 30px 40px;
-            box-sizing: border-box;
-            border-top: 8px solid var(--secondary-color);
+            padding: 40px;
+            margin: 20px;
+            border-left: 8px solid #007bff; /* Accent color on the left */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px; /* Space between sections */
         }
 
-        h1, h2, h3 {
-            color: var(--primary-color);
+        /* Header Section */
+        .infographic-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .infographic-header h1 {
+            font-size: 2.5em;
+            color: #007bff; /* Primary accent color */
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .infographic-header .url {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* General Section Styling */
+        .infographic-section {
+            padding: 20px;
+            background-color: #f9fbfd; /* Slightly off-white for sections */
+            border-radius: 8px;
+            border: 1px solid #e0e6ed; /* Subtle border */
+        }
+
+        .infographic-section h2 {
+            font-size: 1.4em;
+            color: #007bff;
             margin-top: 0;
             margin-bottom: 15px;
+            border-bottom: 2px solid #e0e6ed; /* Separator line */
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
 
-        h1 {
-            font-size: 2.2em;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 25px;
-            line-height: 1.3;
-        }
-
-        h2 {
-            font-size: 1.6em;
-            font-weight: 700;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 30px;
-            color: var(--secondary-color);
-        }
-
-        h3 {
+        .infographic-section h2::before {
+            content: '•'; /* Simple bullet point icon */
+            color: #007bff;
+            margin-right: 10px;
             font-size: 1.2em;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        p {
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        .section {
-            margin-bottom: 25px;
-            padding: 15px 0;
-            border-bottom: 1px dashed var(--border-color);
-        }
-
-        .section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .authors-list {
-            list-style: none;
-            padding: 0;
+        .infographic-section p, .infographic-section ul {
             margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 15px;
+            padding: 0;
+            color: #555;
         }
 
-        .authors-list li {
-            background-color: var(--background-color);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: var(--text-color);
-            white-space: nowrap;
+        .infographic-section ul {
+            list-style: none;
         }
 
-        .keywords-container {
+        .infographic-section ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Keywords Styling */
+        .keywords-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin-top: 10px;
         }
 
         .keyword-tag {
-            background-color: var(--secondary-color);
-            color: var(--card-background);
-            padding: 7px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 400;
-            transition: background-color 0.3s ease;
+            background-color: #e0f2f7; /* Light blue background for tags */
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .keyword-tag:hover {
-            background-color: var(--primary-color);
+        /* Japanese Summary Section Specific Styling */
+        .summary-section {
+            background-color: #e6f7ff; /* Lighter blue for summary to stand out */
+            border-left: 5px solid #007bff; /* Stronger left border */
+            padding: 25px;
         }
 
-        .summary-box {
-            background-color: var(--background-color);
-            border-left: 5px solid var(--accent-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+        .summary-section h2 {
+            color: #0056b3; /* Slightly darker blue for summary title */
+            border-bottom-color: #a0d9ff;
         }
 
-        .summary-box p {
-            margin: 0;
-            font-size: 1.05em;
-            color: var(--text-color);
+        .summary-section p {
+            font-size: 1.1em;
+            color: #333;
         }
 
-        .icon {
-            margin-right: 8px;
-            color: var(--secondary-color);
+        /* Link Styling */
+        a {
+            color: #007bff;
+            text-decoration: none;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
+        a:hover {
+            text-decoration: underline;
         }
 
-        .info-item strong {
-            min-width: 80px; /* Align labels */
-            display: inline-block;
-        }
-
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .infographic-container {
-                padding: 20px 25px;
+                padding: 25px;
+                margin: 10px;
             }
-            h1 {
+
+            .infographic-header h1 {
                 font-size: 1.8em;
             }
-            h2 {
-                font-size: 1.4em;
+
+            .infographic-section h2 {
+                font-size: 1.2em;
             }
-            .authors-list {
-                flex-direction: column;
-                gap: 5px;
-            }
-            .authors-list li {
-                width: fit-content;
-            }
-            .info-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .info-item strong {
-                margin-bottom: 5px;
+
+            .summary-section p {
+                font-size: 1em;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="infographic-container">
-        <h1>論文情報インフォグラフィック</h1>
-
-        <div class="section">
-            <h2><i class="fas fa-book icon"></i> 論文タイトル</h2>
-            <p style="font-size: 1.4em; font-weight: 700; color: var(--primary-color);">From models to medicine: advanced preclinical systems and AI enabling RNA therapeutics in triple-negative breast cancer.</p>
+        <div class="infographic-header">
+            <h1>From models to medicine: advanced preclinical systems and AI enabling RNA therapeutics in triple-negative breast cancer.</h1>
+            <p class="url"><a href="https://pubmed.ncbi.nlm.nih.gov/42396933/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42396933/</a></p>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-user-friends icon"></i> 著者</h2>
-            <ul class="authors-list">
-                <li>Esposito C</li>
-                <li>Bello I</li>
-                <li>Panza E</li>
-            </ul>
+        <div class="infographic-section">
+            <h2>著者</h2>
+            <p>Esposito C, Bello I, Panza E.</p>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-info-circle icon"></i> 詳細情報</h2>
-            <div class="info-item">
-                <strong><i class="fas fa-journal-whills icon"></i> 出典:</strong>
-                <p>Eur Rev Med Pharmacol Sci. 2026 Jun;30(6):214-228.</p>
-            </div>
-            <div class="info-item">
-                <strong><i class="fas fa-fingerprint icon"></i> DOI:</strong>
-                <p><a href="https://doi.org/10.26355/eurrev_202606_37857" target="_blank">10.26355/eurrev_202606_37857</a></p>
-            </div>
-            <div class="info-item">
-                <strong><i class="fas fa-link icon"></i> PubMed URL:</strong>
-                <p><a href="https://pubmed.ncbi.nlm.nih.gov/42396933/" target="_blank">pubmed.ncbi.nlm.nih.gov/42396933/</a></p>
-            </div>
+        <div class="infographic-section">
+            <h2>出版情報</h2>
+            <p>Eur Rev Med Pharmacol Sci. 2026 Jun;30(6):214-228.</p>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-tags icon"></i> キーワード</h2>
-            <div class="keywords-container">
-                <span class="keyword-tag">RNA therapeutics</span>
-                <span class="keyword-tag">Triple-negative breast cancer</span>
+        <div class="infographic-section">
+            <h2>DOI</h2>
+            <p><a href="https://doi.org/10.26355/eurrev_202606_37857" target="_blank" rel="noopener noreferrer">10.26355/eurrev_202606_37857</a></p>
+        </div>
+
+        <div class="infographic-section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
                 <span class="keyword-tag">Preclinical models</span>
                 <span class="keyword-tag">AI</span>
-                <span class="keyword-tag">Oncology</span>
+                <span class="keyword-tag">RNA therapeutics</span>
+                <span class="keyword-tag">Breast cancer</span>
+                <span class="keyword-tag">Medicine</span>
             </div>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-file-alt icon"></i> 日本語要約</h2>
-            <div class="summary-box">
-                <p>
-                    本論文は、トリプルネガティブ乳がん（TNBC）におけるRNA治療薬の開発を促進するための、先進的な前臨床システムと人工知能（AI）の活用に焦点を当てています。
-                    モデルから医療応用への橋渡しを目指し、RNA治療薬がTNBCの治療にどのように貢献しうるかを探求しています。
-                    特に、AIが前臨床研究を加速し、より効果的な治療法の発見に繋がる可能性について議論されています。
-                </p>
-            </div>
+        <div class="infographic-section summary-section">
+            <h2>日本語要約</h2>
+            <p>本論文は、トリプルネガティブ乳がん（TNBC）におけるRNA治療薬の開発を加速させるための、先進的な前臨床システムと人工知能（AI）の活用に焦点を当てています。研究は、これらの革新的な技術が、モデル段階から実際の医療応用へとRNA治療薬を効果的に橋渡しする方法を探求し、TNBC治療における新たな可能性を提示しています。</p>
         </div>
     </div>
 </body>
