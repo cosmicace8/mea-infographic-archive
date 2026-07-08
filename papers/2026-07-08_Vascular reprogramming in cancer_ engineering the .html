@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            box-sizing: border-box;
+            border-left: 8px solid #007bff;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .info-item i {
+            color: #007bff;
+            margin-right: 15px;
+            font-size: 1.3em;
+            width: 25px; /* アイコンの幅を固定してテキストの開始位置を揃える */
+            text-align: center;
+            padding-top: 3px; /* テキストとアイコンの垂直方向のずれを調整 */
+        }
+
+        .info-item span, .info-item a {
+            flex: 1;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .keywords-section {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+
+        .keywords-section .info-item {
+            margin-bottom: 0;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            margin-left: 40px; /* アイコンの幅とマージン分 */
+        }
+
+        .keyword-tag {
+            background-color: #e0f2f7;
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .summary-section p {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-size: 1.05em;
+            color: #444;
+            margin-top: 15px;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 600px) {
+            .infographic-container {
+                padding: 20px 25px;
+                border-left: 5px solid #007bff;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .info-item {
+                font-size: 1em;
+            }
+            .info-item i {
+                font-size: 1.1em;
+                margin-right: 10px;
+                width: 20px;
+            }
+            .keyword-tags {
+                margin-left: 30px;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+            .summary-section p {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Vascular reprogramming in cancer: engineering the tumor microenvironment.</h1>
+
+        <div class="info-item">
+            <i class="fas fa-user"></i>
+            <span><strong>著者:</strong> Nishimura Y.</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-book"></i>
+            <span><strong>掲載誌:</strong> Hum Cell. 2026 Jul 5;39(7):99.</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-fingerprint"></i>
+            <span><strong>DOI:</strong> <a href="https://doi.org/10.1007/s13577-026-01417-w" target="_blank" rel="noopener noreferrer">10.1007/s13577-026-01417-w</a></span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-link"></i>
+            <span><strong>PubMed URL:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/42402079/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/42402079/</a></span>
+        </div>
+
+        <div class="keywords-section">
+            <div class="info-item">
+                <i class="fas fa-tags"></i>
+                <span><strong>キーワード:</strong></span>
+            </div>
+            <div class="keyword-tags">
+                <span class="keyword-tag">Cancer</span>
+                <span class="keyword-tag">Vascular reprogramming</span>
+                <span class="keyword-tag">Tumor microenvironment</span>
+                <span class="keyword-tag">Engineering</span>
+                <span class="keyword-tag">Oncology</span>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、がんにおける血管の再プログラミングに焦点を当て、腫瘍微小環境を工学的に操作することで、がん治療への新たなアプローチを探求するものです。がんの進行において重要な役割を果たす血管の異常な形成や機能変化を理解し、これを制御する技術開発の可能性を示唆しています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
