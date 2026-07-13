@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            max-width: 800px;
+            width: 100%;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+            margin-right: 8px;
+        }
+        .authors, .source, .url-link {
+            font-size: 1.1em;
+        }
+        .url-link a {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .url-link a:hover {
+            text-decoration: underline;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #b2ebf2;
+        }
+        .hd-mea-status {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #e8f5e9;
+            border-left: 5px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .hd-mea-status.no {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+        .hd-mea-icon {
+            font-size: 1.8em;
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        .hd-mea-status.no .hd-mea-icon {
+            color: #f44336;
+        }
+        .summary-japanese {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 5px;
+        }
+        .summary-japanese p {
+            margin: 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+        .summary-japanese h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2><span class="label">タイトル:</span></h2>
+            <p class="title-text">Alterations in 16p11. 2 duplication astrocytes and their implications for neuronal maturation</p>
+        </div>
+
+        <div class="section">
+            <p><span class="label">著者:</span> <span class="authors">MR Lawston</span></p>
+            <p><span class="label">出版年:</span> <span class="source">2026</span></p>
+            <p class="url-link"><span class="label">URL:</span> <a href="https://ora.ox.ac.uk/objects/uuid:48ed9a65-fcb5-466f-81f2-28082f0c6b87/files/d2r36tz61z" target="_blank">https://ora.ox.ac.uk/objects/uuid:48ed9a65-fcb5-466f-81f2-28082f0c6b87/files/d2r36tz61z</a></p>
+            <!-- DOIは情報が提供されていないため表示しません -->
+        </div>
+
+        <div class="section">
+            <h2><span class="label">キーワード:</span></h2>
+            <div class="keywords-container">
+                <span class="keyword-tag">16p11.2 duplication</span>
+                <span class="keyword-tag">astrocytes</span>
+                <span class="keyword-tag">neuronal maturation</span>
+                <span class="keyword-tag">iPSC-derived neuron</span>
+                <span class="keyword-tag">HD-MEA</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="label">HD-MEA使用:</span></h2>
+            <div class="hd-mea-status yes">
+                <span class="hd-mea-icon">✅</span>
+                <span>この研究では高密度多電極アレイ (HD-MEA) が使用されています。</span>
+            </div>
+        </div>
+
+        <!-- スパイクソーティング手法は情報が提供されていないため表示しません -->
+
+        <div class="summary-japanese">
+            <h2>日本語要約</h2>
+            <p>本論文は、16p11.2重複という遺伝子異常を持つアストロサイト（星状膠細胞）における変化が、ニューロン（神経細胞）の成熟に与える影響について調査しています。iPSC（人工多能性幹細胞）由来のニューロンを用いて、高密度多電極アレイ（HD-MEA）などの技術を駆使し、この遺伝子重複が神経発達に及ぼすメカニズムを解明することを目指しています。</p>
+        </div>
+    </div>
+</body>
+</html>
