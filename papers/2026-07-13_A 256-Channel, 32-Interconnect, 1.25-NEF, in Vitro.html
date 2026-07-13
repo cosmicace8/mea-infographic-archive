@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .infographic-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card-header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+        }
+
+        .paper-title {
+            font-size: 1.8em;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .paper-authors {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .summary-section {
+            padding: 30px;
+            background-color: #ecf0f1;
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        .summary-section h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .summary-section p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #34495e;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .detail-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e8e8e8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-item h3 {
+            color: #3498db;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-item h3 i {
+            margin-right: 10px;
+            color: #2c3e50;
+            font-size: 1.3em;
+        }
+
+        .detail-item p, .detail-item a {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .detail-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: #e7f3f9;
+            color: #2c3e50;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid #b3d9ed;
+        }
+
+        .feature-status {
+            font-weight: 700;
+            color: #27ae60; /* Green for true */
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-status.false {
+            color: #e74c3c; /* Red for false */
+        }
+
+        .feature-status i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .card-footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .card-header {
+                padding: 20px;
+            }
+            .paper-title {
+                font-size: 1.5em;
+            }
+            .paper-authors {
+                font-size: 1em;
+            }
+            .summary-section, .details-grid {
+                padding: 20px;
+            }
+            .summary-section h2 {
+                font-size: 1.3em;
+            }
+            .summary-section p {
+                font-size: 1em;
+            }
+            .detail-item h3 {
+                font-size: 1.1em;
+            }
+            .detail-item p, .detail-item a {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-card">
+        <header class="card-header">
+            <h1 class="paper-title">A 256-Channel, 32-Interconnect, 1.25-NEF, in Vitro and In Vivo Neural Interface With Auto-Calibrated Input Impedance Boosting and on-Chip Spike Detection for Flexible Capacitive Microelectrode Array</h1>
+            <p class="paper-authors">Y Chen, S Nam, S Byun, P Velcich, S Cho, C Lee</p>
+        </header>
+
+        <section class="summary-section">
+            <h2>日本語要約</h2>
+            <p>
+                本論文は、柔軟な容量性マイクロ電極アレイ（MEA）向けに設計された、256チャンネルの神経インターフェースについて詳述しています。このインターフェースは、自動校正による入力インピーダンスブースティング機能と、オンチップでのスパイク検出機能を統合しており、in vitro（生体外）およびin vivo（生体内）の両環境での神経活動記録に対応します。低ノイズ性能（1.25-NEF）と効率的な相互接続（32-Interconnect）により、高密度な神経信号の取得と処理を可能にし、神経科学研究やブレイン・マシン・インターフェース開発への貢献が期待されます。
+            </p>
+        </section>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3><i class="fas fa-book"></i> 出典</h3>
+                <p>2026 IEEE/JSAP</p>
+            </div>
+            <div class="detail-item">
+                <h3><i class="fas fa-link"></i> URL</h3>
+                <p><a href="https://ieeexplore.ieee.org/abstract/document/11577263/" target="_blank" rel="noopener noreferrer">ieeexplore.ieee.org/abstract/document/11577263/</a></p>
+            </div>
+            <div class="detail-item">
+                <h3><i class="fas fa-tags"></i> キーワード</h3>
+                <div class="keywords-list">
+                    <span class="keyword-tag">neural interface</span>
+                    <span class="keyword-tag">microelectrode array</span>
+                    <span class="keyword-tag">spike detection</span>
+                    <span class="keyword-tag">in vitro</span>
+                    <span class="keyword-tag">in vivo</span>
+                </div>
+            </div>
+            <div class="detail-item">
+                <h3><i class="fas fa-microchip"></i> 高密度MEA使用</h3>
+                <p class="feature-status true"><i class="fas fa-check-circle"></i> はい</p>
+            </div>
+            <div class="detail-item">
+                <h3><i class="fas fa-wave-square"></i> スパイク検出方法</h3>
+                <p>on-chip spike detection</p>
+            </div>
+            <!-- DOIが空のため表示しない -->
+        </div>
+
+        <footer class="card-footer">
+            <p>&copy; 2023 論文情報インフォグラフィック</p>
+        </footer>
+    </div>
+</body>
+</html>
