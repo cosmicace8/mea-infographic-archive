@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-color: #ecf0f1; /* Light Gray */
+            --card-background: #ffffff; /* White */
+            --text-color: #34495e; /* Dark Gray */
+            --light-text-color: #7f8c8d; /* Medium Gray */
+            --border-color: #bdc3c7; /* Silver */
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better content flow */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .infographic-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        .label {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .authors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .author-name {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            background-color: var(--secondary-color);
+            color: var(--card-background);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background-color: var(--primary-color);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .summary-box {
+            background-color: #f8f9fa; /* Lighter background for summary */
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .summary-box p {
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .infographic-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .keyword-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .summary-box p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>論文情報インフォグラフィック</h1>
+
+        <div class="section">
+            <h2>論文タイトル</h2>
+            <p><strong class="label">タイトル:</strong> Simulacra Naturae-Entangled Biomes: Generative Ecosystems driven by Brain Organoid Intelligence</p>
+            <p><strong class="label">URL:</strong> <a href="https://dl.acm.org/doi/abs/10.1145/3799824.3812690" target="_blank">https://dl.acm.org/doi/abs/10.1145/3799824.3812690</a></p>
+        </div>
+
+        <div class="section">
+            <h2>著者情報</h2>
+            <p><strong class="label">著者:</strong></p>
+            <div class="authors-list">
+                <span class="author-name">N Manoudaki</span>
+                <span class="author-name">I Paterakis</span>
+                <span class="author-name">M Toka</span>
+                <span class="author-name">D Flatley…</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>出版情報</h2>
+            <p><strong class="label">出典:</strong> Proceedings of the Special …, 2026</p>
+            <p><strong class="label">DOI:</strong> <a href="https://doi.org/10.1145/3799824.3812690" target="_blank">10.1145/3799824.3812690</a></p>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">organoid intelligence</span>
+                <span class="keyword-tag">generative ecosystems</span>
+                <span class="keyword-tag">brain organoid</span>
+                <span class="keyword-tag">computational biology</span>
+                <span class="keyword-tag">artificial life</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="summary-box">
+                <p>
+                    この論文「Simulacra Naturae-Entangled Biomes: Generative Ecosystems driven by Brain Organoid Intelligence」は、脳オルガノイド知能（Brain Organoid Intelligence）を用いて生成生態系（Generative Ecosystems）を構築する革新的なアプローチを探求しています。計算生物学（Computational Biology）と人工生命（Artificial Life）の分野を横断し、生物学的な知能がどのように複雑な仮想環境を駆動し、新たな生命シミュレーションの可能性を開くかを示唆しています。本研究は、オルガノイド知能が未来のAIや生命科学研究に与える影響について深く考察しています。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
