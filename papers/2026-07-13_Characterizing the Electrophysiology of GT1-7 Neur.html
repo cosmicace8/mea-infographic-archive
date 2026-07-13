@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体的なスタイル */
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            border-left: 8px solid #4CAF50; /* アクセントカラー */
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        .header .source {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* セクション */
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .section h2 {
+            font-size: 1.6em;
+            color: #34495e;
+            margin-bottom: 15px;
+            border-left: 4px solid #4CAF50;
+            padding-left: 10px;
+        }
+
+        /* 著者 */
+        .authors-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .authors-list li {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        /* キーワード */
+        .keywords-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keywords-list li {
+            background-color: #ecf0f1;
+            color: #555;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        /* 詳細情報 */
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .detail-item strong {
+            min-width: 120px;
+            color: #555;
+            font-weight: bold;
+        }
+        .detail-item span, .detail-item a {
+            flex-grow: 1;
+            color: #333;
+            text-decoration: none;
+        }
+        .detail-item a:hover {
+            text-decoration: underline;
+            color: #4CAF50;
+        }
+
+        /* HD-MEA */
+        .hd-mea-status {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 5px;
+            width: fit-content; /* 内容に合わせて幅を調整 */
+        }
+        .hd-mea-status.true {
+            color: #28a745; /* Green for true */
+            background-color: #e6ffe6;
+        }
+        .hd-mea-status.false {
+            color: #dc3545; /* Red for false */
+            background-color: #ffe6e6;
+        }
+        .hd-mea-status .icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        /* 日本語要約 */
+        .japanese-summary {
+            background-color: #f9f9f9;
+            border-left: 5px solid #2196F3; /* Blue accent */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .japanese-summary p {
+            margin: 0;
+            color: #444;
+            font-size: 1.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <div class="header">
+            <h1>Characterizing the Electrophysiology of GT1-7 Neuron Spheroids</h1>
+            <p class="source">Spring 2026 APS Northwest …, 2026</p>
+        </div>
+
+        <div class="section">
+            <h2>著者</h2>
+            <ul class="authors-list">
+                <li>M Campbell</li>
+                <li>Y Gopalswamy</li>
+                <li>RT Magar</li>
+                <li>P Chappell…</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>詳細情報</h2>
+            <div class="detail-item">
+                <strong>URL:</strong>
+                <a href="https://meetings-archive.aps.org/nws/2026/f01/1/" target="_blank">https://meetings-archive.aps.org/nws/2026/f01/1/</a>
+            </div>
+            <div class="detail-item">
+                <strong>DOI:</strong>
+                <span>N/A</span>
+            </div>
+            <div class="detail-item">
+                <strong>HD-MEA使用:</strong>
+                <span class="hd-mea-status true">
+                    <span class="icon">✅</span> 使用
+                </span>
+            </div>
+            <div class="detail-item">
+                <strong>スパイクソーティング:</strong>
+                <span>N/A</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>キーワード</h2>
+            <ul class="keywords-list">
+                <li>neuron spheroids</li>
+                <li>electrophysiology</li>
+                <li>GT1-7</li>
+                <li>HD-MEA</li>
+                <li>electrical stimulation</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>日本語要約</h2>
+            <div class="japanese-summary">
+                <p>本研究は、GT1-7神経スフェロイドの電気生理学的特性を詳細に解明することを目的としています。高密度多電極アレイ（HD-MEA）と電気刺激技術を用いて、これらの神経細胞集合体の活動を評価し、その特性を明らかにします。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
