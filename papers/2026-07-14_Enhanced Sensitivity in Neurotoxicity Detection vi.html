@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文情報インフォグラフィック</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            z-index: 1; /* Ensure content is above pseudo-elements */
+        }
+
+        /* Decorative Pseudo-elements for background */
+        .infographic-container::before,
+        .infographic-container::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .infographic-container::before {
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A); /* Green gradient */
+        }
+        .infographic-container::after {
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #2196F3, #03A9F4); /* Blue gradient */
+        }
+
+        /* Headings */
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            color: #4CAF50; /* Green for section titles */
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .section p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Authors List */
+        .authors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .authors span {
+            display: inline-block;
+            background-color: #e8f5e9; /* Light green background */
+            color: #2e7d32; /* Darker green text */
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* Keywords List */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .keyword-tag {
+            background-color: #e3f2fd; /* Light blue background */
+            color: #1976d2; /* Darker blue text */
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .keyword-tag:hover {
+            background-color: #bbdefb; /* Lighter blue on hover */
+        }
+
+        /* DOI and URL Links */
+        .doi-link, .url-link {
+            display: inline-block;
+            background-color: #f0f4c3; /* Light yellow-green background */
+            color: #558b2f; /* Darker yellow-green text */
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .doi-link:hover, .url-link:hover {
+            background-color: #e6ee9c; /* Lighter yellow-green on hover */
+        }
+
+        /* Japanese Abstract */
+        .abstract-jp {
+            background-color: #f0f4f7; /* Light grey-blue background */
+            border-left: 5px solid #2196F3; /* Blue border */
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .abstract-jp p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Icons */
+        .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #2196F3; /* Blue for icons */
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1>Enhanced Sensitivity in Neurotoxicity Detection via Cross-Correlation of Spectroscopical and Electrophysiological Features.</h1>
+
+        <div class="section">
+            <h2><span class="icon">👤</span>著者</h2>
+            <div class="authors">
+                <span>Tentellino C</span>
+                <span>d'Amora M</span>
+                <span>Melikov R</span>
+                <span>Tantussi F</span>
+                <span>Dipalo M</span>
+                <span>De Angelis F</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📚</span>出版情報</h2>
+            <p><strong>雑誌:</strong> ACS Omega.</p>
+            <p><strong>発行日:</strong> 2026 Jun 24;11(26):38371-38378.</p>
+            <p><strong>eCollection:</strong> 2026 Jul 7.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🔗</span>DOI</h2>
+            <a href="https://doi.org/10.1021/acsomega.5c04069" target="_blank" class="doi-link">10.1021/acsomega.5c04069</a>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🌐</span>PubMed URL</h2>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42428824/" target="_blank" class="url-link">pubmed.ncbi.nlm.nih.gov/42428824/</a>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏷️</span>キーワード</h2>
+            <div class="keywords-list">
+                <span class="keyword-tag">Neurotoxicity</span>
+                <span class="keyword-tag">Detection</span>
+                <span class="keyword-tag">Cross-correlation</span>
+                <span class="keyword-tag">Spectroscopy</span>
+                <span class="keyword-tag">Electrophysiology</span>
+            </div>
+        </div>
+
+        <div class="section abstract-jp">
+            <h2><span class="icon">📝</span>日本語要約</h2>
+            <p>本論文は、神経毒性検出の感度を向上させるための新しいアプローチを提案しています。具体的には、分光学的特徴と電気生理学的特徴を相互相関させることで、より高感度かつ信頼性の高い神経毒性検出を実現します。この手法は、神経科学研究および毒性評価において、より精密な分析を可能にする可能性を秘めています。</p>
+        </div>
+    </div>
+</body>
+</html>
